@@ -1,0 +1,138 @@
+/* Static clone only — do NOT override Avada layout/spacing. */
+
+/* Avada icon fonts — paths relative to css/static-fixes.css */
+@font-face {
+  font-family: "awb-icons";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../assets/themes/Avada/includes/lib/assets/fonts/icomoon/awb-icons.woff") format("woff"),
+    url("../assets/themes/Avada/includes/lib/assets/fonts/icomoon/awb-icons.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../assets/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2") format("woff2"),
+    url("../assets/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-solid-900.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../assets/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-regular-400.woff2") format("woff2"),
+    url("../assets/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-regular-400.woff") format("woff");
+}
+
+.fusion-imageframe img,
+.fusion-image-element img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Show content when Fusion scroll animations are unavailable (static clone fallback) */
+body.dont-animate .fusion-animated,
+.fusion-animated.fusion-revealed-fallback {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* "View Our Full List Of Services" CTA — disable jumpy slideInUp on static clone */
+.fusion-animated.slideInUp,
+.fusion-animated[data-animationType="slideInUp"],
+.fusion-animated[data-animationtype="slideInUp"],
+[data-animationType="slideInUp"],
+[data-animationtype="slideInUp"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Blog archive grid — isotope does not init reliably in static clone */
+.fusion-posts-container.fusion-blog-layout-grid-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: 0 !important;
+}
+
+.fusion-posts-container.fusion-blog-layout-grid-2 .fusion-post-grid {
+  position: static !important;
+  width: 100% !important;
+  float: none !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.fusion-posts-container.fusion-blog-layout-grid-2 .fusion-post-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fusion-posts-container.fusion-blog-layout-grid-2 .fusion-post-content-wrapper {
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .fusion-posts-container.fusion-blog-layout-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fusion-main-menu .fusion-menu > li.current-menu-ancestor > a,
+.fusion-main-menu .fusion-menu > li.current-menu-item > a {
+  border-color: #308ca0;
+}
+
+/* Match Avada submenu hover/current highlight (--menu_bg_hover_color) */
+.fusion-main-menu .fusion-menu .sub-menu li.current-menu-item > a,
+.fusion-main-menu .fusion-menu .sub-menu li.current_page_item > a {
+  background-color: var(--menu_bg_hover_color);
+}
+
+/* Sticky header logo (Fusion shrink JS disabled — match live Avada sizing) */
+.fusion-is-sticky.fusion-header-wrapper .fusion-sticky-logo-1.fusion-header-v3 .fusion-standard-logo,
+.fusion-is-sticky.fusion-header-wrapper .fusion-sticky-logo-1.fusion-header-v3 .fusion-mobile-logo {
+  display: none !important;
+}
+
+.fusion-is-sticky.fusion-header-wrapper .fusion-sticky-logo-1.fusion-header-v3 .fusion-sticky-logo {
+  display: inline-block !important;
+  max-height: 55px;
+  width: auto;
+  height: auto;
+}
+
+.fusion-is-sticky.fusion-header-wrapper.avada-sticky-shrinkage .fusion-header-v3 .fusion-logo {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.fusion-is-sticky.fusion-header-wrapper.avada-sticky-shrinkage .fusion-header-v3 .fusion-header > .fusion-row {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.fusion-is-sticky.fusion-header-wrapper.avada-sticky-shrinkage .fusion-header-v3 .fusion-header {
+  height: 65px;
+}
+
+.fusion-is-sticky.fusion-header-wrapper.avada-sticky-shrinkage .fusion-header-v3 .fusion-main-menu > ul > li > a {
+  height: 65px;
+  line-height: 65px;
+}
+
+.fusion-is-sticky.fusion-header-wrapper.avada-sticky-shrinkage .fusion-header-v3 .fusion-logo-link {
+  display: inline-flex;
+  align-items: center;
+  height: 55px;
+}
