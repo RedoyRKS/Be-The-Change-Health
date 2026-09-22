@@ -1090,3 +1090,232 @@
     position: static;
   }
 }
+
+/* ========== Book Appointment page ========== */
+.appointment-page {
+  background: linear-gradient(180deg, #fff 0%, #f3fafb 100%);
+}
+
+.appointment-sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 32px rgba(0, 48, 72, 0.08);
+  border: 1px solid rgba(48, 140, 160, 0.1);
+  height: 100%;
+}
+
+.appointment-sidebar > h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-bottom: 1.25rem;
+}
+
+.appointment-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.appointment-info-list li {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(0, 48, 72, 0.08);
+}
+
+.appointment-info-list li:last-child {
+  border-bottom: none;
+}
+
+.appointment-info-list i {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--btc-teal), white 88%);
+  color: var(--btc-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.appointment-info-list strong {
+  display: block;
+  color: var(--btc-navy);
+  font-size: 0.92rem;
+  margin-bottom: 0.2rem;
+}
+
+.appointment-info-list p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.appointment-note {
+  background: var(--btc-mist);
+  border-left: 3px solid var(--btc-green);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.appointment-note h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-bottom: 0.4rem;
+}
+
+.appointment-note p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  line-height: 1.55;
+}
+
+.appointment-doctors h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-bottom: 0.85rem;
+}
+
+.appt-doc {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+  margin-bottom: 0.35rem;
+}
+
+.appt-doc:hover {
+  background: var(--btc-mist);
+  color: inherit;
+}
+
+.appt-doc img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.appt-doc strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--btc-navy);
+}
+
+.appt-doc small {
+  color: #777;
+  font-size: 0.78rem;
+}
+
+.appointment-form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 12px 36px rgba(0, 48, 72, 0.09);
+  border: 1px solid rgba(48, 140, 160, 0.1);
+}
+
+.appointment-form-head {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 48, 72, 0.08);
+}
+
+.appointment-form-head h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-bottom: 0.5rem;
+}
+
+.appointment-form-head p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.appointment-form .form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--btc-navy);
+  margin-bottom: 0.35rem;
+}
+
+.appointment-form .form-control,
+.appointment-form .form-select {
+  border-radius: 6px;
+  border-color: rgba(0, 48, 72, 0.15);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+.appointment-form .form-control:focus,
+.appointment-form .form-select:focus {
+  border-color: var(--btc-teal);
+  box-shadow: 0 0 0 0.2rem rgba(48, 140, 160, 0.18);
+}
+
+.appointment-form .form-check-label {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.appointment-alert {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.appointment-alert.success {
+  background: color-mix(in srgb, var(--btc-green), white 80%);
+  border: 1px solid var(--btc-green);
+  color: var(--btc-navy);
+}
+
+.appointment-alert.success i {
+  color: #5a8f3a;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.appointment-alert strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 575px) {
+  .appointment-form-card {
+    padding: 1.35rem;
+  }
+
+  .appointment-actions .btn-btc,
+  .appointment-actions .btn-btc-outline {
+    width: 100%;
+    text-align: center;
+  }
+}

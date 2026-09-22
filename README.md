@@ -19,6 +19,7 @@ Open **http://localhost:8000**
 ├── conditions/                # Condition pages
 ├── services/                  # Therapy / service pages
 ├── blog/                      # Blog index + articles
+├── book-appointment.html      # Appointment booking form
 ├── contact.html
 ├── memberships.html
 ├── patients.html
@@ -27,12 +28,13 @@ Open **http://localhost:8000**
 ├── terms-conditions.html
 └── assets/
     ├── css/
-    │   ├── theme.css          # Brand theme (home + about)
+    │   ├── theme.css          # Brand theme (home + about + booking)
     │   └── legacy-fixes.css   # Fixes for remaining pages
     ├── js/
+    │   ├── appointment.js     # Booking form validation
     │   └── legacy-fixes.js
     ├── uploads/               # Clinic images & media
-    ├── vendor/                # Bootstrap, icons, AOS, Swiper, theme JS/CSS
+    ├── vendor/                # Bootstrap, icons, AOS, Swiper, theme
     └── legacy/                # Avada/Fusion assets for unrebuilt pages
 ```
 
@@ -40,5 +42,5 @@ Open **http://localhost:8000**
 
 - **Colors:** Navy `#003048`, Teal `#308ca0`, Accent Green `#a2c08a`
 - **Font:** Poppins
-- **Home / About / Our Process:** MediLab + brand theme
+- **Home / About / Our Process / Book Appointment:** MediLab + brand theme
 - **Other sections:** Existing static pages (shared chrome assets under `assets/legacy`)
