@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Page Live Preview | Be The Change Admin</title>
+  <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Frontend theme CSS for authentic visual rendering -->
+  <link href="../../Frontend/assets/css/theme.css" rel="stylesheet">
+  <!-- Admin CMS style for administrative topbar and device toggle -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="contact-preview" style="background:#002536; padding:0; margin:0;">
+
+  <!-- Fixed Top Administrative Bar -->
+  <header class="preview-viewport-toolbar">
+    <div class="d-flex align-items-center gap-3">
+      <a class="btn-btc-outline btn-sm-admin text-white border-white" href="contact.html">
+        <i class="bi bi-arrow-left"></i> Back to Editor
+      </a>
+      <div class="d-none d-md-flex align-items-center gap-2">
+        <span class="text-white-50" style="font-size:0.8rem;">Previewing:</span>
+        <span class="badge-admin badge-published">Live Contact Page</span>
+      </div>
+    </div>
+
+    <!-- Responsive Viewport Device Switcher -->
+    <div class="device-toggle-group">
+      <button type="button" class="device-btn active" data-viewport="desktop" title="Desktop view (100%)">
+        <i class="bi bi-display"></i> <span class="d-none d-sm-inline">Desktop</span>
+      </button>
+      <button type="button" class="device-btn" data-viewport="tablet" title="Tablet view (768px)">
+        <i class="bi bi-tablet"></i> <span class="d-none d-sm-inline">Tablet</span>
+      </button>
+      <button type="button" class="device-btn" data-viewport="mobile" title="Mobile view (390px)">
+        <i class="bi bi-phone"></i> <span class="d-none d-sm-inline">Mobile</span>
+      </button>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+      <button type="button" class="btn-btc btn-sm-admin" data-save="Contact page changes published to live site!">
+        <i class="bi bi-send"></i> Publish Now
+      </button>
+      <a class="icon-action text-white bg-transparent border-white" href="contact.html" title="Close Preview">
+        <i class="bi bi-x-lg"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Device Preview Wrapper Container -->
+  <main class="preview-viewport-container">
+    <div class="preview-screen-frame" id="preview-screen-frame">
+
+      <!-- Notice Bar -->
+      <div class="notice-bar py-2" style="background:var(--btc-teal); color:#fff; font-size:0.85rem; text-align:center;">
+        <div class="container">
+          Now offering Telehealth appointments.
+          <span class="d-none d-md-inline"> Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</span>
+        </div>
+      </div>
+
+      <!-- Topbar -->
+      <div class="topbar py-2" style="background:var(--btc-navy); color:#fff; font-size:0.8rem;">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <span><i class="bi bi-geo-alt me-1"></i> Conveniently located in Columbia, MD</span>
+            <span class="ms-3"><i class="bi bi-phone me-1"></i> 301-970-9724</span>
+          </div>
+          <div class="d-none d-md-flex align-items-center gap-3">
+            <span class="text-white-50">Book a Service Online</span>
+            <span class="text-white fw-semibold">Request An Appointment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header & Branding -->
+      <header class="header py-3 bg-white border-bottom shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <img src="../../Frontend/assets/uploads/2024/08/LOGO.jpg" alt="Be The Change Health & Wellness Center" style="max-height:48px;">
+          </div>
+          <nav class="d-none d-lg-flex align-items-center gap-4 text-muted" style="font-size:0.9rem; font-weight:500;">
+            <span>Home</span>
+            <span>About</span>
+            <span>Conditions</span>
+            <span>Services</span>
+            <span>Memberships</span>
+            <span>Blog</span>
+            <span>Patients</span>
+            <span class="fw-bold" style="color:var(--btc-teal)">Contact</span>
+          </nav>
+          <button class="btn-btc btn-sm-admin d-none d-sm-inline-block">Book Appointment</button>
+        </div>
+      </header>
+
+      <!-- Page Hero -->
+      <section class="page-hero py-5 text-center text-white" style="background:linear-gradient(135deg, #003048 0%, #308ca0 100%);">
+        <div class="container">
+          <h1 class="display-5 fw-bold mb-2">Contact</h1>
+          <p class="lead mb-3" style="opacity:0.95; font-size:1.05rem;">Reach our Columbia, MD team by text, phone, or message — we’re here to help.</p>
+          <nav class="page-breadcrumb" aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0" style="font-size:0.82rem; opacity:0.85;">
+              <li class="breadcrumb-item text-white-50">Home</li>
+              <li class="breadcrumb-item active text-white" aria-current="page">Contact</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Text-First CTA Panel -->
+      <section class="py-5" style="background:var(--btc-mist);">
+        <div class="container">
+          <div class="p-4 p-md-5 rounded-4 bg-white shadow-sm border" style="border-left:5px solid var(--btc-teal) !important;">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-7">
+                <h2 class="h3 fw-bold mb-2" style="color:var(--btc-navy)">Interested in An Appointment?</h2>
+                <p class="text-muted mb-3">To request an appointment, please TEXT the number below. We will have our new patient coordinator contact you.</p>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill" style="font-size:0.88rem;">TEXT:</span>
+                  <a href="sms:3019709724" class="h4 fw-bold mb-0 text-decoration-none" style="color:var(--btc-navy)">301-970-9724</a>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                  <button type="button" class="btn-btc"><i class="bi bi-chat-dots me-1"></i> Text Us</button>
+                  <button type="button" class="btn-btc-outline"><i class="bi bi-telephone me-1"></i> Call 301-970-9724</button>
+                  <button type="button" class="btn-btc-outline"><i class="bi bi-calendar-check me-1"></i> Book Online</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Page Main Content Section -->
+      <section class="py-5 bg-white">
+        <div class="container">
+          <div class="row gy-5">
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+              <aside class="p-4 rounded-4 bg-light border">
+                <h2 class="h5 fw-bold mb-4" style="color:var(--btc-navy)"><i class="bi bi-geo-alt-fill text-teal me-2"></i> Our Location</h2>
+                
+                <div class="mb-4">
+                  <strong class="d-block text-dark mb-1">Office Address</strong>
+                  <p class="text-muted mb-1" style="font-size:0.9rem;">
+                    Be The Change Health &amp; Wellness Center<br>
+                    8808 Centre Park Drive Suite 301<br>
+                    Columbia, MD 21045
+                  </p>
+                  <a href="https://maps.google.com" target="_blank" class="small fw-semibold text-teal text-decoration-none">
+                    Get Directions &gt;
+                  </a>
+                </div>
+
+                <div class="mb-4">
+                  <strong class="d-block text-dark mb-1">Contact Us</strong>
+                  <p class="text-muted mb-1" style="font-size:0.9rem;">
+                    Phone: <strong class="text-dark">301-970-9724</strong><br>
+                    Fax: 301-359-1986<br>
+                    admin@bethechangewellnesscenter.com
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <strong class="d-block text-dark mb-1">Hours</strong>
+                  <p class="text-muted mb-0" style="font-size:0.9rem;">
+                    Mon-Fri: 10:00 AM – 5:00 PM<br>
+                    Saturday: Closed<br>
+                    Sunday: Closed
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-3 border" style="background:#fff7ed; border-color:#fed7aa !important;">
+                  <strong class="d-block text-warning-emphasis mb-1"><i class="bi bi-info-circle-fill me-1"></i> Please note</strong>
+                  <p class="text-muted mb-0 small">
+                    Our office is out-of-network. We cannot guarantee coverage for any services received in office. Now offering Telehealth appointments.
+                  </p>
+                </div>
+              </aside>
+            </div>
+
+            <!-- Contact Form Card -->
+            <div class="col-lg-8">
+              <div class="p-4 p-md-5 rounded-4 bg-white border shadow-sm">
+                <div class="mb-4">
+                  <h2 class="h4 fw-bold mb-2" style="color:var(--btc-navy)">Send Us A Message</h2>
+                  <p class="text-muted small">Have a question about services, memberships, or becoming a new patient? Send a message and our team will follow up. Required fields are marked with *</p>
+                </div>
+
+                <div class="alert alert-success d-flex align-items-center gap-2 mb-4" role="alert">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <div>
+                    <strong>Message ready (Demo)</strong>: For fastest response, text or call 301-970-9724.
+                  </div>
+                </div>
+
+                <form onsubmit="event.preventDefault(); window.BTCAdmin && window.BTCAdmin.toast('Prototype demo form submitted. Inquiries appear in Inbox.');">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label small fw-semibold">Full Name *</label>
+                      <input class="form-control" value="Nas Moha" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-semibold">Phone *</label>
+                      <input class="form-control" value="301-555-0142" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-semibold">Email *</label>
+                      <input class="form-control" type="email" value="nas@email.com" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small fw-semibold">Subject *</label>
+                      <select class="form-select" required>
+                        <option selected>Appointment question</option>
+                        <option>New patient inquiry</option>
+                        <option>Existing patient</option>
+                        <option>Services / therapies</option>
+                        <option>Memberships</option>
+                        <option>Billing / insurance</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label small fw-semibold">Message *</label>
+                      <textarea class="form-control" rows="4" required>Question about office hours and parking at the Centre Park Drive office. Also interested in telehealth availability.</textarea>
+                      <div class="form-text text-end">118/1500 characters</div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="consentCheck" checked required>
+                        <label class="form-check-label small text-muted" for="consentCheck">
+                          I understand this form is for general inquiries and that the office may follow up by phone or email. *
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 d-flex gap-3 align-items-center pt-2">
+                      <button type="submit" class="btn-btc">Send Message</button>
+                      <span class="text-muted small">Prefer to text? <a href="sms:3019709724" class="text-teal fw-semibold">301-970-9724</a></span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Google Map Section -->
+      <section class="py-5 bg-light">
+        <div class="container text-center mb-4">
+          <h2 class="h4 fw-bold" style="color:var(--btc-navy)">Find Us</h2>
+          <p class="text-muted small">Conveniently located in Columbia, MD.</p>
+        </div>
+        <div class="container">
+          <div class="rounded-4 overflow-hidden border shadow-sm">
+            <iframe
+              title="Be The Change Health &amp; Wellness Center map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3090.73539625594!2d-76.81853252404727!3d39.22617487165578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c821ae5e08abb9%3A0xcaf037902d1b4262!2sBe%20The%20Change%20Health%20%26%20Wellness%20Center!5e0!3m2!1sen!2sus!4v1740424957679!5m2!1sen!2sus"
+              width="100%"
+              height="380"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTA Band -->
+      <section class="py-5 text-center text-white" style="background:linear-gradient(135deg, #003048 0%, #308ca0 100%);">
+        <div class="container">
+          <h2 class="h3 fw-bold mb-2">Ready to schedule your visit?</h2>
+          <p class="mb-3" style="opacity:0.9;">Book online or reach us by phone — our new patient coordinator is happy to help.</p>
+          <p class="h4 fw-bold mb-4 text-warning">301-970-9724</p>
+          <div class="d-flex justify-content-center gap-3">
+            <button class="btn-btc bg-white text-dark fw-bold">Book Appointment</button>
+            <button class="btn-btc-outline text-white border-white">New Patient Questions</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-4 bg-dark text-white-50 text-center" style="font-size:0.8rem;">
+        <div class="container">
+          <p class="mb-0">© 2026 Be The Change Health &amp; Wellness Center · Columbia, MD · All Rights Reserved</p>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="contact">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumbs & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Contact Page Content</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="contact-preview.html">
+              <i class="bi bi-eye me-1"></i> Live Preview
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" data-save="Contact page draft saved successfully.">
+              <i class="bi bi-check2 me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview Metric Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · contact.html</p>
+              <h2>Contact Page Overview &amp; Health Operations</h2>
+              <p>Configure clinical contact details, office hours, appointment CTA panels, Google Map embed, and interactive inquiry form settings.</p>
+            </div>
+            <a class="btn-btc-ghost btn-sm-admin" href="inquiries.html">
+              <i class="bi bi-inbox me-1"></i> View Inquiry Inbox (8)
+            </a>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-chat-left-dots-fill text-teal"></i> Form Messages
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">38 Submitted</h4>
+                  <small class="text-muted">This calendar month</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-phone-vibrate-fill text-teal"></i> Direct Text CTAs
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">54 Text Inquiries</h4>
+                  <small class="text-muted">via 301-970-9724</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-clock-history text-teal"></i> Response Speed
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">&lt; 4 Hours</h4>
+                  <small class="text-muted">Average coordinator turnaround</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-lock-fill text-teal"></i> Compliance Status
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">100% Consent</h4>
+                  <small class="text-muted">Mandatory checkbox enforced</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-notice">01. Practice Notice</a>
+          <a href="#section-hero">02. Page Hero</a>
+          <a href="#section-text-cta">03. Appointment CTA</a>
+          <a href="#section-contact-info">04. Address &amp; Phone</a>
+          <a href="#section-hours">05. Office Hours</a>
+          <a href="#section-sidebar-note">06. Sidebar Note</a>
+          <a href="#section-form">07. Contact Form</a>
+          <a href="#section-map">08. Map / Location</a>
+          <a href="#section-bottom-cta">09. Bottom CTA</a>
+        </nav>
+
+        <!-- Editor Stack (Accordion Sections) -->
+        <div class="editor-stack">
+
+          <!-- 01. Notice Bar -->
+          <article class="editor-card open" id="section-notice">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Notice Bar (Practice Notice)</h3>
+                <p>Topmost banner on the Contact page informing patients about Telehealth and out-of-network status.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="notice-headline">Primary Announcement</label>
+                  <input class="form-control" id="notice-headline" value="Now offering Telehealth appointments.">
+                  <p class="help">Displayed on all devices (mobile and desktop).</p>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="notice-visibility">Desktop Extra Note Visibility</label>
+                  <select class="form-select" id="notice-visibility">
+                    <option selected>Show on medium &amp; desktop screens (default)</option>
+                    <option>Always show on all screens</option>
+                    <option>Hide extra note</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="notice-disclaimer">Out-of-Network Policy Disclaimer</label>
+                  <textarea class="form-control" id="notice-disclaimer" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. Page Hero -->
+          <article class="editor-card" id="section-hero">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Page Hero Header</h3>
+                <p>Title banner and introductory lead paragraph on the Contact page.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Title (H1)</label>
+                  <input class="form-control" id="hero-title" value="Contact">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input class="form-control" id="hero-breadcrumb" value="Home / Contact">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="hero-subtitle">Lead Subtitle</label>
+                  <textarea class="form-control" id="hero-subtitle" rows="2">Reach our Columbia, MD team by text, phone, or message — we’re here to help.</textarea>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. Appointment CTA (Text-First CTA Panel) -->
+          <article class="editor-card" id="section-text-cta">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Appointment CTA (Text-First Panel)</h3>
+                <p>High-conversion banner highlighting fast texting to 301-970-9724 for new patient requests.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="textcta-title">Panel Heading</label>
+                  <input class="form-control" id="textcta-title" value="Interested in An Appointment?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="textcta-number">Prominent Text Number</label>
+                  <input class="form-control" id="textcta-number" value="301-970-9724">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="textcta-desc">Body Description</label>
+                  <textarea class="form-control" id="textcta-desc" rows="2">To request an appointment, please TEXT the number below. We will have our new patient coordinator contact you.</textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="textcta-btn1">Button 1 (Primary Text)</label>
+                  <div class="input-group">
+                    <input class="form-control" id="textcta-btn1" value="Text Us">
+                    <span class="input-group-text small text-muted">sms:3019709724</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="textcta-btn2">Button 2 (Call Clinic)</label>
+                  <div class="input-group">
+                    <input class="form-control" id="textcta-btn2" value="Call 301-970-9724">
+                    <span class="input-group-text small text-muted">tel:3019709724</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="textcta-btn3">Button 3 (Online Booking)</label>
+                  <div class="input-group">
+                    <input class="form-control" id="textcta-btn3" value="Book Online">
+                    <span class="input-group-text small text-muted">book-appointment.html</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04. Address / Phone / Email -->
+          <article class="editor-card" id="section-contact-info">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Office Address, Phone &amp; Email</h3>
+                <p>Location information displayed in the contact sidebar and site-wide directory.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="clinic-name">Practice Name</label>
+                  <input class="form-control" id="clinic-name" value="Be The Change Health & Wellness Center">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="clinic-street">Street Address &amp; Suite</label>
+                  <input class="form-control" id="clinic-street" value="8808 Centre Park Drive Suite 301">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-city">City</label>
+                  <input class="form-control" id="clinic-city" value="Columbia">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-state">State</label>
+                  <input class="form-control" id="clinic-state" value="MD">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-zip">ZIP Code</label>
+                  <input class="form-control" id="clinic-zip" value="21045">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-phone">Primary Phone</label>
+                  <input class="form-control" id="clinic-phone" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-fax">Medical Records Fax</label>
+                  <input class="form-control" id="clinic-fax" value="301-359-1986">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="clinic-email">Inquiry / Admin Email</label>
+                  <input class="form-control" id="clinic-email" value="admin@bethechangewellcenter.com">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="clinic-map-url">Google Maps Directions Link</label>
+                  <input class="form-control" id="clinic-map-url" value="https://maps.google.com/maps/dir//Be+The+Change+Health+%26+Wellness+Center+8808+Centre+Park+Dr+Suite+301+Columbia,+MD+21045">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05. Office Hours -->
+          <article class="editor-card" id="section-hours">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Office Hours &amp; Availability</h3>
+                <p>Clinical operating schedule for in-office care and telehealth.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="hours-weekday">Monday – Friday</label>
+                  <input class="form-control" id="hours-weekday" value="10:00 AM – 5:00 PM">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="hours-sat">Saturday</label>
+                  <input class="form-control" id="hours-sat" value="Closed">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="hours-sun">Sunday</label>
+                  <input class="form-control" id="hours-sun" value="Closed">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="hours-telehealth-note">Telehealth Appointment Availability Note</label>
+                  <input class="form-control" id="hours-telehealth-note" value="Telehealth visits available Monday through Friday by scheduled appointment.">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06. Practice Notice Card -->
+          <article class="editor-card" id="section-sidebar-note">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Practice Notice (Sidebar Note Card)</h3>
+                <p>Highlighted callout card in the sidebar regarding out-of-network insurance coverage.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="side-note-title">Note Heading</label>
+                  <input class="form-control" id="side-note-title" value="Please note">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="side-note-badge">Card Style Accent</label>
+                  <select class="form-select" id="side-note-badge">
+                    <option selected>Subtle Mist Background (Default)</option>
+                    <option>Teal Accent Border</option>
+                    <option>Soft Warning Tint</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="side-note-body">Note Content</label>
+                  <textarea class="form-control" id="side-note-body" rows="3">Our office is out-of-network. We cannot guarantee coverage for any services received in office. Now offering Telehealth appointments.</textarea>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07. Contact Form Settings -->
+          <article class="editor-card" id="section-form">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>Contact Form Settings</h3>
+                <p>Header copy, subject choices, consent checkbox, and character limits on contact.html.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="form-heading">Form Header Title</label>
+                  <input class="form-control" id="form-heading" value="Send Us A Message">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="form-char-limit">Message Character Limit</label>
+                  <input class="form-control" type="number" id="form-char-limit" value="1500">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="form-subheading">Form Header Subhead</label>
+                  <textarea class="form-control" id="form-subheading" rows="2">Have a question about services, memberships, or becoming a new patient? Send a message and our team will follow up. Required fields are marked with *</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="form-success-alert">Success Banner Message</label>
+                  <textarea class="form-control" id="form-success-alert" rows="2">Thank you. Your message has been validated successfully. For the fastest response, text or call 301-970-9724.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="form-subjects-list">Subject Dropdown Options (Comma separated)</label>
+                  <textarea class="form-control" id="form-subjects-list" rows="3">Appointment question, New patient inquiry, Existing patient, Services / therapies, Memberships, Billing / insurance, Other</textarea>
+                  <p class="help">These 7 options match the live Frontend form on contact.html.</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="form-consent-text">Mandatory Patient Consent Checkbox Label</label>
+                  <textarea class="form-control" id="form-consent-text" rows="2">I understand this form is for general inquiries and that the office may follow up by phone or email. *</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="form-notify-email">Notification Destination Email</label>
+                  <input class="form-control" id="form-notify-email" value="admin@bethechangewellnesscenter.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="form-sms-backup">SMS Backup Coordinator Alert</label>
+                  <input class="form-control" id="form-sms-backup" value="301-970-9724">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08. Map & Location -->
+          <article class="editor-card" id="section-map">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div>
+                <h3>Map &amp; Location Section</h3>
+                <p>Google Maps embed frame and address navigation.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="map-section-title">Section Heading</label>
+                  <input class="form-control" id="map-section-title" value="Find Us">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="map-section-sub">Section Subhead</label>
+                  <input class="form-control" id="map-section-sub" value="Conveniently located in Columbia, MD.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="map-embed-url">Google Maps Embed URL (iframe src)</label>
+                  <input class="form-control" id="map-embed-url" value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3090.73539625594!2d-76.81853252404727!3d39.22617487165578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c821ae5e08abb9%3A0xcaf037902d1b4262!2sBe%20The%20Change%20Health%20%26%20Wellness%20Center!5e0!3m2!1sen!2sus!4v1740424957679!5m2!1sen!2sus">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="map-height">Iframe Display Height</label>
+                  <input class="form-control" id="map-height" value="450px">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="map-lazy-load">Lazy Loading</label>
+                  <select class="form-select" id="map-lazy-load">
+                    <option selected>Enabled (loading="lazy")</option>
+                    <option>Eager</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09. Bottom CTA Band -->
+          <article class="editor-card" id="section-bottom-cta">
+            <div class="editor-head">
+              <span class="num">09</span>
+              <div>
+                <h3>Bottom CTA Band</h3>
+                <p>Call-to-action banner at the bottom of the contact page prompting appointments.</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-band-title">CTA Heading</label>
+                  <input class="form-control" id="cta-band-title" value="Ready to schedule your visit?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-band-phone">Phone Callout</label>
+                  <input class="form-control" id="cta-band-phone" value="301-970-9724">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-band-desc">CTA Description</label>
+                  <textarea class="form-control" id="cta-band-desc" rows="2">Book online or reach us by phone — our new patient coordinator is happy to help.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-band-btn1">Primary Button</label>
+                  <div class="input-group">
+                    <input class="form-control" id="cta-band-btn1" value="Book Appointment">
+                    <span class="input-group-text small text-muted">book-appointment.html</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-band-btn2">Secondary Button</label>
+                  <div class="input-group">
+                    <input class="form-control" id="cta-band-btn2" value="New Patient Questions">
+                    <span class="input-group-text small text-muted">new-patient-questions.html</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sticky Floating Save Bar -->
+        <div class="sticky-actions mt-4 justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small"><i class="bi bi-clock-history me-1"></i> Last saved: Today at 04:30 PM</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn-btc-outline" href="contact-preview.html">
+              <i class="bi bi-display me-1"></i> Live Preview
+            </a>
+            <button class="btn-btc" type="button" data-save="Contact page draft saved successfully.">
+              <i class="bi bi-check2 me-1"></i> Save Changes
+            </button>
+            <button class="btn-btc" style="background:var(--btc-navy)" type="button" data-save="Contact page published to live website!">
+              <i class="bi bi-cloud-arrow-up-fill me-1"></i> Publish to Live
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

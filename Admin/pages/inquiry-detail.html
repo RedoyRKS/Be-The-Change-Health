@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inquiry Details &amp; Reply | Be The Change Admin</title>
+  <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="inquiry-detail">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Breadcrumbs Navigation -->
+        <nav class="cms-crumb" aria-label="breadcrumb">
+          <a href="../index.html">Dashboard</a><span class="sep">/</span>
+          <a href="inquiries.html">Contact / Inquiries Inbox</a><span class="sep">/</span>
+          <span class="text-dark fw-semibold">Nas Moha (Appointment Question)</span>
+        </nav>
+
+        <!-- Workflow Stepper Indicator -->
+        <div class="flow">
+          <span><a href="inquiries.html" class="text-decoration-none text-muted"><i class="bi bi-inbox me-1"></i> 1. Inquiry List</a></span>
+          <span class="current"><i class="bi bi-chat-left-text me-1"></i> 2. View Details</span>
+          <span class="current"><i class="bi bi-reply-fill me-1"></i> 3. Reply / Conversation</span>
+          <span class="current"><i class="bi bi-toggle2-on me-1"></i> 4. Change Status</span>
+          <span><i class="bi bi-archive me-1"></i> 5. Archive / Delete</span>
+        </div>
+
+        <!-- Top Header Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div class="d-flex align-items-center gap-3">
+            <a class="btn-btc-outline btn-sm-admin" href="inquiries.html">
+              <i class="bi bi-arrow-left"></i> Back to Inquiry List
+            </a>
+            <div>
+              <span class="badge-admin badge-new me-2" id="inquiry-top-status">NEW</span>
+              <span class="badge-admin badge-high" id="inquiry-top-priority"><i class="bi bi-exclamation-circle-fill me-1"></i> HIGH</span>
+            </div>
+          </div>
+          <div class="action-row">
+            <button class="btn-btc-ghost btn-sm-admin" type="button" id="btn-inquiry-archive">
+              <i class="bi bi-archive me-1"></i> Archive Inquiry
+            </button>
+            <button class="btn-danger-soft btn-sm-admin" type="button" id="btn-inquiry-delete">
+              <i class="bi bi-trash me-1"></i> Delete
+            </button>
+          </div>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Left Column: Conversation Timeline & Reply Composer -->
+          <div class="col-lg-8">
+            <div class="card-admin mb-4">
+              <div class="card-head">
+                <div>
+                  <h2>Conversation History &amp; Message Thread</h2>
+                  <p>Inbound website submission and practice team communications</p>
+                </div>
+                <span class="text-muted small"><i class="bi bi-shield-check text-success me-1"></i> Verified Healthcare Communication</span>
+              </div>
+              <div class="card-body-admin">
+
+                <!-- Thread Container with Static/Mock Healthcare Data -->
+                <div class="inquiry-timeline-thread" id="inquiry-conversation-thread">
+
+                  <!-- Inbound Patient Message Bubble -->
+                  <div class="inquiry-bubble inbound">
+                    <div class="inquiry-bubble-header">
+                      <div>
+                        <strong><i class="bi bi-person-fill text-teal me-1"></i> Nas Moha</strong>
+                        <span class="badge bg-light text-dark border ms-2" style="font-size:0.72rem;">Website Contact Form · contact.html</span>
+                      </div>
+                      <small class="text-muted"><i class="bi bi-clock me-1"></i> Sep 22, 2026 · 09:30 AM</small>
+                    </div>
+
+                    <div class="mb-2">
+                      <span class="text-muted small">Subject:</span>
+                      <strong class="text-dark ms-1" style="font-size:0.92rem;">Appointment question</strong>
+                    </div>
+
+                    <div class="inquiry-bubble-body text-dark">
+                      Hello Dr. Afrooz and team, I am looking to schedule an initial consultation to discuss ongoing fatigue and gut health issues. I had a quick question regarding your office hours and parking at the Centre Park Drive location in Columbia. Also, do you provide Telehealth visits for follow-up appointments? Thank you! — Nas
+                    </div>
+
+                    <div class="mt-3 pt-2 border-top d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size:0.78rem;">
+                      <div class="text-muted">
+                        <span><i class="bi bi-envelope me-1"></i> nas@email.com</span>
+                        <span class="ms-3"><i class="bi bi-telephone me-1"></i> (301) 555-0142</span>
+                      </div>
+                      <span class="text-success fw-semibold"><i class="bi bi-check-circle-fill me-1"></i> Agreed to general inquiry consent policy</span>
+                    </div>
+                  </div>
+
+                  <!-- Outbound Staff Reply Bubble -->
+                  <div class="inquiry-bubble outbound">
+                    <div class="inquiry-bubble-header">
+                      <div>
+                        <strong><i class="bi bi-person-badge text-teal me-1"></i> Sultana Afrooz, D.O.</strong>
+                        <span class="badge-admin badge-replied ms-2">Replied via Email</span>
+                      </div>
+                      <small class="text-muted"><i class="bi bi-clock me-1"></i> Sep 22, 2026 · 11:15 AM</small>
+                    </div>
+
+                    <div class="inquiry-bubble-body">
+                      Hello Nas, thank you for reaching out to Be The Change Health &amp; Wellness Center! We would be delighted to work with you on your health journey. Yes, we have ample complimentary parking directly outside our building at 8808 Centre Park Drive, Suite 301, and our office hours are Monday through Friday, 10:00 AM to 5:00 PM. We also offer secure Telehealth appointments for patients throughout Maryland. Our new patient coordinator will follow up with the intake packet, or feel free to text us at 301-970-9724.
+                    </div>
+                  </div>
+
+                  <!-- Internal Private Staff Note Bubble -->
+                  <div class="inquiry-bubble internal-note">
+                    <div class="inquiry-bubble-header">
+                      <div>
+                        <strong><i class="bi bi-lock-fill text-warning me-1"></i> Internal Staff Note · Front Desk Coordinator</strong>
+                        <span class="badge bg-warning-subtle text-warning-emphasis border ms-2" style="font-size:0.7rem;">PRIVATE NOTE</span>
+                      </div>
+                      <small class="text-muted"><i class="bi bi-clock me-1"></i> Sep 22, 2026 · 11:30 AM</small>
+                    </div>
+                    <div class="inquiry-bubble-body text-dark">
+                      Spoke with patient via phone. Discussed out-of-network superbill policy; patient confirmed they will submit to CareFirst for potential reimbursement. Awaiting intake form completion.
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Reply Composer Card -->
+                <div class="reply-composer-card">
+                  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                    <!-- Channel Switcher -->
+                    <div class="channel-switcher">
+                      <button type="button" class="channel-btn active email" data-channel="email">
+                        <i class="bi bi-envelope-fill"></i> Email Response
+                      </button>
+                      <button type="button" class="channel-btn sms" data-channel="sms">
+                        <i class="bi bi-chat-dots-fill"></i> SMS Text (301-970-9724)
+                      </button>
+                    </div>
+
+                    <!-- Quick Response Templates -->
+                    <select class="form-select form-select-sm quick-templates-dropdown" id="reply-template-select">
+                      <option value="">Insert Quick Template…</option>
+                      <option value="intake">New Patient Intake &amp; Scheduling</option>
+                      <option value="insurance">Out-of-Network Superbill Info</option>
+                      <option value="hours">Clinic Location, Hours &amp; Parking</option>
+                      <option value="telehealth">Telehealth vs In-Office Consult Options</option>
+                      <option value="services">Wellness Therapies &amp; Infusions</option>
+                    </select>
+                  </div>
+
+                  <form id="inquiry-reply-form">
+                    <div class="mb-3">
+                      <textarea class="form-control" id="reply-message-textarea" rows="4" placeholder="Compose message to patient or choose an existing template from the dropdown above…"></textarea>
+                      <p class="help mb-0" id="reply-channel-helper">
+                        <i class="bi bi-info-circle"></i> Replying via Email will send directly to the patient's submitted address.
+                      </p>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="text-muted small">Replying as:</span>
+                        <select class="form-select form-select-sm" style="width:210px;" id="reply-sender-select">
+                          <option selected>Sultana Afrooz, D.O.</option>
+                          <option>Jessica Needle, N.D.</option>
+                          <option>New Patient Coordinator</option>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn-btc">
+                        <i class="bi bi-send-fill me-1"></i> Send Reply
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Internal Staff Notes Card -->
+                <div class="mt-4 pt-3 border-top">
+                  <h4 class="h6 fw-bold mb-1" style="color:var(--btc-navy)"><i class="bi bi-lock-fill text-warning me-1"></i> Add Internal Staff Note</h4>
+                  <p class="text-muted mb-2" style="font-size:0.78rem;">Private notes visible only to practice physicians and front desk staff.</p>
+                  <form id="add-note-form" class="d-flex gap-2">
+                    <input class="form-control" id="internal-note-input" placeholder="e.g. Followed up on lab orders or appointment scheduling…">
+                    <button type="submit" class="btn-btc-outline" style="white-space:nowrap;">
+                      <i class="bi bi-plus-lg me-1"></i> Add Note
+                    </button>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Patient Profile & Status Controls -->
+          <div class="col-lg-4">
+
+            <!-- Patient Profile Card -->
+            <div class="patient-profile-card mb-4">
+              <div class="patient-hero">
+                <div class="patient-avatar-lg" id="patient-avatar">NM</div>
+                <div>
+                  <h3 class="h5 fw-bold mb-0" id="patient-name" style="color:var(--btc-navy)">Nas Moha</h3>
+                  <small class="text-muted"><i class="bi bi-check-circle-fill text-success me-1"></i> Website Inquirer</small>
+                </div>
+              </div>
+
+              <!-- Quick Contact Links -->
+              <div class="patient-contact-links">
+                <div class="contact-link-row">
+                  <a href="mailto:nas@email.com" id="patient-email-link"><i class="bi bi-envelope"></i> nas@email.com</a>
+                  <button type="button" class="copy-btn" data-copy="nas@email.com" title="Copy email"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="contact-link-row">
+                  <a href="tel:3015550142" id="patient-phone-link"><i class="bi bi-telephone"></i> (301) 555-0142</a>
+                  <button type="button" class="copy-btn" data-copy="(301) 555-0142" title="Copy phone"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="contact-link-row">
+                  <a href="sms:3015550142" id="patient-sms-link" class="text-success"><i class="bi bi-chat-dots"></i> Text (301) 555-0142</a>
+                  <span class="badge bg-success-subtle text-success" style="font-size:0.68rem;">SMS READY</span>
+                </div>
+              </div>
+
+              <!-- Clinical Profile Meta Box -->
+              <div class="p-3 rounded-3 bg-light border mb-0" style="font-size:0.8rem;">
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Form Consent:</span>
+                  <span class="text-success fw-semibold"><i class="bi bi-check-circle-fill"></i> Agreed</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Clinic Policy:</span>
+                  <span class="text-dark fw-semibold">Out-of-network</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                  <span class="text-muted">Preferred Location:</span>
+                  <span class="text-dark fw-semibold">Columbia, MD</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-muted">Telehealth Interest:</span>
+                  <span class="badge-admin badge-tele">Yes (Requested)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow Status & Priority Controls Card -->
+            <div class="card-admin mb-4">
+              <div class="card-head">
+                <div>
+                  <h2>Status &amp; Priority Triage</h2>
+                  <p>Inquiry lifecycle and workflow state</p>
+                </div>
+              </div>
+              <div class="card-body-admin">
+
+                <!-- Status Selector -->
+                <div class="mb-3">
+                  <label class="form-label-admin" for="inquiry-status-select">Inquiry Status</label>
+                  <select class="form-select" id="inquiry-status-select">
+                    <option value="new" selected>New (Needs review)</option>
+                    <option value="open">Open (In progress)</option>
+                    <option value="replied">Replied (Staff followed up)</option>
+                    <option value="closed">Closed (Resolved)</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                  <p class="help">Updating this updates the status badge across the entire CMS.</p>
+                </div>
+
+                <!-- Priority Selector -->
+                <div class="mb-3">
+                  <label class="form-label-admin" for="inquiry-priority-select">Triage Priority</label>
+                  <select class="form-select" id="inquiry-priority-select">
+                    <option value="urgent">Urgent (Immediate attention)</option>
+                    <option value="high" selected>High priority</option>
+                    <option value="normal">Normal</option>
+                    <option value="low">Low priority</option>
+                  </select>
+                </div>
+
+                <!-- Action Buttons -->
+                <button type="button" class="btn-btc-outline w-100 mb-2" onclick="window.print()">
+                  <i class="bi bi-printer me-1"></i> Print Inquiry Summary
+                </button>
+                <a href="appointments.html" class="btn-btc-ghost w-100 text-center">
+                  <i class="bi bi-calendar2-plus me-1"></i> Convert to Appointment Request
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
