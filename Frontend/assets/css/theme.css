@@ -1354,3 +1354,139 @@ body.scrolled .header .branding {
     text-align: center;
   }
 }
+
+/* ========== Contact page ========== */
+.contact-text-cta {
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+}
+
+.contact-text-panel {
+  background: linear-gradient(135deg, rgba(48, 140, 160, 0.08), rgba(162, 192, 138, 0.12));
+  border: 1px solid rgba(48, 140, 160, 0.16);
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+}
+
+.contact-text-panel h2 {
+  color: var(--btc-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.contact-text-panel > .row > .col-lg-7 > p {
+  color: #5a6166;
+  margin-bottom: 1rem;
+  max-width: 36rem;
+}
+
+.contact-text-number {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+}
+
+.contact-text-number span {
+  color: var(--btc-teal);
+  margin-right: 0.35rem;
+}
+
+.contact-text-number a {
+  color: var(--btc-navy);
+  text-decoration: none;
+}
+
+.contact-text-number a:hover {
+  color: var(--btc-teal);
+}
+
+.contact-text-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+@media (min-width: 992px) {
+  .contact-text-actions {
+    justify-content: flex-end;
+  }
+}
+
+.contact-page {
+  background: linear-gradient(180deg, #fff 0%, #f3fafb 100%);
+}
+
+.contact-sidebar {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 32px rgba(0, 48, 72, 0.08);
+  border: 1px solid rgba(48, 140, 160, 0.1);
+  height: 100%;
+}
+
+.contact-sidebar > h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-bottom: 1.25rem;
+}
+
+.contact-sidebar a {
+  color: var(--btc-teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-sidebar a:hover {
+  color: var(--btc-navy);
+}
+
+.contact-map-section {
+  padding-bottom: 4rem;
+}
+
+.contact-map-frame {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 48, 72, 0.1);
+  border: 1px solid rgba(48, 140, 160, 0.12);
+  background: #fff;
+}
+
+.contact-map-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 380px;
+}
+
+.cta-band .btn-btc-outline {
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+
+@media (max-width: 575px) {
+  .contact-text-panel {
+    padding: 1.5rem;
+  }
+
+  .contact-text-actions .btn-btc,
+  .contact-text-actions .btn-btc-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-band .btn-btc,
+  .cta-band .btn-btc-outline {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0 0 !important;
+  }
+
+  .contact-map-frame iframe {
+    min-height: 280px;
+    height: 280px;
+  }
+}
