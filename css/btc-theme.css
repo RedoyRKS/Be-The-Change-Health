@@ -74,7 +74,21 @@
 /* Hero */
 .hero img {
   object-fit: cover;
-  filter: brightness(0.55);
+  filter: brightness(0.92) saturate(1.05);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 48, 72, 0.55) 0%,
+    rgba(48, 140, 160, 0.28) 45%,
+    rgba(243, 250, 251, 0.15) 100%
+  );
+  pointer-events: none;
 }
 
 .hero .welcome h2 {
@@ -82,11 +96,15 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: none;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 48, 72, 0.35);
 }
 
 .hero .welcome p {
   font-size: 1.05rem;
   max-width: 36rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 48, 72, 0.3);
 }
 
 .hero .content .why-box {
