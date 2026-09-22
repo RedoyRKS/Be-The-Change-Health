@@ -1,0 +1,417 @@
+/**
+ * Be The Change Health — brand overrides on MediLab layout
+ * Navy #003048 · Teal #308ca0 · Accent #a2c08a · Poppins
+ */
+
+:root {
+  --default-font: "Poppins", system-ui, -apple-system, sans-serif;
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #434549;
+  --heading-color: #003048;
+  --accent-color: #308ca0;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #003048;
+  --nav-hover-color: #308ca0;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #003048;
+  --nav-dropdown-hover-color: #308ca0;
+
+  --btc-navy: #003048;
+  --btc-teal: #308ca0;
+  --btc-green: #a2c08a;
+  --btc-mist: #f3fafb;
+}
+
+.light-background {
+  --background-color: #f3fafb;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #003048;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #0a3d52;
+  --contrast-color: #ffffff;
+}
+
+/* Header */
+.header .topbar {
+  background: var(--btc-navy);
+}
+
+.header .branding {
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0, 48, 72, 0.06);
+}
+
+.header .logo img {
+  max-height: 56px;
+  width: auto;
+}
+
+.header .cta-btn,
+.header .cta-btn:focus {
+  background: var(--btc-teal);
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header .cta-btn:hover {
+  background: var(--btc-navy);
+  color: #fff;
+}
+
+/* Hero */
+.hero img {
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.hero .welcome h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.hero .welcome p {
+  font-size: 1.05rem;
+  max-width: 36rem;
+}
+
+.hero .content .why-box {
+  background: var(--btc-teal);
+}
+
+.hero .content .why-box .more-btn {
+  background: var(--btc-navy);
+  color: #fff;
+}
+
+.hero .content .why-box .more-btn:hover {
+  background: #fff;
+  color: var(--btc-navy);
+}
+
+.hero .content .icon-box i {
+  color: var(--btc-teal);
+}
+
+.hero-note {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-top: 0.75rem;
+  line-height: 1.45;
+}
+
+/* Section titles */
+.section-title h2 {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--btc-green);
+  bottom: 0;
+  left: 0;
+}
+
+.section-title p {
+  color: #666;
+}
+
+/* Condition cards */
+.condition-card {
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 0 4px 4px rgba(48, 140, 160, 0.09);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.condition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 48, 72, 0.12);
+}
+
+.condition-card .card-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.condition-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.condition-card:hover .card-img img {
+  transform: scale(1.05);
+}
+
+.condition-card .card-body {
+  padding: 1.25rem 1.35rem 1.5rem;
+}
+
+.condition-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.condition-card p {
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.condition-card .btn-link {
+  font-weight: 600;
+  color: var(--btc-teal);
+  text-decoration: none;
+}
+
+.condition-card .btn-link:hover {
+  color: var(--btc-navy);
+}
+
+/* Therapy image cards */
+.therapy-card {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 220px;
+  box-shadow: 0 8px 24px rgba(0, 48, 72, 0.1);
+}
+
+.therapy-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.therapy-card:hover img {
+  transform: scale(1.06);
+}
+
+.therapy-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 48, 72, 0.85));
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.therapy-card h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Doctors */
+.doctors .team-member .pic {
+  width: 140px;
+  min-width: 140px;
+}
+
+.doctors .team-member .pic img {
+  border-radius: 8px;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.doctors .member-info h4 a {
+  color: var(--heading-color);
+}
+
+.doctors .member-info h4 a:hover {
+  color: var(--btc-teal);
+}
+
+/* Testimonials */
+.testimonials .testimonial-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 4px 4px rgba(48, 140, 160, 0.09);
+  height: 100%;
+}
+
+.testimonials .stars {
+  color: #f1c40f;
+  margin-bottom: 0.75rem;
+}
+
+.testimonials .quote {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.testimonials .author {
+  font-weight: 600;
+  color: var(--btc-navy);
+  margin: 0;
+}
+
+.testimonials .date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.reviews-badge {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reviews-badge .rating-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  letter-spacing: 0.04em;
+}
+
+/* Newsletter band */
+.newsletter-band {
+  background: var(--btc-navy);
+  color: #fff;
+  padding: 3.5rem 0;
+}
+
+.newsletter-band h2 {
+  color: #fff;
+  font-size: 1.75rem;
+}
+
+.newsletter-band p {
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 36rem;
+}
+
+.newsletter-band .accent {
+  color: var(--btc-green);
+  font-weight: 600;
+}
+
+.newsletter-band .form-control {
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.newsletter-band .btn-subscribe {
+  background: var(--btc-teal);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  white-space:nowrap;
+}
+
+.newsletter-band .btn-subscribe:hover {
+  background: var(--btc-green);
+  color: var(--btc-navy);
+}
+
+.newsletter-band .fine-print {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-top: 0.75rem;
+}
+
+/* Contact hours */
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0, 48, 72, 0.08);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--btc-mist);
+}
+
+.footer .footer-about .logo img {
+  max-height: 48px;
+}
+
+.footer h4 {
+  color: var(--btc-navy);
+}
+
+.footer .copyright {
+  border-top: 1px solid rgba(0, 48, 72, 0.1);
+}
+
+/* Out-of-network notice */
+.notice-bar {
+  background: color-mix(in srgb, var(--btc-green), white 70%);
+  color: var(--btc-navy);
+  font-size: 0.85rem;
+  padding: 0.65rem 0;
+  text-align: center;
+}
+
+/* Appointment / form buttons */
+.php-email-form button[type="submit"],
+.btn-btc {
+  background: var(--btc-teal);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.php-email-form button[type="submit"]:hover,
+.btn-btc:hover {
+  background: var(--btc-navy);
+  color: #fff;
+}
+
+.scroll-top {
+  background: var(--btc-teal);
+}
+
+.scroll-top:hover {
+  background: var(--btc-navy);
+}
+
+/* Mobile nav logo breathing room */
+@media (max-width: 1199px) {
+  .header .logo img {
+    max-height: 44px;
+  }
+}
