@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Settings | Be The Change Admin</title>
+  <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="settings">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-admin mb-4">
+              <div class="card-head"><div><h2>Practice identity</h2></div></div>
+              <div class="card-body-admin">
+                <label class="form-label-admin">Practice name</label>
+                <input class="form-control mb-3" value="Be The Change Health & Wellness Center">
+                <label class="form-label-admin">Favicon</label>
+                <div class="upload-box compact mb-3">
+                  <img class="upload-preview" src="../../Frontend/assets/uploads/2025/02/fav.jpg" alt="Favicon">
+                  <input type="file" accept="image/*">
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-4"><label class="form-label-admin">Navy</label><input class="form-control" value="#003048"></div>
+                  <div class="col-md-4"><label class="form-label-admin">Teal</label><input class="form-control" value="#308ca0"></div>
+                  <div class="col-md-4"><label class="form-label-admin">Accent green</label><input class="form-control" value="#a2c08a"></div>
+                </div>
+                <p class="help mt-2">These tokens match Frontend/assets/css/theme.css. Changing them here is CMS-only until publish.</p>
+              </div>
+            </div>
+            <div class="card-admin">
+              <div class="card-head"><div><h2>Office &amp; hours</h2></div></div>
+              <div class="card-body-admin">
+                <label class="form-label-admin">Map query</label>
+                <input class="form-control mb-3" value="8808 Centre Park Dr Suite 301 Columbia MD 21045">
+                <div class="hours-row">
+                  <input class="form-control" value="Monday – Friday">
+                  <input class="form-control" value="9am">
+                  <input class="form-control" value="6pm">
+                </div>
+                <div class="hours-row">
+                  <input class="form-control" value="Saturday">
+                  <input class="form-control" value="Closed">
+                  <input class="form-control" value="">
+                </div>
+                <div class="hours-row">
+                  <input class="form-control" value="Sunday">
+                  <input class="form-control" value="Closed">
+                  <input class="form-control" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-admin mb-4">
+              <div class="card-head"><div><h2>Flags</h2></div></div>
+              <div class="card-body-admin">
+                <label class="form-check mb-2"><input class="form-check-input" type="checkbox" checked> Telehealth available</label>
+                <label class="form-check mb-2"><input class="form-check-input" type="checkbox" checked> Show out-of-network notice</label>
+                <label class="form-check mb-2"><input class="form-check-input" type="checkbox" checked> Newsletter ion-cleanse offer</label>
+                <label class="form-check"><input class="form-check-input" type="checkbox" checked> Book Appointment CTA in header</label>
+              </div>
+            </div>
+            <div class="card-admin">
+              <div class="card-head"><div><h2>Admin users</h2></div></div>
+              <div class="card-body-admin">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <span class="user-avatar">SA</span>
+                  <div><strong>Sultana Afrooz</strong><br><small class="text-muted">Practice Admin</small></div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="user-avatar">JN</span>
+                  <div><strong>Jessica Needle</strong><br><small class="text-muted">Editor</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sticky-actions">
+          <button class="btn-btc" type="button" data-save="Site settings saved.">Save settings</button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
