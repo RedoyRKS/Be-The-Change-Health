@@ -42,18 +42,53 @@
 }
 
 /* Header */
+.header {
+  transition: box-shadow 0.35s ease;
+}
+
 .header .topbar {
   background: var(--btc-navy);
+  /* Smooth collapse — avoid layout thrash / flicker near scroll threshold */
+  max-height: 40px;
+  opacity: 1;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    padding 0.35s ease;
+  will-change: max-height, opacity;
 }
 
 .header .branding {
   background: #fff;
   box-shadow: 0 2px 16px rgba(0, 48, 72, 0.06);
+  transition: box-shadow 0.35s ease;
+}
+
+/* Override MediLab abrupt topbar hide for stable sticky header */
+body.scrolled .header .topbar {
+  height: auto !important;
+  max-height: 0 !important;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  pointer-events: none;
+  border: 0;
+}
+
+body.scrolled .header {
+  box-shadow: 0 4px 20px rgba(0, 48, 72, 0.1);
+}
+
+body.scrolled .header .branding {
+  box-shadow: none;
 }
 
 .header .logo img {
   max-height: 56px;
   width: auto;
+  transition: max-height 0.3s ease;
 }
 
 .header .cta-btn,

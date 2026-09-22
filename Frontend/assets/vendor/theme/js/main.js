@@ -10,16 +10,31 @@
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * Apply .scrolled class with hysteresis to prevent navbar flicker
+   * when the topbar height changes near the threshold.
    */
+  let headerScrolled = false;
+  const SCROLL_ON = 70;
+  const SCROLL_OFF = 15;
+
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
+    if (!selectHeader) return;
     if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+
+    const y = window.scrollY || window.pageYOffset || 0;
+
+    if (!headerScrolled && y > SCROLL_ON) {
+      headerScrolled = true;
+      selectBody.classList.add('scrolled');
+    } else if (headerScrolled && y < SCROLL_OFF) {
+      headerScrolled = false;
+      selectBody.classList.remove('scrolled');
+    }
   }
 
-  document.addEventListener('scroll', toggleScrolled);
+  document.addEventListener('scroll', toggleScrolled, { passive: true });
   window.addEventListener('load', toggleScrolled);
 
   /**
