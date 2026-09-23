@@ -2977,3 +2977,424 @@ body.scrolled .header .branding {
     text-align: center;
   }
 }
+
+/* ========== Patients ========== */
+.page-patients .page-hero {
+  padding: 4.25rem 0 3rem;
+}
+
+.page-patients .page-hero h1 {
+  letter-spacing: -0.02em;
+}
+
+.patients-hub {
+  padding-top: 2.75rem;
+  padding-bottom: 3.5rem;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(48, 140, 160, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 100% 20%, rgba(162, 192, 138, 0.1), transparent 50%),
+    #fff;
+}
+
+.patients-intro {
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.patients-intro p:not(.service-eyebrow) {
+  color: #5a6166;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.patients-action-grid {
+  margin-bottom: 2.75rem;
+}
+
+.patient-action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  min-height: 12.5rem;
+  padding: 1.65rem 1.45rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border: 1px solid rgba(48, 140, 160, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 48, 72, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.patient-action-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(48, 140, 160, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 48, 72, 0.12);
+  color: inherit;
+}
+
+.patient-action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.1rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(48, 140, 160, 0.12), rgba(162, 192, 138, 0.18));
+  color: var(--btc-teal);
+  font-size: 1.35rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.patient-action-card:hover .patient-action-icon {
+  background: var(--btc-teal);
+  color: #fff;
+}
+
+.patient-action-card h2 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--btc-navy);
+  margin: 0 0 auto;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.patient-action-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--btc-teal);
+}
+
+.patient-action-card:hover .patient-action-more {
+  color: var(--btc-navy);
+}
+
+.patients-secondary {
+  padding: 1.75rem 1.85rem;
+  border-radius: 14px;
+  border: 1px solid rgba(48, 140, 160, 0.14);
+  background: linear-gradient(135deg, rgba(48, 140, 160, 0.07), rgba(162, 192, 138, 0.12));
+}
+
+.patients-secondary h2 {
+  font-size: 1.35rem;
+  color: var(--btc-navy);
+  margin-bottom: 0.45rem;
+}
+
+.patients-secondary p {
+  color: #5a6166;
+  line-height: 1.65;
+}
+
+.patients-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 991px) {
+  .patients-secondary-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .patient-action-card {
+    min-height: 0;
+  }
+
+  .patients-secondary {
+    padding: 1.35rem;
+  }
+
+  .patients-secondary-actions .btn-btc,
+  .patients-secondary-actions .btn-btc-outline {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ========== New Patient Questions ========== */
+.npq-faq {
+  padding-top: 2.75rem;
+  padding-bottom: 3rem;
+}
+
+.npq-faq-therapies {
+  padding-top: 3rem;
+  padding-bottom: 3.25rem;
+}
+
+.npq-section-head {
+  max-width: 40rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.npq-section-head h2 {
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  color: var(--btc-navy);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.npq-accordion {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.npq-accordion .accordion-item {
+  border: 1px solid rgba(48, 140, 160, 0.14);
+  border-radius: 12px !important;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 48, 72, 0.04);
+}
+
+.npq-accordion .accordion-button {
+  font-family: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--btc-navy);
+  line-height: 1.4;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  box-shadow: none !important;
+}
+
+.npq-accordion .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, rgba(48, 140, 160, 0.08), rgba(162, 192, 138, 0.1));
+  color: var(--btc-navy);
+}
+
+.npq-accordion .accordion-button::after {
+  background-image: none;
+  content: "\F282";
+  font-family: "bootstrap-icons";
+  font-size: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--btc-teal);
+  transform: none;
+  transition: transform 0.2s ease;
+}
+
+.npq-accordion .accordion-button:not(.collapsed)::after {
+  content: "\F286";
+  transform: none;
+}
+
+.npq-accordion .accordion-body {
+  padding: 0 1.25rem 1.25rem;
+  color: #434549;
+  line-height: 1.7;
+  font-size: 0.96rem;
+}
+
+.npq-accordion .accordion-body a {
+  color: var(--btc-teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.npq-accordion .accordion-body a:hover {
+  color: var(--btc-navy);
+}
+
+.npq-accordion .accordion-body ul {
+  margin-bottom: 0.85rem;
+  padding-left: 1.15rem;
+}
+
+.npq-accordion .accordion-body li {
+  margin-bottom: 0.35rem;
+}
+
+.npq-tooltip {
+  border-bottom: 1px dotted var(--btc-teal);
+  cursor: help;
+  font-weight: 600;
+  color: var(--btc-navy);
+}
+
+.npq-subhead {
+  font-weight: 700;
+  color: var(--btc-navy);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.npq-pricing-wrap {
+  border-radius: 10px;
+  border: 1px solid rgba(48, 140, 160, 0.12);
+  overflow: hidden;
+}
+
+.npq-pricing-table {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.npq-pricing-table thead th {
+  background: var(--btc-navy);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+.npq-pricing-table tbody td {
+  padding: 1rem;
+  vertical-align: top;
+  border-color: rgba(48, 140, 160, 0.1);
+  color: #434549;
+}
+
+.npq-pricing-table tbody tr:nth-child(even) {
+  background: rgba(48, 140, 160, 0.04);
+}
+
+.npq-pricing-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--btc-navy);
+  white-space: nowrap;
+}
+
+.npq-price {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--btc-teal);
+}
+
+.npq-pricing-table ul {
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.npq-pricing-table li {
+  margin-bottom: 0.25rem;
+}
+
+.npq-therapy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 1.25rem;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.npq-therapy-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0 !important;
+}
+
+.npq-therapy-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--btc-green);
+}
+
+.npq-policies-cta {
+  max-width: 920px;
+  margin: 2.25rem auto 0;
+  padding: 1.5rem 1.65rem;
+  border-radius: 14px;
+  border: 1px solid rgba(48, 140, 160, 0.16);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0, 48, 72, 0.06);
+}
+
+.npq-policies-cta h3 {
+  font-size: 1.2rem;
+  color: var(--btc-navy);
+  margin-bottom: 0.35rem;
+}
+
+.npq-policies-cta p {
+  color: #5a6166;
+  font-size: 0.95rem;
+}
+
+.npq-policies-modal .modal-header {
+  border-bottom-color: rgba(48, 140, 160, 0.12);
+  background: linear-gradient(135deg, rgba(48, 140, 160, 0.08), rgba(162, 192, 138, 0.1));
+}
+
+.npq-policies-modal .modal-title {
+  color: var(--btc-navy);
+  font-weight: 700;
+}
+
+.npq-policies-modal .modal-body {
+  color: #434549;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.npq-policies-modal .modal-body h3 {
+  font-size: 1.05rem;
+  color: var(--btc-navy);
+  margin-top: 1.25rem;
+  margin-bottom: 0.55rem;
+}
+
+.npq-policies-modal .modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.npq-policies-modal .modal-footer {
+  border-top-color: rgba(48, 140, 160, 0.12);
+}
+
+@media (max-width: 767px) {
+  .npq-therapy-list {
+    grid-template-columns: 1fr;
+  }
+
+  .npq-pricing-table thead th:last-child,
+  .npq-pricing-table tbody td:last-child {
+    min-width: 14rem;
+  }
+
+  .npq-policies-cta .btn-btc {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .npq-accordion .accordion-button {
+    font-size: 0.95rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .npq-accordion .accordion-body {
+    padding: 0 1rem 1rem;
+  }
+}
