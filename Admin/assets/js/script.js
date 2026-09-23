@@ -13,22 +13,32 @@
   var NAV = [
     { type: "link", id: "dashboard", label: "Dashboard", href: ROOT + "index.html", icon: "bi-grid-1x2" },
     { type: "label", label: "Website Pages" },
-    { type: "link", id: "homepage", label: "Homepage", href: PAGES + "homepage.html", icon: "bi-house-heart" },
     {
       type: "group",
-      id: "about-group",
-      label: "About",
-      icon: "bi-info-circle",
-      match: ["about", "integrative", "naturopathic", "process"],
+      id: "page-content-cms-group",
+      label: "Page Content CMS",
+      icon: "bi-window-stack",
+      match: ["homepage", "about", "integrative", "naturopathic", "process", "header-footer", "contact", "contact-preview", "membership-content"],
       items: [
-        { id: "about", label: "Our Practice", href: PAGES + "about.html" },
-        { id: "integrative", label: "Integrative Medicine", href: PAGES + "integrative-medicine.html" },
-        { id: "naturopathic", label: "Naturopathic Medicine", href: PAGES + "naturopathic-medicine.html" },
-        { id: "process", label: "Our Process", href: PAGES + "our-process.html" }
+        { id: "homepage", label: "Homepage", href: PAGES + "homepage.html" },
+        {
+          type: "subgroup",
+          id: "about-subgroup",
+          label: "About",
+          icon: "bi-info-circle",
+          match: ["about", "integrative", "naturopathic", "process"],
+          items: [
+            { id: "about", label: "Practice Story", href: PAGES + "about.html" },
+            { id: "integrative", label: "Integrative Medicine", href: PAGES + "integrative-medicine.html" },
+            { id: "naturopathic", label: "Naturopathic Medicine", href: PAGES + "naturopathic-medicine.html" },
+            { id: "process", label: "Why Choose Us", href: PAGES + "our-process.html" }
+          ]
+        },
+        { id: "header-footer", label: "Header & Footer", href: PAGES + "header-footer.html" },
+        { id: "contact", label: "Contact Page", href: PAGES + "contact.html" },
+        { id: "membership-content", label: "Membership Page", href: PAGES + "membership-content.html" }
       ]
     },
-    { type: "link", id: "header-footer", label: "Header & Footer", href: PAGES + "header-footer.html", icon: "bi-layout-text-window" },
-    { type: "link", id: "contact", label: "Contact Page Content", href: PAGES + "contact.html", icon: "bi-layout-text-sidebar" },
     { type: "label", label: "Practitioners" },
     { type: "link", id: "doctors", label: "Doctors", href: PAGES + "doctors.html", icon: "bi-person-badge" },
     { type: "link", id: "doctor-sultana", label: "Sultana Afrooz, D.O.", href: PAGES + "doctor-sultana.html", icon: "bi-person-heart" },
@@ -36,6 +46,7 @@
     { type: "label", label: "Care Operations" },
     { type: "link", id: "appointments", label: "Appointments", href: PAGES + "appointments.html", icon: "bi-calendar2-check" },
     { type: "link", id: "inquiries", label: "Contact / Inquiries", href: PAGES + "inquiries.html", icon: "bi-envelope-open" },
+    { type: "link", id: "memberships", label: "Memberships", href: PAGES + "memberships.html", icon: "bi-card-checklist" },
     { type: "link", id: "services", label: "Services", href: PAGES + "services.html", icon: "bi-heart-pulse" },
     { type: "link", id: "conditions", label: "Conditions", href: PAGES + "conditions.html", icon: "bi-clipboard2-pulse" },
     { type: "link", id: "blog", label: "Blog", href: PAGES + "blog.html", icon: "bi-journal-richtext" },
@@ -48,11 +59,11 @@
   var TITLES = {
     dashboard: ["Overview", "Dashboard"],
     homepage: ["Website Pages", "Homepage"],
-    about: ["About", "Our Practice"],
-    integrative: ["About", "Integrative Medicine"],
-    naturopathic: ["About", "Naturopathic Medicine"],
-    process: ["About", "Our Process"],
-    contact: ["Website Pages", "Contact Page Content"],
+    about: ["Website Pages", "Practice Story"],
+    integrative: ["Website Pages", "Integrative Medicine"],
+    naturopathic: ["Website Pages", "Naturopathic Medicine"],
+    process: ["Website Pages", "Why Choose Us"],
+    contact: ["Website Pages", "Contact Page"],
     "contact-preview": ["Website Pages", "Contact Page Live Preview"],
     doctors: ["Practitioners", "Doctors"],
     "doctor-sultana": ["Practitioners", "Sultana Afrooz, D.O."],
@@ -60,11 +71,15 @@
     appointments: ["Care Operations", "Appointments"],
     inquiries: ["Care Operations", "Contact / Inquiries Inbox"],
     "inquiry-detail": ["Care Operations", "Inquiry Details & Reply"],
-    "blog-edit": ["Care Operations", "Write article"],
-    "blog-preview": ["Care Operations", "Article preview"],
+    memberships: ["Care Operations", "Health & Wellness Memberships"],
+    "membership-content": ["Website Pages", "Membership Page"],
+    "membership-edit": ["Care Operations", "Membership Plan Editor"],
+    "membership-preview": ["Care Operations", "Membership Plans Preview"],
+    "blog-edit": ["Care Operations", "Blog Post Editor"],
+    "blog-preview": ["Care Operations", "Blog Live Preview"],
     services: ["Care Operations", "Services"],
     conditions: ["Care Operations", "Conditions"],
-    blog: ["Care Operations", "Blog"],
+    blog: ["Care Operations", "Blog Articles"],
     media: ["Site", "Media Library"],
     "header-footer": ["Website Pages", "Header & Footer"],
     seo: ["Site", "SEO Settings"],
@@ -79,9 +94,15 @@
 
   function isActive(id) {
     if (PAGE === id) return true;
+    if (id === "about" && PAGE === "about") return true;
+    if (id === "integrative" && PAGE === "integrative") return true;
+    if (id === "naturopathic" && PAGE === "naturopathic") return true;
+    if (id === "process" && PAGE === "process") return true;
     if (id === "blog" && (PAGE === "blog-edit" || PAGE === "blog-preview")) return true;
     if (id === "contact" && (PAGE === "contact" || PAGE === "contact-preview")) return true;
     if (id === "inquiries" && (PAGE === "inquiries" || PAGE === "inquiry-detail")) return true;
+    if (id === "memberships" && (PAGE === "memberships" || PAGE === "membership-edit" || PAGE === "membership-preview")) return true;
+    if (id === "membership-content" && PAGE === "membership-content") return true;
     return false;
   }
 
@@ -103,21 +124,47 @@
           (open ? " active" : "") +
           '" data-toggle-group="' +
           item.id +
-          '"><i class="bi ' +
+          '" aria-expanded="' + (open ? "true" : "false") + '">' +
+          '<i class="bi ' +
           item.icon +
           '"></i><span>' +
           item.label +
           '</span><i class="bi bi-chevron-down nav-caret"></i></button>';
         html += '<div class="nav-sub' + (open ? " open" : "") + '" id="' + item.id + '">';
         item.items.forEach(function (sub) {
-          html +=
-            '<a href="' +
-            sub.href +
-            '" class="' +
-            (isActive(sub.id) ? "active" : "") +
-            '">' +
-            sub.label +
-            "</a>";
+          if (sub.items && sub.items.length) {
+            var subOpen = groupOpen(sub);
+            html +=
+              '<button type="button" class="nav-sub-group-btn' +
+              (subOpen ? " active" : "") +
+              '" data-toggle-group="' +
+              sub.id +
+              '" aria-expanded="' + (subOpen ? "true" : "false") + '">' +
+              '<span>' + sub.label + '</span>' +
+              '<i class="bi bi-chevron-down nav-caret"></i>' +
+              '</button>';
+            html += '<div class="nav-nested-sub' + (subOpen ? " open" : "") + '" id="' + sub.id + '">';
+            sub.items.forEach(function (child) {
+              html +=
+                '<a href="' +
+                child.href +
+                '" class="' +
+                (isActive(child.id) ? "active" : "") +
+                '">' +
+                child.label +
+                "</a>";
+            });
+            html += "</div>";
+          } else {
+            html +=
+              '<a href="' +
+              sub.href +
+              '" class="' +
+              (isActive(sub.id) ? "active" : "") +
+              '">' +
+              sub.label +
+              "</a>";
+          }
         });
         html += "</div>";
         return;
@@ -145,8 +192,13 @@
 
     sidebar.innerHTML =
       '<div class="sidebar-brand">' +
-      '<img src="' + FE + 'assets/uploads/2024/08/LOGO.jpg" alt="Be The Change">' +
-      '<div class="sidebar-brand-text"><strong>Be The Change</strong><span>Admin CMS</span></div>' +
+      '<a href="' + ROOT + 'index.html" class="sidebar-brand-card" title="Be The Change Admin CMS">' +
+      '<img src="' + FE + 'assets/uploads/2024/08/LOGO.jpg" alt="Be The Change Health & Wellness Center" width="528" height="140" loading="eager">' +
+      '</a>' +
+      '<div class="sidebar-brand-badge sidebar-brand-text">' +
+      '<span class="brand-badge-dot"></span>' +
+      '<span>ADMIN CMS</span>' +
+      '</div>' +
       "</div>" +
       '<nav class="sidebar-nav">' +
       buildNav() +
@@ -173,10 +225,16 @@
 
     document.getElementById("menu-toggle").addEventListener("click", toggleSidebar);
     document.querySelectorAll("[data-toggle-group]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
+      btn.addEventListener("click", function (e) {
+        if (e) e.stopPropagation();
         var id = btn.getAttribute("data-toggle-group");
         var sub = document.getElementById(id);
-        if (sub) sub.classList.toggle("open");
+        if (sub) {
+          var willOpen = !sub.classList.contains("open");
+          sub.classList.toggle("open", willOpen);
+          btn.classList.toggle("active", willOpen);
+          btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        }
       });
     });
   }
@@ -293,6 +351,7 @@
   }
 
   function bindSlug() {
+    if (window.BTCBlogStore) return;
     var title = document.getElementById("blog-title");
     var slug = document.getElementById("blog-slug");
     if (!title || !slug) return;
@@ -548,6 +607,7 @@
   }
 
   function bindNewArticle() {
+    if (window.BTCBlogStore) return;
     if (PAGE !== "blog-edit" || location.search.indexOf("new=1") === -1) return;
     ["blog-title", "blog-slug", "blog-excerpt", "blog-body", "blog-seo-title", "blog-seo-desc", "blog-tags"].forEach(function (id) {
       var eln = document.getElementById(id);
@@ -576,11 +636,6 @@
     });
   }
 
-  function bindBackdrop() {
-    var backdrop = document.getElementById("sidebar-backdrop");
-    if (backdrop) backdrop.addEventListener("click", toggleSidebar);
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
     injectShell();
     bindEditors();
@@ -601,3 +656,4 @@
 
   window.BTCAdmin = { toast: toast };
 })();
+

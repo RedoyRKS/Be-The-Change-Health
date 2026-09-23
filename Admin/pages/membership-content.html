@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Membership Page | Be The Change Admin</title>
+  <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="membership-content">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Page Content CMS</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Membership Page</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <a class="btn-btc-outline btn-sm-admin" href="membership-preview.html">
+              <i class="bi bi-eye me-1"></i> Live Preview Screen
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-content">
+              <i class="bi bi-check2 me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+        <!-- Subbar Tab Navigation between Plans and Page Content -->
+        <div class="card-admin mb-4">
+          <div class="card-body-admin py-2 px-3">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div class="btn-group btn-group-sm" role="group">
+                <a class="btn btn-outline-secondary" href="memberships.html">
+                  <i class="bi bi-card-checklist me-1"></i> Membership Plans Directory
+                </a>
+                <a class="btn btn-secondary active fw-semibold" href="membership-content.html">
+                  <i class="bi bi-layout-text-sidebar-reverse me-1"></i> Membership Page
+                </a>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge-admin badge-published"><i class="bi bi-broadcast me-1"></i>Source of Truth</span>
+                <span class="text-muted small">Frontend · memberships.html</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-bar mb-4">
+          <i class="bi bi-info-circle-fill text-teal me-2"></i> This CMS manages all sections of <strong>memberships.html</strong> outside the pricing tiers: the Hero, Requirement Policy, Patient Testimonials Carousel, and the "Questions about memberships?" CTA band.
+        </div>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Hero / Page Header -->
+          <article class="editor-card open">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Hero / Page Header</h3>
+                <p>Top banner headline, subtitle, and breadcrumb bar on memberships.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="hero-title">Page Hero Headline *</label>
+                  <input class="form-control" id="hero-title" value="Membership Packages" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input class="form-control" id="hero-breadcrumb" value="Memberships">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle / Description *</label>
+                  <textarea class="form-control" id="hero-subtitle" rows="2">Exceptional value with discounts and complimentary services tailored to your needs.</textarea>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Intro / Requirement Policy Notice -->
+          <article class="editor-card open">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Membership Intro / Requirement Policy</h3>
+                <p>Top announcement panel explaining that all patients must enroll in a plan</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="intro-visible" checked>
+                    <label class="form-check-label fw-semibold text-dark" for="intro-visible">
+                      Display Requirement Policy Panel on Website
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="intro-text">Policy Statement Body *</label>
+                  <textarea class="form-control" id="intro-text" rows="3">To support administrative costs and ensure the best quality of care. All patients are REQUIRED to enroll in ONE of our membership plans. Each plan is designed to offer exceptional value, including discounts and complimentary services tailored to your needs.</textarea>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="intro-highlights">Keywords to Automatically Emphasize in Bold</label>
+                  <input class="form-control" id="intro-highlights" value="REQUIRED, ONE">
+                  <p class="help">Comma-separated terms that are automatically rendered as bold on the live website.</p>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-intro">
+                  <i class="bi bi-check2 me-1"></i> Save Policy Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: Patient Testimonials & Google Reviews -->
+          <article class="editor-card open">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Patient Testimonials &amp; Google Reviews</h3>
+                <p>Google reviews carousel with verified patient ratings and feedback quotes</p>
+              </div>
+              <span class="spacer"></span>
+              <a href="homepage.html" class="btn-btc-ghost btn-sm-admin" title="View clinic homepage reviews">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Clinic Reviews CMS
+              </a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="testi-title">Section Heading *</label>
+                  <input class="form-control" id="testi-title" value="What Our Patients Say">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="testi-subtitle">Section Subtitle</label>
+                  <input class="form-control" id="testi-subtitle" value="Real experiences from patients of Be The Change Health & Wellness Center.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-label">Rating Label Badge</label>
+                  <input class="form-control" id="testi-label" value="EXCELLENT">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-count">Review Count Display</label>
+                  <input class="form-control" id="testi-count" value="Based on 37 Google reviews">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-delay">Autoplay Speed (ms)</label>
+                  <input class="form-control" type="number" id="testi-delay" value="5000">
+                </div>
+              </div>
+
+              <!-- Reviews Table -->
+              <h4 class="h6 fw-bold text-dark mb-2">Featured Patient Quotes on Memberships Page</h4>
+              <div class="table-wrap mb-3">
+                <table class="table-admin" id="table-testimonials">
+                  <thead>
+                    <tr>
+                      <th style="width:140px;">Author</th>
+                      <th style="width:110px;">Date</th>
+                      <th style="width:80px;">Stars</th>
+                      <th>Patient Quote</th>
+                      <th class="text-end" style="width:70px;"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-testimonials">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Add Review Form -->
+              <div class="p-3 bg-light rounded-3 border">
+                <strong class="d-block text-dark mb-2"><i class="bi bi-plus-circle me-1 text-teal"></i> Add Patient Testimonial Quote</strong>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <input class="form-control form-control-sm" id="new-rev-author" placeholder="Patient Name (e.g. Elle)">
+                  </div>
+                  <div class="col-md-4">
+                    <input class="form-control form-control-sm" type="date" id="new-rev-date" value="2025-02-25">
+                  </div>
+                  <div class="col-md-4">
+                    <select class="form-select form-select-sm" id="new-rev-stars">
+                      <option value="5" selected>5 Stars (★★★★★)</option>
+                      <option value="4">4 Stars (★★★★)</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <textarea class="form-control form-control-sm" id="new-rev-quote" rows="2" placeholder="Paste full patient quote text here…"></textarea>
+                  </div>
+                  <div class="col-12 text-end">
+                    <button type="button" class="btn-btc btn-sm-admin" id="btn-add-review">
+                      <i class="bi bi-plus-lg me-1"></i> Add Review Row
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-testimonials">
+                  <i class="bi bi-check2 me-1"></i> Save Testimonials Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Questions About Memberships CTA -->
+          <article class="editor-card open">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Questions About Memberships CTA Band</h3>
+                <p>Bottom contact and appointment call-to-action strip</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="cta-title">Band Heading *</label>
+                  <input class="form-control" id="cta-title" value="Questions about memberships?" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-phone">Inquiry Phone Number *</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724" required>
+                  <p class="help">Inherited from clinic master contact settings.</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-desc">Description / Instructions *</label>
+                  <textarea class="form-control" id="cta-desc" rows="2">Our team can help you choose the plan that fits your care. Call or request an appointment today.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn1-text">Primary Button Label *</label>
+                  <input class="form-control" id="cta-btn1-text" value="Book Appointment">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn1-link">Primary Button Target Link *</label>
+                  <input class="form-control" id="cta-btn1-link" value="book-appointment.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn2-text">Secondary Button Label *</label>
+                  <input class="form-control" id="cta-btn2-text" value="Contact Us">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn2-link">Secondary Button Target Link *</label>
+                  <input class="form-control" id="cta-btn2-link" value="contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save Questions CTA Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: SEO & Search Preview -->
+          <article class="editor-card">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>SEO &amp; Metadata for Memberships</h3>
+                <p>Page title tag, meta description, and Google SERP search appearance</p>
+              </div>
+              <span class="spacer"></span>
+              <a href="seo.html" class="btn-btc-ghost btn-sm-admin">Open Full SEO CMS</a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">Meta Title Tag</label>
+                  <input class="form-control" id="seo-title" value="Health & Wellness Memberships | Serving Columbia, MD">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">Our plans are designed to provide exceptional value, incorporating various discounts and complimentary services tailored to meet your needs.</textarea>
+                </div>
+              </div>
+
+              <!-- Google Search Snippet Simulation -->
+              <label class="form-label-admin">Google Search Snippet Simulation</label>
+              <div class="seo-preview p-3 rounded border bg-light">
+                <div class="url text-success small mb-1">https://bethechangehealth.com/memberships.html</div>
+                <div class="title fw-bold text-primary fs-6 mb-1" id="seo-preview-title">Health &amp; Wellness Memberships | Serving Columbia, MD</div>
+                <p class="desc text-muted small mb-0" id="seo-preview-desc">Our plans are designed to provide exceptional value, incorporating various discounts and complimentary services tailored to meet your needs.</p>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sticky Floating Save Bar -->
+        <div class="sticky-actions mt-4 justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small"><i class="bi bi-clock-history me-1"></i> Content Status: <strong class="text-dark">All Sections Synced</strong></span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="btn-reset-content-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Page Defaults
+            </button>
+            <a class="btn-btc-outline" href="membership-preview.html">
+              <i class="bi bi-display me-1"></i> Live Preview Screen
+            </a>
+            <button class="btn-btc" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2-circle me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/memberships-store.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/memberships-cms.js"></script>
+  <script>
+    (function () {
+      var store = window.BTCMemberships;
+      if (!store) return;
+
+      function toast(msg, type) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) window.BTCAdmin.toast(msg, type || "success");
+      }
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? el.value : "";
+      }
+
+      function setVal(id, v) {
+        var el = document.getElementById(id);
+        if (el) el.value = v == null ? "" : v;
+      }
+
+      var currentReviews = [];
+
+      function renderReviewRows() {
+        var tbody = document.getElementById("tbody-testimonials");
+        if (!tbody) return;
+        if (!currentReviews.length) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-3">No reviews listed. Add one below.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = currentReviews.map(function (rev, index) {
+          var starStr = "★★★★★".slice(0, rev.stars || 5);
+          return (
+            '<tr>' +
+              '<td><strong>' + (rev.author || "") + '</strong></td>' +
+              '<td class="small text-muted">' + (rev.date || "") + '</td>' +
+              '<td class="text-warning small">' + starStr + '</td>' +
+              '<td class="small text-dark" style="max-width:320px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="' + (rev.quote || "") + '">' + (rev.quote || "") + '</td>' +
+              '<td class="text-end">' +
+                '<button type="button" class="icon-action danger btn-remove-rev" data-index="' + index + '" title="Remove Quote"><i class="bi bi-trash"></i></button>' +
+              '</td>' +
+            '</tr>'
+          );
+        }).join("");
+      }
+
+      function loadAllFields() {
+        var content = store.getPageContent();
+        // Hero
+        setVal("hero-title", content.hero.title);
+        setVal("hero-subtitle", content.hero.subtitle);
+        setVal("hero-breadcrumb", content.hero.breadcrumb);
+
+        // Intro
+        setVal("intro-text", content.intro.text);
+        setVal("intro-highlights", content.intro.highlightedWords);
+        var introVis = document.getElementById("intro-visible");
+        if (introVis) introVis.checked = content.intro.visible !== false;
+
+        // Testimonials
+        setVal("testi-title", content.testimonials.title);
+        setVal("testi-subtitle", content.testimonials.subtitle);
+        setVal("testi-label", content.testimonials.ratingLabel);
+        setVal("testi-count", content.testimonials.reviewCount);
+        setVal("testi-delay", content.testimonials.autoplayDelay || 5000);
+        currentReviews = (content.testimonials.reviews || []).slice();
+        renderReviewRows();
+
+        // CTA
+        setVal("cta-title", content.cta.title);
+        setVal("cta-desc", content.cta.description);
+        setVal("cta-phone", content.cta.phone);
+        setVal("cta-btn1-text", content.cta.primaryBtnText);
+        setVal("cta-btn1-link", content.cta.primaryBtnLink);
+        setVal("cta-btn2-text", content.cta.secondaryBtnText);
+        setVal("cta-btn2-link", content.cta.secondaryBtnLink);
+
+        // SEO
+        setVal("seo-title", content.seo.title);
+        setVal("seo-desc", content.seo.description);
+        var previewTitle = document.getElementById("seo-preview-title");
+        var previewDesc = document.getElementById("seo-preview-desc");
+        if (previewTitle) previewTitle.textContent = content.seo.title;
+        if (previewDesc) previewDesc.textContent = content.seo.description;
+      }
+
+      function saveHeroSection() {
+        var data = {
+          title: val("hero-title"),
+          subtitle: val("hero-subtitle"),
+          breadcrumb: val("hero-breadcrumb")
+        };
+        store.saveHero(data);
+        toast("Hero section saved successfully.");
+      }
+
+      function saveIntroSection() {
+        var data = {
+          text: val("intro-text"),
+          highlightedWords: val("intro-highlights"),
+          visible: !!(document.getElementById("intro-visible") && document.getElementById("intro-visible").checked)
+        };
+        store.saveIntro(data);
+        toast("Requirement policy statement saved.");
+      }
+
+      function saveTestiSection() {
+        var data = {
+          title: val("testi-title"),
+          subtitle: val("testi-subtitle"),
+          ratingLabel: val("testi-label"),
+          reviewCount: val("testi-count"),
+          stars: 5,
+          autoplayDelay: parseInt(val("testi-delay"), 10) || 5000,
+          reviews: currentReviews
+        };
+        store.saveTestimonials(data);
+        toast("Testimonials section saved.");
+      }
+
+      function saveCtaSection() {
+        var data = {
+          title: val("cta-title"),
+          description: val("cta-desc"),
+          phone: val("cta-phone"),
+          primaryBtnText: val("cta-btn1-text"),
+          primaryBtnLink: val("cta-btn1-link"),
+          secondaryBtnText: val("cta-btn2-text"),
+          secondaryBtnLink: val("cta-btn2-link")
+        };
+        store.saveCta(data);
+        toast("Questions CTA section saved.");
+      }
+
+      function saveSeoSection() {
+        var data = {
+          title: val("seo-title"),
+          description: val("seo-desc")
+        };
+        store.saveSeo(data);
+        var previewTitle = document.getElementById("seo-preview-title");
+        var previewDesc = document.getElementById("seo-preview-desc");
+        if (previewTitle) previewTitle.textContent = data.title;
+        if (previewDesc) previewDesc.textContent = data.description;
+        toast("SEO settings for Memberships saved.");
+      }
+
+      function saveAllSections() {
+        saveHeroSection();
+        saveIntroSection();
+        saveTestiSection();
+        saveCtaSection();
+        saveSeoSection();
+        toast("All Membership page sections saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadAllFields();
+
+        var btnHero = document.getElementById("btn-save-hero");
+        if (btnHero) btnHero.addEventListener("click", saveHeroSection);
+
+        var btnIntro = document.getElementById("btn-save-intro");
+        if (btnIntro) btnIntro.addEventListener("click", saveIntroSection);
+
+        var btnTesti = document.getElementById("btn-save-testimonials");
+        if (btnTesti) btnTesti.addEventListener("click", saveTestiSection);
+
+        var btnCta = document.getElementById("btn-save-cta");
+        if (btnCta) btnCta.addEventListener("click", saveCtaSection);
+
+        var btnSeo = document.getElementById("btn-save-seo");
+        if (btnSeo) btnSeo.addEventListener("click", saveSeoSection);
+
+        var btnAllTop = document.getElementById("btn-save-all-content");
+        if (btnAllTop) btnAllTop.addEventListener("click", saveAllSections);
+
+        var btnAllBot = document.getElementById("btn-save-all-bottom");
+        if (btnAllBot) btnAllBot.addEventListener("click", saveAllSections);
+
+        // Add Review Button
+        var btnAddRev = document.getElementById("btn-add-review");
+        if (btnAddRev) {
+          btnAddRev.addEventListener("click", function () {
+            var author = val("new-rev-author").trim();
+            var quote = val("new-rev-quote").trim();
+            var date = val("new-rev-date") || new Date().toISOString().slice(0, 10);
+            var stars = parseInt(val("new-rev-stars"), 10) || 5;
+
+            if (!author || !quote) {
+              toast("Please enter author name and review quote.", "warn");
+              return;
+            }
+
+            currentReviews.push({
+              id: "rev-" + Date.now(),
+              author: author,
+              date: date,
+              stars: stars,
+              quote: quote
+            });
+            renderReviewRows();
+            setVal("new-rev-author", "");
+            setVal("new-rev-quote", "");
+            toast("Added review quote row.");
+          });
+        }
+
+        // Remove Review Button Delegation
+        var tbody = document.getElementById("tbody-testimonials");
+        if (tbody) {
+          tbody.addEventListener("click", function (e) {
+            var btn = e.target.closest(".btn-remove-rev");
+            if (!btn) return;
+            var idx = parseInt(btn.getAttribute("data-index"), 10);
+            if (!isNaN(idx) && idx >= 0 && idx < currentReviews.length) {
+              currentReviews.splice(idx, 1);
+              renderReviewRows();
+              toast("Review quote removed.");
+            }
+          });
+        }
+
+        // Live update SEO preview
+        var seoTitleInput = document.getElementById("seo-title");
+        var seoDescInput = document.getElementById("seo-desc");
+        if (seoTitleInput) {
+          seoTitleInput.addEventListener("input", function () {
+            var pt = document.getElementById("seo-preview-title");
+            if (pt) pt.textContent = seoTitleInput.value || "Health & Wellness Memberships";
+          });
+        }
+        if (seoDescInput) {
+          seoDescInput.addEventListener("input", function () {
+            var pd = document.getElementById("seo-preview-desc");
+            if (pd) pd.textContent = seoDescInput.value || "";
+          });
+        }
+
+        // Reset Defaults
+        var btnReset = document.getElementById("btn-reset-content-defaults");
+        if (btnReset) {
+          btnReset.addEventListener("click", function () {
+            if (window.confirm("Reset all Membership Page sections (Hero, Policy, Reviews, and CTA) to clinic defaults?")) {
+              store.resetToDefaults();
+              loadAllFields();
+              toast("Membership Page restored to default.");
+            }
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
