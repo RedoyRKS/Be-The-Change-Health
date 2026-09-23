@@ -807,6 +807,10 @@ body.scrolled .header .branding {
   background: var(--btc-navy);
 }
 
+.navmenu .dropdown ul a.active {
+  color: var(--nav-dropdown-hover-color);
+}
+
 /* Mobile nav logo breathing room */
 @media (max-width: 1199px) {
   .header .logo img {
