@@ -234,11 +234,11 @@
       '<header id="header" class="header sticky-top">' +
       '<div class="topbar d-flex align-items-center">' +
       '<div class="container d-flex justify-content-center justify-content-md-between">' +
-      '<div class="contact-info d-flex align-items-center">' +
-      '<i class="bi bi-geo-alt d-flex align-items-center"><span>' +
+      '<div class="contact-info d-flex align-items-center flex-wrap justify-content-center">' +
+      '<i class="bi bi-geo-alt d-none d-sm-flex align-items-center"><span>' +
       NAV_CONFIG.location +
       "</span></i>" +
-      '<i class="bi bi-phone d-flex align-items-center ms-4"><a href="' +
+      '<i class="bi bi-phone d-flex align-items-center ms-sm-4"><a href="' +
       NAV_CONFIG.phoneHref +
       '"><span>' +
       NAV_CONFIG.phone +
@@ -295,7 +295,12 @@
     li.classList.remove("is-open");
     var trigger = li.querySelector(":scope > a");
     var submenu = li.querySelector(":scope > ul");
-    if (submenu) submenu.classList.remove("dropdown-active");
+    if (submenu) {
+      submenu.classList.remove("dropdown-active");
+      submenu.classList.remove("dropdown-align-end");
+      submenu.style.left = "";
+      submenu.style.right = "";
+    }
     if (trigger) setExpanded(trigger, false);
     blurInside(li);
   }
@@ -324,6 +329,30 @@
     var submenu = li.querySelector(":scope > ul");
     if (submenu && isMobileNav()) submenu.classList.add("dropdown-active");
     if (trigger) setExpanded(trigger, true);
+    positionDesktopPanel(li);
+  }
+
+  /** Keep desktop dropdown panels inside the viewport */
+  function positionDesktopPanel(li) {
+    if (isMobileNav() || !li) return;
+    var submenu = li.querySelector(":scope > ul");
+    if (!submenu) return;
+    submenu.style.left = "";
+    submenu.style.right = "";
+    submenu.classList.remove("dropdown-align-end");
+    // Force layout so measurements reflect the open panel
+    void submenu.offsetWidth;
+    var rect = submenu.getBoundingClientRect();
+    var pad = 12;
+    if (rect.right > global.innerWidth - pad) {
+      submenu.style.left = "auto";
+      submenu.style.right = "0";
+      submenu.classList.add("dropdown-align-end");
+    }
+    if (rect.left < pad && !submenu.classList.contains("dropdown-align-end")) {
+      submenu.style.left = "0";
+      submenu.style.right = "auto";
+    }
   }
 
   function toggleSubmenu(trigger) {

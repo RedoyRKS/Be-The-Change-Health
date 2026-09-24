@@ -750,6 +750,8 @@ body.scrolled .header .branding {
 .hours-list li {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
   padding: 0.35rem 0;
   border-bottom: 1px solid rgba(0, 48, 72, 0.08);
   font-size: 0.95rem;
@@ -812,6 +814,18 @@ body.scrolled .header .branding {
   outline-offset: 2px;
 }
 
+.btn-btc-navy,
+.btn-btc.btn-btc-navy {
+  background: var(--btc-navy);
+  border-color: var(--btc-navy);
+}
+
+.btn-btc-navy:hover,
+.btn-btc.btn-btc-navy:hover {
+  background: var(--btc-teal);
+  border-color: var(--btc-teal);
+}
+
 .scroll-top {
   background: var(--btc-teal);
 }
@@ -868,7 +882,8 @@ body.scrolled .header .branding {
     top: 100%;
     margin: 0;
     padding: 0.45rem 0;
-    min-width: 17rem;
+    min-width: 15.5rem;
+    max-width: min(22rem, calc(100vw - 1.5rem));
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -914,7 +929,7 @@ body.scrolled .header .branding {
   }
 
   .navmenu .dropdown > ul li {
-    min-width: 17rem;
+    min-width: 0;
     width: 100%;
   }
 
@@ -943,6 +958,12 @@ body.scrolled .header .branding {
 
   .navmenu .dropdown.is-open > a .toggle-dropdown {
     transform: rotate(180deg);
+  }
+
+  /* Prefer end-align for menus near the right edge of the bar */
+  .navmenu > ul > li.dropdown:nth-last-child(-n+3) > ul {
+    left: auto;
+    right: 0;
   }
 }
 
@@ -1277,6 +1298,18 @@ body.scrolled .header .branding {
   background: linear-gradient(120deg, #003048, #308ca0);
   color: #fff;
   padding: 3.5rem 0;
+}
+
+.cta-band .cta-actions,
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.cta-band .cta-actions {
+  justify-content: center;
 }
 
 .cta-band h2 {
@@ -1659,13 +1692,6 @@ body.scrolled .header .branding {
   .contact-text-actions .btn-btc-outline {
     width: 100%;
     text-align: center;
-  }
-
-  .cta-band .btn-btc,
-  .cta-band .btn-btc-outline {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0 0 !important;
   }
 
   .contact-map-frame iframe {
@@ -3406,7 +3432,8 @@ body.scrolled .header .branding {
 .npq-pricing-wrap {
   border-radius: 10px;
   border: 1px solid rgba(48, 140, 160, 0.12);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .npq-pricing-table {
@@ -4009,5 +4036,457 @@ body.scrolled .header .branding {
   .condition-hub-intro-panel {
     text-align: left;
     padding: 1.25rem;
+  }
+}
+
+/* ========== Global responsive polish ========== */
+
+/* Clip page-level horizontal overflow without breaking sticky header */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* Testimonials swiper: contain off-canvas slides */
+.testimonials,
+.testimonials .swiper,
+.testimonials .init-swiper {
+  overflow: hidden;
+}
+
+/* Prevent media from forcing horizontal scroll */
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.hero img,
+.about-media img,
+.condition-card .card-img img,
+.therapy-card img,
+.membership-card-media img,
+.service-hub-media img,
+.service-article-hero img,
+.blog-card-media img,
+.blog-featured-media img,
+.blog-article-hero img,
+.doctors .team-member .pic img {
+  height: 100%;
+}
+
+.contact-map-frame iframe,
+.map iframe,
+iframe[src*="google.com/maps"] {
+  width: 100%;
+}
+
+.contact-map-frame iframe {
+  min-height: 380px;
+  height: 380px;
+}
+
+@media (max-width: 575px) {
+  .contact-map-frame iframe {
+    min-height: 280px;
+    height: 280px;
+  }
+}
+
+/* iOS: avoid input zoom on focus */
+@media (max-width: 767px) {
+  input.form-control,
+  select.form-control,
+  select.form-select,
+  textarea.form-control,
+  .php-email-form input,
+  .php-email-form select,
+  .php-email-form textarea,
+  .newsletter-band .form-control {
+    font-size: 16px;
+  }
+}
+
+/* Notice bar wraps cleanly on small screens */
+.notice-bar {
+  line-height: 1.45;
+  padding: 0.55rem 0.75rem;
+}
+
+.notice-bar .container {
+  max-width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Topbar: allow content without clipping */
+.header .topbar {
+  height: auto;
+  min-height: 40px;
+  max-height: 72px;
+  padding: 0.35rem 0;
+}
+
+.header .topbar .contact-info {
+  gap: 0.15rem 0;
+  min-width: 0;
+}
+
+.header .topbar .contact-info i {
+  min-width: 0;
+}
+
+.header .topbar .contact-info i span {
+  white-space: nowrap;
+}
+
+/* Crowded desktop nav (logo + 8 items + CTA) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .navmenu a,
+  .navmenu .dropdown > a {
+    font-size: 0.9rem;
+  }
+
+  .navmenu > ul > li {
+    padding: 16px 6px;
+  }
+
+  .header .cta-btn,
+  .header .cta-btn:focus {
+    padding: 8px 14px;
+    font-size: 13px;
+    margin-left: 0.65rem;
+  }
+
+  .header .logo img {
+    max-height: 56px;
+  }
+}
+
+/* Tablet branding: logo + CTA + hamburger share one row */
+@media (max-width: 1199px) {
+  .header .branding {
+    min-height: 64px;
+    padding: 0.3rem 0;
+  }
+
+  .header .branding .container {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .header .cta-btn,
+  .header .cta-btn:focus {
+    padding: 8px 14px;
+    font-size: 13px;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .header .logo {
+    min-width: 0;
+    margin-right: auto !important;
+  }
+
+  /* Mobile drawer clears taller branding + notice */
+  .mobile-nav-active .navmenu > ul {
+    inset: 72px 12px 16px 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header .cta-btn,
+  .header .cta-btn:focus {
+    padding: 7px 12px;
+    font-size: 12px;
+    margin-left: 0.35rem;
+  }
+
+  .header .topbar {
+    max-height: 48px;
+    padding: 0.25rem 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .header .topbar {
+    max-height: 44px;
+  }
+
+  .header .branding {
+    min-height: 60px;
+  }
+
+  .mobile-nav-active .navmenu > ul {
+    inset: 64px 10px 12px 10px;
+  }
+}
+
+/* Home hero — avoid oversized first viewport on small screens */
+@media (max-width: 991px) {
+  .hero {
+    min-height: 0;
+    padding: 3.5rem 0 2.75rem;
+    align-items: flex-start;
+  }
+
+  .hero .content {
+    margin-top: 1.5rem;
+  }
+
+  .hero .content .why-box {
+    padding: 1.25rem 1.35rem;
+  }
+
+  .hero .content .why-box h3 {
+    font-size: clamp(1.2rem, 4vw, 1.55rem);
+    line-height: 1.35;
+  }
+
+  .hero .content .why-box p {
+    font-size: 0.95rem;
+  }
+
+  .hero .content .icon-box {
+    padding: 1.15rem;
+  }
+
+  .hero .content .icon-box h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero .welcome p {
+    font-size: 0.98rem;
+  }
+
+  .page-hero,
+  .page-patients .page-hero,
+  .page-conditions .page-hero {
+    padding: 2.75rem 0 2rem;
+  }
+
+  .page-hero p {
+    font-size: 0.98rem;
+  }
+
+  .cta-band {
+    padding: 2.5rem 0;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+
+  .newsletter-band {
+    padding: 2.5rem 0;
+  }
+
+  .newsletter-band h2 {
+    font-size: 1.4rem;
+  }
+
+  .newsletter-band .btn-subscribe {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* About media height on phones */
+@media (max-width: 575px) {
+  .about-media img {
+    min-height: 240px;
+  }
+
+  .about-media-badge {
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    padding: 0.85rem 0.95rem;
+  }
+}
+
+/* Doctors cards stack earlier than vendor 468px */
+@media (max-width: 575px) {
+  .doctors .team-member {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .doctors .team-member .pic {
+    width: 120px;
+    min-width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .doctors .team-member .member-info {
+    padding-left: 0 !important;
+  }
+
+  .doctors .team-member .social {
+    justify-content: center;
+  }
+}
+
+/* CTA pairs: neutralize ms-* and stack on narrow screens */
+.cta-band .container > a.btn-btc,
+.cta-band .container > a.btn-btc-outline {
+  vertical-align: middle;
+}
+
+@media (max-width: 575px) {
+  .cta-band .container > a.btn-btc,
+  .cta-band .container > a.btn-btc-outline,
+  .cta-actions .btn-btc,
+  .cta-actions .btn-btc-outline,
+  .about-actions .btn-btc,
+  .about-actions .btn-btc-outline,
+  .appointment-actions .btn-btc,
+  .appointment-actions .btn-btc-outline,
+  .contact-text-actions .btn-btc,
+  .contact-text-actions .btn-btc-outline {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .cta-band .container > a.btn-btc,
+  .cta-band .container > a.btn-btc-outline {
+    display: flex;
+    margin-top: 0.65rem;
+  }
+
+  .cta-band .container > a.btn-btc:first-of-type {
+    margin-top: 0.35rem;
+  }
+
+  .cta-actions,
+  .about-actions,
+  .appointment-actions,
+  .contact-text-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Tables: ensure scroll containers work */
+.table-responsive {
+  -webkit-overflow-scrolling: touch;
+}
+
+.npq-pricing-wrap.table-responsive,
+.table-responsive.npq-pricing-wrap {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767px) {
+  .npq-pricing-table {
+    min-width: 36rem;
+  }
+
+  .npq-pricing-table tbody td:first-child {
+    white-space: normal;
+    min-width: 8rem;
+  }
+}
+
+/* Footer columns breathe on tablet */
+@media (max-width: 991px) {
+  .footer .footer-top {
+    padding-top: 2.5rem;
+  }
+
+  .footer .footer-links {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer .footer-about .logo img {
+    max-height: 42px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+
+  section,
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Sticky offset for deep links under sticky header + notice */
+:target {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 1199px) {
+  :target {
+    scroll-margin-top: 88px;
+  }
+}
+
+/* Membership / process / patients cards */
+@media (max-width: 575px) {
+  .membership-card-body {
+    padding: 1.15rem;
+  }
+
+  .process-card p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .membership-intro-panel,
+  .npq-policies-cta {
+    padding: 1.15rem;
+  }
+}
+
+/* Blog toolbar & article media */
+@media (max-width: 767px) {
+  .blog-article-hero {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Modal dialogs on small screens */
+@media (max-width: 575px) {
+  .modal-dialog {
+    margin: 0.75rem;
+  }
+
+  .npq-policies-modal .modal-body {
+    font-size: 0.92rem;
   }
 }
