@@ -63,6 +63,8 @@
   background: #fff;
   box-shadow: 0 2px 16px rgba(0, 48, 72, 0.06);
   transition: box-shadow 0.35s ease;
+  min-height: 72px;
+  padding: 0.35rem 0;
 }
 
 /* Override MediLab abrupt topbar hide for stable sticky header */
@@ -85,9 +87,15 @@ body.scrolled .header .branding {
   box-shadow: none;
 }
 
+.header .logo {
+  line-height: 0;
+  flex-shrink: 0;
+}
+
 .header .logo img {
-  max-height: 56px;
+  max-height: 64px;
   width: auto;
+  display: block;
   transition: max-height 0.3s ease;
 }
 
@@ -95,15 +103,20 @@ body.scrolled .header .branding {
 .header .cta-btn:focus {
   background: var(--btc-teal);
   color: #fff;
-  border-radius: 4px;
-  padding: 8px 20px;
+  border-radius: 999px;
+  padding: 10px 22px;
   font-weight: 600;
   font-size: 14px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-left: 1.25rem;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .header .cta-btn:hover {
   background: var(--btc-navy);
   color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 48, 72, 0.18);
 }
 
 /* Hero */
@@ -838,7 +851,7 @@ body.scrolled .header .branding {
   }
 
   .navmenu > ul > li {
-    padding: 18px 12px;
+    padding: 18px 10px;
   }
 
   .navmenu > ul > li:last-child {
@@ -861,9 +874,9 @@ body.scrolled .header .branding {
     pointer-events: none;
     transform: translateY(0);
     transition:
-      opacity 0.2s ease,
-      visibility 0.2s ease,
-      box-shadow 0.2s ease;
+      opacity 0.18s ease,
+      visibility 0.18s ease,
+      box-shadow 0.18s ease;
     border: 1px solid rgba(0, 48, 72, 0.08);
     border-radius: 6px;
     background: var(--nav-dropdown-background-color);
@@ -881,8 +894,18 @@ body.scrolled .header .branding {
     height: 0.85rem;
   }
 
-  .navmenu .dropdown:hover > ul,
-  .navmenu .dropdown:focus-within > ul {
+  /*
+   * Open state is JS-managed (.is-open) so only one menu shows at a time.
+   * Override vendor :hover open — it kept Services open when moving to siblings.
+   */
+  .navmenu .dropdown:hover > ul {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    top: 100%;
+  }
+
+  .navmenu .dropdown.is-open > ul {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -918,8 +941,7 @@ body.scrolled .header .branding {
     transition: transform 0.2s ease;
   }
 
-  .navmenu .dropdown:hover > a .toggle-dropdown,
-  .navmenu .dropdown:focus-within > a .toggle-dropdown {
+  .navmenu .dropdown.is-open > a .toggle-dropdown {
     transform: rotate(180deg);
   }
 }
@@ -927,7 +949,7 @@ body.scrolled .header .branding {
 /* Mobile nav logo breathing room + dropdown polish */
 @media (max-width: 1199px) {
   .header .logo img {
-    max-height: 44px;
+    max-height: 48px;
   }
 
   .navmenu .dropdown > ul {
