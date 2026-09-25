@@ -130,8 +130,13 @@
           </div>
         </div>
 
-        <!-- TODAY'S SCHEDULE SECTION -->
-        <div class="card-admin today-schedule-card mb-4">
+        <!-- ============================================================
+             LIST VIEW CONTAINER (Single parent container for all List View content)
+             ============================================================ -->
+        <div id="listViewContainer">
+
+          <!-- TODAY'S SCHEDULE SECTION -->
+          <div class="card-admin today-schedule-card mb-4">
           <div class="card-head">
             <div>
               <h2><i class="bi bi-calendar2-day text-teal me-2"></i>Today's Schedule — Thursday, Sep 24, 2026</h2>
@@ -565,11 +570,8 @@
               </div>
             </div>
 
-            <!-- LIST VIEW CONTAINER (Table & Pager) -->
-            <div id="listViewContainer">
-
-              <!-- APPOINTMENT TABLE -->
-              <div class="table-wrap">
+            <!-- APPOINTMENT TABLE -->
+            <div class="table-wrap">
               <table class="table-admin" id="appt-table">
                 <thead>
                   <tr>
@@ -887,84 +889,93 @@
               <span>Page 1 of 1</span>
             </div>
 
+          </div> <!-- /.card-body-admin -->
+        </div> <!-- /.card-admin (Main Appointment List Card) -->
+
+      </div> <!-- /#listViewContainer (Single Parent Container for List View) -->
+
+      <!-- ============================================================
+           CALENDAR VIEW CONTAINER (Single parent container for Calendar View)
+           ============================================================ -->
+      <div id="calendarViewContainer" class="cal-view-container" style="display: none;">
+        
+        <!-- Calendar Navigation & View Mode Header -->
+        <div class="cal-header-bar">
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <div class="cal-nav-group" role="group" aria-label="Calendar Navigation">
+              <button type="button" class="cal-nav-btn" id="calNavPrev" onclick="navigateCalendar('prev')" title="Previous month or week">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button type="button" class="cal-nav-btn today-btn" id="calNavToday" onclick="navigateCalendar('today')" title="Jump to today (Sep 24, 2026)">
+                <i class="bi bi-calendar-event me-1"></i> Today
+              </button>
+              <button type="button" class="cal-nav-btn" id="calNavNext" onclick="navigateCalendar('next')" title="Next month or week">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+            <h3 class="cal-title-display" id="calPeriodTitle">September 2026</h3>
           </div>
-          <!-- /#listViewContainer -->
 
-          <!-- ============================================================
-               CALENDAR VIEW SECTION
-               ============================================================ -->
-          <div id="calendarViewContainer" class="cal-view-container" style="display: none;">
-            
-            <!-- Calendar Navigation & View Mode Header -->
-            <div class="cal-header-bar">
-              <div class="d-flex align-items-center gap-3 flex-wrap">
-                <div class="cal-nav-group" role="group" aria-label="Calendar Navigation">
-                  <button type="button" class="cal-nav-btn" id="calNavPrev" onclick="navigateCalendar('prev')" title="Previous month or week">
-                    <i class="bi bi-chevron-left"></i>
-                  </button>
-                  <button type="button" class="cal-nav-btn today-btn" id="calNavToday" onclick="navigateCalendar('today')" title="Jump to today (Sep 24, 2026)">
-                    <i class="bi bi-calendar-event me-1"></i> Today
-                  </button>
-                  <button type="button" class="cal-nav-btn" id="calNavNext" onclick="navigateCalendar('next')" title="Next month or week">
-                    <i class="bi bi-chevron-right"></i>
-                  </button>
-                </div>
-                <h3 class="cal-title-display" id="calPeriodTitle">September 2026</h3>
-              </div>
-
-              <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- Month View / Week View Switcher -->
-                <div class="cal-mode-toggle" role="group" aria-label="Calendar View Mode">
-                  <button type="button" class="cal-mode-btn active" id="btnCalModeMonth" onclick="setCalendarMode('month')" title="Switch to Month View">
-                    <i class="bi bi-calendar3"></i> Month View
-                  </button>
-                  <button type="button" class="cal-mode-btn" id="btnCalModeWeek" onclick="setCalendarMode('week')" title="Switch to Week View">
-                    <i class="bi bi-calendar-week"></i> Week View
-                  </button>
-                </div>
-              </div>
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <!-- View Switcher: List View vs Calendar View -->
+            <div class="view-switch-segmented me-1" role="tablist" aria-label="Appointments View Switcher">
+              <button type="button" class="view-switch-tab" id="btnCalNavSwitchList" role="tab" aria-selected="false" onclick="setAppointmentsView('list')" title="Switch to List View">
+                <i class="bi bi-list-ul"></i> <span>List View</span>
+              </button>
+              <button type="button" class="view-switch-tab active" id="btnCalNavSwitchCal" role="tab" aria-selected="true" onclick="setAppointmentsView('calendar')" title="Switch to Calendar View">
+                <i class="bi bi-calendar3"></i> <span>Calendar View</span>
+              </button>
             </div>
 
-            <!-- Status Legend Bar -->
-            <div class="cal-legend-bar mb-3">
-              <span class="cal-legend-item"><span class="cal-legend-dot confirmed"></span> Confirmed</span>
-              <span class="cal-legend-item"><span class="cal-legend-dot pending"></span> Pending</span>
-              <span class="cal-legend-item"><span class="cal-legend-dot rescheduled"></span> Reschedule Requested</span>
-              <span class="cal-legend-item"><span class="cal-legend-dot completed"></span> Completed</span>
-              <span class="cal-legend-item"><span class="cal-legend-dot cancelled"></span> Cancelled</span>
-              <span class="cal-legend-item"><span class="cal-legend-dot declined"></span> Declined</span>
+            <!-- Month View / Week View Switcher -->
+            <div class="cal-mode-toggle" role="group" aria-label="Calendar View Mode">
+              <button type="button" class="cal-mode-btn active" id="btnCalModeMonth" onclick="setCalendarMode('month')" title="Switch to Month View">
+                <i class="bi bi-calendar3"></i> Month View
+              </button>
+              <button type="button" class="cal-mode-btn" id="btnCalModeWeek" onclick="setCalendarMode('week')" title="Switch to Week View">
+                <i class="bi bi-calendar-week"></i> Week View
+              </button>
             </div>
-
-            <!-- Month View Grid -->
-            <div id="calMonthView" class="cal-month-wrap">
-              <div class="cal-month-grid">
-                <div class="cal-month-weekdays">
-                  <div class="cal-month-weekday-col">Sunday</div>
-                  <div class="cal-month-weekday-col">Monday</div>
-                  <div class="cal-month-weekday-col">Tuesday</div>
-                  <div class="cal-month-weekday-col">Wednesday</div>
-                  <div class="cal-month-weekday-col">Thursday</div>
-                  <div class="cal-month-weekday-col">Friday</div>
-                  <div class="cal-month-weekday-col">Saturday</div>
-                </div>
-                <div class="cal-month-days-body" id="calMonthDaysGrid">
-                  <!-- Generated dynamically by script -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Week View Grid (Hidden by default) -->
-            <div id="calWeekView" class="cal-week-wrap" style="display: none;">
-              <div class="cal-week-grid" id="calWeekGrid">
-                <!-- Generated dynamically by script -->
-              </div>
-            </div>
-
           </div>
-          <!-- /#calendarViewContainer -->
-
         </div>
+
+        <!-- Status Legend Bar -->
+        <div class="cal-legend-bar mb-3">
+          <span class="cal-legend-item"><span class="cal-legend-dot confirmed"></span> Confirmed</span>
+          <span class="cal-legend-item"><span class="cal-legend-dot pending"></span> Pending</span>
+          <span class="cal-legend-item"><span class="cal-legend-dot rescheduled"></span> Reschedule Requested</span>
+          <span class="cal-legend-item"><span class="cal-legend-dot completed"></span> Completed</span>
+          <span class="cal-legend-item"><span class="cal-legend-dot cancelled"></span> Cancelled</span>
+          <span class="cal-legend-item"><span class="cal-legend-dot declined"></span> Declined</span>
+        </div>
+
+        <!-- Month View Grid -->
+        <div id="calMonthView" class="cal-month-wrap">
+          <div class="cal-month-grid">
+            <div class="cal-month-weekdays">
+              <div class="cal-month-weekday-col">Sunday</div>
+              <div class="cal-month-weekday-col">Monday</div>
+              <div class="cal-month-weekday-col">Tuesday</div>
+              <div class="cal-month-weekday-col">Wednesday</div>
+              <div class="cal-month-weekday-col">Thursday</div>
+              <div class="cal-month-weekday-col">Friday</div>
+              <div class="cal-month-weekday-col">Saturday</div>
+            </div>
+            <div class="cal-month-days-body" id="calMonthDaysGrid">
+              <!-- Generated dynamically by script -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Week View Grid (Hidden by default) -->
+        <div id="calWeekView" class="cal-week-wrap" style="display: none;">
+          <div class="cal-week-grid" id="calWeekGrid">
+            <!-- Generated dynamically by script -->
+          </div>
+        </div>
+
       </div>
+      <!-- /#calendarViewContainer -->
 
         <!-- PUBLIC FORM SETTINGS (Maintained from original admin) -->
         <div class="card-admin mt-4">
@@ -3606,25 +3617,25 @@ First available</textarea>
       CAL_VIEW_STATE.activeView = mode;
       var isCal = (mode === "calendar");
 
-      // Top toggle buttons
-      var btnTopList = document.getElementById("btnTopToggleList");
-      var btnTopCal = document.getElementById("btnTopToggleCal");
-      if (btnTopList && btnTopCal) {
-        btnTopList.classList.toggle("active", !isCal);
-        btnTopList.setAttribute("aria-selected", !isCal ? "true" : "false");
-        btnTopCal.classList.toggle("active", isCal);
-        btnTopCal.setAttribute("aria-selected", isCal ? "true" : "false");
-      }
+      // Update all toggle button pairs (Top Bar, List Card Head, Calendar Bar)
+      var togglePairs = [
+        { list: "btnTopToggleList", cal: "btnTopToggleCal" },
+        { list: "btnSwitchListView", cal: "btnSwitchCalView" },
+        { list: "btnCalNavSwitchList", cal: "btnCalNavSwitchCal" }
+      ];
 
-      // Card header toggle buttons
-      var btnSwitchList = document.getElementById("btnSwitchListView");
-      var btnSwitchCal = document.getElementById("btnSwitchCalView");
-      if (btnSwitchList && btnSwitchCal) {
-        btnSwitchList.classList.toggle("active", !isCal);
-        btnSwitchList.setAttribute("aria-selected", !isCal ? "true" : "false");
-        btnSwitchCal.classList.toggle("active", isCal);
-        btnSwitchCal.setAttribute("aria-selected", isCal ? "true" : "false");
-      }
+      togglePairs.forEach(function(pair) {
+        var btnL = document.getElementById(pair.list);
+        var btnC = document.getElementById(pair.cal);
+        if (btnL) {
+          btnL.classList.toggle("active", !isCal);
+          btnL.setAttribute("aria-selected", !isCal ? "true" : "false");
+        }
+        if (btnC) {
+          btnC.classList.toggle("active", isCal);
+          btnC.setAttribute("aria-selected", isCal ? "true" : "false");
+        }
+      });
 
       var listContainer = document.getElementById("listViewContainer");
       var calContainer = document.getElementById("calendarViewContainer");
@@ -3704,6 +3715,12 @@ First available</textarea>
       var btnSwitchCal = document.getElementById("btnSwitchCalView");
       if (btnSwitchList) btnSwitchList.addEventListener("click", function() { window.setAppointmentsView("list"); });
       if (btnSwitchCal) btnSwitchCal.addEventListener("click", function() { window.setAppointmentsView("calendar"); });
+
+      // Wire calendar bar toggle buttons
+      var btnCalNavSwitchList = document.getElementById("btnCalNavSwitchList");
+      var btnCalNavSwitchCal = document.getElementById("btnCalNavSwitchCal");
+      if (btnCalNavSwitchList) btnCalNavSwitchList.addEventListener("click", function() { window.setAppointmentsView("list"); });
+      if (btnCalNavSwitchCal) btnCalNavSwitchCal.addEventListener("click", function() { window.setAppointmentsView("calendar"); });
 
       // Calendar Mode Switcher (Month View vs Week View)
       var btnModeMonth = document.getElementById("btnCalModeMonth");
