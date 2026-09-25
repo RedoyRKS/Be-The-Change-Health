@@ -27,7 +27,16 @@
             <span>Care Operations</span><span class="sep">/</span>
             <span class="text-dark fw-semibold">Appointment Management</span>
           </nav>
-          <div class="d-flex align-items-center gap-2">
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <!-- View Switcher Toggle beside existing appointment page controls -->
+            <div class="view-switch-segmented me-1" role="tablist" aria-label="Appointments View Switcher">
+              <button type="button" class="view-switch-tab active" id="btnTopToggleList" role="tab" aria-selected="true" onclick="setAppointmentsView('list')" title="Switch to List View">
+                <i class="bi bi-list-ul"></i> <span>List View</span>
+              </button>
+              <button type="button" class="view-switch-tab" id="btnTopToggleCal" role="tab" aria-selected="false" onclick="setAppointmentsView('calendar')" title="Switch to Calendar View">
+                <i class="bi bi-calendar3"></i> <span>Calendar View</span>
+              </button>
+            </div>
             <button class="btn-btc-outline btn-sm-admin" type="button" data-save="Calendar sync complete. All provider calendars up to date.">
               <i class="bi bi-arrow-repeat me-1"></i> Sync Calendars
             </button>
@@ -261,13 +270,22 @@
               <h2>Appointment Requests &amp; Patient Registry</h2>
               <p>Filter, review, approve, reschedule, decline, and track complete appointment lifecycles.</p>
             </div>
-            <div class="d-flex align-items-center gap-2">
-              <span class="text-muted small">Showing <strong id="appt-count-visible">12</strong> of <strong>12</strong> appointments</span>
+            <div class="d-flex align-items-center gap-3">
+              <!-- View Switcher Tabs -->
+              <div class="view-switch-segmented" role="tablist" aria-label="Appointments View Switcher">
+                <button type="button" class="view-switch-tab active" id="btnSwitchListView" role="tab" aria-selected="true" onclick="setAppointmentsView('list')" title="Switch to List View">
+                  <i class="bi bi-list-ul"></i> <span>List View</span>
+                </button>
+                <button type="button" class="view-switch-tab" id="btnSwitchCalView" role="tab" aria-selected="false" onclick="setAppointmentsView('calendar')" title="Switch to Calendar View">
+                  <i class="bi bi-calendar3"></i> <span>Calendar View</span>
+                </button>
+              </div>
+              <span class="text-muted small d-none d-lg-inline">Showing <strong id="appt-count-visible">12</strong> of <strong>12</strong> appointments</span>
             </div>
           </div>
           <div class="card-body-admin">
 
-            <!-- Filter Status Pill Tabs -->
+            <!-- Filter Status Pill Tabs (Shared for List View & Calendar View) -->
             <div class="filter-pill-tabs mb-3" id="statusPillContainer">
               <button type="button" class="filter-pill-tab active" data-status-filter="">
                 <i class="bi bi-collection"></i> All Requests <span class="count-badge">12</span>
@@ -547,8 +565,11 @@
               </div>
             </div>
 
-            <!-- APPOINTMENT TABLE -->
-            <div class="table-wrap">
+            <!-- LIST VIEW CONTAINER (Table & Pager) -->
+            <div id="listViewContainer">
+
+              <!-- APPOINTMENT TABLE -->
+              <div class="table-wrap">
               <table class="table-admin" id="appt-table">
                 <thead>
                   <tr>
@@ -867,7 +888,83 @@
             </div>
 
           </div>
+          <!-- /#listViewContainer -->
+
+          <!-- ============================================================
+               CALENDAR VIEW SECTION
+               ============================================================ -->
+          <div id="calendarViewContainer" class="cal-view-container" style="display: none;">
+            
+            <!-- Calendar Navigation & View Mode Header -->
+            <div class="cal-header-bar">
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <div class="cal-nav-group" role="group" aria-label="Calendar Navigation">
+                  <button type="button" class="cal-nav-btn" id="calNavPrev" onclick="navigateCalendar('prev')" title="Previous month or week">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <button type="button" class="cal-nav-btn today-btn" id="calNavToday" onclick="navigateCalendar('today')" title="Jump to today (Sep 24, 2026)">
+                    <i class="bi bi-calendar-event me-1"></i> Today
+                  </button>
+                  <button type="button" class="cal-nav-btn" id="calNavNext" onclick="navigateCalendar('next')" title="Next month or week">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+                <h3 class="cal-title-display" id="calPeriodTitle">September 2026</h3>
+              </div>
+
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <!-- Month View / Week View Switcher -->
+                <div class="cal-mode-toggle" role="group" aria-label="Calendar View Mode">
+                  <button type="button" class="cal-mode-btn active" id="btnCalModeMonth" onclick="setCalendarMode('month')" title="Switch to Month View">
+                    <i class="bi bi-calendar3"></i> Month View
+                  </button>
+                  <button type="button" class="cal-mode-btn" id="btnCalModeWeek" onclick="setCalendarMode('week')" title="Switch to Week View">
+                    <i class="bi bi-calendar-week"></i> Week View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Legend Bar -->
+            <div class="cal-legend-bar mb-3">
+              <span class="cal-legend-item"><span class="cal-legend-dot confirmed"></span> Confirmed</span>
+              <span class="cal-legend-item"><span class="cal-legend-dot pending"></span> Pending</span>
+              <span class="cal-legend-item"><span class="cal-legend-dot rescheduled"></span> Reschedule Requested</span>
+              <span class="cal-legend-item"><span class="cal-legend-dot completed"></span> Completed</span>
+              <span class="cal-legend-item"><span class="cal-legend-dot cancelled"></span> Cancelled</span>
+              <span class="cal-legend-item"><span class="cal-legend-dot declined"></span> Declined</span>
+            </div>
+
+            <!-- Month View Grid -->
+            <div id="calMonthView" class="cal-month-wrap">
+              <div class="cal-month-grid">
+                <div class="cal-month-weekdays">
+                  <div class="cal-month-weekday-col">Sunday</div>
+                  <div class="cal-month-weekday-col">Monday</div>
+                  <div class="cal-month-weekday-col">Tuesday</div>
+                  <div class="cal-month-weekday-col">Wednesday</div>
+                  <div class="cal-month-weekday-col">Thursday</div>
+                  <div class="cal-month-weekday-col">Friday</div>
+                  <div class="cal-month-weekday-col">Saturday</div>
+                </div>
+                <div class="cal-month-days-body" id="calMonthDaysGrid">
+                  <!-- Generated dynamically by script -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Week View Grid (Hidden by default) -->
+            <div id="calWeekView" class="cal-week-wrap" style="display: none;">
+              <div class="cal-week-grid" id="calWeekGrid">
+                <!-- Generated dynamically by script -->
+              </div>
+            </div>
+
+          </div>
+          <!-- /#calendarViewContainer -->
+
         </div>
+      </div>
 
         <!-- PUBLIC FORM SETTINGS (Maintained from original admin) -->
         <div class="card-admin mt-4">
@@ -2719,6 +2816,15 @@ First available</textarea>
         }
       }
 
+      // Synchronize in-memory store & active calendar view
+      if (APPOINTMENT_STORE[currentActiveAptId]) {
+        APPOINTMENT_STORE[currentActiveAptId].status = newStatus;
+        APPOINTMENT_STORE[currentActiveAptId].statusBadgeClass = badgeClass;
+      }
+      if (typeof CAL_VIEW_STATE !== "undefined" && CAL_VIEW_STATE.activeView === "calendar") {
+        renderActiveCalendarView();
+      }
+
       if (window.toast) {
         window.toast("Status updated to " + newStatus + ".");
       }
@@ -2781,6 +2887,9 @@ First available</textarea>
 
       document.getElementById("appt-count-visible").textContent = visible;
       document.getElementById("pager-count").textContent = visible;
+      if (typeof renderActiveCalendarView === "function" && typeof CAL_VIEW_STATE !== "undefined" && CAL_VIEW_STATE.activeView === "calendar") {
+        renderActiveCalendarView();
+      }
     }
 
     // Attach Search & Filter Listeners
@@ -3075,13 +3184,579 @@ First available</textarea>
 
     // All custom select dropdowns and calendar popovers are globally managed by script.js (BTCAdmin)
 
+    /**
+     * ============================================================
+     * APPOINTMENTS CALENDAR VIEW MODULE (Month & Week Views)
+     * ============================================================
+     */
+    var CAL_MONTH_NAMES = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    var CAL_MONTH_SHORT = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    var CAL_VIEW_STATE = {
+      activeView: "list", // "list" | "calendar"
+      calendarMode: "month", // "month" | "week"
+      currentYear: 2026,
+      currentMonth: 8, // September (0-indexed)
+      weekStartDate: new Date(2026, 8, 20), // Sunday of current week
+      todayYear: 2026,
+      todayMonth: 8,
+      todayDay: 24,
+      searchQuery: "",
+      providerFilter: "",
+      statusFilter: ""
+    };
+
+    /**
+     * Parse Appointment Time string to extract 24h start hour and formatted display range
+     */
+    function parseAppointmentTime(timeStr) {
+      if (!timeStr) return { display: "TBD", hour: 9, minutes: 0 };
+      var rangeMatch = timeStr.match(/(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[–-]\s*(\d{1,2}:\d{2}\s*(?:AM|PM))/i);
+      var timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      var displayTime = timeStr;
+      var hour24 = 9;
+      var minutes = 0;
+
+      if (rangeMatch) {
+        displayTime = rangeMatch[1] + " – " + rangeMatch[2];
+      } else if (timeMatch) {
+        displayTime = timeMatch[1] + ":" + timeMatch[2] + " " + timeMatch[3].toUpperCase();
+      }
+
+      if (timeMatch) {
+        var h = parseInt(timeMatch[1], 10);
+        var m = parseInt(timeMatch[2], 10);
+        var ampm = timeMatch[3].toUpperCase();
+        if (ampm === "PM" && h < 12) h += 12;
+        if (ampm === "AM" && h === 12) h = 0;
+        hour24 = h;
+        minutes = m;
+      }
+
+      return {
+        display: displayTime,
+        hour: hour24,
+        minutes: minutes
+      };
+    }
+
+    /**
+     * Retrieve and filter appointments for a specific date (YYYY-MM-DD)
+     */
+    function getAppointmentsForDate(isoDate) {
+      var results = [];
+
+      // Read live filter values from the page controls
+      var q = (document.getElementById("filter-search") ? document.getElementById("filter-search").value : "").toLowerCase().trim();
+      var status = (document.getElementById("filter-status-select") ? document.getElementById("filter-status-select").value : "").toLowerCase().trim();
+      var ptype = (document.getElementById("filter-ptype-select") ? document.getElementById("filter-ptype-select").value : "").trim();
+      var visit = (document.getElementById("filter-visit-select") ? document.getElementById("filter-visit-select").value : "").toLowerCase().trim();
+      var provider = (document.getElementById("filter-provider-select") ? document.getElementById("filter-provider-select").value : "").trim();
+      var service = (document.getElementById("filter-service-select") ? document.getElementById("filter-service-select").value : "").toLowerCase().trim();
+      var dateFilter = (document.getElementById("filter-date-input") ? document.getElementById("filter-date-input").value : "").trim();
+
+      // Check CAL_VIEW_STATE overrides if any
+      if (!status && CAL_VIEW_STATE.statusFilter) status = CAL_VIEW_STATE.statusFilter.toLowerCase().trim();
+      if (!provider && CAL_VIEW_STATE.providerFilter) provider = CAL_VIEW_STATE.providerFilter.trim();
+      if (!q && CAL_VIEW_STATE.searchQuery) q = CAL_VIEW_STATE.searchQuery.toLowerCase().trim();
+
+      Object.keys(APPOINTMENT_STORE).forEach(function(key) {
+        var item = APPOINTMENT_STORE[key];
+        if (item.dateRaw !== isoDate) return;
+
+        // Specific date filter
+        if (dateFilter && item.dateRaw !== dateFilter) return;
+
+        // Status Filter
+        if (status) {
+          var itemStatus = (item.status || "").toLowerCase();
+          if (status === "reschedule") {
+            if (itemStatus.indexOf("reschedule") === -1) return;
+          } else {
+            if (itemStatus !== status) return;
+          }
+        }
+
+        // Patient Type Filter (New / Existing)
+        if (ptype && item.ptype !== ptype) return;
+
+        // Visit Type Filter (in-office / telehealth)
+        if (visit) {
+          var itemVisit = (item.visit || "").toLowerCase();
+          if (itemVisit.indexOf(visit) === -1) return;
+        }
+
+        // Provider Filter
+        if (provider) {
+          if (item.provider !== provider && item.provider.indexOf(provider) === -1) return;
+        }
+
+        // Service Filter
+        if (service) {
+          if ((item.service || "").toLowerCase().indexOf(service) === -1) return;
+        }
+
+        // Search Query
+        if (q) {
+          var haystack = (item.name + " " + item.service + " " + item.provider + " " + (item.email || "") + " " + (item.phone || "") + " " + (item.notes || "")).toLowerCase();
+          if (haystack.indexOf(q) === -1) return;
+        }
+
+        var parsed = parseAppointmentTime(item.time);
+        results.push({
+          item: item,
+          parsedTime: parsed
+        });
+      });
+
+      // Chronological sort
+      results.sort(function(a, b) {
+        return (a.parsedTime.hour * 60 + a.parsedTime.minutes) - (b.parsedTime.hour * 60 + b.parsedTime.minutes);
+      });
+
+      return results;
+    }
+
+    /**
+     * Render an individual appointment event card
+     */
+    function renderCalendarEventCard(aptObj) {
+      var item = aptObj.item;
+      var parsed = aptObj.parsedTime;
+      var statusKey = (item.status || "").toLowerCase();
+      var statusClass = "status-confirmed";
+      if (statusKey.indexOf("pending") !== -1) statusClass = "status-pending";
+      else if (statusKey.indexOf("reschedule") !== -1) statusClass = "status-rescheduled";
+      else if (statusKey.indexOf("completed") !== -1) statusClass = "status-completed";
+      else if (statusKey.indexOf("cancel") !== -1) statusClass = "status-cancelled";
+      else if (statusKey.indexOf("decline") !== -1) statusClass = "status-declined";
+
+      var isTelehealth = item.visit && item.visit.toLowerCase().indexOf("tele") !== -1;
+      var visitIcon = isTelehealth ? '<i class="bi bi-laptop text-primary" title="Telehealth"></i>' : '<i class="bi bi-building text-secondary" title="In-office"></i>';
+
+      var conflictHtml = "";
+      if (item.id === "apt-2") {
+        conflictHtml = '<span class="badge-admin badge-conflict ms-1" style="font-size:0.6rem; padding:0 3px;" title="Time Conflict with Marcus Vance">⚠ Overlap</span>';
+      }
+
+      var html = '<div class="cal-event-card ' + statusClass + '" onclick="openAppointmentDetail(\'' + item.id + '\')" title="Click to view details: ' + item.name + ' (' + item.service + ')">';
+      
+      // Top row: Time + Visit Type
+      html += '<div class="cal-event-top-line">' +
+                '<span class="cal-event-time"><i class="bi bi-clock text-muted"></i> ' + parsed.display + '</span>' +
+                '<span class="cal-event-visit-type">' + visitIcon + '</span>' +
+              '</div>';
+      
+      // Patient Name
+      html += '<div class="cal-event-patient">' + item.name + conflictHtml + '</div>';
+
+      // Service Name
+      html += '<div class="cal-event-service" title="' + item.service + '">' + item.service + '</div>';
+
+      // Bottom Row: Provider + Status Badge
+      html += '<div class="cal-event-bottom-line">' +
+                '<span class="cal-event-provider"><i class="bi bi-person-badge me-1"></i>' + (item.provider.indexOf("Jessica") !== -1 ? "Dr. Needle" : "Dr. Afrooz") + '</span>' +
+                '<span class="badge-admin ' + item.statusBadgeClass + ' cal-event-badge">' + item.status + '</span>' +
+              '</div>';
+
+      html += '</div>';
+      return html;
+    }
+
+    /**
+     * Render Month View
+     */
+    function renderMonthView() {
+      var y = CAL_VIEW_STATE.currentYear;
+      var m = CAL_VIEW_STATE.currentMonth;
+      
+      // Update Title
+      document.getElementById("calPeriodTitle").textContent = CAL_MONTH_NAMES[m] + " " + y;
+
+      var firstDayOfWeek = new Date(y, m, 1).getDay(); // 0 = Sun
+      var daysInCurrentMonth = new Date(y, m + 1, 0).getDate(); // 30 for Sep
+      var daysInPrevMonth = new Date(y, m, 0).getDate(); // 31 for Aug
+
+      var container = document.getElementById("calMonthDaysGrid");
+      if (!container) return;
+      container.innerHTML = "";
+
+      var totalCells = 35;
+      if (firstDayOfWeek + daysInCurrentMonth > 35) {
+        totalCells = 42;
+      }
+
+      var currentCellDay = 1;
+      var nextMonthDay = 1;
+
+      for (var i = 0; i < totalCells; i++) {
+        var cell = document.createElement("div");
+        cell.className = "cal-month-day-cell";
+
+        var cellYear, cellMonth, cellDay, isOtherMonth = false;
+
+        if (i < firstDayOfWeek) {
+          // Leading prev month days
+          cellDay = daysInPrevMonth - (firstDayOfWeek - 1 - i);
+          cellMonth = (m === 0) ? 11 : m - 1;
+          cellYear = (m === 0) ? y - 1 : y;
+          isOtherMonth = true;
+          cell.classList.add("other-month");
+        } else if (currentCellDay <= daysInCurrentMonth) {
+          // Current month days
+          cellDay = currentCellDay;
+          cellMonth = m;
+          cellYear = y;
+          currentCellDay++;
+        } else {
+          // Trailing next month days
+          cellDay = nextMonthDay;
+          cellMonth = (m === 11) ? 0 : m + 1;
+          cellYear = (m === 11) ? y + 1 : y;
+          nextMonthDay++;
+          isOtherMonth = true;
+          cell.classList.add("other-month");
+        }
+
+        var isToday = (cellYear === CAL_VIEW_STATE.todayYear && cellMonth === CAL_VIEW_STATE.todayMonth && cellDay === CAL_VIEW_STATE.todayDay);
+        if (isToday) {
+          cell.classList.add("today-cell");
+        }
+
+        var isoDate = formatCalISO(cellYear, cellMonth, cellDay);
+        var appointments = getAppointmentsForDate(isoDate);
+
+        // Header for day cell
+        var headerHtml = '<div class="cal-month-day-header">' +
+                           '<span class="cal-month-day-num">' + cellDay + '</span>';
+        if (isToday) {
+          headerHtml += '<span class="cal-today-badge">TODAY</span>';
+        } else if (appointments.length > 0) {
+          headerHtml += '<span class="cal-day-count-badge">' + appointments.length + (appointments.length === 1 ? ' visit' : ' visits') + '</span>';
+        }
+        headerHtml += '</div>';
+
+        // Events list
+        var eventsHtml = '<div class="cal-month-events-list">';
+        appointments.forEach(function(apt) {
+          eventsHtml += renderCalendarEventCard(apt);
+        });
+        eventsHtml += '</div>';
+
+        cell.innerHTML = headerHtml + eventsHtml;
+        container.appendChild(cell);
+      }
+    }
+
+    /**
+     * Render Week View
+     */
+    function renderWeekView() {
+      var weekStart = new Date(CAL_VIEW_STATE.weekStartDate);
+      var dayDates = [];
+      for (var i = 0; i < 7; i++) {
+        var d = new Date(weekStart);
+        d.setDate(weekStart.getDate() + i);
+        dayDates.push(d);
+      }
+
+      // Format Period Title e.g. "Sep 20 – Sep 26, 2026"
+      var d0 = dayDates[0];
+      var d6 = dayDates[6];
+      var m0 = CAL_MONTH_SHORT[d0.getMonth()];
+      var m6 = CAL_MONTH_SHORT[d6.getMonth()];
+      var y0 = d0.getFullYear();
+      var y6 = d6.getFullYear();
+      var periodText = "";
+      if (y0 === y6) {
+        if (m0 === m6) {
+          periodText = m0 + " " + d0.getDate() + " – " + d6.getDate() + ", " + y0;
+        } else {
+          periodText = m0 + " " + d0.getDate() + " – " + m6 + " " + d6.getDate() + ", " + y0;
+        }
+      } else {
+        periodText = m0 + " " + d0.getDate() + ", " + y0 + " – " + m6 + " " + d6.getDate() + ", " + y6;
+      }
+      document.getElementById("calPeriodTitle").textContent = periodText;
+
+      var container = document.getElementById("calWeekGrid");
+      if (!container) return;
+      container.innerHTML = "";
+
+      var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+      // 1. Build Header Row
+      var headerRow = document.createElement("div");
+      headerRow.className = "cal-week-header-row";
+
+      var timeHeader = document.createElement("div");
+      timeHeader.className = "cal-week-time-header-cell";
+      timeHeader.textContent = "TIME";
+      headerRow.appendChild(timeHeader);
+
+      for (var j = 0; j < 7; j++) {
+        var curDate = dayDates[j];
+        var isToday = (curDate.getFullYear() === CAL_VIEW_STATE.todayYear && curDate.getMonth() === CAL_VIEW_STATE.todayMonth && curDate.getDate() === CAL_VIEW_STATE.todayDay);
+
+        var dayHeader = document.createElement("div");
+        dayHeader.className = "cal-week-day-header-cell" + (isToday ? " today-col" : "");
+
+        var nameEl = document.createElement("div");
+        nameEl.className = "cal-week-day-name";
+        nameEl.textContent = dayNames[j];
+
+        var dateEl = document.createElement("div");
+        dateEl.className = "cal-week-day-date";
+        dateEl.textContent = curDate.getDate();
+
+        dayHeader.appendChild(nameEl);
+        dayHeader.appendChild(dateEl);
+        if (isToday) {
+          var todayBadge = document.createElement("span");
+          todayBadge.className = "cal-today-badge mt-1 d-inline-block";
+          todayBadge.textContent = "TODAY";
+          dayHeader.appendChild(todayBadge);
+        }
+
+        headerRow.appendChild(dayHeader);
+      }
+      container.appendChild(headerRow);
+
+      // 2. Build Body Rows (Hours: 8 AM to 6 PM)
+      var bodyWrap = document.createElement("div");
+      bodyWrap.className = "cal-week-body";
+
+      var hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+      var hourLabels = [
+        "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+        "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM"
+      ];
+
+      hours.forEach(function(hr, idx) {
+        var row = document.createElement("div");
+        row.className = "cal-week-hour-row";
+
+        // Time label
+        var timeCell = document.createElement("div");
+        timeCell.className = "cal-week-time-label-cell";
+        timeCell.textContent = hourLabels[idx];
+        row.appendChild(timeCell);
+
+        // 7 day slot cells
+        for (var k = 0; k < 7; k++) {
+          var curD = dayDates[k];
+          var isTd = (curD.getFullYear() === CAL_VIEW_STATE.todayYear && curD.getMonth() === CAL_VIEW_STATE.todayMonth && curD.getDate() === CAL_VIEW_STATE.todayDay);
+
+          var slotCell = document.createElement("div");
+          slotCell.className = "cal-week-slot-cell" + (isTd ? " today-col" : "");
+
+          var isoD = formatCalISO(curD.getFullYear(), curD.getMonth(), curD.getDate());
+          var dayAppts = getAppointmentsForDate(isoD);
+
+          // Find appointments matching this hour slot
+          var matchingAppts = dayAppts.filter(function(a) {
+            return a.parsedTime.hour === hr;
+          });
+
+          if (matchingAppts.length > 1) {
+            slotCell.innerHTML += '<div class="cal-conflict-notice"><i class="bi bi-exclamation-triangle-fill text-danger me-1"></i><strong>' + matchingAppts.length + ' Concurrent Visits</strong></div>';
+          }
+
+          matchingAppts.forEach(function(apt) {
+            slotCell.innerHTML += renderCalendarEventCard(apt);
+          });
+
+          row.appendChild(slotCell);
+        }
+
+        bodyWrap.appendChild(row);
+      });
+
+      container.appendChild(bodyWrap);
+    }
+
+    /**
+     * Render the active Calendar view mode
+     */
+    function renderActiveCalendarView() {
+      var monthViewWrap = document.getElementById("calMonthView");
+      var weekViewWrap = document.getElementById("calWeekView");
+      if (CAL_VIEW_STATE.calendarMode === "month") {
+        if (monthViewWrap) monthViewWrap.style.display = "block";
+        if (weekViewWrap) weekViewWrap.style.display = "none";
+        renderMonthView();
+      } else {
+        if (monthViewWrap) monthViewWrap.style.display = "none";
+        if (weekViewWrap) weekViewWrap.style.display = "block";
+        renderWeekView();
+      }
+    }
+
+    /**
+     * Global Controller: Switch between List View and Calendar View
+     */
+    window.setAppointmentsView = function(mode) {
+      CAL_VIEW_STATE.activeView = mode;
+      var isCal = (mode === "calendar");
+
+      // Top toggle buttons
+      var btnTopList = document.getElementById("btnTopToggleList");
+      var btnTopCal = document.getElementById("btnTopToggleCal");
+      if (btnTopList && btnTopCal) {
+        btnTopList.classList.toggle("active", !isCal);
+        btnTopList.setAttribute("aria-selected", !isCal ? "true" : "false");
+        btnTopCal.classList.toggle("active", isCal);
+        btnTopCal.setAttribute("aria-selected", isCal ? "true" : "false");
+      }
+
+      // Card header toggle buttons
+      var btnSwitchList = document.getElementById("btnSwitchListView");
+      var btnSwitchCal = document.getElementById("btnSwitchCalView");
+      if (btnSwitchList && btnSwitchCal) {
+        btnSwitchList.classList.toggle("active", !isCal);
+        btnSwitchList.setAttribute("aria-selected", !isCal ? "true" : "false");
+        btnSwitchCal.classList.toggle("active", isCal);
+        btnSwitchCal.setAttribute("aria-selected", isCal ? "true" : "false");
+      }
+
+      var listContainer = document.getElementById("listViewContainer");
+      var calContainer = document.getElementById("calendarViewContainer");
+      if (listContainer) listContainer.style.display = isCal ? "none" : "block";
+      if (calContainer) calContainer.style.display = isCal ? "block" : "none";
+
+      if (isCal) {
+        renderActiveCalendarView();
+      }
+    };
+
+    /**
+     * Global Controller: Switch Calendar Mode (Month View vs Week View)
+     */
+    window.setCalendarMode = function(mode) {
+      CAL_VIEW_STATE.calendarMode = mode;
+      var btnModeMonth = document.getElementById("btnCalModeMonth");
+      var btnModeWeek = document.getElementById("btnCalModeWeek");
+      var monthViewWrap = document.getElementById("calMonthView");
+      var weekViewWrap = document.getElementById("calWeekView");
+
+      if (btnModeMonth && btnModeWeek) {
+        btnModeMonth.classList.toggle("active", mode === "month");
+        btnModeWeek.classList.toggle("active", mode === "week");
+      }
+      if (monthViewWrap) monthViewWrap.style.display = (mode === "month") ? "block" : "none";
+      if (weekViewWrap) weekViewWrap.style.display = (mode === "week") ? "block" : "none";
+
+      renderActiveCalendarView();
+    };
+
+    /**
+     * Global Controller: Navigate Calendar (Previous, Today, Next)
+     */
+    window.navigateCalendar = function(direction) {
+      if (direction === "prev") {
+        if (CAL_VIEW_STATE.calendarMode === "month") {
+          CAL_VIEW_STATE.currentMonth--;
+          if (CAL_VIEW_STATE.currentMonth < 0) {
+            CAL_VIEW_STATE.currentMonth = 11;
+            CAL_VIEW_STATE.currentYear--;
+          }
+        } else {
+          CAL_VIEW_STATE.weekStartDate.setDate(CAL_VIEW_STATE.weekStartDate.getDate() - 7);
+        }
+      } else if (direction === "next") {
+        if (CAL_VIEW_STATE.calendarMode === "month") {
+          CAL_VIEW_STATE.currentMonth++;
+          if (CAL_VIEW_STATE.currentMonth > 11) {
+            CAL_VIEW_STATE.currentMonth = 0;
+            CAL_VIEW_STATE.currentYear++;
+          }
+        } else {
+          CAL_VIEW_STATE.weekStartDate.setDate(CAL_VIEW_STATE.weekStartDate.getDate() + 7);
+        }
+      } else if (direction === "today") {
+        CAL_VIEW_STATE.currentYear = CAL_VIEW_STATE.todayYear;
+        CAL_VIEW_STATE.currentMonth = CAL_VIEW_STATE.todayMonth;
+        CAL_VIEW_STATE.weekStartDate = new Date(2026, 8, 20); // Week of Sep 24, 2026
+        if (window.toast) window.toast("Returned to today's schedule.");
+      }
+      renderActiveCalendarView();
+    };
+
+    /**
+     * Initialize View Switcher & Calendar Handlers
+     */
+    function initCalendarView() {
+      // Wire top toggle buttons
+      var btnTopList = document.getElementById("btnTopToggleList");
+      var btnTopCal = document.getElementById("btnTopToggleCal");
+      if (btnTopList) btnTopList.addEventListener("click", function() { window.setAppointmentsView("list"); });
+      if (btnTopCal) btnTopCal.addEventListener("click", function() { window.setAppointmentsView("calendar"); });
+
+      // Wire card header toggle buttons
+      var btnSwitchList = document.getElementById("btnSwitchListView");
+      var btnSwitchCal = document.getElementById("btnSwitchCalView");
+      if (btnSwitchList) btnSwitchList.addEventListener("click", function() { window.setAppointmentsView("list"); });
+      if (btnSwitchCal) btnSwitchCal.addEventListener("click", function() { window.setAppointmentsView("calendar"); });
+
+      // Calendar Mode Switcher (Month View vs Week View)
+      var btnModeMonth = document.getElementById("btnCalModeMonth");
+      var btnModeWeek = document.getElementById("btnCalModeWeek");
+      if (btnModeMonth) btnModeMonth.addEventListener("click", function() { window.setCalendarMode("month"); });
+      if (btnModeWeek) btnModeWeek.addEventListener("click", function() { window.setCalendarMode("week"); });
+
+      // Calendar Navigation: Prev, Today, Next
+      var btnNavPrev = document.getElementById("calNavPrev");
+      var btnNavNext = document.getElementById("calNavNext");
+      var btnNavToday = document.getElementById("calNavToday");
+      if (btnNavPrev) btnNavPrev.addEventListener("click", function() { window.navigateCalendar("prev"); });
+      if (btnNavNext) btnNavNext.addEventListener("click", function() { window.navigateCalendar("next"); });
+      if (btnNavToday) btnNavToday.addEventListener("click", function() { window.navigateCalendar("today"); });
+
+      // Hash change listener
+      if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+        window.addEventListener("hashchange", function() {
+          var h = (window.location.hash || "").replace("#", "").toLowerCase();
+          if (h === "calendar" || h === "cal") {
+            window.setAppointmentsView("calendar");
+          } else if (h === "list") {
+            window.setAppointmentsView("list");
+          }
+        });
+      }
+
+      // Auto-detect URL parameter or hash
+      var urlParams = (typeof window !== "undefined" && window.location && window.location.search) ? new URLSearchParams(window.location.search) : new URLSearchParams("");
+      var hashVal = (typeof window !== "undefined" && window.location && window.location.hash) ? window.location.hash.replace("#", "") : "";
+      var viewParam = urlParams.get("view") || hashVal;
+      if (viewParam === "calendar" || viewParam === "cal") {
+        window.setAppointmentsView("calendar");
+      } else if (viewParam === "week") {
+        window.setAppointmentsView("calendar");
+        window.setCalendarMode("week");
+      } else if (viewParam === "month") {
+        window.setAppointmentsView("calendar");
+        window.setCalendarMode("month");
+      }
+    }
+
+    // Initialize calendar module
+    initCalendarView();
+
     // Test automation hook for headless visual verification
     var urlParams = new URLSearchParams(window.location.search);
     var testAction = urlParams.get("testAction");
     if (testAction) {
       setTimeout(function() {
         var toolbar = document.querySelector(".table-toolbar");
-        if (toolbar) toolbar.scrollIntoView();
+        if (toolbar && testAction.indexOf("view") === -1 && testAction.indexOf("cal") === -1) toolbar.scrollIntoView();
+
         if (testAction === "openStatus") {
           var el = document.getElementById("filterStatusTrigger");
           if (el) el.click();
@@ -3103,6 +3778,34 @@ First available</textarea>
         } else if (testAction === "selectPending") {
           var opt = document.querySelector("#filterStatusTrigger").closest(".filter-select-wrapper").querySelector('.custom-select-option[data-value="pending"]');
           if (opt) opt.click();
+        } else if (testAction === "viewCalendar") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+        } else if (testAction === "viewWeek") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+          var weekBtn = document.getElementById("btnCalModeWeek");
+          if (weekBtn) weekBtn.click();
+        } else if (testAction === "viewMonth") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+          var monthBtn = document.getElementById("btnCalModeMonth");
+          if (monthBtn) monthBtn.click();
+        } else if (testAction === "calNext") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+          var nextBtn = document.getElementById("calNavNext");
+          if (nextBtn) nextBtn.click();
+        } else if (testAction === "calPrev") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+          var prevBtn = document.getElementById("calNavPrev");
+          if (prevBtn) prevBtn.click();
+        } else if (testAction === "calToday") {
+          var calBtn = document.getElementById("btnSwitchCalView");
+          if (calBtn) calBtn.click();
+          var todayBtn = document.getElementById("calNavToday");
+          if (todayBtn) todayBtn.click();
         }
       }, 350);
     }
