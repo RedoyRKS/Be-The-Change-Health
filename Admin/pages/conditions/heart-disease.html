@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heart Disease Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .condition-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="condition-heart-disease">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Conditions</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Heart Disease</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/heart-disease.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/conditions/heart-disease.html</p>
+              <h2>Heart Disease Page Content Management</h2>
+              <p>Configure hero headline and subtitle, lead text, "What is heart disease" overview, cardiovascular risk factors (hypertension, cholesterol, smoking), holistic care options, medical testing, and the CTA band.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="concussion.html">
+                Next: Concussion CMS →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-heart-pulse text-teal"></i> Cardiovascular Focus
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Holistic Heart Care</h4>
+                  <small class="text-muted">Hypertension, cholesterol, prevention</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-exclamation-triangle text-teal"></i> Core Risk Factors
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">3 Risk Drivers</h4>
+                  <small class="text-muted">Hypertension, Lipids, Smoking</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-eyedropper text-teal"></i> Diagnostic Testing
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Medical Testing</h4>
+                  <small class="text-muted">Blood chemistry &amp; genetics</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-image text-teal"></i> Clinical Visuals
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">2 Figures</h4>
+                  <small class="text-muted">8 Main Types &amp; Cessation</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-hero">01. Hero &amp; Breadcrumb</a>
+          <a href="#section-lead">02. Article Lead &amp; Image</a>
+          <a href="#section-whatis">03. What is Heart Disease</a>
+          <a href="#section-risks">04. Risk Factors</a>
+          <a href="#section-holistic">05. Holistic Treatment</a>
+          <a href="#section-testing">06. Medical Testing</a>
+          <a href="#section-cta">07. Bottom CTA Band</a>
+          <a href="#section-seo">08. SEO &amp; SERP</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Hero & Breadcrumb -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Page Hero &amp; Breadcrumb</h3>
+                <p>Headline, subtitle, and breadcrumb hierarchy trail on heart-disease.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Hero Title (H1) *</label>
+                  <input class="form-control" id="hero-title" value="Heart Disease" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle *</label>
+                  <input class="form-control" id="hero-subtitle" value="Holistic wellness plans to reduce heart disease risk and complications." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-parent">Parent Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-parent" value="Conditions" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-active">Active Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-active" value="Heart Disease" required>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Article Lead & Image -->
+          <article class="editor-card open" id="section-lead">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Article Hero Image &amp; Practice Intro</h3>
+                <p>Top banner image, lead risk fact, practice introduction, and inline CTA</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="lead-image">Featured Article Image Path *</label>
+                  <input class="form-control" id="lead-image" value="../assets/uploads/2024/08/8_Main_Types_of_Heart_Disease-1024x512.jpg" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Image Preview</label>
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="../../../Frontend/assets/uploads/2024/08/8_Main_Types_of_Heart_Disease-1024x512.jpg" alt="Heart Disease" class="condition-preview-thumb" id="lead-image-preview">
+                    <small class="text-muted">Featured visual</small>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="lead-text">Lead Paragraph (Large text) *</label>
+                  <textarea class="form-control" id="lead-text" rows="2">Nearly half of all adults in the United States have at least one major risk factor for heart disease, like hypertension or high cholesterol.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="intro-text">Columbia Clinic Introduction Paragraph *</label>
+                  <textarea class="form-control" id="intro-text" rows="3">At Be The Change Health & Wellness Center in Columbia, Maryland, board-certified family medicine specialist Sultana Afrooz, DO, and the team offer holistic wellness plans that can reduce your risk for heart disease and heart disease complications. To set up your consultation, call Be The Change Health & Wellness Center or request an appointment online today.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-text">Inline CTA Button Label</label>
+                  <input class="form-control" id="lead-cta-text" value="New Patient – Request An Appointment">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-link">Inline CTA Destination</label>
+                  <input class="form-control" id="lead-cta-link" value="../contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-lead">
+                  <i class="bi bi-check2 me-1"></i> Save Lead Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: What is Heart Disease -->
+          <article class="editor-card open" id="section-whatis">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>What is Heart Disease?</h3>
+                <p>Cardiovascular overview, common conditions (attack, failure, arrhythmia), and lifestyle prevention</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">3 Paragraphs</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-heading">Section Headline (H2)</label>
+                <input class="form-control" id="whatis-heading" value="What is heart disease?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-p1">Paragraph 1: Scope &amp; Causes</label>
+                <textarea class="form-control" id="whatis-p1" rows="2">Heart disease is a term that encompasses the many conditions that can impact your heart’s functioning. Some forms are present from birth, while others develop over time due to your behaviors, habits, and genetic predispositions.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-p2">Paragraph 2: Common Manifestations &amp; Symptoms</label>
+                <textarea class="form-control" id="whatis-p2" rows="2">Heart attack, heart failure, and arrhythmia are all common forms of heart disease, which can cause troublesome symptoms like palpitations, chest pain, shortness of breath, and widespread swelling.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-p3">Paragraph 3: Clinic Support &amp; Prevention</label>
+                <textarea class="form-control" id="whatis-p3" rows="2">Your providers at Be The Change Health & Wellness Center can direct you to behavioral changes and wellness therapies that improve cardiovascular functioning as well as your overall health. Even if you don’t have heart disease, you can lower your risk by adopting a healthier lifestyle at any time.</textarea>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-whatis">
+                  <i class="bi bi-check2 me-1"></i> Save Overview Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Risk Factors -->
+          <article class="editor-card open" id="section-risks">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Am I at Risk for Heart Disease?</h3>
+                <p>Risk factor drivers: Hypertension, High Cholesterol, Smoking, and cessation illustration</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">3 Drivers</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="risks-heading">Section Headline (H2)</label>
+                <input class="form-control" id="risks-heading" value="Am I at risk for heart disease?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="risks-intro">Risk Factors Narrative Intro</label>
+                <textarea class="form-control" id="risks-intro" rows="2">Many different diseases and behaviors can increase your risk for heart disease as they affect the health of your heart or circulatory system. The team at Be The Change Health & Wellness Center can explore your current health and help you address risk factors that already affect you. Some of the most pressing risk factors for heart disease are:</textarea>
+              </div>
+
+              <!-- Driver 1: Hypertension -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-speedometer2 text-teal me-1"></i> Risk 1: Hypertension (H3)</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="risk1-title">Title</label>
+                    <input class="form-control" id="risk1-title" value="Hypertension">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="risk1-desc">Description</label>
+                    <textarea class="form-control" id="risk1-desc" rows="2">Hypertension is another word for high blood pressure. Your blood pressure can increase because of diseases like diabetes or kidney disease, or it can go up due to plaque buildup along your artery walls from a lack of exercise or an unbalanced diet. Hypertension doesn’t typically cause any symptoms.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Driver 2: High Cholesterol -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-droplet-half text-teal me-1"></i> Risk 2: High Cholesterol (H3)</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="risk2-title">Title</label>
+                    <input class="form-control" id="risk2-title" value="High cholesterol">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="risk2-desc">Description</label>
+                    <textarea class="form-control" id="risk2-desc" rows="2">High cholesterol also does not tend to cause symptoms. It happens when wax-like lipids build up in your bloodstream because of a poor diet, smoking, and other unhealthy behaviors.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Driver 3: Smoking -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-slash-circle text-teal me-1"></i> Risk 3: Smoking (H3)</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="risk3-title">Title</label>
+                    <input class="form-control" id="risk3-title" value="Smoking">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="risk3-desc">Description</label>
+                    <textarea class="form-control" id="risk3-desc" rows="2">Among many other dangers, smoking and tobacco use increases your risk for heart disease.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Inline Figure -->
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="risks-figure">Inline Health Infographic Path</label>
+                  <input class="form-control" id="risks-figure" value="../assets/uploads/2024/08/Stop-smoking-Six-foods-to-avoid-if-you-want-to-quit-the-habit-in-the-New-Year-1060863.jpg">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Infographic Preview</label>
+                  <img src="../../../Frontend/assets/uploads/2024/08/Stop-smoking-Six-foods-to-avoid-if-you-want-to-quit-the-habit-in-the-New-Year-1060863.jpg" alt="Smoking cessation" class="condition-preview-thumb" onerror="this.style.display='none'">
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-risks">
+                  <i class="bi bi-check2 me-1"></i> Save Risk Factors
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: Holistic Treatment -->
+          <article class="editor-card open" id="section-holistic">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>How Do We Treat Heart Disease Holistically?</h3>
+                <p>Personalized non-pharmaceutical cardiovascular wellness care</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="holistic-heading">Section Headline (H2)</label>
+                <input class="form-control" id="holistic-heading" value="How Do We Treat Heart Disease Holistically?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="holistic-p1">Treatment Approach Paragraph</label>
+                <textarea class="form-control" id="holistic-p1" rows="3">Be The Change Health & Wellness Center can help you manage or treat your heart disease with personalized wellness services that don’t require the use of pharmaceuticals. Your provider works with you to create a custom wellness plan that helps you manage your weight, lower your blood pressure, and reduce the likelihood of heart failure or a heart attack.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="holistic-p2">Recommendation Lead Paragraph</label>
+                <input class="form-control" id="holistic-p2" value="To manage your heart disease or heart disease risk, your provider might recommend:">
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-holistic">
+                  <i class="bi bi-check2 me-1"></i> Save Holistic Treatment
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: Medical Testing -->
+          <article class="editor-card open" id="section-testing">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Medical Testing</h3>
+                <p>Blood chemistry, genetics testing, and consultation invitation</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Diagnostics</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="testing-heading">Section Headline (H2)</label>
+                <input class="form-control" id="testing-heading" value="Medical Testing">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="testing-p1">Testing Details Paragraph</label>
+                <textarea class="form-control" id="testing-p1" rows="2">The practice also provides testing so you can gain more information about important factors influencing your health, like your blood chemistry and genetics. The results of these tests help your provider customize your heart health wellness plan.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="testing-p2">Closing Consultation Invitation Paragraph</label>
+                <textarea class="form-control" id="testing-p2" rows="2">To find out more about the effects of heart disease on your body, call Be The Change Health & Wellness Center or request an appointment online today.</textarea>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-testing">
+                  <i class="bi bi-check2 me-1"></i> Save Testing Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 07: Bottom CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>Bottom Call to Action Band</h3>
+                <p>Full-width banner at the bottom of the page prompting cardiovascular care consultation</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-heading">CTA Banner Headline (H2) *</label>
+                  <input class="form-control" id="cta-heading" value="Concerned about heart disease risk?" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-text">CTA Banner Subtitle/Description *</label>
+                  <textarea class="form-control" id="cta-text" rows="2">Our Columbia, MD team can help you take the next step.</textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-phone">Direct Clinic Phone</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-text">Primary Button Text</label>
+                  <input class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-link">Primary Button Link</label>
+                  <input class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 08: SEO & SERP Preview -->
+          <article class="editor-card open" id="section-seo">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div>
+                <h3>SEO &amp; Search Engine Metadata</h3>
+                <p>Browser page title, search description snippet, and indexing directives</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Live SERP</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">SEO Meta Title (Browser &amp; Google) *</label>
+                  <input class="form-control" id="seo-title" value="Heart Disease - Be The Change Health & Wellness Center" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">SEO Meta Description *</label>
+                  <textarea class="form-control" id="seo-desc" rows="3">Holistic wellness plans to reduce heart disease risk and complications at Be The Change Health & Wellness Center in Columbia, MD.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-canonical">Canonical URL</label>
+                  <input class="form-control" id="seo-canonical" value="https://bethechangehealth.com/conditions/heart-disease.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-robots">Search Engine Indexing</label>
+                  <select class="form-select" id="seo-robots">
+                    <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                    <option value="noindex, follow">Noindex, Follow</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Google SERP Live Simulation -->
+              <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-google text-primary me-1"></i> Google Search Snippet Simulation</h5>
+              <div class="serp-card mb-3">
+                <div class="serp-title" id="serp-preview-title">Heart Disease - Be The Change Health &amp; Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › conditions › heart-disease</div>
+                <div class="serp-desc" id="serp-preview-desc">Holistic wellness plans to reduce heart disease risk and complications at Be The Change Health &amp; Wellness Center in Columbia, MD.</div>
+              </div>
+
+              <div class="text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin mt-4">
+          <div class="card-body-admin d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <button type="button" class="btn btn-outline-danger btn-sm-admin" id="btn-reset-defaults">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset to Clinic Defaults
+              </button>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/heart-disease.html" target="_blank" rel="noopener">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Page
+              </a>
+              <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+                <i class="bi bi-check2 me-1"></i> Save All Changes
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-stack"></div>
+
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_condition_heart_disease";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Heart Disease",
+          subtitle: "Holistic wellness plans to reduce heart disease risk and complications.",
+          parentBreadcrumb: "Conditions",
+          activeBreadcrumb: "Heart Disease"
+        },
+        lead: {
+          image: "../assets/uploads/2024/08/8_Main_Types_of_Heart_Disease-1024x512.jpg",
+          leadText: "Nearly half of all adults in the United States have at least one major risk factor for heart disease, like hypertension or high cholesterol.",
+          introText: "At Be The Change Health & Wellness Center in Columbia, Maryland, board-certified family medicine specialist Sultana Afrooz, DO, and the team offer holistic wellness plans that can reduce your risk for heart disease and heart disease complications. To set up your consultation, call Be The Change Health & Wellness Center or request an appointment online today.",
+          ctaText: "New Patient – Request An Appointment",
+          ctaLink: "../contact.html"
+        },
+        whatis: {
+          heading: "What is heart disease?",
+          p1: "Heart disease is a term that encompasses the many conditions that can impact your heart’s functioning. Some forms are present from birth, while others develop over time due to your behaviors, habits, and genetic predispositions.",
+          p2: "Heart attack, heart failure, and arrhythmia are all common forms of heart disease, which can cause troublesome symptoms like palpitations, chest pain, shortness of breath, and widespread swelling.",
+          p3: "Your providers at Be The Change Health & Wellness Center can direct you to behavioral changes and wellness therapies that improve cardiovascular functioning as well as your overall health. Even if you don’t have heart disease, you can lower your risk by adopting a healthier lifestyle at any time."
+        },
+        risks: {
+          heading: "Am I at risk for heart disease?",
+          intro: "Many different diseases and behaviors can increase your risk for heart disease as they affect the health of your heart or circulatory system. The team at Be The Change Health & Wellness Center can explore your current health and help you address risk factors that already affect you. Some of the most pressing risk factors for heart disease are:",
+          risk1Title: "Hypertension",
+          risk1Desc: "Hypertension is another word for high blood pressure. Your blood pressure can increase because of diseases like diabetes or kidney disease, or it can go up due to plaque buildup along your artery walls from a lack of exercise or an unbalanced diet. Hypertension doesn’t typically cause any symptoms.",
+          risk2Title: "High cholesterol",
+          risk2Desc: "High cholesterol also does not tend to cause symptoms. It happens when wax-like lipids build up in your bloodstream because of a poor diet, smoking, and other unhealthy behaviors.",
+          risk3Title: "Smoking",
+          risk3Desc: "Among many other dangers, smoking and tobacco use increases your risk for heart disease.",
+          figure: "../assets/uploads/2024/08/Stop-smoking-Six-foods-to-avoid-if-you-want-to-quit-the-habit-in-the-New-Year-1060863.jpg"
+        },
+        holistic: {
+          heading: "How Do We Treat Heart Disease Holistically?",
+          p1: "Be The Change Health & Wellness Center can help you manage or treat your heart disease with personalized wellness services that don’t require the use of pharmaceuticals. Your provider works with you to create a custom wellness plan that helps you manage your weight, lower your blood pressure, and reduce the likelihood of heart failure or a heart attack.",
+          p2: "To manage your heart disease or heart disease risk, your provider might recommend:"
+        },
+        testing: {
+          heading: "Medical Testing",
+          p1: "The practice also provides testing so you can gain more information about important factors influencing your health, like your blood chemistry and genetics. The results of these tests help your provider customize your heart health wellness plan.",
+          p2: "To find out more about the effects of heart disease on your body, call Be The Change Health & Wellness Center or request an appointment online today."
+        },
+        cta: {
+          heading: "Concerned about heart disease risk?",
+          text: "Our Columbia, MD team can help you take the next step.",
+          phone: "301-970-9724",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html"
+        },
+        seo: {
+          title: "Heart Disease - Be The Change Health & Wellness Center",
+          desc: "Holistic wellness plans to reduce heart disease risk and complications at Be The Change Health & Wellness Center in Columbia, MD.",
+          canonical: "https://bethechangehealth.com/conditions/heart-disease.html",
+          robots: "index, follow"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {}
+      }
+
+      function val(id, value) {
+        var el = document.getElementById(id);
+        if (!el) return "";
+        if (value !== undefined) el.value = value;
+        return el.value;
+      }
+
+      function populateForm(d) {
+        val("hero-title", d.hero.title);
+        val("hero-subtitle", d.hero.subtitle);
+        val("breadcrumb-active", d.hero.activeBreadcrumb);
+
+        val("lead-image", d.lead.image);
+        val("lead-text", d.lead.leadText);
+        val("intro-text", d.lead.introText);
+        val("lead-cta-text", d.lead.ctaText);
+        val("lead-cta-link", d.lead.ctaLink);
+
+        val("whatis-heading", d.whatis.heading);
+        val("whatis-p1", d.whatis.p1);
+        val("whatis-p2", d.whatis.p2);
+        val("whatis-p3", d.whatis.p3);
+
+        val("risks-heading", d.risks.heading);
+        val("risks-intro", d.risks.intro);
+        val("risk1-title", d.risks.risk1Title);
+        val("risk1-desc", d.risks.risk1Desc);
+        val("risk2-title", d.risks.risk2Title);
+        val("risk2-desc", d.risks.risk2Desc);
+        val("risk3-title", d.risks.risk3Title);
+        val("risk3-desc", d.risks.risk3Desc);
+        val("risks-figure", d.risks.figure);
+
+        val("holistic-heading", d.holistic.heading);
+        val("holistic-p1", d.holistic.p1);
+        val("holistic-p2", d.holistic.p2);
+
+        val("testing-heading", d.testing.heading);
+        val("testing-p1", d.testing.p1);
+        val("testing-p2", d.testing.p2);
+
+        val("cta-heading", d.cta.heading);
+        val("cta-text", d.cta.text);
+        val("cta-phone", d.cta.phone);
+        val("cta-btn-text", d.cta.btnText);
+        val("cta-btn-link", d.cta.btnLink);
+
+        val("seo-title", d.seo.title);
+        val("seo-desc", d.seo.desc);
+        val("seo-canonical", d.seo.canonical);
+        val("seo-robots", d.seo.robots);
+
+        updateSerp();
+      }
+
+      function updateSerp() {
+        var t = val("seo-title");
+        var ds = val("seo-desc");
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (st) st.textContent = t || "Heart Disease - Be The Change Health & Wellness Center";
+        if (sd) sd.textContent = ds || "Holistic wellness plans to reduce heart disease risk.";
+      }
+
+      function toast(msg) {
+        if (window.adminToast) {
+          window.adminToast(msg);
+        } else {
+          var stack = document.querySelector(".toast-stack");
+          if (!stack) return;
+          var t = document.createElement("div");
+          t.className = "toast show align-items-center text-white bg-dark border-0 mb-2";
+          t.innerHTML = '<div class="d-flex"><div class="toast-body">' + msg + '</div></div>';
+          stack.appendChild(t);
+          setTimeout(function () { t.remove(); }, 3200);
+        }
+      }
+
+      function saveAll() {
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            parentBreadcrumb: "Conditions",
+            activeBreadcrumb: val("breadcrumb-active")
+          },
+          lead: {
+            image: val("lead-image"),
+            leadText: val("lead-text"),
+            introText: val("intro-text"),
+            ctaText: val("lead-cta-text"),
+            ctaLink: val("lead-cta-link")
+          },
+          whatis: {
+            heading: val("whatis-heading"),
+            p1: val("whatis-p1"),
+            p2: val("whatis-p2"),
+            p3: val("whatis-p3")
+          },
+          risks: {
+            heading: val("risks-heading"),
+            intro: val("risks-intro"),
+            risk1Title: val("risk1-title"),
+            risk1Desc: val("risk1-desc"),
+            risk2Title: val("risk2-title"),
+            risk2Desc: val("risk2-desc"),
+            risk3Title: val("risk3-title"),
+            risk3Desc: val("risk3-desc"),
+            figure: val("risks-figure")
+          },
+          holistic: {
+            heading: val("holistic-heading"),
+            p1: val("holistic-p1"),
+            p2: val("holistic-p2")
+          },
+          testing: {
+            heading: val("testing-heading"),
+            p1: val("testing-p1"),
+            p2: val("testing-p2")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            text: val("cta-text"),
+            phone: val("cta-phone"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link")
+          },
+          seo: {
+            title: val("seo-title"),
+            desc: val("seo-desc"),
+            canonical: val("seo-canonical"),
+            robots: val("seo-robots")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Heart Disease Page Content saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-lead").addEventListener("click", function () {
+          saveAll();
+          toast("Article lead & intro saved.");
+        });
+        document.getElementById("btn-save-whatis").addEventListener("click", function () {
+          saveAll();
+          toast("Overview section saved.");
+        });
+        document.getElementById("btn-save-risks").addEventListener("click", function () {
+          saveAll();
+          toast("Risk factors saved.");
+        });
+        document.getElementById("btn-save-holistic").addEventListener("click", function () {
+          saveAll();
+          toast("Holistic care section saved.");
+        });
+        document.getElementById("btn-save-testing").addEventListener("click", function () {
+          saveAll();
+          toast("Medical testing section saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("CTA band saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Save all buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Heart Disease page back to clinic defaults? Unsaved edits will be lost.")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored original clinic defaults for Heart Disease.");
+          }
+        });
+
+        // SERP live update
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

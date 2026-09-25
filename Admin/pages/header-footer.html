@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Header & Footer | Be The Change Admin</title>
+  <title>Header &amp; Footer CMS | Be The Change Admin</title>
   <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -11,6 +11,62 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .repeater-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .subcard-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .nav-group-header {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+  </style>
 </head>
 <body data-page="header-footer">
   <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
@@ -19,103 +75,598 @@
     <div class="app-main">
       <header class="topbar" id="topbar"></header>
       <main class="content">
-        <p class="section-map">Shared chrome on every Frontend page</p>
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="card-admin mb-4">
-              <div class="card-head"><div><h2>Top bar</h2><p>Navy strip under the notice bar</p></div></div>
-              <div class="card-body-admin">
-                <label class="form-label-admin">Location line</label>
-                <input class="form-control mb-3" value="Conveniently located in Columbia, MD">
-                <label class="form-label-admin">Phone</label>
-                <input class="form-control mb-3" value="301-970-9724">
-                <label class="form-label-admin">Link 1</label>
-                <input class="form-control mb-2" value="Book a Service Online">
-                <label class="form-label-admin">Link 2</label>
-                <input class="form-control" value="Request An Appointment">
-              </div>
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Header &amp; Footer CMS</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Global Header &amp; Footer CMS</h1>
+            <p class="text-muted small mb-0">Manage global notice bar, header topbar, primary navigation, dropdowns (About, Conditions, Services incl Constitutional Hydrotherapy, Patients), footer contacts, social links, and footer columns.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Active Across All Pages</span>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-notice"><i class="bi bi-megaphone me-1"></i> Notice Bar</a>
+          <a href="#sec-topbar"><i class="bi bi-info-circle me-1"></i> Header Topbar</a>
+          <a href="#sec-branding"><i class="bi bi-image me-1"></i> Logo &amp; CTA</a>
+          <a href="#sec-nav"><i class="bi bi-list me-1"></i> Main Navigation &amp; Dropdowns</a>
+          <a href="#sec-footer-contact"><i class="bi bi-geo-alt me-1"></i> Footer Contact &amp; Hours</a>
+          <a href="#sec-social"><i class="bi bi-share me-1"></i> Social Media Links</a>
+          <a href="#sec-footer-nav"><i class="bi bi-columns-gap me-1"></i> Footer Columns Navigation</a>
+        </div>
+
+        <!-- Section 1: Notice Bar -->
+        <section id="sec-notice" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Top Notice Bar</h2>
+              <p>Green accent notice bar displayed at the very top of all public pages</p>
             </div>
-            <div class="card-admin">
-              <div class="card-head"><div><h2>Branding &amp; CTA</h2></div></div>
-              <div class="card-body-admin">
-                <label class="form-label-admin">Header logo</label>
-                <div class="upload-box compact mb-3">
-                  <img class="upload-preview" src="../../Frontend/assets/uploads/2024/08/LOGO.jpg" alt="Logo">
-                  <input type="file" accept="image/*">
-                </div>
-                <label class="form-label-admin">CTA button label</label>
-                <input class="form-control mb-3" value="Book Appointment">
-                <label class="form-label-admin">Main menu items (one per line)</label>
-                <textarea class="form-control" rows="8">Home
-About
-Conditions
-Services
-Memberships
-Blog
-Patients
-Contact</textarea>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="noticeBarVisible" checked>
+              <label class="form-check-label small" for="noticeBarVisible">Notice Bar Visible</label>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Primary Notice Text (Mobile &amp; Desktop)</label>
+                <input type="text" id="noticePrimaryText" class="form-control" value="Now offering Telehealth appointments.">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Extended Out-of-Network Note (Desktop md+)</label>
+                <input type="text" id="noticeExtendedText" class="form-control" value="Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.">
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="card-admin mb-4">
-              <div class="card-head"><div><h2>Footer</h2></div></div>
-              <div class="card-body-admin">
-                <label class="form-label-admin">Footer logo</label>
-                <div class="upload-box compact mb-3">
-                  <img class="upload-preview" src="../../Frontend/assets/uploads/2024/08/logo.png" alt="Footer logo">
-                  <input type="file" accept="image/*">
+        </section>
+
+        <!-- Section 2: Header Topbar -->
+        <section id="sec-topbar" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Header Topbar</h2>
+              <p>Navy bar beneath notice bar with location, phone, and quick booking links</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Location Display Text</label>
+                <input type="text" id="topbarLocation" class="form-control" value="Conveniently located in Columbia, MD">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Office Phone Number</label>
+                <input type="text" id="topbarPhone" class="form-control" value="301-970-9724">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Top Link 1 Label &amp; URL</label>
+                <div class="input-group">
+                  <input type="text" id="topbarLink1Text" class="form-control" value="Book a Service Online">
+                  <input type="text" id="topbarLink1Url" class="form-control" value="../book-appointment.html">
                 </div>
-                <label class="form-label-admin">Address</label>
-                <textarea class="form-control mb-3" rows="2">8808 Centre Park Drive Suite 301
-Columbia, MD 21045</textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Top Link 2 Label &amp; URL</label>
+                <div class="input-group">
+                  <input type="text" id="topbarLink2Text" class="form-control" value="Request An Appointment">
+                  <input type="text" id="topbarLink2Url" class="form-control" value="../book-appointment.html">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Logo & CTA Button -->
+        <section id="sec-branding" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Branding Logo &amp; Header CTA Button</h2>
+              <p>Main website header logo and primary "Book Appointment" button</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Header Logo Path</label>
+                <input type="text" id="headerLogoSrc" class="form-control mb-2" value="../assets/uploads/2024/08/LOGO.jpg">
+                <div class="upload-box text-center p-2 border rounded bg-white">
+                  <img src="../../Frontend/assets/uploads/2024/08/LOGO.jpg" class="img-fluid" style="max-height: 50px;" alt="Logo">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Header CTA Button Text</label>
+                <input type="text" id="headerCtaText" class="form-control mb-2" value="Book Appointment">
+                <label class="form-label-admin">Header CTA Button URL</label>
+                <input type="text" id="headerCtaUrl" class="form-control" value="../book-appointment.html">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Main Navigation & Dropdowns (CRITICAL AUDIT ITEM) -->
+        <section id="sec-nav" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Main Navigation &amp; Dropdowns (Structured Repeaters)</h2>
+              <p>Manage individual dropdown items for About, Conditions, Services (including Constitutional Hydrotherapy), and Patients</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <!-- 1. About Dropdown -->
+            <div class="subcard-box">
+              <div class="nav-group-header">
+                <span><i class="bi bi-chevron-down me-1"></i> About Dropdown Items (6 links)</span>
+                <span class="badge bg-secondary">About Menu</span>
+              </div>
+              <div id="aboutNavContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- 2. Conditions Dropdown -->
+            <div class="subcard-box">
+              <div class="nav-group-header">
+                <span><i class="bi bi-chevron-down me-1"></i> Conditions Dropdown Items (Hub + 8 Individual Pages)</span>
+                <span class="badge bg-secondary">Conditions Menu</span>
+              </div>
+              <div id="conditionsNavContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- 3. Services Dropdown (Including Constitutional Hydrotherapy) -->
+            <div class="subcard-box">
+              <div class="nav-group-header">
+                <span><i class="bi bi-chevron-down me-1 text-primary"></i> Services Dropdown Items (Hub + 11 Individual Pages incl. Constitutional Hydrotherapy)</span>
+                <span class="badge bg-primary">Services Menu</span>
+              </div>
+              <div id="servicesNavContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- 4. Patients Dropdown -->
+            <div class="subcard-box">
+              <div class="nav-group-header">
+                <span><i class="bi bi-chevron-down me-1"></i> Patients Dropdown Items (2 links)</span>
+                <span class="badge bg-secondary">Patients Menu</span>
+              </div>
+              <div id="patientsNavContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- 5. Standalone Top-Level Links -->
+            <div class="subcard-box">
+              <div class="nav-group-header">
+                <span><i class="bi bi-link me-1"></i> Standalone Top Navigation Links</span>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label-admin small">Home Link</label>
+                  <input type="text" id="navHomeText" class="form-control form-control-sm mb-1" value="Home">
+                  <input type="text" id="navHomeUrl" class="form-control form-control-sm" value="../index.html">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin small">Memberships Link</label>
+                  <input type="text" id="navMembershipsText" class="form-control form-control-sm mb-1" value="Memberships">
+                  <input type="text" id="navMembershipsUrl" class="form-control form-control-sm" value="../memberships.html">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin small">Blog Link</label>
+                  <input type="text" id="navBlogText" class="form-control form-control-sm mb-1" value="Blog">
+                  <input type="text" id="navBlogUrl" class="form-control form-control-sm" value="../blog/index.html">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin small">Contact Link</label>
+                  <input type="text" id="navContactText" class="form-control form-control-sm mb-1" value="Contact">
+                  <input type="text" id="navContactUrl" class="form-control form-control-sm" value="../contact.html">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Footer Contact, Hours & Copyright -->
+        <section id="sec-footer-contact" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Footer Contact Information &amp; Hours</h2>
+              <p>Practice address, contact details, operating hours and copyright text</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label-admin">Footer Logo Path</label>
+                <input type="text" id="footerLogoSrc" class="form-control mb-2" value="../assets/uploads/2024/08/logo.png">
+                <div class="upload-box text-center p-2 border rounded bg-white">
+                  <img src="../../Frontend/assets/uploads/2024/08/logo.png" class="img-fluid" style="max-height: 40px;" alt="Footer Logo">
+                </div>
+              </div>
+              <div class="col-md-8">
                 <div class="row g-3">
-                  <div class="col-md-6"><label class="form-label-admin">Phone</label><input class="form-control" value="301-970-9724"></div>
-                  <div class="col-md-6"><label class="form-label-admin">Fax</label><input class="form-control" value="301-359-1986"></div>
-                </div>
-                <label class="form-label-admin mt-3">Hours</label>
-                <textarea class="form-control mb-3" rows="2">Monday – Friday: 9am – 6pm
-Saturday & Sunday: Closed</textarea>
-                <label class="form-label-admin">Copyright</label>
-                <input class="form-control" value="© 2026 Be The Change Health & Wellness Center All Rights Reserved">
-              </div>
-            </div>
-            <div class="card-admin">
-              <div class="card-head"><div><h2>Footer columns</h2></div></div>
-              <div class="card-body-admin row g-3">
-                <div class="col-md-4">
-                  <label class="form-label-admin">Explore</label>
-                  <textarea class="form-control" rows="6">Home
-Our Practice
-Our Process
-Memberships
-Blog</textarea>
-                </div>
-                <div class="col-md-4">
-                  <label class="form-label-admin">Care</label>
-                  <textarea class="form-control" rows="6">Conditions
-Services
-Patients
-New Patient Questions
-Contact
-Book Appointment</textarea>
-                </div>
-                <div class="col-md-4">
-                  <label class="form-label-admin">Legal</label>
-                  <textarea class="form-control" rows="4">Privacy Policy
-Terms & Conditions</textarea>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Address Line 1</label>
+                    <input type="text" id="footerAddr1" class="form-control" value="8808 Centre Park Drive Suite 301">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Address Line 2</label>
+                    <input type="text" id="footerAddr2" class="form-control" value="Columbia, MD 21045">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin">Phone</label>
+                    <input type="text" id="footerPhone" class="form-control" value="301-970-9724">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin">Fax</label>
+                    <input type="text" id="footerFax" class="form-control" value="301-359-1986">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin">Email Link / Text</label>
+                    <input type="text" id="footerEmail" class="form-control" value="Email Us &gt;">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Hours Line 1</label>
+                    <input type="text" id="footerHours1" class="form-control" value="Monday – Friday: 9am – 6pm">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Hours Line 2</label>
+                    <input type="text" id="footerHours2" class="form-control" value="Saturday &amp; Sunday: Closed">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-admin">Copyright Text</label>
+                    <input type="text" id="footerCopyright" class="form-control" value="© 2026 Be The Change Health &amp; Wellness Center All Rights Reserved">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- Section 6: Social Media Links -->
+        <section id="sec-social" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Social Media Links</h2>
+              <p>URLs for social icons and channel links</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label class="form-label-admin"><i class="bi bi-facebook text-primary me-1"></i> Facebook URL</label>
+                <input type="text" id="socialFb" class="form-control" value="https://facebook.com/bethechangehealth">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin"><i class="bi bi-instagram text-danger me-1"></i> Instagram URL</label>
+                <input type="text" id="socialIg" class="form-control" value="https://instagram.com/bethechangehealth">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin"><i class="bi bi-linkedin text-primary me-1"></i> LinkedIn URL</label>
+                <input type="text" id="socialLi" class="form-control" value="https://linkedin.com/company/bethechangehealth">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin"><i class="bi bi-youtube text-danger me-1"></i> YouTube URL</label>
+                <input type="text" id="socialYt" class="form-control" value="https://youtube.com/@bethechangehealth">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Footer Columns Navigation -->
+        <section id="sec-footer-nav" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Footer Columns Navigation</h2>
+              <p>Structured link sets for Explore, Care, and Legal columns</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <!-- Explore Column -->
+              <div class="col-md-4">
+                <div class="subcard-box h-100">
+                  <h6 class="fw-semibold mb-2">Column 1: Explore</h6>
+                  <div id="footerColExplore"></div>
+                </div>
+              </div>
+              <!-- Care Column -->
+              <div class="col-md-4">
+                <div class="subcard-box h-100">
+                  <h6 class="fw-semibold mb-2">Column 2: Care</h6>
+                  <div id="footerColCare"></div>
+                </div>
+              </div>
+              <!-- Legal Column -->
+              <div class="col-md-4">
+                <div class="subcard-box h-100">
+                  <h6 class="fw-semibold mb-2">Column 3: Legal</h6>
+                  <div id="footerColLegal"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Chrome Settings
+            </button>
+          </div>
         </div>
-        <div class="sticky-actions">
-          <button class="btn-btc" type="button" data-save="Header and footer settings saved.">Save chrome settings</button>
-        </div>
+
       </main>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_header_footer';
+
+      const defaultAboutNav = [
+        { label: "Our Practice", url: "../about/index.html" },
+        { label: "Naturopathic Medicine", url: "../about/naturopathic-medicine.html" },
+        { label: "Integrative Medicine", url: "../about/integrative-medicine.html" },
+        { label: "Our Process", url: "../our-process/index.html" },
+        { label: "Jessica Needle", url: "../about/jessica-needle.html" },
+        { label: "Sultana Afrooz", url: "../about/sultana-afrooz.html" }
+      ];
+
+      const defaultConditionsNav = [
+        { label: "Conditions Hub", url: "../conditions/index.html" },
+        { label: "Diabetes", url: "../conditions/diabetes.html" },
+        { label: "Heart Disease", url: "../conditions/heart-disease.html" },
+        { label: "Concussion", url: "../conditions/concussion.html" },
+        { label: "Chronic Fatigue", url: "../conditions/chronic-fatigue.html" },
+        { label: "Obesity", url: "../conditions/obesity.html" },
+        { label: "Chronic Pain", url: "../conditions/chronic-pain.html" },
+        { label: "Toxins", url: "../conditions/toxins.html" },
+        { label: "Hormone Imbalance", url: "../conditions/hormone-imbalance.html" }
+      ];
+
+      const defaultServicesNav = [
+        { label: "Services Hub", url: "../services/index.html" },
+        { label: "Constitutional Hydrotherapy", url: "../services/constitutional-hydrotherapy.html" },
+        { label: "Frequency Specific Microcurrent", url: "../services/frequency-specific-microcurrent.html" },
+        { label: "Infrared Sauna Therapy", url: "../services/infrared-sauna-therapy.html" },
+        { label: "Hyperbaric Oxygen Therapy", url: "../services/hyperbaric-oxygen-therapy.html" },
+        { label: "IV Nutritional Infusions", url: "../services/iv-nutritional-infusions.html" },
+        { label: "Liquivida IV Therapy", url: "../services/liquivida-iv-therapy.html" },
+        { label: "Reflexology", url: "../services/reflexology.html" },
+        { label: "Ozone Therapy", url: "../services/ozone-therapy.html" },
+        { label: "Ion Foot Detox", url: "../services/ion-foot-detox.html" },
+        { label: "Wellness Classes", url: "../services/wellness-classes.html" },
+        { label: "Personalized Wellness Plans", url: "../services/personalized-wellness-plans.html" }
+      ];
+
+      const defaultPatientsNav = [
+        { label: "Existing Patients", url: "../patients.html" },
+        { label: "New Patient Questions", url: "../new-patient-questions.html" }
+      ];
+
+      const defaultColExplore = [
+        { label: "Home", url: "../index.html" },
+        { label: "Our Practice", url: "../about/index.html" },
+        { label: "Our Process", url: "../our-process/index.html" },
+        { label: "Memberships", url: "../memberships.html" },
+        { label: "Blog", url: "../blog/index.html" }
+      ];
+
+      const defaultColCare = [
+        { label: "Conditions", url: "../conditions/index.html" },
+        { label: "Services", url: "../services/index.html" },
+        { label: "Patients", url: "../patients.html" },
+        { label: "New Patient Questions", url: "../new-patient-questions.html" },
+        { label: "Contact", url: "../contact.html" },
+        { label: "Book Appointment", url: "../book-appointment.html" }
+      ];
+
+      const defaultColLegal = [
+        { label: "Privacy Policy", url: "../privacy-policy.html" },
+        { label: "Terms & Conditions", url: "../terms-conditions.html" }
+      ];
+
+      let aboutNav = [...defaultAboutNav];
+      let conditionsNav = [...defaultConditionsNav];
+      let servicesNav = [...defaultServicesNav];
+      let patientsNav = [...defaultPatientsNav];
+      let colExplore = [...defaultColExplore];
+      let colCare = [...defaultColCare];
+      let colLegal = [...defaultColLegal];
+
+      function renderNavItems(containerId, list) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        list.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'row g-2 align-items-center mb-2';
+          div.innerHTML = `
+            <div class="col-5">
+              <input type="text" class="form-control form-control-sm nav-label" data-index="${idx}" value="${escapeHtml(item.label)}">
+            </div>
+            <div class="col-7">
+              <input type="text" class="form-control form-control-sm nav-url" data-index="${idx}" value="${escapeHtml(item.url)}">
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.nav-label').forEach(inp => {
+          inp.addEventListener('input', e => { list[parseInt(e.currentTarget.dataset.index, 10)].label = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.nav-url').forEach(inp => {
+          inp.addEventListener('input', e => { list[parseInt(e.currentTarget.dataset.index, 10)].url = e.currentTarget.value; });
+        });
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          noticeBarVisible: document.getElementById('noticeBarVisible').checked,
+          noticePrimaryText: document.getElementById('noticePrimaryText').value,
+          noticeExtendedText: document.getElementById('noticeExtendedText').value,
+          topbarLocation: document.getElementById('topbarLocation').value,
+          topbarPhone: document.getElementById('topbarPhone').value,
+          topbarLink1Text: document.getElementById('topbarLink1Text').value,
+          topbarLink1Url: document.getElementById('topbarLink1Url').value,
+          topbarLink2Text: document.getElementById('topbarLink2Text').value,
+          topbarLink2Url: document.getElementById('topbarLink2Url').value,
+          headerLogoSrc: document.getElementById('headerLogoSrc').value,
+          headerCtaText: document.getElementById('headerCtaText').value,
+          headerCtaUrl: document.getElementById('headerCtaUrl').value,
+          aboutNav: aboutNav,
+          conditionsNav: conditionsNav,
+          servicesNav: servicesNav,
+          patientsNav: patientsNav,
+          navHomeText: document.getElementById('navHomeText').value,
+          navHomeUrl: document.getElementById('navHomeUrl').value,
+          navMembershipsText: document.getElementById('navMembershipsText').value,
+          navMembershipsUrl: document.getElementById('navMembershipsUrl').value,
+          navBlogText: document.getElementById('navBlogText').value,
+          navBlogUrl: document.getElementById('navBlogUrl').value,
+          navContactText: document.getElementById('navContactText').value,
+          navContactUrl: document.getElementById('navContactUrl').value,
+          footerLogoSrc: document.getElementById('footerLogoSrc').value,
+          footerAddr1: document.getElementById('footerAddr1').value,
+          footerAddr2: document.getElementById('footerAddr2').value,
+          footerPhone: document.getElementById('footerPhone').value,
+          footerFax: document.getElementById('footerFax').value,
+          footerEmail: document.getElementById('footerEmail').value,
+          footerHours1: document.getElementById('footerHours1').value,
+          footerHours2: document.getElementById('footerHours2').value,
+          footerCopyright: document.getElementById('footerCopyright').value,
+          socialFb: document.getElementById('socialFb').value,
+          socialIg: document.getElementById('socialIg').value,
+          socialLi: document.getElementById('socialLi').value,
+          socialYt: document.getElementById('socialYt').value,
+          colExplore: colExplore,
+          colCare: colCare,
+          colLegal: colLegal,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderNavItems('aboutNavContainer', aboutNav);
+            renderNavItems('conditionsNavContainer', conditionsNav);
+            renderNavItems('servicesNavContainer', servicesNav);
+            renderNavItems('patientsNavContainer', patientsNav);
+            renderNavItems('footerColExplore', colExplore);
+            renderNavItems('footerColCare', colCare);
+            renderNavItems('footerColLegal', colLegal);
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.noticeBarVisible !== undefined) document.getElementById('noticeBarVisible').checked = d.noticeBarVisible;
+          if (d.noticePrimaryText) document.getElementById('noticePrimaryText').value = d.noticePrimaryText;
+          if (d.noticeExtendedText) document.getElementById('noticeExtendedText').value = d.noticeExtendedText;
+          if (d.topbarLocation) document.getElementById('topbarLocation').value = d.topbarLocation;
+          if (d.topbarPhone) document.getElementById('topbarPhone').value = d.topbarPhone;
+          if (d.topbarLink1Text) document.getElementById('topbarLink1Text').value = d.topbarLink1Text;
+          if (d.topbarLink1Url) document.getElementById('topbarLink1Url').value = d.topbarLink1Url;
+          if (d.topbarLink2Text) document.getElementById('topbarLink2Text').value = d.topbarLink2Text;
+          if (d.topbarLink2Url) document.getElementById('topbarLink2Url').value = d.topbarLink2Url;
+          if (d.headerLogoSrc) document.getElementById('headerLogoSrc').value = d.headerLogoSrc;
+          if (d.headerCtaText) document.getElementById('headerCtaText').value = d.headerCtaText;
+          if (d.headerCtaUrl) document.getElementById('headerCtaUrl').value = d.headerCtaUrl;
+          if (Array.isArray(d.aboutNav) && d.aboutNav.length) aboutNav = d.aboutNav;
+          if (Array.isArray(d.conditionsNav) && d.conditionsNav.length) conditionsNav = d.conditionsNav;
+          if (Array.isArray(d.servicesNav) && d.servicesNav.length) servicesNav = d.servicesNav;
+          if (Array.isArray(d.patientsNav) && d.patientsNav.length) patientsNav = d.patientsNav;
+          if (d.navHomeText) document.getElementById('navHomeText').value = d.navHomeText;
+          if (d.navHomeUrl) document.getElementById('navHomeUrl').value = d.navHomeUrl;
+          if (d.navMembershipsText) document.getElementById('navMembershipsText').value = d.navMembershipsText;
+          if (d.navMembershipsUrl) document.getElementById('navMembershipsUrl').value = d.navMembershipsUrl;
+          if (d.navBlogText) document.getElementById('navBlogText').value = d.navBlogText;
+          if (d.navBlogUrl) document.getElementById('navBlogUrl').value = d.navBlogUrl;
+          if (d.navContactText) document.getElementById('navContactText').value = d.navContactText;
+          if (d.navContactUrl) document.getElementById('navContactUrl').value = d.navContactUrl;
+          if (d.footerLogoSrc) document.getElementById('footerLogoSrc').value = d.footerLogoSrc;
+          if (d.footerAddr1) document.getElementById('footerAddr1').value = d.footerAddr1;
+          if (d.footerAddr2) document.getElementById('footerAddr2').value = d.footerAddr2;
+          if (d.footerPhone) document.getElementById('footerPhone').value = d.footerPhone;
+          if (d.footerFax) document.getElementById('footerFax').value = d.footerFax;
+          if (d.footerEmail) document.getElementById('footerEmail').value = d.footerEmail;
+          if (d.footerHours1) document.getElementById('footerHours1').value = d.footerHours1;
+          if (d.footerHours2) document.getElementById('footerHours2').value = d.footerHours2;
+          if (d.footerCopyright) document.getElementById('footerCopyright').value = d.footerCopyright;
+          if (d.socialFb) document.getElementById('socialFb').value = d.socialFb;
+          if (d.socialIg) document.getElementById('socialIg').value = d.socialIg;
+          if (d.socialLi) document.getElementById('socialLi').value = d.socialLi;
+          if (d.socialYt) document.getElementById('socialYt').value = d.socialYt;
+          if (Array.isArray(d.colExplore) && d.colExplore.length) colExplore = d.colExplore;
+          if (Array.isArray(d.colCare) && d.colCare.length) colCare = d.colCare;
+          if (Array.isArray(d.colLegal) && d.colLegal.length) colLegal = d.colLegal;
+        } catch (e) {
+          console.error(e);
+        }
+        renderNavItems('aboutNavContainer', aboutNav);
+        renderNavItems('conditionsNavContainer', conditionsNav);
+        renderNavItems('servicesNavContainer', servicesNav);
+        renderNavItems('patientsNavContainer', patientsNav);
+        renderNavItems('footerColExplore', colExplore);
+        renderNavItems('footerColCare', colCare);
+        renderNavItems('footerColLegal', colLegal);
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Header & Footer settings saved successfully!');
+        } else {
+          alert('Header & Footer settings saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset header and footer settings to default?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
 </body>
 </html>

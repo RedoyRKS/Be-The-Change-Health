@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Page Content CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="blog-content">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Page Content CMS</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Blog Page Content</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" data-bs-toggle="modal" data-bs-target="#blogPagePreviewModal">
+              <i class="bi bi-eye me-1"></i> Live Preview Screen
+            </button>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-content">
+              <i class="bi bi-check2 me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+        <!-- Subbar Tab Navigation between Articles Directory and Page Content CMS -->
+        <div class="card-admin mb-4">
+          <div class="card-body-admin py-2 px-3">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div class="btn-group btn-group-sm" role="group">
+                <a class="btn btn-outline-secondary" href="blog.html">
+                  <i class="bi bi-journal-text me-1"></i> Blog Articles Directory
+                </a>
+                <a class="btn btn-secondary active fw-semibold" href="blog-content.html">
+                  <i class="bi bi-layout-text-sidebar-reverse me-1"></i> Blog Page CMS
+                </a>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge-admin badge-published"><i class="bi bi-broadcast me-1"></i>Source of Truth</span>
+                <span class="text-muted small">Frontend · blog/index.html</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-bar mb-4">
+          <i class="bi bi-info-circle-fill text-teal me-2"></i> This CMS manages the public Blog Landing Page (<strong>blog/index.html</strong>): Page Hero Banner, Search Bar, Category Filter Pills, Spotlight Featured Article, Articles Library Section Heading, Bottom Consultation CTA Band, and SEO Metadata.
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="stat-grid mb-4">
+          <div class="stat-card">
+            <div class="stat-icon teal"><i class="bi bi-window-fullscreen"></i></div>
+            <div>
+              <h4 id="stat-page-status">Live</h4>
+              <p>Page Status · blog/index.html</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="bi bi-tags-fill"></i></div>
+            <div>
+              <h4 id="stat-categories-count">5</h4>
+              <p>Filter Categories</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon navy"><i class="bi bi-star-fill text-warning"></i></div>
+            <div style="overflow:hidden;">
+              <h4 style="font-size:0.92rem; font-weight:700; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" id="stat-featured-title">What Is Frequency-specific Microcurrent Therapy?</h4>
+              <p>Featured Article Spotlight</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon warn"><i class="bi bi-journal-richtext"></i></div>
+            <div>
+              <h4 id="stat-total-articles">4</h4>
+              <p>Total Articles in Library</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-hero">01. Page Hero</a>
+          <a href="#section-toolbar">02. Search &amp; Categories</a>
+          <a href="#section-featured">03. Featured Article</a>
+          <a href="#section-grid-header">04. Articles Header</a>
+          <a href="#section-cta">05. Consultation CTA</a>
+          <a href="#section-seo">06. SEO &amp; Social</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Hero / Page Header -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Hero / Page Header</h3>
+                <p>Top banner headline, subtitle, and breadcrumb bar on blog/index.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="hero-title">Page Hero Headline *</label>
+                  <input class="form-control" id="hero-title" value="Be The Change Blog" required>
+                  <p class="help">Main <code>&lt;h1&gt;</code> heading displayed inside the top gradient banner on the live blog page.</p>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input class="form-control" id="hero-breadcrumb" value="Blog">
+                  <p class="help">Current page link label in the top navigation trail (Home &gt; Blog).</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle / Description *</label>
+                  <textarea class="form-control" id="hero-subtitle" rows="2">Education and insights on integrative therapies, wellness, and whole-person care.</textarea>
+                  <p class="help">Introductory paragraph rendered directly underneath the main H1 headline.</p>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Search & Category Filter Bar -->
+          <article class="editor-card open" id="section-toolbar">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Search &amp; Category Filter Bar</h3>
+                <p>Search input placeholder, filter tab pills, and empty search fallback message</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Interactive</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="toolbar-placeholder">Search Input Placeholder Text *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                    <input class="form-control" id="toolbar-placeholder" value="Search articles…">
+                  </div>
+                  <p class="help">Placeholder prompt rendered in the live client-side article search input.</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="toolbar-empty-msg">No Results Feedback Message *</label>
+                  <input class="form-control" id="toolbar-empty-msg" value="No articles match your search. Try another keyword or category.">
+                  <p class="help">Message displayed when a user's search query or filter returns 0 articles.</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="toolbar-categories">Category Filter Pills (Comma-separated) *</label>
+                  <input class="form-control" id="toolbar-categories" value="All, Therapies, Wellness, Detox, Blog">
+                  <p class="help">Comma-separated category tab buttons. Clicking a pill filters the article cards on the public website.</p>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-toolbar">
+                  <i class="bi bi-check2 me-1"></i> Save Filter Bar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: Featured Article Spotlight -->
+          <article class="editor-card open" id="section-featured">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Featured Article Spotlight</h3>
+                <p>Hero showcase article banner displayed above the regular article grid on blog/index.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="featured-enabled" checked>
+                    <label class="form-check-label fw-semibold text-dark" for="featured-enabled">
+                      Display Featured Article Spotlight Banner on Blog Page
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Auto-fill from Blog Library -->
+                <div class="col-12">
+                  <div class="p-3 rounded border bg-light">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                      <label class="form-label-admin mb-0" for="featured-select-post">
+                        <i class="bi bi-lightning-charge-fill text-warning me-1"></i> Quick Auto-Fill from Clinic Blog Library
+                      </label>
+                      <a href="blog.html" class="small text-teal text-decoration-none">
+                        <i class="bi bi-box-arrow-up-right me-1"></i> Open Articles Directory
+                      </a>
+                    </div>
+                    <select class="form-select" id="featured-select-post">
+                      <option value="">-- Choose an article from library to auto-fill --</option>
+                    </select>
+                    <small class="text-muted">Selecting an article automatically populates its headline, excerpt, category, date, slug link, and banner image below.</small>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="featured-badge">Badge Label</label>
+                  <input class="form-control" id="featured-badge" value="Featured Article">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="featured-category">Category Label</label>
+                  <input class="form-control" id="featured-category" value="Therapies">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="featured-date">Publication Date</label>
+                  <input class="form-control" id="featured-date" value="February 24, 2025">
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-admin" for="featured-title">Article Headline *</label>
+                  <input class="form-control" id="featured-title" value="What Is Frequency-specific Microcurrent Therapy?" required>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-admin" for="featured-excerpt">Article Summary / Excerpt *</label>
+                  <textarea class="form-control" id="featured-excerpt" rows="3">Frequency specific microcurrent therapy is a modern, non-invasive treatment that uses electrical currents to stimulate cells and tissues. It’s been used to help with healing from various conditions such as chronic pain, muscle or joint injuries, and even for those who want to lose weight...</textarea>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="featured-btn-text">Button Text</label>
+                  <input class="form-control" id="featured-btn-text" value="Read More">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="featured-link">Target Article Link / File</label>
+                  <div class="input-group">
+                    <input class="form-control" id="featured-link" value="what-is-frequency-specific-microcurrent-therapy.html">
+                    <span class="input-group-text small text-muted">.html</span>
+                  </div>
+                </div>
+
+                <!-- Featured Image & Media Library Picker -->
+                <div class="col-12">
+                  <label class="form-label-admin">Featured Showcase Banner Image</label>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-sm-4 col-md-3">
+                      <div class="upload-box compact">
+                        <img class="upload-preview" id="featured-image-preview" src="../../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg" alt="Featured Image Preview">
+                      </div>
+                    </div>
+                    <div class="col-sm-8 col-md-9">
+                      <div class="input-group mb-2">
+                        <input class="form-control form-control-sm" id="featured-image" value="../../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg">
+                        <button class="btn btn-outline-secondary btn-sm" type="button" id="btn-pick-featured-img">
+                          <i class="bi bi-images me-1"></i> Media Library
+                        </button>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="btn btn-outline-secondary btn-sm mb-0" for="file-featured-img">
+                          <i class="bi bi-upload me-1"></i> Upload Image
+                        </label>
+                        <input type="file" id="file-featured-img" class="d-none" accept="image/*">
+                        <span class="text-muted small">Standard resolution: 1024 × 683px (JPG/PNG)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-featured">
+                  <i class="bi bi-check2 me-1"></i> Save Featured Spotlight
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Articles Grid & Library Header -->
+          <article class="editor-card open" id="section-grid-header">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Articles Grid Section Header</h3>
+                <p>Section title, subtitle, and card interaction labels for the main wellness library grid</p>
+              </div>
+              <span class="spacer"></span>
+              <a href="blog.html" class="btn-btc-ghost btn-sm-admin" title="Manage articles in library">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Blog Articles CMS
+              </a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="grid-heading">Section Heading *</label>
+                  <input class="form-control" id="grid-heading" value="All Articles" required>
+                  <p class="help">Heading displayed above the card listing grid (<code>&lt;h2&gt;All Articles&lt;/h2&gt;</code>).</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="grid-subtitle">Section Subtitle / Tagline *</label>
+                  <input class="form-control" id="grid-subtitle" value="Explore our wellness library.">
+                  <p class="help">Subtext rendered directly underneath the grid heading.</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="grid-readmore-text">Card Link Button Text</label>
+                  <input class="form-control" id="grid-readmore-text" value="Read More">
+                  <p class="help">Label used on individual article card action links.</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Articles Management</label>
+                  <div class="p-2 border rounded bg-light d-flex align-items-center justify-content-between">
+                    <span class="small text-muted"><i class="bi bi-journal-text me-1 text-teal"></i> 4 Published Articles</span>
+                    <a class="btn-btc-outline btn-sm-admin py-1" href="blog.html">Manage Articles</a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-articles">
+                  <i class="bi bi-check2 me-1"></i> Save Section Header
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: Bottom Consultation CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Bottom Consultation CTA Band</h3>
+                <p>High-conversion call-to-action banner displayed at the bottom of blog/index.html above footer</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-title">CTA Headline *</label>
+                  <input class="form-control" id="cta-title" value="Ready to experience these therapies?" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-desc">CTA Description / Body *</label>
+                  <textarea class="form-control" id="cta-desc" rows="2">Visit our Columbia, MD clinic or request an appointment online.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn1-text">Primary Button Text</label>
+                  <input class="form-control mb-2" id="cta-btn1-text" value="Book Appointment">
+                  <label class="form-label-admin" for="cta-btn1-link">Primary Button Link</label>
+                  <input class="form-control" id="cta-btn1-link" value="../book-appointment.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn2-text">Secondary Button Text</label>
+                  <input class="form-control mb-2" id="cta-btn2-text" value="Contact Us">
+                  <label class="form-label-admin" for="cta-btn2-link">Secondary Button Link</label>
+                  <input class="form-control" id="cta-btn2-link" value="../contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: SEO & Open Graph Metadata -->
+          <article class="editor-card open" id="section-seo">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>SEO &amp; Open Graph Metadata</h3>
+                <p>Google search listing snippet, meta keywords, and social sharing tags for blog/index.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Indexed</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="seo-title">SEO Page Title *</label>
+                  <input class="form-control" id="seo-title" value="Blog - Be The Change Health and Wellness Center" required>
+                  <p class="help">Browser tab title and Google search headline (optimal: 50-60 characters).</p>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="seo-canonical">Canonical Path</label>
+                  <input class="form-control" id="seo-canonical" value="Frontend/blog/index.html">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">Meta Description *</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">Be The Change Blog — wellness articles on microcurrent, hyperbaric oxygen, infrared sauna, and ionic foot detox from our Columbia, MD clinic.</textarea>
+                  <p class="help">Search snippet description (optimal: 120-160 characters).</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-keywords">SEO Meta Keywords</label>
+                  <input class="form-control" id="seo-keywords" value="integrative medicine blog, health and wellness articles, microcurrent therapy, hyperbaric oxygen, infrared sauna, foot detox, Columbia MD">
+                  <p class="help">Comma-separated clinical and therapy keywords.</p>
+                </div>
+              </div>
+
+              <!-- Google Search Snippet Simulation -->
+              <label class="form-label-admin mb-1">Google Search Snippet Simulation</label>
+              <div class="seo-preview p-3 rounded border bg-light mb-4">
+                <div class="url text-success small mb-1">https://bethechangehealth.com/blog/</div>
+                <div class="title fw-bold text-primary fs-6 mb-1" id="seo-preview-title">Blog - Be The Change Health and Wellness Center</div>
+                <p class="desc text-muted small mb-0" id="seo-preview-desc">Be The Change Blog — wellness articles on microcurrent, hyperbaric oxygen, infrared sauna, and ionic foot detox from our Columbia, MD clinic.</p>
+              </div>
+
+              <!-- Open Graph Social Sharing -->
+              <h4 class="h6 fw-bold text-dark mb-3"><i class="bi bi-share me-1 text-teal"></i> Open Graph &amp; Social Media Share Cards</h4>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="og-title">Social Share Title (og:title)</label>
+                  <input class="form-control" id="og-title" value="Be The Change Health & Wellness Blog">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="og-desc">Social Share Description (og:description)</label>
+                  <input class="form-control" id="og-desc" value="Education and insights on integrative therapies, wellness, and whole-person care in Columbia, MD.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin">Social Share Card Image (og:image)</label>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-sm-3 col-md-2">
+                      <div class="upload-box compact">
+                        <img class="upload-preview" id="og-image-preview" src="../../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg" alt="OG Image Preview">
+                      </div>
+                    </div>
+                    <div class="col-sm-9 col-md-10">
+                      <div class="input-group mb-2">
+                        <input class="form-control form-control-sm" id="og-image" value="../../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg">
+                        <button class="btn btn-outline-secondary btn-sm" type="button" id="btn-pick-og-img">
+                          <i class="bi bi-images me-1"></i> Media Library
+                        </button>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="btn btn-outline-secondary btn-sm mb-0" for="file-og-img">
+                          <i class="bi bi-upload me-1"></i> Upload Image
+                        </label>
+                        <input type="file" id="file-og-img" class="d-none" accept="image/*">
+                        <span class="text-muted small">Standard OG image dimension: 1200 × 630px</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sticky Floating Save Bar -->
+        <div class="sticky-actions mt-4 justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small"><i class="bi bi-clock-history me-1"></i> Content Status: <strong class="text-dark">All Sections Synced</strong></span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="btn-reset-content-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Page Defaults
+            </button>
+            <button class="btn-btc-outline" type="button" data-bs-toggle="modal" data-bs-target="#blogPagePreviewModal">
+              <i class="bi bi-display me-1"></i> Live Preview Screen
+            </button>
+            <button class="btn-btc" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2-circle me-1"></i> Save All Page Content
+            </button>
+            <button class="btn-btc" style="background:var(--btc-navy)" type="button" id="btn-publish-live">
+              <i class="bi bi-cloud-arrow-up-fill me-1"></i> Publish to Live
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- REUSABLE MEDIA LIBRARY MODAL -->
+  <div class="modal fade" id="mediaLibraryModal" tabindex="-1" aria-labelledby="mediaLibraryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="mediaLibraryModalLabel"><i class="bi bi-images text-teal me-2"></i>Clinic Media Library</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+            <input type="search" class="form-control" id="media-library-search" placeholder="Search media library assets by name or category…">
+          </div>
+          <p class="text-muted small mb-2">Click any image to select it for the active field:</p>
+          <div class="media-picker-grid" id="media-library-grid">
+            <!-- Populated via blog-cms.js -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE RESPONSIVE PREVIEW MODAL -->
+  <div class="modal fade" id="blogPagePreviewModal" tabindex="-1" aria-labelledby="blogPagePreviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background:#002536;">
+        <div class="modal-header border-0 py-2 px-3 preview-viewport-toolbar">
+          <div class="d-flex align-items-center gap-3">
+            <button type="button" class="btn-btc-outline btn-sm-admin text-white border-white" data-bs-dismiss="modal">
+              <i class="bi bi-arrow-left me-1"></i> Back to Editor
+            </button>
+            <div class="d-none d-md-flex align-items-center gap-2">
+              <span class="text-white-50" style="font-size:0.8rem;">Live Simulation:</span>
+              <span class="badge-admin badge-published"><i class="bi bi-broadcast me-1"></i>Frontend · blog/index.html</span>
+            </div>
+          </div>
+
+          <!-- Viewport Switcher -->
+          <div class="device-toggle-group">
+            <button type="button" class="device-btn active" data-viewport="desktop" title="Desktop view (100%)">
+              <i class="bi bi-display"></i> <span class="d-none d-sm-inline">Desktop</span>
+            </button>
+            <button type="button" class="device-btn" data-viewport="tablet" title="Tablet view (768px)">
+              <i class="bi bi-tablet"></i> <span class="d-none d-sm-inline">Tablet</span>
+            </button>
+            <button type="button" class="device-btn" data-viewport="mobile" title="Mobile view (390px)">
+              <i class="bi bi-phone"></i> <span class="d-none d-sm-inline">Mobile</span>
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+
+        <div class="modal-body p-0 d-flex justify-content-center overflow-auto" style="background:#002536;">
+          <div id="pv-page-screen-frame" class="w-100 bg-white" style="max-width:100%; min-height:100vh; transition:max-width 0.25s ease;">
+
+            <!-- Simulated Header Notice Bar -->
+            <div class="notice-bar py-2" style="background:var(--btc-teal); color:#fff; font-size:0.85rem; text-align:center;">
+              <div class="container">
+                Now offering Telehealth appointments.
+                <span class="d-none d-md-inline"> Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</span>
+              </div>
+            </div>
+
+            <!-- Simulated Topbar -->
+            <div class="topbar py-2" style="background:var(--btc-navy); color:#fff; font-size:0.8rem;">
+              <div class="container d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-geo-alt-fill text-teal me-1"></i> Conveniently located in Columbia, MD</span>
+                <span><i class="bi bi-telephone-fill text-teal me-1"></i> 301-970-9724</span>
+              </div>
+            </div>
+
+            <!-- Simulated Branding -->
+            <div class="branding py-3 border-bottom bg-white">
+              <div class="container d-flex justify-content-between align-items-center">
+                <img src="../../../Frontend/assets/uploads/2024/08/LOGO.jpg" alt="Be The Change" style="max-height:48px;">
+                <nav class="d-none d-lg-flex align-items-center gap-4" style="font-size:0.88rem; font-weight:500;">
+                  <span class="text-muted">Home</span>
+                  <span class="text-muted">About</span>
+                  <span class="text-muted">Conditions</span>
+                  <span class="text-muted">Services</span>
+                  <span class="text-muted">Memberships</span>
+                  <span class="fw-bold" style="color:var(--btc-teal)">Blog</span>
+                  <span class="text-muted">Contact</span>
+                </nav>
+                <span class="btn-btc btn-sm-admin d-none d-sm-inline-block">Book Appointment</span>
+              </div>
+            </div>
+
+            <!-- Authentic Simulated Blog Hero Section -->
+            <section class="page-hero section text-center text-white py-5" style="background:linear-gradient(135deg, #003048 0%, #308ca0 100%);">
+              <div class="container">
+                <h1 class="display-6 fw-bold mb-2" id="pv-page-hero-title">Be The Change Blog</h1>
+                <p class="lead mb-3" id="pv-page-hero-sub" style="opacity:0.9; font-size:1.05rem;">Education and insights on integrative therapies, wellness, and whole-person care.</p>
+                <nav class="page-breadcrumb" aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-center mb-0" style="font-size:0.82rem; opacity:0.85;">
+                    <li class="breadcrumb-item"><a href="../../index.html" class="text-white text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active text-white" id="pv-page-hero-crumb" aria-current="page">Blog</li>
+                  </ol>
+                </nav>
+              </div>
+            </section>
+
+            <!-- Authentic Simulated Listing & Toolbar -->
+            <section class="section py-5">
+              <div class="container">
+
+                <!-- Toolbar (Search & Category Pills) -->
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 p-3 rounded-3 mb-4" style="background:#f8fbfc; border:1px solid #e1ebed;">
+                  <div class="input-group" style="max-width:320px;">
+                    <span class="input-group-text bg-white"><i class="bi bi-search text-muted"></i></span>
+                    <input type="search" class="form-control form-control-sm" id="pv-page-search" placeholder="Search articles…" readonly>
+                  </div>
+                  <div class="d-flex flex-wrap align-items-center gap-1" id="pv-page-cats">
+                    <button type="button" class="btn btn-sm btn-secondary text-white rounded-pill px-3 py-1">All</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1">Therapies</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1">Wellness</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1">Detox</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1">Blog</button>
+                  </div>
+                </div>
+
+                <!-- Spotlight Featured Article -->
+                <article class="p-0 rounded-3 overflow-hidden shadow-sm mb-5 border" id="pv-page-featured">
+                  <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-6">
+                      <img id="pv-page-feat-img" src="../../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg" alt="" class="w-100 h-100" style="object-fit:cover; min-height:280px; max-height:380px;">
+                    </div>
+                    <div class="col-lg-6 p-4 d-flex flex-column justify-content-center" style="background:#fff;">
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge" style="background:var(--btc-teal); color:#fff;" id="pv-page-feat-badge">Featured Article</span>
+                        <span class="badge bg-light text-dark border" id="pv-page-feat-cat">Therapies</span>
+                      </div>
+                      <h2 class="h4 fw-bold mb-2 text-dark" id="pv-page-feat-title">What Is Frequency-specific Microcurrent Therapy?</h2>
+                      <p class="text-muted small mb-3" id="pv-page-feat-excerpt">
+                        Frequency specific microcurrent therapy is a modern, non-invasive treatment that uses electrical currents to stimulate cells and tissues...
+                      </p>
+                      <div class="d-flex justify-content-between align-items-center mt-auto pt-3 border-top">
+                        <time class="text-muted small" id="pv-page-feat-date">February 24, 2025</time>
+                        <span class="btn-btc btn-sm-admin" id="pv-page-feat-btn">Read More</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Section Title for Grid -->
+                <div class="mb-4">
+                  <h2 class="h4 fw-bold text-dark mb-1" id="pv-page-grid-heading">All Articles</h2>
+                  <p class="text-muted mb-0" id="pv-page-grid-sub">Explore our wellness library.</p>
+                </div>
+
+                <!-- Sample Cards Mock Grid -->
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <div class="card h-100 border shadow-sm rounded-3 overflow-hidden">
+                      <img src="../../../Frontend/assets/uploads/2024/08/HYPERBARIC-OXYGEN-THERAPY-1024x683-1.jpg" class="card-img-top" alt="" style="height:200px; object-fit:cover;">
+                      <div class="card-body p-3">
+                        <small class="text-muted">February 24, 2025 · Therapies</small>
+                        <h5 class="card-title fw-bold text-dark mt-1">What is Hyperbaric Oxygen Therapy?</h5>
+                        <p class="card-text text-muted small">Hyperbaric oxygen therapy has been used for many years to treat a variety of conditions...</p>
+                        <span class="text-teal small fw-semibold">Read More <i class="bi bi-arrow-right"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card h-100 border shadow-sm rounded-3 overflow-hidden">
+                      <img src="../../../Frontend/assets/uploads/2024/08/Redlight-Therapy-1024x683-1.jpg" class="card-img-top" alt="" style="height:200px; object-fit:cover;">
+                      <div class="card-body p-3">
+                        <small class="text-muted">February 24, 2025 · Wellness</small>
+                        <h5 class="card-title fw-bold text-dark mt-1">What Are The Health Benefits of an Infrared Sauna?</h5>
+                        <p class="card-text text-muted small">If you are considering an infrared sauna, but aren't quite sure what the benefits are...</p>
+                        <span class="text-teal small fw-semibold">Read More <i class="bi bi-arrow-right"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- Authentic Simulated Consultation CTA Band -->
+            <section class="cta-band py-5 text-center text-white" style="background:var(--btc-navy);">
+              <div class="container">
+                <h2 class="h3 fw-bold mb-2" id="pv-page-cta-heading">Ready to experience these therapies?</h2>
+                <p class="mb-4 text-white-50" id="pv-page-cta-desc">Visit our Columbia, MD clinic or request an appointment online.</p>
+                <div class="d-flex justify-content-center gap-2">
+                  <span class="btn-btc" id="pv-page-cta-btn1">Book Appointment</span>
+                  <span class="btn-btc-outline text-white border-white ms-2" id="pv-page-cta-btn2">Contact Us</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Authentic Simulated Footer -->
+            <footer class="py-4 border-top text-center text-muted small bg-light">
+              <div class="container">
+                © 2026 Be The Change Health &amp; Wellness Center · All Rights Reserved
+              </div>
+            </footer>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/blog-store.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script src="../../assets/js/blog-cms.js"></script>
+</body>
+</html>

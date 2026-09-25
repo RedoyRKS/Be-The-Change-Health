@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms &amp; Conditions CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .repeater-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.1rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .repeater-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+    .card-handle {
+      cursor: grab;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="terms-conditions">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item">Legal</li>
+                <li class="breadcrumb-item active">Terms &amp; Conditions</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Terms &amp; Conditions CMS</h1>
+            <p class="text-muted small mb-0">Manage website terms of use, payment &amp; cancellation policies, liability disclaimers, communication services rules, and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/terms-conditions.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-header"><i class="bi bi-file-text me-1"></i> Title &amp; Intro</a>
+          <a href="#sec-sections"><i class="bi bi-list-check me-1"></i> Terms Sections Repeater</a>
+          <a href="#sec-policies"><i class="bi bi-shield-exclamation me-1"></i> Specific Policies (Payment &amp; Cancel)</a>
+          <a href="#sec-contact"><i class="bi bi-envelope me-1"></i> Contact &amp; Notices</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO &amp; Metadata</a>
+        </div>
+
+        <!-- Section 1: Title & Intro -->
+        <section id="sec-header" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Page Header &amp; Effective Dates</h2>
+              <p>Top banner heading, agreement intro, and publication dates</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Page Title (H1)</label>
+                <input type="text" id="pageTitle" class="form-control" value="Terms and Conditions">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Effective Date</label>
+                <input type="date" id="effectiveDate" class="form-control" value="2025-02-24">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Last Updated Date</label>
+                <input type="date" id="lastUpdatedDate" class="form-control" value="2025-02-24">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Introductory Agreement Statement</label>
+                <textarea id="pageIntro" class="form-control" rows="2">Be The Change Health and Wellness Center Web Site is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of Be The Change Health and Wellness Center Web Site constitutes your agreement to all such terms, conditions, and notices.</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Terms Sections Repeater -->
+        <section id="sec-sections" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Terms &amp; Conditions Sections Repeater</h2>
+              <p>Manage individual legal articles, modification rights, third-party links, and prohibited uses</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-primary" id="addSectionBtn">
+              <i class="bi bi-plus-lg me-1"></i> Add Terms Section
+            </button>
+          </div>
+          <div class="card-body-admin" id="sectionsContainer">
+            <!-- Dynamically populated sections -->
+          </div>
+        </section>
+
+        <!-- Section 3: Specific Policies (Payment & Cancellation) -->
+        <section id="sec-policies" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Payment, Cancellation &amp; Medical Disclaimers</h2>
+              <p>Crucial clinical policies for out-of-network practice and patient bookings</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Payment &amp; Insurance Out-of-Network Policy</label>
+                <textarea id="paymentPolicy" class="form-control" rows="3">Our office is out-of-network with all commercial insurance plans. Payment is due at the time of service. We provide detailed superbills that patients may submit to their insurance company for possible reimbursement.</textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Appointment Cancellation &amp; No-Show Policy</label>
+                <textarea id="cancellationPolicy" class="form-control" rows="3">We require at least 24 hours advance notice for appointment cancellations or rescheduling. Late cancellations or missed visits may be subject to a cancellation fee as detailed in our clinic financial agreement.</textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Medical Advice Disclaimer</label>
+                <textarea id="medicalDisclaimer" class="form-control" rows="2">The information provided on this website is for informational and educational purposes only and is not intended as medical advice or a substitute for professional medical consultation, diagnosis, or treatment.</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Contact & Inquiries -->
+        <section id="sec-contact" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Legal Notices &amp; Contact</h2>
+              <p>Official address and legal communications contact</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label-admin">Legal Department Email</label>
+                <input type="email" id="contactEmail" class="form-control" value="info@bethechangehealth.com">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin">Phone</label>
+                <input type="text" id="contactPhone" class="form-control" value="301-970-9724">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin">Office Address</label>
+                <input type="text" id="contactAddress" class="form-control" value="8808 Centre Park Drive Suite 301, Columbia, MD 21045">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: SEO & Metadata -->
+        <section id="sec-seo" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>SEO &amp; Metadata</h2>
+              <p>Meta title, description, and SERP preview</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Title Tag</label>
+                  <input type="text" id="seoTitle" class="form-control" value="Terms and Conditions | Be The Change Health &amp; Wellness Center">
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 50–60 characters</span>
+                    <span class="small text-muted" id="seoTitleCount">62 chars</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Description</label>
+                  <textarea id="seoDesc" class="form-control" rows="3">Website usage terms, cancellation policy, payment terms, and medical disclaimers for Be The Change Health & Wellness Center in Columbia, MD.</textarea>
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 150–160 characters</span>
+                    <span class="small text-muted" id="seoDescCount">154 chars</span>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Canonical URL</label>
+                    <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/terms-conditions.html">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Robots Meta</label>
+                    <select id="seoRobots" class="form-select">
+                      <option value="index, follow" selected>Index, Follow</option>
+                      <option value="noindex, follow">Noindex, Follow</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                <div class="serp-preview">
+                  <div class="serp-title" id="serpTitlePreview">Terms and Conditions | Be The Change Health &amp; Wellness Center</div>
+                  <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/terms-conditions.html</div>
+                  <div class="serp-desc" id="serpDescPreview">Website usage terms, cancellation policy, payment terms, and medical disclaimers for Be The Change Health &amp; Wellness Center in Columbia, MD.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" href="privacy-policy.html">Privacy Policy</a>
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Terms &amp; Conditions
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_terms_conditions';
+
+      const defaultSections = [
+        {
+          heading: "MODIFICATION OF THESE TERMS OF USE",
+          body: "Be The Change Health and Wellness Center reserves the right to change the terms, conditions, and notices under which Be The Change Health and Wellness Center Web Site is offered, including but not limited to the charges associated with the use of Be The Change Health and Wellness Center Web Site."
+        },
+        {
+          heading: "LINKS TO THIRD PARTY SITES",
+          body: "Be The Change Health and Wellness Center Web Site may contain links to other Web Sites (“Linked Sites”). The Linked Sites are not under the control of Be The Change Health and Wellness Center and Be The Change Health and Wellness Center is not responsible for the contents of any Linked Site, including without limitation any link contained in a Linked Site, or any changes or updates to a Linked Site."
+        },
+        {
+          heading: "NO UNLAWFUL OR PROHIBITED USE",
+          body: "As a condition of your use of Be The Change Health and Wellness Center Web Site, you warrant that you will not use Be The Change Health and Wellness Center Web Site for any purpose that is unlawful or prohibited by these terms, conditions, and notices. You may not use the Web Site in any manner which could damage, disable, overburden, or impair the Web Site."
+        },
+        {
+          heading: "USE OF COMMUNICATION SERVICES",
+          body: "The Web Site may contain bulletin board services, chat areas, news groups, forums, communities, and/or other message or communication facilities. You agree to use Communication Services only to post, send, and receive messages and material that are proper and related to the particular Communication Service."
+        },
+        {
+          heading: "LIABILITY DISCLAIMER",
+          body: "THE INFORMATION, SOFTWARE, PRODUCTS, AND SERVICES INCLUDED IN OR AVAILABLE THROUGH BE THE CHANGE HEALTH AND WELLNESS CENTER WEB SITE MAY INCLUDE INACCURACIES OR TYPOGRAPHICAL ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN. BE THE CHANGE HEALTH AND WELLNESS CENTER AND/OR ITS SUPPLIERS MAY MAKE IMPROVEMENTS AND/OR CHANGES AT ANY TIME."
+        },
+        {
+          heading: "TERMINATION / ACCESS RESTRICTION",
+          body: "Be The Change Health and Wellness Center reserves the right, in its sole discretion, to terminate your access to the Web Site and the related services or any portion thereof at any time, without notice."
+        },
+        {
+          heading: "COPYRIGHT AND TRADEMARK NOTICES",
+          body: "All contents of the Be The Change Health and Wellness Center Web Site are: Copyright 2026 Be The Change Health & Wellness Center and/or its suppliers. All rights reserved."
+        }
+      ];
+
+      let sections = [...defaultSections];
+
+      function renderSections() {
+        const container = document.getElementById('sectionsContainer');
+        container.innerHTML = '';
+        sections.forEach((sec, idx) => {
+          const div = document.createElement('div');
+          div.className = 'repeater-card';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-grip-vertical card-handle"></i>
+                <span class="badge bg-secondary me-2">Section #${idx + 1}</span>
+                <strong class="text-dark">${escapeHtml(sec.heading)}</strong>
+              </div>
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-secondary move-up-btn" data-index="${idx}" ${idx === 0 ? 'disabled' : ''}><i class="bi bi-arrow-up"></i></button>
+                <button type="button" class="btn btn-outline-secondary move-down-btn" data-index="${idx}" ${idx === sections.length - 1 ? 'disabled' : ''}><i class="bi bi-arrow-down"></i></button>
+                <button type="button" class="btn btn-outline-danger remove-btn" data-index="${idx}"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col-12">
+                <label class="form-label-admin small">Section Heading</label>
+                <input type="text" class="form-control form-control-sm sec-heading-inp" data-index="${idx}" value="${escapeHtml(sec.heading)}">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin small">Section Content / Terms Text</label>
+                <textarea class="form-control form-control-sm sec-body-inp" data-index="${idx}" rows="4">${escapeHtml(sec.body)}</textarea>
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.sec-heading-inp').forEach(inp => {
+          inp.addEventListener('input', e => { sections[parseInt(e.currentTarget.dataset.index, 10)].heading = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.sec-body-inp').forEach(inp => {
+          inp.addEventListener('input', e => { sections[parseInt(e.currentTarget.dataset.index, 10)].body = e.currentTarget.value; });
+        });
+
+        container.querySelectorAll('.move-up-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (idx > 0) {
+              const tmp = sections[idx];
+              sections[idx] = sections[idx - 1];
+              sections[idx - 1] = tmp;
+              renderSections();
+            }
+          });
+        });
+
+        container.querySelectorAll('.move-down-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (idx < sections.length - 1) {
+              const tmp = sections[idx];
+              sections[idx] = sections[idx + 1];
+              sections[idx + 1] = tmp;
+              renderSections();
+            }
+          });
+        });
+
+        container.querySelectorAll('.remove-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (confirm(`Remove section #${idx + 1}?`)) {
+              sections.splice(idx, 1);
+              renderSections();
+            }
+          });
+        });
+      }
+
+      document.getElementById('addSectionBtn').addEventListener('click', () => {
+        sections.push({ heading: "New Terms Section", body: "Content text for this terms section." });
+        renderSections();
+      });
+
+      // SERP update
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Terms and Conditions';
+        serpDesc.textContent = seoDesc.value || 'Website usage terms, cancellation policy...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          pageTitle: document.getElementById('pageTitle').value,
+          effectiveDate: document.getElementById('effectiveDate').value,
+          lastUpdatedDate: document.getElementById('lastUpdatedDate').value,
+          pageIntro: document.getElementById('pageIntro').value,
+          sections: sections,
+          paymentPolicy: document.getElementById('paymentPolicy').value,
+          cancellationPolicy: document.getElementById('cancellationPolicy').value,
+          medicalDisclaimer: document.getElementById('medicalDisclaimer').value,
+          contactEmail: document.getElementById('contactEmail').value,
+          contactPhone: document.getElementById('contactPhone').value,
+          contactAddress: document.getElementById('contactAddress').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          seoRobots: document.getElementById('seoRobots').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderSections();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.pageTitle) document.getElementById('pageTitle').value = d.pageTitle;
+          if (d.effectiveDate) document.getElementById('effectiveDate').value = d.effectiveDate;
+          if (d.lastUpdatedDate) document.getElementById('lastUpdatedDate').value = d.lastUpdatedDate;
+          if (d.pageIntro) document.getElementById('pageIntro').value = d.pageIntro;
+          if (Array.isArray(d.sections) && d.sections.length) sections = d.sections;
+          if (d.paymentPolicy) document.getElementById('paymentPolicy').value = d.paymentPolicy;
+          if (d.cancellationPolicy) document.getElementById('cancellationPolicy').value = d.cancellationPolicy;
+          if (d.medicalDisclaimer) document.getElementById('medicalDisclaimer').value = d.medicalDisclaimer;
+          if (d.contactEmail) document.getElementById('contactEmail').value = d.contactEmail;
+          if (d.contactPhone) document.getElementById('contactPhone').value = d.contactPhone;
+          if (d.contactAddress) document.getElementById('contactAddress').value = d.contactAddress;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+          if (d.seoRobots) document.getElementById('seoRobots').value = d.seoRobots;
+        } catch (e) {
+          console.error(e);
+        }
+        renderSections();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Terms & Conditions CMS changes saved successfully!');
+        } else {
+          alert('Terms & Conditions CMS changes saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset Terms & Conditions to default?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

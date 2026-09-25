@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Sultana Afrooz CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .repeater-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="doctor-sultana">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="doctors.html">Doctors</a></li>
+                <li class="breadcrumb-item active">Sultana Afrooz, D.O.</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Dr. Sultana Afrooz Profile CMS</h1>
+            <p class="text-muted small mb-0">Manage doctor hero, portrait, bio, education, certifications, specialties, philosophy quotes, links and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/about/sultana-afrooz.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero</a>
+          <a href="#sec-profile"><i class="bi bi-person-badge me-1"></i> Profile & Media</a>
+          <a href="#sec-bio"><i class="bi bi-journal-text me-1"></i> Biography</a>
+          <a href="#sec-specialties"><i class="bi bi-heart-pulse me-1"></i> Specialties & Focus</a>
+          <a href="#sec-education"><i class="bi bi-mortarboard me-1"></i> Education & Licensure</a>
+          <a href="#sec-philosophy"><i class="bi bi-chat-quote me-1"></i> Philosophy & Quotes</a>
+          <a href="#sec-links"><i class="bi bi-link-45deg me-1"></i> Cross Links & CTA</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO</a>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Profile Card & Media -->
+          <div class="col-lg-4">
+            <div id="sec-profile" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Profile Card</h2><p>Sticky sidebar card on frontend</p></div></div>
+              <div class="card-body-admin">
+                <!-- Large Profile Photo -->
+                <div class="mb-3">
+                  <label class="form-label-admin">Profile Portrait Photo</label>
+                  <input type="text" id="profileImgSrc" class="form-control mb-2" value="../assets/uploads/2024/10/Sultana-Afrooz-pd6ddd2kete2du2tyy24v5o7z1bhnurc6jbos2s6lk.png">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img id="profileImgPreview" src="../../../Frontend/assets/uploads/2024/10/Sultana-Afrooz-pd6ddd2kete2du2tyy24v5o7z1bhnurc6jbos2s6lk.png" class="img-fluid rounded mb-1" style="max-height: 180px;" alt="Sultana Afrooz">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2024/10/Sultana-Afrooz-pd6ddd2kete2du2tyy24v5o7z1bhnurc6jbos2s6lk.png</p>
+                  </div>
+                </div>
+
+                <!-- Homepage / List Thumbnail -->
+                <div class="mb-3">
+                  <label class="form-label-admin">Thumbnail Image (Homepage/Lists)</label>
+                  <input type="text" id="thumbImgSrc" class="form-control mb-2" value="../assets/uploads/2024/08/sa.jpg">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img id="thumbImgPreview" src="../../../Frontend/assets/uploads/2024/08/sa.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Thumbnail">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2024/08/sa.jpg</p>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label-admin">Display Name</label>
+                  <input type="text" id="displayName" class="form-control" value="Sultana Afrooz, D.O.">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Credentials</label>
+                  <input type="text" id="credentials" class="form-control" value="D.O. (Doctor of Osteopathic Medicine)">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Professional Title</label>
+                  <input type="text" id="proTitle" class="form-control" value="Integrative Family Medicine Physician &amp; Osteopathic Physician">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Location String</label>
+                  <input type="text" id="locationStr" class="form-control" value="located in Columbia, MD">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Direct Phone Link</label>
+                  <input type="text" id="doctorPhone" class="form-control" value="301-970-9724">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Appointment CTA URL</label>
+                  <input type="text" id="doctorApptUrl" class="form-control" value="../book-appointment.html">
+                </div>
+                <div class="form-check form-switch mt-2">
+                  <input class="form-check-input" type="checkbox" id="showApptBtn" checked>
+                  <label class="form-check-label small" for="showApptBtn">Show "Request An Appointment" Button</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Biography, Repeaters & SEO -->
+          <div class="col-lg-8">
+            <!-- Hero Config -->
+            <section id="sec-hero" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Hero Header</h2><p>Top banner on public doctor page</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero H1 Name</label>
+                  <input type="text" id="heroName" class="form-control" value="Sultana J Afrooz, D.O.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero Subtitle</label>
+                  <input type="text" id="heroSubtitle" class="form-control" value="Integrative Family Medicine Physician &amp; Osteopathic Physician located in Columbia, MD">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Breadcrumb Label</label>
+                  <input type="text" id="heroBreadcrumb" class="form-control" value="Sultana J Afrooz, D.O.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Parent Page</label>
+                  <input type="text" id="heroParent" class="form-control" value="About">
+                </div>
+              </div>
+            </section>
+
+            <!-- Biography Section -->
+            <section id="sec-bio" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Doctor Biography</h2><p>Structured narrative sections</p></div></div>
+              <div class="card-body-admin">
+                <div class="mb-3">
+                  <label class="form-label-admin">Biography Section Heading</label>
+                  <input type="text" id="bioHeading" class="form-control" value="About Dr. Afrooz">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 1: Background & Medical Degree</label>
+                  <textarea id="bioPara1" class="form-control" rows="4">Sultana Afrooz, DO, is a holistic and integrative medicine physician at Be The Change Health &amp; Wellness, located in Columbia, Maryland. Dr. Afrooz specializes in diagnosing and treating highly complex health challenges confronting many patients and providing them with the in-depth, compassionate, and individualized care they deserve. Dr. Afrooz has practiced osteopathic medicine since receiving her doctorate from Des Moines University – Osteopathic Medical Center in Des Moines, Iowa, in 2002. Her training included an osteopathic internship and family practice residency at the Frankford Hospital in Philadelphia, Pennsylvania. Dr. Afrooz is board certified in family practice by the American Osteopathic Board of Family Physicians.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 2: Examinations, Licenses & Diagnostic Philosophy</label>
+                  <textarea id="bioPara2" class="form-control" rows="4">She has successfully completed the National Board of Osteopathic Medical Examiners NBOME Part I, II, III Boards, the State Osteopathic Licensing Examination, and is licensed to practice medicine in Maryland, Pennsylvania, and Georgia. Dr. Afrooz is committed to evaluating and treating the individual while improving their physical health and spiritual well-being. She is well-versed in testing and discovering environmental, genetic, and infectious factors connected to chronic health issues. Dr. Afrooz utilizes the best available integrative laboratory evaluations to get to the root cause of disease and help patients regain their health. Dr. Afrooz brings to her practice of medicine a history of continued excellence in her training and education, an intellectual curiosity that’s motivated by compassion, and a life-long commitment to learning.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 3: Clinical Specialization (Tick-borne, Mold, Persistence)</label>
+                  <textarea id="bioPara3" class="form-control" rows="5">Dr. Sultana Afrooz specializes in treating patients who have been chronically ill from the effects of tick-borne infection, mold toxicity, and environmental toxicity. Dr. Afrooz uses an integrative approach to treatment using prescription antimicrobials, herbal supplements, and nutritional supplements. She has an exceptional knowledge of mind-body medicine, food as medicine, and other integrative functional approaches to health and healing. Dr. Afrooz is dedicated to helping her patients achieve wellness and healing in all aspects of their lives. She believes that the body has an inherent ability to heal itself and that it is her goal as a practitioner to guide patients in their journey to healing. Dr. Afrooz has had extensive training in the treatment of tick-borne infections and has attended annual ILADS conferences to keep up to date on the latest research and treatments in tick-borne infections and Multiple Infectious Disease Syndrome. With this training, she has become extremely involved in learning about the systemic effects of mold toxicity and treating the chronic systemic effects of mold illness. Dr. Afrooz has also spent years studying the various methods of persistence in chronic infections.</textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- Specialties & Modalities Repeater -->
+            <section id="sec-specialties" class="card-admin mb-4">
+              <div class="card-head d-flex justify-content-between align-items-center">
+                <div>
+                  <h2>Clinical Specialties & Focus Areas</h2>
+                  <p>Individual focus tags managed as a structured list</p>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="addSpecialtyBtn">
+                  <i class="bi bi-plus-lg me-1"></i> Add Specialty
+                </button>
+              </div>
+              <div class="card-body-admin" id="specialtiesContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </section>
+
+            <!-- Education & Licensure Repeater -->
+            <section id="sec-education" class="card-admin mb-4">
+              <div class="card-head d-flex justify-content-between align-items-center">
+                <div>
+                  <h2>Education, Certifications & Licensure</h2>
+                  <p>Credentials and licensing milestones</p>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="addEduBtn">
+                  <i class="bi bi-plus-lg me-1"></i> Add Credential
+                </button>
+              </div>
+              <div class="card-body-admin" id="educationContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </section>
+
+            <!-- Philosophy & Quotes -->
+            <section id="sec-philosophy" class="card-admin mb-4">
+              <div class="card-head">
+                <div>
+                  <h2>Philosophy & Healing Quotes</h2>
+                  <p>Quotes and clinical mission statements</p>
+                </div>
+              </div>
+              <div class="card-body-admin">
+                <div class="mb-3">
+                  <label class="form-label-admin">Core Philosophy Statement</label>
+                  <textarea id="philosophyText" class="form-control" rows="3">The body has an inherent ability to heal itself; our goal as practitioners is to remove disturbances to health, address root causes, and guide patients on their journey with compassion and science.</textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- Cross Links -->
+            <section id="sec-links" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Action & Navigation Buttons</h2><p>Cross-links at the bottom of the profile</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 1 (Primary)</label>
+                  <input type="text" id="btn1Text" class="form-control mb-1" value="Request An Appointment">
+                  <input type="text" id="btn1Url" class="form-control" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 2 (Colleague)</label>
+                  <input type="text" id="btn2Text" class="form-control mb-1" value="Meet Dr. Needle">
+                  <input type="text" id="btn2Url" class="form-control" value="jessica-needle.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 3 (Practice)</label>
+                  <input type="text" id="btn3Text" class="form-control mb-1" value="Our Practice">
+                  <input type="text" id="btn3Url" class="form-control" value="index.html">
+                </div>
+              </div>
+            </section>
+
+            <!-- SEO & Metadata -->
+            <section id="sec-seo" class="card-admin mb-4">
+              <div class="card-head"><div><h2>SEO & Search Snippet</h2></div></div>
+              <div class="card-body-admin">
+                <div class="row g-4">
+                  <div class="col-md-7">
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Title</label>
+                      <input type="text" id="seoTitle" class="form-control" value="Sultana Afrooz, D.O. | Be The Change Health &amp; Wellness Center">
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 50–60 characters</span>
+                        <span class="small text-muted" id="seoTitleCount">66 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Description</label>
+                      <textarea id="seoDesc" class="form-control" rows="3">Meet Dr. Sultana Afrooz, D.O., holistic and integrative family medicine physician specializing in tick-borne infection, mold toxicity, and chronic illness.</textarea>
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 150–160 characters</span>
+                        <span class="small text-muted" id="seoDescCount">155 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Canonical URL</label>
+                      <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/about/sultana-afrooz.html">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                    <div class="serp-preview">
+                      <div class="serp-title" id="serpTitlePreview">Sultana Afrooz, D.O. | Be The Change Health &amp; Wellness Center</div>
+                      <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/about/sultana-afrooz.html</div>
+                      <div class="serp-desc" id="serpDescPreview">Meet Dr. Sultana Afrooz, D.O., holistic and integrative family medicine physician specializing in tick-borne infection, mold toxicity, and chronic illness.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" href="doctor-jessica.html">Edit Dr. Needle</a>
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_doctor_sultana';
+
+      const defaultSpecialties = [
+        "Tick-borne infections & Lyme Disease (ILADS)",
+        "Mold Toxicity & Environmental Illness",
+        "Multiple Infectious Disease Syndrome (MSIDS)",
+        "Chronic Fatigue & Chronic Pain Syndromes",
+        "Integrative Laboratory & Functional Diagnostics",
+        "Mind-Body Medicine & Nutritional Therapeutics"
+      ];
+
+      const defaultEducation = [
+        { label: "Doctorate in Osteopathic Medicine", inst: "Des Moines University – Osteopathic Medical Center (2002)" },
+        { label: "Internship & Family Practice Residency", inst: "Frankford Hospital, Philadelphia, PA" },
+        { label: "Board Certification", inst: "American Osteopathic Board of Family Physicians" },
+        { label: "Medical Licensing", inst: "Licensed in Maryland, Pennsylvania, and Georgia" },
+        { label: "Examinations", inst: "NBOME Part I, II, III Boards & State Licensing Examination" }
+      ];
+
+      let specialties = [...defaultSpecialties];
+      let education = [...defaultEducation];
+
+      function renderSpecialties() {
+        const container = document.getElementById('specialtiesContainer');
+        container.innerHTML = '';
+        specialties.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'd-flex align-items-center gap-2 mb-2';
+          div.innerHTML = `
+            <span class="badge bg-secondary">${index + 1}</span>
+            <input type="text" class="form-control form-control-sm spec-inp" data-index="${index}" value="${escapeHtml(item)}">
+            <button type="button" class="btn btn-sm btn-outline-danger remove-spec" data-index="${index}"><i class="bi bi-trash"></i></button>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.spec-inp').forEach(i => {
+          i.addEventListener('input', e => { specialties[parseInt(e.currentTarget.dataset.index, 10)] = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.remove-spec').forEach(b => {
+          b.addEventListener('click', e => {
+            specialties.splice(parseInt(e.currentTarget.dataset.index, 10), 1);
+            renderSpecialties();
+          });
+        });
+      }
+
+      function renderEducation() {
+        const container = document.getElementById('educationContainer');
+        container.innerHTML = '';
+        education.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'repeater-card';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-primary">Credential #${index + 1}</span>
+              <button type="button" class="btn btn-sm btn-outline-danger remove-edu" data-index="${index}"><i class="bi bi-trash"></i></button>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-5">
+                <label class="form-label-admin small">Degree / Certification</label>
+                <input type="text" class="form-control form-control-sm edu-label" data-index="${index}" value="${escapeHtml(item.label)}">
+              </div>
+              <div class="col-md-7">
+                <label class="form-label-admin small">Institution / Details</label>
+                <input type="text" class="form-control form-control-sm edu-inst" data-index="${index}" value="${escapeHtml(item.inst)}">
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.edu-label').forEach(i => {
+          i.addEventListener('input', e => { education[parseInt(e.currentTarget.dataset.index, 10)].label = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.edu-inst').forEach(i => {
+          i.addEventListener('input', e => { education[parseInt(e.currentTarget.dataset.index, 10)].inst = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.remove-edu').forEach(b => {
+          b.addEventListener('click', e => {
+            education.splice(parseInt(e.currentTarget.dataset.index, 10), 1);
+            renderEducation();
+          });
+        });
+      }
+
+      document.getElementById('addSpecialtyBtn').addEventListener('click', () => {
+        specialties.push("New Specialty / Clinical Focus");
+        renderSpecialties();
+      });
+
+      document.getElementById('addEduBtn').addEventListener('click', () => {
+        education.push({ label: "Degree or License", inst: "Institution or Board Name" });
+        renderEducation();
+      });
+
+      // SERP preview
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Sultana Afrooz, D.O.';
+        serpDesc.textContent = seoDesc.value || 'Meet Dr. Sultana Afrooz...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          heroName: document.getElementById('heroName').value,
+          heroSubtitle: document.getElementById('heroSubtitle').value,
+          heroBreadcrumb: document.getElementById('heroBreadcrumb').value,
+          heroParent: document.getElementById('heroParent').value,
+          profileImgSrc: document.getElementById('profileImgSrc').value,
+          thumbImgSrc: document.getElementById('thumbImgSrc').value,
+          displayName: document.getElementById('displayName').value,
+          credentials: document.getElementById('credentials').value,
+          proTitle: document.getElementById('proTitle').value,
+          locationStr: document.getElementById('locationStr').value,
+          doctorPhone: document.getElementById('doctorPhone').value,
+          doctorApptUrl: document.getElementById('doctorApptUrl').value,
+          showApptBtn: document.getElementById('showApptBtn').checked,
+          bioHeading: document.getElementById('bioHeading').value,
+          bioPara1: document.getElementById('bioPara1').value,
+          bioPara2: document.getElementById('bioPara2').value,
+          bioPara3: document.getElementById('bioPara3').value,
+          specialties: specialties,
+          education: education,
+          philosophyText: document.getElementById('philosophyText').value,
+          btn1Text: document.getElementById('btn1Text').value,
+          btn1Url: document.getElementById('btn1Url').value,
+          btn2Text: document.getElementById('btn2Text').value,
+          btn2Url: document.getElementById('btn2Url').value,
+          btn3Text: document.getElementById('btn3Text').value,
+          btn3Url: document.getElementById('btn3Url').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderSpecialties();
+            renderEducation();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.heroName) document.getElementById('heroName').value = d.heroName;
+          if (d.heroSubtitle) document.getElementById('heroSubtitle').value = d.heroSubtitle;
+          if (d.heroBreadcrumb) document.getElementById('heroBreadcrumb').value = d.heroBreadcrumb;
+          if (d.heroParent) document.getElementById('heroParent').value = d.heroParent;
+          if (d.profileImgSrc) document.getElementById('profileImgSrc').value = d.profileImgSrc;
+          if (d.thumbImgSrc) document.getElementById('thumbImgSrc').value = d.thumbImgSrc;
+          if (d.displayName) document.getElementById('displayName').value = d.displayName;
+          if (d.credentials) document.getElementById('credentials').value = d.credentials;
+          if (d.proTitle) document.getElementById('proTitle').value = d.proTitle;
+          if (d.locationStr) document.getElementById('locationStr').value = d.locationStr;
+          if (d.doctorPhone) document.getElementById('doctorPhone').value = d.doctorPhone;
+          if (d.doctorApptUrl) document.getElementById('doctorApptUrl').value = d.doctorApptUrl;
+          if (d.showApptBtn !== undefined) document.getElementById('showApptBtn').checked = d.showApptBtn;
+          if (d.bioHeading) document.getElementById('bioHeading').value = d.bioHeading;
+          if (d.bioPara1) document.getElementById('bioPara1').value = d.bioPara1;
+          if (d.bioPara2) document.getElementById('bioPara2').value = d.bioPara2;
+          if (d.bioPara3) document.getElementById('bioPara3').value = d.bioPara3;
+          if (Array.isArray(d.specialties) && d.specialties.length) specialties = d.specialties;
+          if (Array.isArray(d.education) && d.education.length) education = d.education;
+          if (d.philosophyText) document.getElementById('philosophyText').value = d.philosophyText;
+          if (d.btn1Text) document.getElementById('btn1Text').value = d.btn1Text;
+          if (d.btn1Url) document.getElementById('btn1Url').value = d.btn1Url;
+          if (d.btn2Text) document.getElementById('btn2Text').value = d.btn2Text;
+          if (d.btn2Url) document.getElementById('btn2Url').value = d.btn2Url;
+          if (d.btn3Text) document.getElementById('btn3Text').value = d.btn3Text;
+          if (d.btn3Url) document.getElementById('btn3Url').value = d.btn3Url;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+        } catch (e) {
+          console.error(e);
+        }
+        renderSpecialties();
+        renderEducation();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Dr. Sultana Afrooz profile saved successfully!');
+        } else {
+          alert('Dr. Sultana Afrooz profile saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset to default values?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

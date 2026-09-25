@@ -290,7 +290,7 @@
               '</td>' +
               '<td>' +
                 '<div class="person">' +
-                  '<img src="' + esc(store.resolveImage(plan.image, "admin")) + '" alt="" style="width:58px; height:58px; border-radius:8px; object-fit:cover; background:#eef3f5; border:1px solid #dbe6ea;">' +
+                  '<img src="' + esc(store.resolveImage(plan.image, "admin", plan.id)) + '" alt="' + esc(plan.name) + '" class="plan-thumb" onerror="this.onerror=null;this.src=\'' + store.FALLBACK_IMAGE + '\';" style="width:58px; height:58px; border-radius:8px; object-fit:cover; background:#eef3f5; border:1px solid #dbe6ea; display:block; flex-shrink:0;">' +
                   "<span>" +
                     '<strong class="d-flex align-items-center flex-wrap gap-1 fs-6">' + esc(plan.name) + featuredBadge + "</strong>" +
                     '<small class="text-muted d-block">' + esc(plan.subtitle || plan.description || "No subtitle") + "</small>" +
@@ -341,7 +341,7 @@
           if (plan.saunaDiscount) benefitLis += '<li><i class="bi bi-check-circle-fill text-teal"></i> ' + esc(plan.saunaDiscount) + "</li>";
 
           card.innerHTML =
-            '<div class="plan-media-wrap"><img src="' + esc(store.resolveImage(plan.image, "admin")) + '" alt=""></div>' +
+            '<div class="plan-media-wrap"><img src="' + esc(store.resolveImage(plan.image, "admin", plan.id)) + '" alt="' + esc(plan.name) + '" onerror="this.onerror=null;this.src=\'' + store.FALLBACK_IMAGE + '\';"></div>' +
             '<div class="plan-card-content">' +
               '<div class="d-flex justify-content-between align-items-center mb-2">' +
                 statusBadge(plan) +
@@ -558,7 +558,7 @@
 
     var plan = readForm();
     var featuredClass = plan.featured ? " membership-card-featured" : "";
-    var bannerImg = store.resolveImage(plan.image, "admin");
+    var bannerImg = store.resolveImage(plan.image, "admin", plan.id);
 
     var benefitsHtml = "";
     if (plan.appointmentDiscount) {
@@ -580,7 +580,7 @@
     preview.innerHTML =
       '<article class="membership-card' + featuredClass + '">' +
         '<div class="membership-card-media">' +
-          '<img src="' + esc(bannerImg) + '" alt="' + esc(plan.name || "Membership Plan") + '">' +
+          '<img src="' + esc(bannerImg) + '" alt="' + esc(plan.name || "Membership Plan") + '" onerror="this.onerror=null;this.src=\'' + store.FALLBACK_IMAGE + '\';">' +
         "</div>" +
         '<div class="membership-card-body">' +
           "<h3>" + esc(plan.name || "Plan Name") + "</h3>" +
@@ -625,7 +625,11 @@
 
     var img = document.getElementById("plan-preview-img");
     if (img) {
-      img.src = store.resolveImage(plan.image, "admin");
+      img.src = store.resolveImage(plan.image, "admin", plan.id);
+      img.onerror = function () {
+        this.onerror = null;
+        this.src = store.FALLBACK_IMAGE;
+      };
       img.setAttribute("data-src", plan.image || "");
     }
 
@@ -854,6 +858,10 @@
         var img = document.getElementById("plan-preview-img");
         if (img) {
           img.src = store.resolveImage(path, "admin");
+          img.onerror = function () {
+            this.onerror = null;
+            this.src = store.FALLBACK_IMAGE;
+          };
           img.setAttribute("data-src", path);
         }
         document.querySelectorAll(".image-preset-choice").forEach(function (el) {

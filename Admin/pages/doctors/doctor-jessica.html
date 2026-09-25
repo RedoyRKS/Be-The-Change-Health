@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Jessica Needle CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .tag-item {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      margin: 0.25rem;
+    }
+    .tag-item .remove-tag {
+      cursor: pointer;
+      color: #ef4444;
+      margin-left: 0.4rem;
+      font-weight: bold;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="doctor-jessica">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="doctors.html">Doctors</a></li>
+                <li class="breadcrumb-item active">Jessica Needle, N.D.</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Dr. Jessica Needle Profile CMS</h1>
+            <p class="text-muted small mb-0">Manage doctor hero, portrait, bio, 3 info panels (modalities, conditions, populations) with structured repeaters, education, links and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/about/jessica-needle.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero</a>
+          <a href="#sec-profile"><i class="bi bi-person-badge me-1"></i> Profile & Media</a>
+          <a href="#sec-bio"><i class="bi bi-journal-text me-1"></i> Biography</a>
+          <a href="#sec-panels"><i class="bi bi-grid-3x3-gap me-1"></i> 3 Info Panels (Repeaters)</a>
+          <a href="#sec-education"><i class="bi bi-mortarboard me-1"></i> Education & Clinical History</a>
+          <a href="#sec-links"><i class="bi bi-link-45deg me-1"></i> Cross Links & CTA</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO</a>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Profile Card & Media -->
+          <div class="col-lg-4">
+            <div id="sec-profile" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Profile Card</h2><p>Sticky sidebar card on frontend</p></div></div>
+              <div class="card-body-admin">
+                <!-- Large Profile Photo -->
+                <div class="mb-3">
+                  <label class="form-label-admin">Profile Portrait Photo</label>
+                  <input type="text" id="profileImgSrc" class="form-control mb-2" value="../assets/uploads/2025/02/jessica.jpg">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img id="profileImgPreview" src="../../../Frontend/assets/uploads/2025/02/jessica.jpg" class="img-fluid rounded mb-1" style="max-height: 180px;" alt="Jessica Needle">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2025/02/jessica.jpg</p>
+                  </div>
+                </div>
+
+                <!-- Homepage / List Thumbnail -->
+                <div class="mb-3">
+                  <label class="form-label-admin">Thumbnail Image (Homepage/Lists)</label>
+                  <input type="text" id="thumbImgSrc" class="form-control mb-2" value="../assets/uploads/2025/02/jn-5.jpg">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img id="thumbImgPreview" src="../../../Frontend/assets/uploads/2025/02/jn-5.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Thumbnail">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2025/02/jn-5.jpg</p>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label-admin">Display Name</label>
+                  <input type="text" id="displayName" class="form-control" value="Jessica Needle, N.D.">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Credentials</label>
+                  <input type="text" id="credentials" class="form-control" value="N.D. (Doctor of Naturopathic Medicine)">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Professional Title</label>
+                  <input type="text" id="proTitle" class="form-control" value="Naturopathic Doctor">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Direct Phone Link</label>
+                  <input type="text" id="doctorPhone" class="form-control" value="301-970-9724">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Appointment CTA URL</label>
+                  <input type="text" id="doctorApptUrl" class="form-control" value="../book-appointment.html">
+                </div>
+                <div class="form-check form-switch mt-2">
+                  <input class="form-check-input" type="checkbox" id="showApptBtn" checked>
+                  <label class="form-check-label small" for="showApptBtn">Show "Request An Appointment" Button</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Biography, Repeaters & SEO -->
+          <div class="col-lg-8">
+            <!-- Hero Config -->
+            <section id="sec-hero" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Hero Header</h2><p>Top banner on public doctor page</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero H1 Name</label>
+                  <input type="text" id="heroName" class="form-control" value="Jessica Needle, N.D.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero Subtitle</label>
+                  <input type="text" id="heroSubtitle" class="form-control" value="Naturopathic Doctor">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Breadcrumb Label</label>
+                  <input type="text" id="heroBreadcrumb" class="form-control" value="Jessica Needle, N.D.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Parent Page</label>
+                  <input type="text" id="heroParent" class="form-control" value="About">
+                </div>
+              </div>
+            </section>
+
+            <!-- Biography Section -->
+            <section id="sec-bio" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Doctor Biography</h2><p>Narrative paragraphs on public page</p></div></div>
+              <div class="card-body-admin">
+                <div class="mb-3">
+                  <label class="form-label-admin">Biography Section Heading</label>
+                  <input type="text" id="bioHeading" class="form-control" value="About Dr. Needle">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 1: Degrees & Education</label>
+                  <textarea id="bioPara1" class="form-control" rows="2">Jessica Needle received her bachelor’s degree in psychology from Mills College in Oakland, CA, and her doctorate in naturopathic medicine from Bastyr University in Kenmore, WA.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 2: Pre-Doctoral Clinical Work</label>
+                  <textarea id="bioPara2" class="form-control" rows="2">Prior to becoming a naturopath, Dr. Needle worked as a soft tissue therapist for a chiropractor, as a massage therapy instructor, and in the occupational medicine department of a primary and urgent care facility.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 3: Post-Graduate Clinical Internships</label>
+                  <textarea id="bioPara3" class="form-control" rows="3">She completed a post-graduate internship at TrueNorth Health Center, a lifestyle change and medically supervised fasting facility in Santa Rosa, CA. She then joined the staff at Sedona Wellness Retreat where she guided over 200 patients in the process of nutritional detoxification.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 4: IV Therapy, Publications & Author Background</label>
+                  <textarea id="bioPara4" class="form-control" rows="3">Dr. Needle spent 8 years using her expertise in I.V. and injection therapy to treat people facing cancer and chronic disease at Optimal Health Center in Palm Desert, CA. Her writing about natural healthcare appeared in Desert Health News from 2016-2022. She is also a published poet and flash fiction author.</textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3 Info Panels (Structured Repeaters) -->
+            <section id="sec-panels" class="card-admin mb-4">
+              <div class="card-head">
+                <div>
+                  <h2>Three Info Panels (Modalities, Conditions, Populations)</h2>
+                  <p>Structured tags matching the three public columns</p>
+                </div>
+              </div>
+              <div class="card-body-admin">
+                <div class="row g-4">
+                  <!-- Modalities Column -->
+                  <div class="col-md-4">
+                    <div class="border rounded p-3 bg-light h-100">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="fw-semibold mb-0">Treatment Modalities</h6>
+                      </div>
+                      <div class="input-group input-group-sm mb-2">
+                        <input type="text" id="newModalityInp" class="form-control" placeholder="Add modality...">
+                        <button class="btn btn-outline-primary" type="button" id="addModalityBtn"><i class="bi bi-plus"></i></button>
+                      </div>
+                      <div id="modalitiesTagContainer"></div>
+                    </div>
+                  </div>
+
+                  <!-- Conditions Column -->
+                  <div class="col-md-4">
+                    <div class="border rounded p-3 bg-light h-100">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="fw-semibold mb-0">Conditions</h6>
+                      </div>
+                      <div class="input-group input-group-sm mb-2">
+                        <input type="text" id="newConditionInp" class="form-control" placeholder="Add condition...">
+                        <button class="btn btn-outline-primary" type="button" id="addConditionBtn"><i class="bi bi-plus"></i></button>
+                      </div>
+                      <div id="conditionsTagContainer"></div>
+                    </div>
+                  </div>
+
+                  <!-- Populations Column -->
+                  <div class="col-md-4">
+                    <div class="border rounded p-3 bg-light h-100">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="fw-semibold mb-0">Populations</h6>
+                      </div>
+                      <div class="input-group input-group-sm mb-2">
+                        <input type="text" id="newPopulationInp" class="form-control" placeholder="Add population...">
+                        <button class="btn btn-outline-primary" type="button" id="addPopulationBtn"><i class="bi bi-plus"></i></button>
+                      </div>
+                      <div id="populationsTagContainer"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Cross Links -->
+            <section id="sec-links" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Action & Navigation Buttons</h2><p>Cross-links at the bottom of the profile</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 1 (Primary)</label>
+                  <input type="text" id="btn1Text" class="form-control mb-1" value="Request An Appointment">
+                  <input type="text" id="btn1Url" class="form-control" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 2 (Colleague)</label>
+                  <input type="text" id="btn2Text" class="form-control mb-1" value="Meet Dr. Afrooz">
+                  <input type="text" id="btn2Url" class="form-control" value="sultana-afrooz.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Button 3 (Practice)</label>
+                  <input type="text" id="btn3Text" class="form-control mb-1" value="Our Practice">
+                  <input type="text" id="btn3Url" class="form-control" value="index.html">
+                </div>
+              </div>
+            </section>
+
+            <!-- SEO & Metadata -->
+            <section id="sec-seo" class="card-admin mb-4">
+              <div class="card-head"><div><h2>SEO & Search Snippet</h2></div></div>
+              <div class="card-body-admin">
+                <div class="row g-4">
+                  <div class="col-md-7">
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Title</label>
+                      <input type="text" id="seoTitle" class="form-control" value="Jessica Needle, N.D. | Be The Change Health &amp; Wellness Center">
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 50–60 characters</span>
+                        <span class="small text-muted" id="seoTitleCount">66 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Description</label>
+                      <textarea id="seoDesc" class="form-control" rows="3">Meet Dr. Jessica Needle, N.D., naturopathic doctor specializing in nutritional detoxification, I.V. therapy, and holistic modalities.</textarea>
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 150–160 characters</span>
+                        <span class="small text-muted" id="seoDescCount">142 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Canonical URL</label>
+                      <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/about/jessica-needle.html">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                    <div class="serp-preview">
+                      <div class="serp-title" id="serpTitlePreview">Jessica Needle, N.D. | Be The Change Health &amp; Wellness Center</div>
+                      <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/about/jessica-needle.html</div>
+                      <div class="serp-desc" id="serpDescPreview">Meet Dr. Jessica Needle, N.D., naturopathic doctor specializing in nutritional detoxification, I.V. therapy, and holistic modalities.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" href="doctor-sultana.html">Edit Dr. Afrooz</a>
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_doctor_jessica';
+
+      const defaultModalities = [
+        "Diet & Nutrition", "Detoxification", "Bio-identical Hormones", "Nutraceuticals",
+        "Food Sensitivities", "Micronutrient Testing", "Medication Reduction", "Homeopathy",
+        "Botanical Medicine", "Intermittent Fasting", "Myofascial Release"
+      ];
+
+      const defaultConditions = [
+        "Digestive Issues", "Thyroid Dysfunction", "Hormone Imbalance",
+        "Metabolic Syndrome", "Minor Acute Illnesses", "Adjunct Cancer Care"
+      ];
+
+      const defaultPopulations = [
+        "Teens", "Adults", "Elders", "HIV+"
+      ];
+
+      let modalities = [...defaultModalities];
+      let conditions = [...defaultConditions];
+      let populations = [...defaultPopulations];
+
+      function renderTagList(containerId, list, inputId, addBtnId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        list.forEach((item, index) => {
+          const span = document.createElement('span');
+          span.className = 'tag-item';
+          span.innerHTML = `
+            ${escapeHtml(item)}
+            <span class="remove-tag" data-index="${index}">&times;</span>
+          `;
+          container.appendChild(span);
+        });
+
+        container.querySelectorAll('.remove-tag').forEach(b => {
+          b.addEventListener('click', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            list.splice(idx, 1);
+            renderTagList(containerId, list, inputId, addBtnId);
+          });
+        });
+      }
+
+      function setupTagAdd(inputId, addBtnId, list, containerId) {
+        const inp = document.getElementById(inputId);
+        const btn = document.getElementById(addBtnId);
+        const add = () => {
+          const val = inp.value.trim();
+          if (val) {
+            list.push(val);
+            inp.value = '';
+            renderTagList(containerId, list, inputId, addBtnId);
+          }
+        };
+        btn.addEventListener('click', add);
+        inp.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            add();
+          }
+        });
+      }
+
+      setupTagAdd('newModalityInp', 'addModalityBtn', modalities, 'modalitiesTagContainer');
+      setupTagAdd('newConditionInp', 'addConditionBtn', conditions, 'conditionsTagContainer');
+      setupTagAdd('newPopulationInp', 'addPopulationBtn', populations, 'populationsTagContainer');
+
+      // SERP preview
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Jessica Needle, N.D.';
+        serpDesc.textContent = seoDesc.value || 'Meet Dr. Jessica Needle...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          heroName: document.getElementById('heroName').value,
+          heroSubtitle: document.getElementById('heroSubtitle').value,
+          heroBreadcrumb: document.getElementById('heroBreadcrumb').value,
+          heroParent: document.getElementById('heroParent').value,
+          profileImgSrc: document.getElementById('profileImgSrc').value,
+          thumbImgSrc: document.getElementById('thumbImgSrc').value,
+          displayName: document.getElementById('displayName').value,
+          credentials: document.getElementById('credentials').value,
+          proTitle: document.getElementById('proTitle').value,
+          doctorPhone: document.getElementById('doctorPhone').value,
+          doctorApptUrl: document.getElementById('doctorApptUrl').value,
+          showApptBtn: document.getElementById('showApptBtn').checked,
+          bioHeading: document.getElementById('bioHeading').value,
+          bioPara1: document.getElementById('bioPara1').value,
+          bioPara2: document.getElementById('bioPara2').value,
+          bioPara3: document.getElementById('bioPara3').value,
+          bioPara4: document.getElementById('bioPara4').value,
+          modalities: modalities,
+          conditions: conditions,
+          populations: populations,
+          btn1Text: document.getElementById('btn1Text').value,
+          btn1Url: document.getElementById('btn1Url').value,
+          btn2Text: document.getElementById('btn2Text').value,
+          btn2Url: document.getElementById('btn2Url').value,
+          btn3Text: document.getElementById('btn3Text').value,
+          btn3Url: document.getElementById('btn3Url').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderTagList('modalitiesTagContainer', modalities, 'newModalityInp', 'addModalityBtn');
+            renderTagList('conditionsTagContainer', conditions, 'newConditionInp', 'addConditionBtn');
+            renderTagList('populationsTagContainer', populations, 'newPopulationInp', 'addPopulationBtn');
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.heroName) document.getElementById('heroName').value = d.heroName;
+          if (d.heroSubtitle) document.getElementById('heroSubtitle').value = d.heroSubtitle;
+          if (d.heroBreadcrumb) document.getElementById('heroBreadcrumb').value = d.heroBreadcrumb;
+          if (d.heroParent) document.getElementById('heroParent').value = d.heroParent;
+          if (d.profileImgSrc) document.getElementById('profileImgSrc').value = d.profileImgSrc;
+          if (d.thumbImgSrc) document.getElementById('thumbImgSrc').value = d.thumbImgSrc;
+          if (d.displayName) document.getElementById('displayName').value = d.displayName;
+          if (d.credentials) document.getElementById('credentials').value = d.credentials;
+          if (d.proTitle) document.getElementById('proTitle').value = d.proTitle;
+          if (d.doctorPhone) document.getElementById('doctorPhone').value = d.doctorPhone;
+          if (d.doctorApptUrl) document.getElementById('doctorApptUrl').value = d.doctorApptUrl;
+          if (d.showApptBtn !== undefined) document.getElementById('showApptBtn').checked = d.showApptBtn;
+          if (d.bioHeading) document.getElementById('bioHeading').value = d.bioHeading;
+          if (d.bioPara1) document.getElementById('bioPara1').value = d.bioPara1;
+          if (d.bioPara2) document.getElementById('bioPara2').value = d.bioPara2;
+          if (d.bioPara3) document.getElementById('bioPara3').value = d.bioPara3;
+          if (d.bioPara4) document.getElementById('bioPara4').value = d.bioPara4;
+          if (Array.isArray(d.modalities) && d.modalities.length) modalities = d.modalities;
+          if (Array.isArray(d.conditions) && d.conditions.length) conditions = d.conditions;
+          if (Array.isArray(d.populations) && d.populations.length) populations = d.populations;
+          if (d.btn1Text) document.getElementById('btn1Text').value = d.btn1Text;
+          if (d.btn1Url) document.getElementById('btn1Url').value = d.btn1Url;
+          if (d.btn2Text) document.getElementById('btn2Text').value = d.btn2Text;
+          if (d.btn2Url) document.getElementById('btn2Url').value = d.btn2Url;
+          if (d.btn3Text) document.getElementById('btn3Text').value = d.btn3Text;
+          if (d.btn3Url) document.getElementById('btn3Url').value = d.btn3Url;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+        } catch (e) {
+          console.error(e);
+        }
+        renderTagList('modalitiesTagContainer', modalities, 'newModalityInp', 'addModalityBtn');
+        renderTagList('conditionsTagContainer', conditions, 'newConditionInp', 'addConditionBtn');
+        renderTagList('populationsTagContainer', populations, 'newPopulationInp', 'addPopulationBtn');
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Dr. Jessica Needle profile saved successfully!');
+        } else {
+          alert('Dr. Jessica Needle profile saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset to default values?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

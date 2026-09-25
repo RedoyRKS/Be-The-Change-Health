@@ -209,12 +209,68 @@
       .replace(/^-+|-+$/g, "");
   }
 
+  var PLAN_DEFAULT_IMAGES = {
+    "standard-wellness": "assets/uploads/2024/10/Standard-Wellness-Membership-Ad-1.jpg",
+    "specialized-wellness": "assets/uploads/2024/10/Specialized-Wellness-Membership-Ad-1.jpg",
+    "family-wellness": "assets/uploads/2024/10/family-Wellness-Membership-Ad.png"
+  };
+
+  var DEFAULT_FALLBACK_SVG = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2080%22%20width%3D%22120%22%20height%3D%2280%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22btcBg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23f0f7f9%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23e2eff2%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22120%22%20height%3D%2280%22%20rx%3D%228%22%20fill%3D%22url(%23btcBg)%22%2F%3E%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%22119%22%20height%3D%2279%22%20rx%3D%227.5%22%20fill%3D%22none%22%20stroke%3D%22%23cfe2e7%22%20stroke-width%3D%221%22%2F%3E%3Cg%20transform%3D%22translate(60%2C34)%22%3E%3Crect%20x%3D%22-20%22%20y%3D%22-16%22%20width%3D%2240%22%20height%3D%2228%22%20rx%3D%224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%232f93a8%22%20stroke-width%3D%221.5%22%20opacity%3D%220.95%22%2F%3E%3Ccircle%20cx%3D%227%22%20cy%3D%22-8%22%20r%3D%222.5%22%20fill%3D%22%232f93a8%22%20opacity%3D%220.8%22%2F%3E%3Cpath%20d%3D%22M-14%206l9-9%207%207%204-4%208%206h-28z%22%20fill%3D%22%232f93a8%22%20opacity%3D%220.65%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2260%22%20y%3D%2264%22%20font-family%3D%22-apple-system%2CBlinkMacSystemFont%2C'Segoe%20UI'%2CRoboto%2Csans-serif%22%20font-size%3D%227.5%22%20font-weight%3D%22600%22%20fill%3D%22%230b3a53%22%20letter-spacing%3D%220.4%22%20text-anchor%3D%22middle%22%20opacity%3D%220.75%22%3EMEMBERSHIP%20PLAN%3C%2Ftext%3E%3C%2Fsvg%3E";
+
+  function getAdminFrontendPrefix() {
+    if (typeof window === "undefined" || !window.location) {
+      return "../../../Frontend/";
+    }
+    var norm = (window.location.pathname || "").replace(/\\/g, "/");
+    var pagesIdx = norm.indexOf("/pages/");
+    if (pagesIdx !== -1) {
+      var rest = norm.slice(pagesIdx + "/pages/".length);
+      // Subfolder under /pages/ (e.g. pages/memberships/memberships.html) -> depth 2 inside Admin -> 3 levels up to root
+      if (rest.indexOf("/") !== -1) {
+        return "../../../Frontend/";
+      }
+      // Directly inside /pages/ (e.g. pages/homepage.html) -> depth 1 inside Admin -> 2 levels up to root
+      return "../../Frontend/";
+    }
+    if (norm.toLowerCase().indexOf("/admin") !== -1) {
+      return "../Frontend/";
+    }
+    return "../../../Frontend/";
+  }
+
   function getRawData() {
     try {
+      if (typeof localStorage === "undefined") {
+        return {
+          policyText: DEFAULT_PAGE_CONTENT.intro.text,
+          pageContent: clone(DEFAULT_PAGE_CONTENT),
+          plans: clone(DEFAULT_PLANS)
+        };
+      }
       var item = localStorage.getItem(STORAGE_KEY);
       if (item) {
         var parsed = JSON.parse(item);
         if (parsed && Array.isArray(parsed.plans)) {
+          var changed = false;
+          parsed.plans.forEach(function (p) {
+            for (var i = 0; i < DEFAULT_PLANS.length; i++) {
+              if (DEFAULT_PLANS[i].id === p.id) {
+                var isInvalid = !p.image ||
+                  typeof p.image !== "string" ||
+                  p.image.trim() === "" ||
+                  p.image.indexOf("data:image/svg") === 0 ||
+                  p.image.indexOf("../../Frontend/") === 0;
+                if (isInvalid) {
+                  p.image = DEFAULT_PLANS[i].image;
+                  changed = true;
+                }
+                break;
+              }
+            }
+          });
+          if (changed) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+          }
           if (!parsed.pageContent) {
             parsed.pageContent = clone(DEFAULT_PAGE_CONTENT);
           }
@@ -233,7 +289,9 @@
 
   function persist(data) {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
       if (typeof window !== "undefined" && typeof window.dispatchEvent === "function") {
         window.dispatchEvent(new CustomEvent("btc-memberships-updated", { detail: data }));
       }
@@ -278,25 +336,41 @@
     };
   }
 
-  function resolveImage(imgUrl, callerContext) {
-    if (!imgUrl) {
-      return callerContext === "admin"
-        ? "../../Frontend/assets/uploads/2024/10/Standard-Wellness-Membership-Ad-1.jpg"
-        : "assets/uploads/2024/10/Standard-Wellness-Membership-Ad-1.jpg";
+  function resolveImage(imgUrl, callerContext, planId) {
+    if ((!imgUrl || typeof imgUrl !== "string" || !imgUrl.trim()) && planId && PLAN_DEFAULT_IMAGES[planId]) {
+      imgUrl = PLAN_DEFAULT_IMAGES[planId];
     }
-    if (imgUrl.indexOf("data:") === 0 || imgUrl.indexOf("http://") === 0 || imgUrl.indexOf("https://") === 0) {
-      return imgUrl;
+    if (!imgUrl || typeof imgUrl !== "string") {
+      return callerContext === "admin" ? DEFAULT_FALLBACK_SVG : (planId && PLAN_DEFAULT_IMAGES[planId] ? PLAN_DEFAULT_IMAGES[planId] : "");
     }
-    if (callerContext === "admin") {
-      if (imgUrl.indexOf("../../Frontend/") === 0) return imgUrl;
-      if (imgUrl.indexOf("assets/") === 0) return "../../Frontend/" + imgUrl;
-      return imgUrl;
-    } else {
-      if (imgUrl.indexOf("../../Frontend/") === 0) {
-        return imgUrl.replace("../../Frontend/", "");
+    var trimmed = imgUrl.trim();
+    if (!trimmed || trimmed === "undefined" || trimmed === "null") {
+      return callerContext === "admin" ? DEFAULT_FALLBACK_SVG : (planId && PLAN_DEFAULT_IMAGES[planId] ? PLAN_DEFAULT_IMAGES[planId] : "");
+    }
+    if (trimmed.indexOf("data:") === 0) {
+      if (planId && PLAN_DEFAULT_IMAGES[planId] && trimmed.indexOf("data:image/svg") === 0) {
+        trimmed = PLAN_DEFAULT_IMAGES[planId];
+      } else {
+        return trimmed;
       }
-      return imgUrl;
     }
+    if (trimmed.indexOf("http://") === 0 || trimmed.indexOf("https://") === 0 || trimmed.indexOf("blob:") === 0) {
+      return trimmed;
+    }
+    var assetIdx = trimmed.indexOf("assets/");
+    if (assetIdx !== -1) {
+      var cleanPath = trimmed.substring(assetIdx);
+      if (callerContext === "frontend") {
+        return cleanPath;
+      }
+      var prefix = getAdminFrontendPrefix();
+      return prefix + cleanPath;
+    }
+    if (planId && PLAN_DEFAULT_IMAGES[planId]) {
+      var def = PLAN_DEFAULT_IMAGES[planId];
+      return (callerContext === "frontend" ? "" : getAdminFrontendPrefix()) + def;
+    }
+    return trimmed;
   }
 
   var store = {
@@ -523,7 +597,11 @@
     },
 
     blankPlan: blankPlan,
-    resolveImage: resolveImage
+    resolveImage: resolveImage,
+    FALLBACK_IMAGE: DEFAULT_FALLBACK_SVG,
+    DEFAULT_FALLBACK_SVG: DEFAULT_FALLBACK_SVG,
+    PLAN_DEFAULT_IMAGES: PLAN_DEFAULT_IMAGES,
+    getAdminFrontendPrefix: getAdminFrontendPrefix
   };
 
   return store;

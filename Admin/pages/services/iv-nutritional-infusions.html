@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IV Nutritional Infusions CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .service-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .check-item-row {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .check-item-row .handle {
+      color: #94a3b8;
+      cursor: grab;
+    }
+    .check-item-row input {
+      background: #fff;
+    }
+    .iv-recipe-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      height: 100%;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .cms-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .cms-jump-bar a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #0d9488;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: #f0fdfa;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cms-jump-bar a:hover {
+      background: #0d9488;
+      color: #fff;
+    }
+  </style>
+</head>
+<body data-page="service-iv-nutritional-infusions">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Services</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">IV Nutritional Infusions</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/iv-nutritional-infusions.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/services/iv-nutritional-infusions.html</p>
+              <h2>IV Nutritional Infusions CMS</h2>
+              <p>Manage in-house IV therapy overview, 3 therapeutic infusions (Phosphatidylcholine, Myers IV 9-benefit checklist, Glutathione), and complete 9-item Nutritional IVs pricing menu.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="hyperbaric-oxygen-therapy.html">
+                ← Prev: HBOT
+              </a>
+              <a class="btn-btc-ghost btn-sm-admin" href="liquivida-iv-therapy.html">
+                Next: Liquivida IV →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-droplet-half text-teal"></i> Therapeutic IVs
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">3 Core Protocols</h4>
+                  <small class="text-muted">PC, Myers &amp; Glutathione</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-journal-text text-teal"></i> Nutritional Menu
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">9 Drip Formulas</h4>
+                  <small class="text-muted">Pricing from $80 to $235</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-check2-circle text-teal"></i> Myers Benefits
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">9 Health Outcomes</h4>
+                  <small class="text-muted">Asthma, migraines, thyroid</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-plus text-teal"></i> Delivery Mode
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">In-House Clinic</h4>
+                  <small class="text-muted">Custom vitamin infusions</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Jump Navigation Bar -->
+        <nav class="cms-jump-bar" aria-label="Section Quick Jump">
+          <span class="text-muted small align-self-center me-1"><i class="bi bi-signpost-split"></i> Jump to:</span>
+          <a href="#editor-hero">Hero Header</a>
+          <a href="#editor-intro">Intro &amp; Media</a>
+          <a href="#editor-therapeutic">Therapeutic IVs</a>
+          <a href="#editor-menu">9 Nutritional IVs Menu</a>
+          <a href="#editor-process">Process Steps</a>
+          <a href="#editor-cta">CTA Band</a>
+          <a href="#editor-seo">SEO &amp; Metadata</a>
+        </nav>
+
+        <!-- Stacked CMS Editor Sections -->
+        <div class="editor-stack">
+
+          <!-- 1. Hero Section -->
+          <div class="editor-card open mb-4" id="editor-hero">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 1</span>
+                <h3 class="mb-0">Page Hero Header</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-title">Hero H1 Title</label>
+                  <input type="text" class="form-control" id="hero-title" value="IV Nutritional Infusions">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-subtitle">Hero Subtitle</label>
+                  <input type="text" class="form-control" id="hero-subtitle" value="In-house IV therapy for healing, detoxifying, and wellness.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input type="text" class="form-control" id="hero-breadcrumb" value="IV Nutritional Infusions">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero"><i class="bi bi-check2 me-1"></i> Save Hero</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Intro & Featured Image -->
+          <div class="editor-card open mb-4" id="editor-intro">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 2</span>
+                <h3 class="mb-0">Intro &amp; Featured Graphic</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label fw-semibold" for="intro-image">Featured Banner Image Path</label>
+                  <input type="text" class="form-control" id="intro-image" value="../assets/uploads/2024/08/Naturopathic-Integrative-Medicine-Services.png">
+                  <div class="form-text">Live: Frontend/assets/uploads/2024/08/Naturopathic-Integrative-Medicine-Services.png</div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                  <img src="../../../Frontend/assets/uploads/2024/08/Naturopathic-Integrative-Medicine-Services.png" alt="Preview" class="service-preview-thumb ms-auto" onerror="this.style.display='none'">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="intro-lead">Intro Lead Paragraph</label>
+                  <input type="text" class="form-control" id="intro-lead" value="We offer in-house IV Therapy for healing, detoxifying and wellness.">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-intro"><i class="bi bi-check2 me-1"></i> Save Intro</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Therapeutic IVs -->
+          <div class="editor-card open mb-4" id="editor-therapeutic">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 3</span>
+                <h3 class="mb-0">Therapeutic IVs (PC, Myers, Glutathione)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label fw-semibold" for="thera-heading">Section Main Heading</label>
+                <input type="text" class="form-control" id="thera-heading" value="THERAPEUTIC IVS">
+              </div>
+
+              <!-- Protocol 1: Phosphatidylcholine -->
+              <div class="p-3 bg-light rounded border mb-3">
+                <h5 class="fw-bold text-dark mb-2">Protocol 1: Phosphatidylcholine (PC)</h5>
+                <textarea class="form-control" id="pc-desc" rows="3">Phosphatidylcholine (PC) is a phospholipid found in every cell in our body. It is one of the main components that make up our cell membranes and plays a major role in communication between cells. Phosphatidylcholine is a major supplier of choline and acetylcholine, an excitatory neurotransmitter essential for proper muscle, brain and nerve function. PC is also found in the surfactant in our lungs, allowing us to breathe, as well as, the mucus lining in our gut, allowing us to absorb and digest nutrients.</textarea>
+              </div>
+
+              <!-- Protocol 2: Myers IV -->
+              <div class="p-3 bg-light rounded border mb-3">
+                <h5 class="fw-bold text-dark mb-1">Protocol 2: Myers IV Infusion</h5>
+                <p class="text-muted small mb-2">This vitamin and mineral infusion can:</p>
+                <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
+                  <span>Myers Health Benefits Checklist (<span id="myers-count">9</span> items)</span>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="btn-add-myers"><i class="bi bi-plus-lg me-1"></i> Add Benefit</button>
+                </label>
+                <div id="myers-list-container" class="mb-2"></div>
+              </div>
+
+              <!-- Protocol 3: Glutathione -->
+              <div class="p-3 bg-light rounded border mb-3">
+                <h5 class="fw-bold text-dark mb-2">Protocol 3: Glutathione</h5>
+                <textarea class="form-control" id="gluta-desc" rows="3">Glutathione (GSH) is the “master antioxidant” made by our bodies. Glutathione helps to neutralize and detoxify harmful free radicals, including toxic drugs and heavy metals. By reducing reactive oxygen species, glutathione can protect the brain, kidneys, gut, lungs, and liver from oxidative damage.</textarea>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-therapeutic"><i class="bi bi-check2 me-1"></i> Save Therapeutic Protocols</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Nutritional IVs Menu (9 items) -->
+          <div class="editor-card open mb-4" id="editor-menu">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 4</span>
+                <h3 class="mb-0">Nutritional IVs Menu &amp; Pricing (9 Formulas)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label fw-semibold" for="menu-heading">Menu Section Heading</label>
+                <input type="text" class="form-control" id="menu-heading" value="NUTRITIONAL IVS">
+              </div>
+
+              <div class="row g-3 mb-3">
+
+                <!-- Item 1: The Original Myers Cocktail -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 1</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv1-name" value="THE ORIGINAL (MYERS COCKTAIL)">
+                    <textarea class="form-control mb-2" id="iv1-tagline" rows="2">A great way to support your immune system and increase energy!</textarea>
+                    <textarea class="form-control mb-2" id="iv1-ingredients" rows="2">Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, Potassium</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv1-price" value="150">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 2: Blood Flow + Energy + Metabolism -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 2</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv2-name" value="BLOOD FLOW + ENERGY + METABOLISM">
+                    <textarea class="form-control mb-2" id="iv2-tagline" rows="2">Increases blood flow, metabolism and overall energy and mood.</textarea>
+                    <textarea class="form-control mb-2" id="iv2-ingredients" rows="2">Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Acetyl-L-Carnitine, L-Glutamine, Taurine, Arginine</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv2-price" value="200">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 3: Anti-Aging / Skin Brightening -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 3</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv3-name" value="ANTI-AGING / SKIN BRIGHTENING">
+                    <textarea class="form-control mb-2" id="iv3-tagline" rows="2">Support skin, produce more collagen, enhance elasticity and reduce fine lines.</textarea>
+                    <textarea class="form-control mb-2" id="iv3-ingredients" rows="2">Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Biotin, CoQ10, Lysine</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv3-price" value="220">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 4: Immune Boost -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 4</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv4-name" value="IMMUNE BOOST">
+                    <textarea class="form-control mb-2" id="iv4-tagline" rows="2">Support immune system through cold, flu, seasonal illness and stress. Protect from free radical damage.</textarea>
+                    <textarea class="form-control mb-2" id="iv4-ingredients" rows="2">Includes: Vitamin C, B12, B-complex, Magnesium, Calcium, Glutathione, B5, Vitamin D3</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv4-price" value="185">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 5: Liver Cleanse -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 5</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv5-name" value="LIVER CLEANSE">
+                    <textarea class="form-control mb-2" id="iv5-tagline" rows="2">Support liver detoxification!</textarea>
+                    <textarea class="form-control mb-2" id="iv5-ingredients" rows="2">Includes: Glutathione, NAC, Taurine, Alpha Lipoic Acid</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv5-price" value="155">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 6: Joint Support / Pain Relief -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 6</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv6-name" value="JOINT SUPPORT / PAIN RELIEF">
+                    <textarea class="form-control mb-2" id="iv6-tagline" rows="2">Support joints and help relieve joint and muscle aches and headaches.</textarea>
+                    <textarea class="form-control mb-2" id="iv6-ingredients" rows="2">Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Glucosamine, Glutamine, Proline, Taurine, Selenium</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv6-price" value="235">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 7: Brain Clarity -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 7</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv7-name" value="BRAIN CLARITY">
+                    <textarea class="form-control mb-2" id="iv7-tagline" rows="2">Improve focus, problem solving, memory, attention and clear brain fog.</textarea>
+                    <textarea class="form-control mb-2" id="iv7-ingredients" rows="2">Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Glutathione, NAC, Taurine, Acety-L-Carnitine</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv7-price" value="235">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 8: Re-Hydration -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 8</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv8-name" value="RE-HYDRATION">
+                    <textarea class="form-control mb-2" id="iv8-tagline" rows="2">Support for fatigue, hangovers, jet-lag, seasonal illness and skin complexion.</textarea>
+                    <textarea class="form-control mb-2" id="iv8-ingredients" rows="2">Includes: B Complex and Fluids</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv8-price" value="110">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 9: Hydration (1000ml) -->
+                <div class="col-md-6 col-lg-4">
+                  <div class="iv-recipe-card">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Formula 9</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="iv9-name" value="HYDRATION">
+                    <textarea class="form-control mb-2" id="iv9-tagline" rows="2">Quickly rehydrate anytime!</textarea>
+                    <textarea class="form-control mb-2" id="iv9-ingredients" rows="2">Includes 1000 ml of Fluids</textarea>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="text" class="form-control fw-semibold" id="iv9-price" value="80">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-menu"><i class="bi bi-check2 me-1"></i> Save Nutritional Menu</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Process Steps -->
+          <div class="editor-card open mb-4" id="editor-process">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 5</span>
+                <h3 class="mb-0">"Feel Good, Live Better!" 3-Step Process</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-heading">Process Heading</label>
+                  <input type="text" class="form-control" id="process-heading" value="Feel Good, Live Better!">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-subheading">Process Subheading</label>
+                  <input type="text" class="form-control" id="process-subheading" value="It’s easy to get started…">
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 1</h6>
+                    <input type="text" class="form-control mb-2" id="step1-title" value="Request An Appointment">
+                    <textarea class="form-control" id="step1-desc" rows="3">Your first step is to either call our clinic or complete the online request form for a new patient appointment.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 2</h6>
+                    <input type="text" class="form-control mb-2" id="step2-title" value="Experience Our Clinic">
+                    <textarea class="form-control" id="step2-desc" rows="3">Come to our clinic to receive your integrative consultation or treatment session.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 3</h6>
+                    <input type="text" class="form-control mb-2" id="step3-title" value="Choose A Membership">
+                    <textarea class="form-control mb-2" id="step3-desc" rows="2">All patients enroll in one of our membership plans designed for discounts and complimentary services.</textarea>
+                    <input type="text" class="form-control" id="step3-link" value="../memberships.html">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-process"><i class="bi bi-check2 me-1"></i> Save Process</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Call to Action Band -->
+          <div class="editor-card open mb-4" id="editor-cta">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 6</span>
+                <h3 class="mb-0">Consultation CTA Band</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-heading">CTA Band Heading</label>
+                  <input type="text" class="form-control" id="cta-heading" value="Interested in IV Nutritional Infusions?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-subtitle">CTA Band Subtitle</label>
+                  <input type="text" class="form-control" id="cta-subtitle" value="Our team can help you decide if this therapy is right for you.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-text">Primary Button Label</label>
+                  <input type="text" class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-link">Primary Button URL</label>
+                  <input type="text" class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-phone">Phone Call CTA</label>
+                  <input type="text" class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta"><i class="bi bi-check2 me-1"></i> Save CTA Band</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. SEO & Live Google SERP Preview -->
+          <div class="editor-card open mb-4" id="editor-seo">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 7</span>
+                <h3 class="mb-0">SEO Metadata &amp; Google Search Preview</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-title">Meta Title Tag</label>
+                  <input type="text" class="form-control" id="seo-title" value="IV Nutritional Infusions - Be The Change Health and Wellness Center">
+                  <div class="form-text">Recommended: 50–60 characters.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-canonical">Canonical URL</label>
+                  <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/services/iv-nutritional-infusions.html">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">In-house IV therapy for healing, detoxifying, and wellness in Columbia, MD. Phosphatidylcholine, Myers Cocktail, Glutathione, and customized drip infusions.</textarea>
+                </div>
+              </div>
+              <div class="serp-card mb-3">
+                <div class="small text-muted mb-2 fw-semibold"><i class="bi bi-google me-1"></i> Google Search Result Snippet Preview</div>
+                <div class="serp-title" id="serp-preview-title">IV Nutritional Infusions - Be The Change Health and Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › services › iv-nutritional-infusions</div>
+                <div class="serp-desc" id="serp-preview-desc">In-house IV therapy for healing, detoxifying, and wellness in Columbia, MD. Phosphatidylcholine, Myers Cocktail, Glutathione, and customized drip infusions.</div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo"><i class="bi bi-check2 me-1"></i> Save SEO</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin p-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2 text-muted small">
+            <i class="bi bi-clock-history"></i>
+            <span id="save-status-text">Draft state saved locally</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/iv-nutritional-infusions.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_service_iv_nutritional_infusions";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "IV Nutritional Infusions",
+          subtitle: "In-house IV therapy for healing, detoxifying, and wellness.",
+          breadcrumb: "IV Nutritional Infusions"
+        },
+        intro: {
+          image: "../assets/uploads/2024/08/Naturopathic-Integrative-Medicine-Services.png",
+          lead: "We offer in-house IV Therapy for healing, detoxifying and wellness."
+        },
+        therapeutic: {
+          heading: "THERAPEUTIC IVS",
+          pcDesc: "Phosphatidylcholine (PC) is a phospholipid found in every cell in our body. It is one of the main components that make up our cell membranes and plays a major role in communication between cells. Phosphatidylcholine is a major supplier of choline and acetylcholine, an excitatory neurotransmitter essential for proper muscle, brain and nerve function. PC is also found in the surfactant in our lungs, allowing us to breathe, as well as, the mucus lining in our gut, allowing us to absorb and digest nutrients.",
+          myersItems: [
+            "Reduce asthma symptoms",
+            "Reduce migraines",
+            "Improve energy",
+            "Improve fibromyalgia",
+            "Decrease depression",
+            "Improve respiratory infections",
+            "Support cardiovascular health",
+            "Reduce seasonal allergies",
+            "Support thyroid"
+          ],
+          glutaDesc: "Glutathione (GSH) is the “master antioxidant” made by our bodies. Glutathione helps to neutralize and detoxify harmful free radicals, including toxic drugs and heavy metals. By reducing reactive oxygen species, glutathione can protect the brain, kidneys, gut, lungs, and liver from oxidative damage."
+        },
+        menu: {
+          heading: "NUTRITIONAL IVS",
+          iv1: { name: "THE ORIGINAL (MYERS COCKTAIL)", tagline: "A great way to support your immune system and increase energy!", ingredients: "Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, Potassium", price: "150" },
+          iv2: { name: "BLOOD FLOW + ENERGY + METABOLISM", tagline: "Increases blood flow, metabolism and overall energy and mood.", ingredients: "Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Acetyl-L-Carnitine, L-Glutamine, Taurine, Arginine", price: "200" },
+          iv3: { name: "ANTI-AGING / SKIN BRIGHTENING", tagline: "Support skin, produce more collagen, enhance elasticity and reduce fine lines.", ingredients: "Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Biotin, CoQ10, Lysine", price: "220" },
+          iv4: { name: "IMMUNE BOOST", tagline: "Support immune system through cold, flu, seasonal illness and stress. Protect from free radical damage.", ingredients: "Includes: Vitamin C, B12, B-complex, Magnesium, Calcium, Glutathione, B5, Vitamin D3", price: "185" },
+          iv5: { name: "LIVER CLEANSE", tagline: "Support liver detoxification!", ingredients: "Includes: Glutathione, NAC, Taurine, Alpha Lipoic Acid", price: "155" },
+          iv6: { name: "JOINT SUPPORT / PAIN RELIEF", tagline: "Support joints and help relieve joint and muscle aches and headaches.", ingredients: "Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Glucosamine, Glutamine, Proline, Taurine, Selenium", price: "235" },
+          iv7: { name: "BRAIN CLARITY", tagline: "Improve focus, problem solving, memory, attention and clear brain fog.", ingredients: "Includes: Vitamin C, B12, B Complex, Magnesium, Calcium, B5, Glutathione, NAC, Taurine, Acety-L-Carnitine", price: "235" },
+          iv8: { name: "RE-HYDRATION", tagline: "Support for fatigue, hangovers, jet-lag, seasonal illness and skin complexion.", ingredients: "Includes: B Complex and Fluids", price: "110" },
+          iv9: { name: "HYDRATION", tagline: "Quickly rehydrate anytime!", ingredients: "Includes 1000 ml of Fluids", price: "80" }
+        },
+        process: {
+          heading: "Feel Good, Live Better!",
+          subheading: "It’s easy to get started…",
+          step1Title: "Request An Appointment",
+          step1Desc: "Your first step is to either call our clinic or complete the online request form for a new patient appointment.",
+          step2Title: "Experience Our Clinic",
+          step2Desc: "Come to our clinic to receive your integrative consultation or treatment session.",
+          step3Title: "Choose A Membership",
+          step3Desc: "All patients enroll in one of our membership plans designed for discounts and complimentary services.",
+          step3Link: "../memberships.html"
+        },
+        cta: {
+          heading: "Interested in IV Nutritional Infusions?",
+          subtitle: "Our team can help you decide if this therapy is right for you.",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html",
+          phone: "301-970-9724"
+        },
+        seo: {
+          title: "IV Nutritional Infusions - Be The Change Health and Wellness Center",
+          desc: "In-house IV therapy for healing, detoxifying, and wellness in Columbia, MD. Phosphatidylcholine, Myers Cocktail, Glutathione, and customized drip infusions.",
+          canonical: "https://bethechangehealth.com/services/iv-nutritional-infusions.html"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.error(e);
+        }
+        return DEFAULT_DATA;
+      }
+
+      function saveData(d) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+          var now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          var st = document.getElementById("save-status-text");
+          if (st) st.textContent = "Last saved at " + now;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function toast(msg) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg);
+        } else {
+          alert(msg);
+        }
+      }
+
+      function renderChecklist(containerId, items) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = "";
+        items.forEach(function (val, idx) {
+          var row = document.createElement("div");
+          row.className = "check-item-row";
+          row.innerHTML =
+            '<i class="bi bi-grip-vertical handle"></i>' +
+            '<span class="badge bg-secondary-subtle text-secondary rounded-pill">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control form-control-sm" value="' + val.replace(/"/g, '&quot;') + '">' +
+            '<button type="button" class="btn btn-sm btn-outline-danger btn-remove-item" title="Remove"><i class="bi bi-trash"></i></button>';
+          row.querySelector(".btn-remove-item").addEventListener("click", function () {
+            row.remove();
+            updateCount();
+          });
+          container.appendChild(row);
+        });
+        updateCount();
+      }
+
+      function updateCount() {
+        var cnt = document.querySelectorAll("#myers-list-container .check-item-row").length;
+        var badge = document.getElementById("myers-count");
+        if (badge) badge.textContent = String(cnt);
+      }
+
+      function gatherChecklist(containerId) {
+        var items = [];
+        document.querySelectorAll("#" + containerId + " input[type=text]").forEach(function (inp) {
+          var v = inp.value.trim();
+          if (v) items.push(v);
+        });
+        return items;
+      }
+
+      function updateSerp() {
+        var t = document.getElementById("seo-title").value.trim();
+        var d = document.getElementById("seo-desc").value.trim();
+        var c = document.getElementById("seo-canonical").value.trim();
+        document.getElementById("serp-preview-title").textContent = t || "IV Nutritional Infusions";
+        document.getElementById("serp-preview-desc").textContent = d || "No description provided.";
+        document.getElementById("serp-preview-url").textContent = c || "https://bethechangehealth.com/services/iv-nutritional-infusions.html";
+      }
+
+      function populateForm(data) {
+        var d = data || DEFAULT_DATA;
+        function setVal(id, v) {
+          var el = document.getElementById(id);
+          if (el && v !== undefined) el.value = v;
+        }
+
+        setVal("hero-title", d.hero.title);
+        setVal("hero-subtitle", d.hero.subtitle);
+        setVal("hero-breadcrumb", d.hero.breadcrumb);
+
+        setVal("intro-image", d.intro.image);
+        setVal("intro-lead", d.intro.lead);
+
+        setVal("thera-heading", d.therapeutic.heading);
+        setVal("pc-desc", d.therapeutic.pcDesc);
+        renderChecklist("myers-list-container", d.therapeutic.myersItems || []);
+        setVal("gluta-desc", d.therapeutic.glutaDesc);
+
+        setVal("menu-heading", d.menu.heading);
+        for (var i = 1; i <= 9; i++) {
+          var ivKey = "iv" + i;
+          if (d.menu[ivKey]) {
+            setVal("iv" + i + "-name", d.menu[ivKey].name);
+            setVal("iv" + i + "-tagline", d.menu[ivKey].tagline);
+            setVal("iv" + i + "-ingredients", d.menu[ivKey].ingredients);
+            setVal("iv" + i + "-price", d.menu[ivKey].price);
+          }
+        }
+
+        setVal("process-heading", d.process.heading);
+        setVal("process-subheading", d.process.subheading);
+        setVal("step1-title", d.process.step1Title);
+        setVal("step1-desc", d.process.step1Desc);
+        setVal("step2-title", d.process.step2Title);
+        setVal("step2-desc", d.process.step2Desc);
+        setVal("step3-title", d.process.step3Title);
+        setVal("step3-desc", d.process.step3Desc);
+        setVal("step3-link", d.process.step3Link);
+
+        setVal("cta-heading", d.cta.heading);
+        setVal("cta-subtitle", d.cta.subtitle);
+        setVal("cta-btn-text", d.cta.btnText);
+        setVal("cta-btn-link", d.cta.btnLink);
+        setVal("cta-phone", d.cta.phone);
+
+        setVal("seo-title", d.seo.title);
+        setVal("seo-canonical", d.seo.canonical);
+        setVal("seo-desc", d.seo.desc);
+
+        updateSerp();
+      }
+
+      function saveAll() {
+        function val(id) {
+          var el = document.getElementById(id);
+          return el ? el.value.trim() : "";
+        }
+
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            breadcrumb: val("hero-breadcrumb")
+          },
+          intro: {
+            image: val("intro-image"),
+            lead: val("intro-lead")
+          },
+          therapeutic: {
+            heading: val("thera-heading"),
+            pcDesc: val("pc-desc"),
+            myersItems: gatherChecklist("myers-list-container"),
+            glutaDesc: val("gluta-desc")
+          },
+          menu: {
+            heading: val("menu-heading"),
+            iv1: { name: val("iv1-name"), tagline: val("iv1-tagline"), ingredients: val("iv1-ingredients"), price: val("iv1-price") },
+            iv2: { name: val("iv2-name"), tagline: val("iv2-tagline"), ingredients: val("iv2-ingredients"), price: val("iv2-price") },
+            iv3: { name: val("iv3-name"), tagline: val("iv3-tagline"), ingredients: val("iv3-ingredients"), price: val("iv3-price") },
+            iv4: { name: val("iv4-name"), tagline: val("iv4-tagline"), ingredients: val("iv4-ingredients"), price: val("iv4-price") },
+            iv5: { name: val("iv5-name"), tagline: val("iv5-tagline"), ingredients: val("iv5-ingredients"), price: val("iv5-price") },
+            iv6: { name: val("iv6-name"), tagline: val("iv6-tagline"), ingredients: val("iv6-ingredients"), price: val("iv6-price") },
+            iv7: { name: val("iv7-name"), tagline: val("iv7-tagline"), ingredients: val("iv7-ingredients"), price: val("iv7-price") },
+            iv8: { name: val("iv8-name"), tagline: val("iv8-tagline"), ingredients: val("iv8-ingredients"), price: val("iv8-price") },
+            iv9: { name: val("iv9-name"), tagline: val("iv9-tagline"), ingredients: val("iv9-ingredients"), price: val("iv9-price") }
+          },
+          process: {
+            heading: val("process-heading"),
+            subheading: val("process-subheading"),
+            step1Title: val("step1-title"),
+            step1Desc: val("step1-desc"),
+            step2Title: val("step2-title"),
+            step2Desc: val("step2-desc"),
+            step3Title: val("step3-title"),
+            step3Desc: val("step3-desc"),
+            step3Link: val("step3-link")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            subtitle: val("cta-subtitle"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link"),
+            phone: val("cta-phone")
+          },
+          seo: {
+            title: val("seo-title"),
+            canonical: val("seo-canonical"),
+            desc: val("seo-desc")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("IV Nutritional Infusions CMS saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-intro").addEventListener("click", function () {
+          saveAll();
+          toast("Intro section saved.");
+        });
+        document.getElementById("btn-save-therapeutic").addEventListener("click", function () {
+          saveAll();
+          toast("Therapeutic protocols saved.");
+        });
+        document.getElementById("btn-save-menu").addEventListener("click", function () {
+          saveAll();
+          toast("Nutritional menu saved.");
+        });
+        document.getElementById("btn-save-process").addEventListener("click", function () {
+          saveAll();
+          toast("Process steps saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("Consultation CTA saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Add myers benefit
+        document.getElementById("btn-add-myers").addEventListener("click", function () {
+          var items = gatherChecklist("myers-list-container");
+          items.push("New Myers Health Benefit");
+          renderChecklist("myers-list-container", items);
+        });
+
+        // Save All buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset IV Nutritional Infusions back to original clinic defaults?")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored clinic defaults for IV Nutritional Infusions.");
+          }
+        });
+
+        // Live SERP listeners
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

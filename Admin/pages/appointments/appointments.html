@@ -1,0 +1,3111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appointments Management | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="appointments">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+
+        <!-- Top Breadcrumbs & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Care Operations</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Appointment Management</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" data-save="Calendar sync complete. All provider calendars up to date.">
+              <i class="bi bi-arrow-repeat me-1"></i> Sync Calendars
+            </button>
+            <button class="btn-btc-outline btn-sm-admin" type="button" data-save="Exporting appointment roster to CSV (UI Demo)...">
+              <i class="bi bi-download me-1"></i> Export CSV
+            </button>
+            <button class="btn-btc btn-sm-admin" type="button" data-bs-toggle="modal" data-bs-target="#approveModal">
+              <i class="bi bi-calendar2-plus me-1"></i> Quick Approve Next
+            </button>
+          </div>
+        </div>
+
+        <div class="note-bar">
+          Care Operations workflow for patient booking requests, scheduling coordination, conflict resolution, and confirmation lifecycle. Sourced directly from public booking requests (<strong>book-appointment.html</strong>).
+        </div>
+
+        <!-- 7 Summary Stat Cards Grid -->
+        <div class="stat-grid-7 mb-4">
+          <div class="stat-card compact">
+            <div class="stat-icon warn"><i class="bi bi-hourglass-split"></i></div>
+            <div>
+              <h4>7</h4>
+              <p>Pending</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon teal"><i class="bi bi-check2-circle"></i></div>
+            <div>
+              <h4>12</h4>
+              <p>Confirmed</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon navy"><i class="bi bi-calendar-day"></i></div>
+            <div>
+              <h4>5</h4>
+              <p>Today's Visits</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon teal"><i class="bi bi-laptop"></i></div>
+            <div>
+              <h4>8</h4>
+              <p>Telehealth</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon green"><i class="bi bi-person-plus"></i></div>
+            <div>
+              <h4>9</h4>
+              <p>New Patients</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon green"><i class="bi bi-clipboard-check"></i></div>
+            <div>
+              <h4>24</h4>
+              <p>Completed</p>
+            </div>
+          </div>
+          <div class="stat-card compact">
+            <div class="stat-icon warn"><i class="bi bi-x-circle text-danger"></i></div>
+            <div>
+              <h4 class="text-danger">3</h4>
+              <p>Cancelled</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONFLICT WARNING UI -->
+        <div class="conflict-warning-card" id="conflictAlertCard">
+          <div class="conflict-warning-content">
+            <div class="conflict-warning-icon">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <div>
+              <h4>⚠ Appointment Time Conflict</h4>
+              <p><strong>Dr. Sultana Afrooz already has an appointment at this time.</strong> Marcus Vance is confirmed for <em>Ozone Therapy</em> (Sep 24 · 10:00 AM – 10:45 AM, Room 301). David K. Reynolds also requested this slot for <em>Frequency Specific Microcurrent™</em>.</p>
+            </div>
+          </div>
+          <div class="conflict-warning-actions">
+            <button type="button" class="btn-btc btn-sm-admin" id="btnConflictChooseTime">
+              <i class="bi bi-clock-history me-1"></i> Choose Another Time
+            </button>
+            <button type="button" class="btn-btc-outline btn-sm-admin" id="btnConflictChooseProvider">
+              <i class="bi bi-person-switch me-1"></i> Choose Another Provider
+            </button>
+            <button type="button" class="btn-btc-ghost btn-sm-admin" title="Dismiss warning banner" onclick="document.getElementById('conflictAlertCard').style.display='none'">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- TODAY'S SCHEDULE SECTION -->
+        <div class="card-admin today-schedule-card mb-4">
+          <div class="card-head">
+            <div>
+              <h2><i class="bi bi-calendar2-day text-teal me-2"></i>Today's Schedule — Thursday, Sep 24, 2026</h2>
+              <p>Real-time practitioner schedule · Columbia, MD clinic &amp; Maryland Telehealth rooms</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge-admin badge-confirmed"><i class="bi bi-dot"></i> 5 Scheduled Visits</span>
+              <span class="badge-admin badge-conflict"><i class="bi bi-exclamation-circle me-1"></i> 1 Overlap Flagged</span>
+            </div>
+          </div>
+          <div class="card-body-admin p-0">
+            <div class="table-wrap">
+              <table class="table-admin mb-0">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Patient</th>
+                    <th>Provider</th>
+                    <th>Service</th>
+                    <th>Visit Type</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="schedule-time-badge"><i class="bi bi-clock"></i> 09:00 AM – 10:00 AM</span>
+                    </td>
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#4f46e5;">EA</span>
+                        <span><strong>Elle Adams</strong><small>New Patient · (301) 555-0191</small></span>
+                      </div>
+                    </td>
+                    <td><span class="fw-semibold text-navy">Sultana Afrooz, D.O.</span></td>
+                    <td>New patient consultation</td>
+                    <td><span class="badge-admin badge-tele"><i class="bi bi-laptop me-1"></i>Telehealth</span></td>
+                    <td><span class="badge-admin badge-pending">Pending</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View details" onclick="openAppointmentDetail('apt-1')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Confirm visit" onclick="openApproveModal('apt-1')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule" onclick="openRescheduleModal('apt-1')"><i class="bi bi-calendar2-range"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="schedule-time-badge"><i class="bi bi-clock"></i> 10:00 AM – 10:45 AM</span>
+                    </td>
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#0284c7;">MV</span>
+                        <span><strong>Marcus Vance</strong><small>Existing · (301) 555-0128</small></span>
+                      </div>
+                    </td>
+                    <td><span class="fw-semibold text-navy">Sultana Afrooz, D.O.</span></td>
+                    <td>Ozone Therapy</td>
+                    <td><span class="badge-admin badge-in-office"><i class="bi bi-building me-1"></i>In-office (Room 301)</span></td>
+                    <td><span class="badge-admin badge-confirmed">Confirmed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View details" onclick="openAppointmentDetail('apt-3')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reschedule" onclick="openRescheduleModal('apt-3')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Cancel confirmed visit" onclick="openCancelModal('apt-3')"><i class="bi bi-x-circle"></i></button>
+                    </td>
+                  </tr>
+                  <tr class="conflict-row">
+                    <td>
+                      <span class="schedule-time-badge text-danger border-danger"><i class="bi bi-exclamation-triangle"></i> 10:00 AM – 11:00 AM</span>
+                    </td>
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#d97706;">DR</span>
+                        <span><strong>David K. Reynolds</strong><small class="text-danger fw-semibold">Conflict with Marcus Vance</small></span>
+                      </div>
+                    </td>
+                    <td><span class="fw-semibold text-danger">Sultana Afrooz, D.O.</span></td>
+                    <td>Frequency Specific Microcurrent™</td>
+                    <td><span class="badge-admin badge-in-office"><i class="bi bi-building me-1"></i>In-office</span></td>
+                    <td><span class="badge-admin badge-rescheduled">Reschedule Requested</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View details" onclick="openAppointmentDetail('apt-2')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action text-warning" title="Reschedule slot" onclick="openRescheduleModal('apt-2')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action" title="Decline request" onclick="openDeclineModal('apt-2')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="schedule-time-badge"><i class="bi bi-clock"></i> 11:30 AM – 12:30 PM</span>
+                    </td>
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#059669;">OO</span>
+                        <span><strong>Oxana Oleson</strong><small>Existing · (410) 555-0177</small></span>
+                      </div>
+                    </td>
+                    <td><span class="fw-semibold text-navy">Sultana Afrooz, D.O.</span></td>
+                    <td>Hyperbaric Oxygen Therapy</td>
+                    <td><span class="badge-admin badge-in-office"><i class="bi bi-building me-1"></i>In-office (HBOT Chamber)</span></td>
+                    <td><span class="badge-admin badge-rescheduled">Reschedule Requested</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View details" onclick="openAppointmentDetail('apt-5')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve proposed slot" onclick="openApproveModal('apt-5')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule" onclick="openRescheduleModal('apt-5')"><i class="bi bi-calendar2-range"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="schedule-time-badge"><i class="bi bi-clock"></i> 02:30 PM – 03:30 PM</span>
+                    </td>
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#7c3aed;">CM</span>
+                        <span><strong>Clara Montgomery</strong><small>New Patient · (301) 555-0133</small></span>
+                      </div>
+                    </td>
+                    <td><span class="fw-semibold text-navy">Jessica Needle, N.D.</span></td>
+                    <td>Constitutional Hydrotherapy</td>
+                    <td><span class="badge-admin badge-in-office"><i class="bi bi-building me-1"></i>In-office (Suite B)</span></td>
+                    <td><span class="badge-admin badge-confirmed">Confirmed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View details" onclick="openAppointmentDetail('apt-4')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reschedule" onclick="openRescheduleModal('apt-4')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Cancel confirmed visit" onclick="openCancelModal('apt-4')"><i class="bi bi-x-circle"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN APPOINTMENT LIST CARD -->
+        <div class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Appointment Requests &amp; Patient Registry</h2>
+              <p>Filter, review, approve, reschedule, decline, and track complete appointment lifecycles.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-muted small">Showing <strong id="appt-count-visible">12</strong> of <strong>12</strong> appointments</span>
+            </div>
+          </div>
+          <div class="card-body-admin">
+
+            <!-- Filter Status Pill Tabs -->
+            <div class="filter-pill-tabs mb-3" id="statusPillContainer">
+              <button type="button" class="filter-pill-tab active" data-status-filter="">
+                <i class="bi bi-collection"></i> All Requests <span class="count-badge">12</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="pending">
+                <i class="bi bi-hourglass-split text-warning"></i> Pending <span class="count-badge">3</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="confirmed">
+                <i class="bi bi-check2-circle text-info"></i> Confirmed <span class="count-badge">3</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="reschedule">
+                <i class="bi bi-calendar2-range text-warning"></i> Reschedule Requested <span class="count-badge">2</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="completed">
+                <i class="bi bi-clipboard2-check text-success"></i> Completed <span class="count-badge">2</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="cancelled">
+                <i class="bi bi-x-circle text-danger"></i> Cancelled <span class="count-badge">1</span>
+              </button>
+              <button type="button" class="filter-pill-tab" data-status-filter="declined">
+                <i class="bi bi-slash-circle text-danger"></i> Declined <span class="count-badge">1</span>
+              </button>
+            </div>
+
+            <!-- Filter Toolbar UI -->
+            <div class="table-toolbar">
+              <div class="filters flex-grow-1 align-items-center">
+                <!-- Search Patient -->
+                <div class="input-group search-patient-group" style="min-width:230px; max-width:270px;">
+                  <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                  <input type="text" class="form-control border-start-0 ps-0" id="filter-search" placeholder="Search patient, email, phone...">
+                </div>
+
+                <!-- Status Filter -->
+                <div class="custom-select-wrapper filter-select-wrapper no-toast" data-no-toast="true" style="min-width:185px;">
+                  <div class="custom-select-trigger filter-select-trigger" id="filterStatusTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Filter by appointment status">
+                    <div class="custom-select-selected-content">
+                      <span class="custom-select-primary-text" id="filterStatusDisplay">All Statuses</span>
+                    </div>
+                    <i class="bi bi-chevron-down custom-select-chevron"></i>
+                  </div>
+                  <select class="d-none" id="filter-status-select" aria-label="Status Filter">
+                    <option value="" selected>All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="reschedule">Reschedule Requested</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="declined">Declined</option>
+                  </select>
+                  <div class="custom-select-panel filter-select-panel" role="listbox" style="display: none;">
+                    <div class="custom-select-option selected" data-value="" data-primary="All Statuses" role="option" aria-selected="true">
+                      <span class="option-primary">All Statuses</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="pending" data-primary="Pending" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-warning"></span> Pending</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="confirmed" data-primary="Confirmed" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-teal"></span> Confirmed</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="reschedule" data-primary="Reschedule Requested" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-warning"></span> Reschedule Requested</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="completed" data-primary="Completed" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-success"></span> Completed</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="cancelled" data-primary="Cancelled" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-danger"></span> Cancelled</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="declined" data-primary="Declined" role="option">
+                      <span class="option-primary"><span class="badge-status-dot bg-secondary"></span> Declined</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Patient Type Filter -->
+                <div class="custom-select-wrapper filter-select-wrapper no-toast" data-no-toast="true" style="min-width:165px;">
+                  <div class="custom-select-trigger filter-select-trigger" id="filterPtypeTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Filter by patient type">
+                    <div class="custom-select-selected-content">
+                      <span class="custom-select-primary-text" id="filterPtypeDisplay">All Patient Types</span>
+                    </div>
+                    <i class="bi bi-chevron-down custom-select-chevron"></i>
+                  </div>
+                  <select class="d-none" id="filter-ptype-select" aria-label="Patient Type Filter">
+                    <option value="" selected>All Patient Types</option>
+                    <option value="New">New Patient</option>
+                    <option value="Existing">Existing Patient</option>
+                  </select>
+                  <div class="custom-select-panel filter-select-panel" role="listbox" style="display: none;">
+                    <div class="custom-select-option selected" data-value="" data-primary="All Patient Types" role="option" aria-selected="true">
+                      <span class="option-primary">All Patient Types</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="New" data-primary="New Patient" role="option">
+                      <span class="option-primary">New Patient</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Existing" data-primary="Existing Patient" role="option">
+                      <span class="option-primary">Existing Patient</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Visit Type Filter -->
+                <div class="custom-select-wrapper filter-select-wrapper no-toast" data-no-toast="true" style="min-width:150px;">
+                  <div class="custom-select-trigger filter-select-trigger" id="filterVisitTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Filter by visit type">
+                    <div class="custom-select-selected-content">
+                      <span class="custom-select-primary-text" id="filterVisitDisplay">All Visit Types</span>
+                    </div>
+                    <i class="bi bi-chevron-down custom-select-chevron"></i>
+                  </div>
+                  <select class="d-none" id="filter-visit-select" aria-label="Visit Type Filter">
+                    <option value="" selected>All Visit Types</option>
+                    <option value="in-office">In-office</option>
+                    <option value="telehealth">Telehealth</option>
+                  </select>
+                  <div class="custom-select-panel filter-select-panel" role="listbox" style="display: none;">
+                    <div class="custom-select-option selected" data-value="" data-primary="All Visit Types" role="option" aria-selected="true">
+                      <span class="option-primary">All Visit Types</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="in-office" data-primary="In-office" role="option">
+                      <span class="option-primary"><i class="bi bi-building me-1 text-muted"></i> In-office</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="telehealth" data-primary="Telehealth" role="option">
+                      <span class="option-primary"><i class="bi bi-laptop me-1 text-teal"></i> Telehealth</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Provider Filter -->
+                <div class="custom-select-wrapper filter-select-wrapper no-toast" data-no-toast="true" style="min-width:185px;">
+                  <div class="custom-select-trigger filter-select-trigger" id="filterProviderTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Filter by clinical provider">
+                    <div class="custom-select-selected-content">
+                      <span class="custom-select-primary-text" id="filterProviderDisplay">All Providers</span>
+                    </div>
+                    <i class="bi bi-chevron-down custom-select-chevron"></i>
+                  </div>
+                  <select class="d-none" id="filter-provider-select" aria-label="Provider Filter">
+                    <option value="" selected>All Providers</option>
+                    <option value="Sultana Afrooz, D.O.">Sultana Afrooz, D.O.</option>
+                    <option value="Jessica Needle, N.D.">Jessica Needle, N.D.</option>
+                  </select>
+                  <div class="custom-select-panel filter-select-panel" role="listbox" style="display: none;">
+                    <div class="custom-select-option selected" data-value="" data-primary="All Providers" role="option" aria-selected="true">
+                      <span class="option-primary">All Providers</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Sultana Afrooz, D.O." data-primary="Sultana Afrooz, D.O." role="option">
+                      <span class="option-primary">Sultana Afrooz, D.O.</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Jessica Needle, N.D." data-primary="Jessica Needle, N.D." role="option">
+                      <span class="option-primary">Jessica Needle, N.D.</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Service Filter -->
+                <div class="custom-select-wrapper filter-select-wrapper no-toast" data-no-toast="true" style="min-width:180px;">
+                  <div class="custom-select-trigger filter-select-trigger" id="filterServiceTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Filter by healthcare service">
+                    <div class="custom-select-selected-content">
+                      <span class="custom-select-primary-text" id="filterServiceDisplay">All Services</span>
+                    </div>
+                    <i class="bi bi-chevron-down custom-select-chevron"></i>
+                  </div>
+                  <select class="d-none" id="filter-service-select" aria-label="Service Filter">
+                    <option value="" selected>All Services</option>
+                    <option value="New patient consultation">New patient consultation</option>
+                    <option value="Constitutional Hydrotherapy">Constitutional Hydrotherapy</option>
+                    <option value="Frequency Specific Microcurrent">Frequency Specific Microcurrent</option>
+                    <option value="Hyperbaric Oxygen Therapy">Hyperbaric Oxygen Therapy</option>
+                    <option value="IV Nutritional Infusions">IV Nutritional Infusions</option>
+                    <option value="Ozone Therapy">Ozone Therapy</option>
+                    <option value="Ion Foot Detox">Ion Foot Detox</option>
+                    <option value="Personalized Wellness Plan">Personalized Wellness Plan</option>
+                    <option value="Follow-up visit">Follow-up visit</option>
+                    <option value="Membership inquiry">Membership inquiry</option>
+                  </select>
+                  <div class="custom-select-panel filter-select-panel" role="listbox" style="display: none; min-width: 280px;">
+                    <div class="custom-select-option selected" data-value="" data-primary="All Services" role="option" aria-selected="true">
+                      <span class="option-primary">All Services</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="New patient consultation" data-primary="New patient consultation" role="option">
+                      <span class="option-primary">New patient consultation</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Constitutional Hydrotherapy" data-primary="Constitutional Hydrotherapy" role="option">
+                      <span class="option-primary">Constitutional Hydrotherapy</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Frequency Specific Microcurrent" data-primary="Frequency Specific Microcurrent" role="option">
+                      <span class="option-primary">Frequency Specific Microcurrent</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Hyperbaric Oxygen Therapy" data-primary="Hyperbaric Oxygen Therapy" role="option">
+                      <span class="option-primary">Hyperbaric Oxygen Therapy</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="IV Nutritional Infusions" data-primary="IV Nutritional Infusions" role="option">
+                      <span class="option-primary">IV Nutritional Infusions</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Ozone Therapy" data-primary="Ozone Therapy" role="option">
+                      <span class="option-primary">Ozone Therapy</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Ion Foot Detox" data-primary="Ion Foot Detox" role="option">
+                      <span class="option-primary">Ion Foot Detox</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Personalized Wellness Plan" data-primary="Personalized Wellness Plan" role="option">
+                      <span class="option-primary">Personalized Wellness Plan</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Follow-up visit" data-primary="Follow-up visit" role="option">
+                      <span class="option-primary">Follow-up visit</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                    <div class="custom-select-option" data-value="Membership inquiry" data-primary="Membership inquiry" role="option">
+                      <span class="option-primary">Membership inquiry</span>
+                      <i class="bi bi-check2 option-check"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Custom Healthcare Calendar Date Filter -->
+                <div class="calendar-picker-wrapper filter-date-wrapper no-toast" data-no-toast="true" style="min-width:165px; position:relative;">
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-teal pe-1 ps-2"><i class="bi bi-calendar3"></i></span>
+                    <input type="text" class="form-control border-start-0 ps-1 calendar-input-trigger" id="filter-date-display" placeholder="Filter date..." readonly title="Click to filter by requested appointment date">
+                    <input type="hidden" id="filter-date-input">
+                  </div>
+                  <div class="calendar-popover" style="display: none;" role="dialog" aria-modal="false" aria-label="Filter by appointment date">
+                    <div class="calendar-header">
+                      <button type="button" class="calendar-nav-btn" title="Previous month" aria-label="Previous month"><i class="bi bi-chevron-left"></i></button>
+                      <span class="calendar-month-year">September 2026</span>
+                      <button type="button" class="calendar-nav-btn" title="Next month" aria-label="Next month"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-weekdays" aria-hidden="true">
+                      <div class="calendar-weekday">Sun</div>
+                      <div class="calendar-weekday">Mon</div>
+                      <div class="calendar-weekday">Tue</div>
+                      <div class="calendar-weekday">Wed</div>
+                      <div class="calendar-weekday">Thu</div>
+                      <div class="calendar-weekday">Fri</div>
+                      <div class="calendar-weekday">Sat</div>
+                    </div>
+                    <div class="calendar-days-grid" role="grid" aria-label="Calendar days"></div>
+                    <div class="calendar-footer">
+                      <button type="button" class="btn btn-link text-muted" id="filterCalClear"><i class="bi bi-x me-1"></i>Clear</button>
+                      <span class="small text-muted">All dates</span>
+                      <button type="button" class="btn btn-link text-teal fw-semibold" id="filterCalToday"><i class="bi bi-calendar-check me-1"></i>Today</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Filter & Reset Buttons -->
+                <button class="btn-btc btn-sm-admin" type="button" id="btnApplyFilter" title="Apply filter criteria">
+                  <i class="bi bi-funnel-fill me-1"></i> Filter
+                </button>
+                <button class="btn-btc-outline btn-sm-admin" type="button" id="btnResetFilter" title="Reset all filters">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- APPOINTMENT TABLE -->
+            <div class="table-wrap">
+              <table class="table-admin" id="appt-table">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Patient Type</th>
+                    <th>Visit Type</th>
+                    <th>Provider</th>
+                    <th>Service</th>
+                    <th>Requested Date</th>
+                    <th>Requested Time</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="appt-tbody">
+
+                  <!-- Row 1: Pending, Telehealth, New -->
+                  <tr data-id="apt-1" data-status="pending" data-ptype="New" data-visit="telehealth" data-provider="Sultana Afrooz, D.O." data-date="2026-09-24">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#4f46e5;">EA</span>
+                        <span><strong>Elle Adams</strong><small class="text-muted">ID: #APT-2026-0941</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:elle@email.com" class="text-body text-decoration-none">elle@email.com</a></td>
+                    <td><a href="tel:3015550191" class="text-body text-decoration-none">(301) 555-0191</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-tele">Telehealth</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>New patient consultation</td>
+                    <td>Sep 24, 2026</td>
+                    <td><span class="schedule-time-badge">Morning (10:00 AM)</span></td>
+                    <td><span class="badge-admin badge-pending">Pending</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-1')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve appointment" onclick="openApproveModal('apt-1')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-1')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Decline appointment" onclick="openDeclineModal('apt-1')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 2: Reschedule Requested, In-office, Existing (Conflict case) -->
+                  <tr data-id="apt-2" data-status="reschedule" data-ptype="Existing" data-visit="in-office" data-provider="Sultana Afrooz, D.O." data-date="2026-09-24">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#d97706;">DR</span>
+                        <span><strong>David K. Reynolds</strong><small class="text-danger">⚠ Time Conflict</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:dreynolds@email.com" class="text-body text-decoration-none">dreynolds@email.com</a></td>
+                    <td><a href="tel:4105550199" class="text-body text-decoration-none">(410) 555-0199</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Frequency Specific Microcurrent™</td>
+                    <td>Sep 24, 2026</td>
+                    <td><span class="schedule-time-badge text-danger border-danger">10:00 AM – 11:00 AM</span></td>
+                    <td><span class="badge-admin badge-rescheduled">Reschedule Requested</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-2')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve with alternative" onclick="openApproveModal('apt-2')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action text-warning" title="Reschedule slot" onclick="openRescheduleModal('apt-2')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Decline request" onclick="openDeclineModal('apt-2')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 3: Confirmed, In-office, Existing -->
+                  <tr data-id="apt-3" data-status="confirmed" data-ptype="Existing" data-visit="in-office" data-provider="Sultana Afrooz, D.O." data-date="2026-09-24">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#0284c7;">MV</span>
+                        <span><strong>Marcus Vance</strong><small class="text-muted">ID: #APT-2026-0938</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:marcus.v@email.com" class="text-body text-decoration-none">marcus.v@email.com</a></td>
+                    <td><a href="tel:3015550128" class="text-body text-decoration-none">(301) 555-0128</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Ozone Therapy</td>
+                    <td>Sep 24, 2026</td>
+                    <td><span class="schedule-time-badge">10:00 AM – 10:45 AM</span></td>
+                    <td><span class="badge-admin badge-confirmed">Confirmed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-3')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-3')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Cancel confirmed appointment" onclick="openCancelModal('apt-3')"><i class="bi bi-x-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 4: Confirmed, In-office, New -->
+                  <tr data-id="apt-4" data-status="confirmed" data-ptype="New" data-visit="in-office" data-provider="Jessica Needle, N.D." data-date="2026-09-24">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#7c3aed;">CM</span>
+                        <span><strong>Clara Montgomery</strong><small class="text-muted">ID: #APT-2026-0940</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:clara.m@email.com" class="text-body text-decoration-none">clara.m@email.com</a></td>
+                    <td><a href="tel:3015550133" class="text-body text-decoration-none">(301) 555-0133</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Jessica Needle, N.D.</td>
+                    <td>Constitutional Hydrotherapy</td>
+                    <td>Sep 24, 2026</td>
+                    <td><span class="schedule-time-badge">02:30 PM – 03:30 PM</span></td>
+                    <td><span class="badge-admin badge-confirmed">Confirmed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-4')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-4')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Cancel confirmed appointment" onclick="openCancelModal('apt-4')"><i class="bi bi-x-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 5: Reschedule Requested, In-office, Existing -->
+                  <tr data-id="apt-5" data-status="reschedule" data-ptype="Existing" data-visit="in-office" data-provider="Sultana Afrooz, D.O." data-date="2026-09-26">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#059669;">OO</span>
+                        <span><strong>Oxana Oleson</strong><small class="text-muted">ID: #APT-2026-0935</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:oxana@email.com" class="text-body text-decoration-none">oxana@email.com</a></td>
+                    <td><a href="tel:4105550177" class="text-body text-decoration-none">(410) 555-0177</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Hyperbaric Oxygen Therapy</td>
+                    <td>Sep 26, 2026</td>
+                    <td><span class="schedule-time-badge">11:30 AM – 12:30 PM</span></td>
+                    <td><span class="badge-admin badge-rescheduled">Reschedule Requested</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-5')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve appointment" onclick="openApproveModal('apt-5')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-5')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Decline request" onclick="openDeclineModal('apt-5')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 6: Pending, Telehealth, New -->
+                  <tr data-id="apt-6" data-status="pending" data-ptype="New" data-visit="telehealth" data-provider="Sultana Afrooz, D.O." data-date="2026-09-28">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#0284c7;">SK</span>
+                        <span><strong>Sumaiyah Khan</strong><small class="text-muted">ID: #APT-2026-0943</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:sumaiyah@email.com" class="text-body text-decoration-none">sumaiyah@email.com</a></td>
+                    <td><a href="tel:2405550102" class="text-body text-decoration-none">(240) 555-0102</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-tele">Telehealth</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Hormone Imbalance Consultation</td>
+                    <td>Sep 28, 2026</td>
+                    <td><span class="schedule-time-badge">Late afternoon (03:30 PM)</span></td>
+                    <td><span class="badge-admin badge-pending">Pending</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-6')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve appointment" onclick="openApproveModal('apt-6')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-6')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Decline appointment" onclick="openDeclineModal('apt-6')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 7: Pending, Telehealth, New -->
+                  <tr data-id="apt-7" data-status="pending" data-ptype="New" data-visit="telehealth" data-provider="Jessica Needle, N.D." data-date="2026-09-29">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#db2777;">PS</span>
+                        <span><strong>Priya Sharma</strong><small class="text-muted">ID: #APT-2026-0944</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:priya.s@email.com" class="text-body text-decoration-none">priya.s@email.com</a></td>
+                    <td><a href="tel:4435550155" class="text-body text-decoration-none">(443) 555-0155</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-tele">Telehealth</span></td>
+                    <td>Jessica Needle, N.D.</td>
+                    <td>Chronic Fatigue Evaluation</td>
+                    <td>Sep 29, 2026</td>
+                    <td><span class="schedule-time-badge">04:00 PM – 05:00 PM</span></td>
+                    <td><span class="badge-admin badge-pending">Pending</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-7')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Approve appointment" onclick="openApproveModal('apt-7')"><i class="bi bi-check-lg"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-7')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Decline appointment" onclick="openDeclineModal('apt-7')"><i class="bi bi-slash-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 8: Confirmed, In-office, Existing -->
+                  <tr data-id="apt-8" data-status="confirmed" data-ptype="Existing" data-visit="in-office" data-provider="Jessica Needle, N.D." data-date="2026-09-25">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#2563eb;">MA</span>
+                        <span><strong>Manzur Ahmed</strong><small class="text-muted">ID: #APT-2026-0937</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:manzur@email.com" class="text-body text-decoration-none">manzur@email.com</a></td>
+                    <td><a href="tel:3015550144" class="text-body text-decoration-none">(301) 555-0144</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Jessica Needle, N.D.</td>
+                    <td>Follow-up visit</td>
+                    <td>Sep 25, 2026</td>
+                    <td><span class="schedule-time-badge">Afternoon (02:00 PM)</span></td>
+                    <td><span class="badge-admin badge-confirmed">Confirmed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-8')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reschedule appointment" onclick="openRescheduleModal('apt-8')"><i class="bi bi-calendar2-range"></i></button>
+                      <button class="icon-action danger" title="Cancel confirmed appointment" onclick="openCancelModal('apt-8')"><i class="bi bi-x-circle"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 9: Completed, In-office, Existing -->
+                  <tr data-id="apt-9" data-status="completed" data-ptype="Existing" data-visit="in-office" data-provider="Jessica Needle, N.D." data-date="2026-09-18">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#16a34a;">SZ</span>
+                        <span><strong>Samson Zewde</strong><small class="text-muted">ID: #APT-2026-0929</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:samson@email.com" class="text-body text-decoration-none">samson@email.com</a></td>
+                    <td><a href="tel:4435550189" class="text-body text-decoration-none">(443) 555-0189</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Jessica Needle, N.D.</td>
+                    <td>Ion Foot Detox</td>
+                    <td>Sep 18, 2026</td>
+                    <td><span class="schedule-time-badge">Morning (09:15 AM)</span></td>
+                    <td><span class="badge-admin badge-completed">Completed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-9')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="View chart &amp; notes" data-save="Opening patient clinical encounter record (UI Demo)..."><i class="bi bi-file-earmark-medical"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 10: Completed, In-office, Existing -->
+                  <tr data-id="apt-10" data-status="completed" data-ptype="Existing" data-visit="in-office" data-provider="Sultana Afrooz, D.O." data-date="2026-09-21">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#0d9488;">RC</span>
+                        <span><strong>Robert Chen</strong><small class="text-muted">ID: #APT-2026-0932</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:rchen@email.com" class="text-body text-decoration-none">rchen@email.com</a></td>
+                    <td><a href="tel:3015550167" class="text-body text-decoration-none">(301) 555-0167</a></td>
+                    <td><span class="badge-admin badge-draft">Existing</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Personalized Wellness Plan</td>
+                    <td>Sep 21, 2026</td>
+                    <td><span class="schedule-time-badge">Afternoon (03:00 PM)</span></td>
+                    <td><span class="badge-admin badge-completed">Completed</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-10')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="View chart &amp; notes" data-save="Opening patient clinical encounter record (UI Demo)..."><i class="bi bi-file-earmark-medical"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 11: Cancelled, Telehealth, New -->
+                  <tr data-id="apt-11" data-status="cancelled" data-ptype="New" data-visit="telehealth" data-provider="Sultana Afrooz, D.O." data-date="2026-09-20">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#e11d48;">MH</span>
+                        <span><strong>Muhammad Haroon</strong><small class="text-muted">ID: #APT-2026-0931</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:haroon@email.com" class="text-body text-decoration-none">haroon@email.com</a></td>
+                    <td><a href="tel:2025550165" class="text-body text-decoration-none">(202) 555-0165</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-tele">Telehealth</span></td>
+                    <td>Sultana Afrooz, D.O.</td>
+                    <td>Membership inquiry</td>
+                    <td>Sep 20, 2026</td>
+                    <td><span class="schedule-time-badge">Afternoon (01:00 PM)</span></td>
+                    <td><span class="badge-admin badge-cancelled">Cancelled</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-11')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Re-open request" onclick="openApproveModal('apt-11')"><i class="bi bi-arrow-counterclockwise"></i></button>
+                    </td>
+                  </tr>
+
+                  <!-- Row 12: Declined, In-office, New -->
+                  <tr data-id="apt-12" data-status="declined" data-ptype="New" data-visit="in-office" data-provider="Jessica Needle, N.D." data-date="2026-09-27">
+                    <td>
+                      <div class="person">
+                        <span class="user-avatar" style="background:#9333ea;">EB</span>
+                        <span><strong>Evelyn Bennett</strong><small class="text-muted">ID: #APT-2026-0942</small></span>
+                      </div>
+                    </td>
+                    <td><a href="mailto:evelyn.b@email.com" class="text-body text-decoration-none">evelyn.b@email.com</a></td>
+                    <td><a href="tel:2405550182" class="text-body text-decoration-none">(240) 555-0182</a></td>
+                    <td><span class="badge-admin badge-new">New</span></td>
+                    <td><span class="badge-admin badge-in-office">In-office</span></td>
+                    <td>Jessica Needle, N.D.</td>
+                    <td>IV Nutritional Infusions</td>
+                    <td>Sep 27, 2026</td>
+                    <td><span class="schedule-time-badge">Morning (11:00 AM)</span></td>
+                    <td><span class="badge-admin badge-declined">Declined</span></td>
+                    <td class="text-end text-nowrap">
+                      <button class="icon-action" title="View appointment details" onclick="openAppointmentDetail('apt-12')"><i class="bi bi-eye"></i></button>
+                      <button class="icon-action" title="Reconsider &amp; Approve" onclick="openApproveModal('apt-12')"><i class="bi bi-arrow-repeat"></i></button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Table Pager -->
+            <div class="pager mt-3">
+              <span>Showing <strong id="pager-count">12</strong> of 12 requests</span>
+              <span>Page 1 of 1</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PUBLIC FORM SETTINGS (Maintained from original admin) -->
+        <div class="card-admin mt-4">
+          <div class="card-head">
+            <div>
+              <h2>Public form settings</h2>
+              <p>Labels &amp; options on book-appointment.html</p>
+            </div>
+            <button class="btn-btc btn-sm-admin" type="button" data-save="Public form settings saved successfully.">
+              <i class="bi bi-check2 me-1"></i> Save form settings
+            </button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Form heading</label>
+                <input class="form-control" value="Request Your Appointment">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Success message</label>
+                <input class="form-control" value="Request received. Our team will contact you to confirm your visit.">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Service options</label>
+                <textarea class="form-control" rows="8">New patient consultation
+Follow-up visit
+Conditions we treat
+Frequency Specific Microcurrent™
+Infrared Sauna Therapy
+Hyperbaric Oxygen Therapy
+IV Nutritional Infusions
+Liquivida IV Therapy
+Reflexology
+Ozone Therapy
+Ion Foot Detox
+Personalized Wellness Plans
+Membership inquiry
+Other</textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Time windows</label>
+                <textarea class="form-control" rows="4">Morning (9am – 12pm)
+Afternoon (12pm – 3pm)
+Late afternoon (3pm – 6pm)
+First available</textarea>
+                <label class="form-label-admin mt-3">Consent copy</label>
+                <textarea class="form-control" rows="3">I understand this is an appointment request and the office will confirm availability. I also acknowledge the practice is out-of-network.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       APPOINTMENT DETAIL UI (OFFCANVAS SIDE DRAWER)
+       ============================================================ -->
+  <div class="offcanvas offcanvas-end appt-offcanvas" tabindex="-1" id="apptDrawer">
+    <div class="offcanvas-header border-bottom bg-white sticky-top">
+      <div>
+        <p class="section-map mb-1"><i class="bi bi-file-earmark-medical me-1"></i> Care Operations · Record</p>
+        <h5 class="offcanvas-title text-navy fw-bold" id="drawerTitle">Appointment Details</h5>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body pb-5">
+
+      <!-- Hero Header -->
+      <div class="appt-drawer-hero">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="d-flex align-items-center gap-3">
+            <span class="user-avatar" id="drawerAvatar" style="width:48px;height:48px;font-size:1.1rem;background:#4f46e5;">EA</span>
+            <div>
+              <h4 class="mb-0 text-navy fw-bold" id="drawerPatientName">Elle Adams</h4>
+              <small class="text-muted" id="drawerPatientSub">New Patient · Female · Columbia, MD</small>
+            </div>
+          </div>
+          <span class="badge-admin badge-pending" id="drawerStatusBadge">Pending</span>
+        </div>
+        <div class="d-flex flex-wrap gap-2 pt-2 border-top">
+          <span class="badge-admin badge-tele" id="drawerVisitBadge"><i class="bi bi-laptop me-1"></i>Telehealth</span>
+          <span class="badge-admin badge-draft" id="drawerApptId">Ref: #APT-2026-0941</span>
+          <span class="badge-admin badge-published"><i class="bi bi-shield-check me-1"></i>Out-of-network Ack.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 1: Patient Information -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-person-circle"></i> 1. Patient Information</div>
+        <div class="appt-meta-grid">
+          <div class="appt-meta-item">
+            <label>Full Name</label>
+            <span id="drawerDetailName">Elle Adams</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Patient Category</label>
+            <span id="drawerDetailPType">New Patient (First Visit)</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Email Address</label>
+            <span><a href="mailto:elle@email.com" id="drawerDetailEmail" class="text-teal">elle@email.com</a></span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Phone Number</label>
+            <span><a href="tel:3015550191" id="drawerDetailPhone" class="text-teal">(301) 555-0191</a></span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Location / Residency</label>
+            <span id="drawerDetailLocation">Columbia, MD 21045 (Eligible for MD Telehealth)</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Payment / Insurance</label>
+            <span>Self-Pay · Superbill for Insurance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Appointment Information -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-info-circle"></i> 2. Appointment Information</div>
+        <div class="appt-meta-grid">
+          <div class="appt-meta-item">
+            <label>Booking Reference</label>
+            <span id="drawerInfoRef">#APT-2026-0941</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Submission Channel</label>
+            <span>Online Booking Form (book-appointment.html)</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Date Submitted</label>
+            <span>Sep 22, 2026 at 09:30 AM EDT</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Clinical Duration</label>
+            <span id="drawerInfoDuration">60 Minutes Comprehensive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Provider & Service -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-person-badge"></i> 3. Provider &amp; Service</div>
+        <div class="appt-meta-grid">
+          <div class="appt-meta-item">
+            <label>Assigned Provider</label>
+            <span id="drawerDetailProvider" class="text-navy fw-bold">Sultana Afrooz, D.O.</span>
+            <small>Integrative &amp; Functional Medicine Physician</small>
+          </div>
+          <div class="appt-meta-item">
+            <label>Clinical Service</label>
+            <span id="drawerDetailService">New patient consultation</span>
+            <small>Comprehensive health assessment &amp; lab review</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Date & Time -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-calendar3"></i> 4. Date &amp; Time</div>
+        <div class="appt-meta-grid">
+          <div class="appt-meta-item">
+            <label>Requested Date</label>
+            <span id="drawerDetailDate">Thursday, Sep 24, 2026</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Requested Time Window</label>
+            <span id="drawerDetailTime">Morning (10:00 AM – 11:00 AM EDT)</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Calendar Status</label>
+            <span class="text-teal" id="drawerDetailCalStatus"><i class="bi bi-check-circle me-1"></i>Slot reserved in Care calendar</span>
+          </div>
+          <div class="appt-meta-item">
+            <label>Time Zone</label>
+            <span>Eastern Daylight Time (EDT)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Visit Type -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-geo-alt"></i> 5. Visit Type</div>
+        <div class="appt-meta-grid single-col">
+          <div class="appt-meta-item">
+            <label>Modality &amp; Location</label>
+            <span id="drawerDetailVisitTypeDesc">Secure Telehealth Video Session</span>
+            <small class="text-muted" id="drawerDetailRoom">Telehealth Room Link: <a href="https://meet.btc-health.org/apt-0941" target="_blank" class="text-teal">meet.btc-health.org/apt-0941</a> (Encrypted)</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: Patient Notes -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-chat-left-quote"></i> 6. Patient Intake Notes</div>
+        <blockquote class="appt-patient-quote" id="drawerPatientNotes">
+          "Looking for root-cause functional medicine care after years of persistent fatigue and brain fog. Previous lab tests with conventional PCP showed normal thyroid panels, but symptoms persist. Interested in comprehensive hormone mapping and nutritional therapies."
+        </blockquote>
+      </div>
+
+      <!-- SECTION 7: Admin Notes -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-journal-text"></i> 7. Admin &amp; Staff Notes</div>
+        <div id="drawerAdminNotesList">
+          <div class="appt-admin-note-item">
+            <div class="appt-admin-note-meta">
+              <span>Sarah Jenkins (Intake Coord)</span>
+              <span>Sep 22, 11:15 AM</span>
+            </div>
+            <div>Verified patient out-of-network acknowledgment and Maryland telehealth residency status. Intake packet sent via email.</div>
+          </div>
+          <div class="appt-admin-note-item">
+            <div class="appt-admin-note-meta">
+              <span>Dr. Sultana Afrooz, D.O.</span>
+              <span>Sep 22, 02:40 PM</span>
+            </div>
+            <div>Preliminary chart reviewed. 60-min intake protocol assigned. Instructed coordinator to request past 12-month bloodwork.</div>
+          </div>
+        </div>
+        <div class="mt-2">
+          <div class="input-group">
+            <input type="text" class="form-control form-control-sm" id="newAdminNoteInput" placeholder="Add internal staff note...">
+            <button class="btn-btc btn-sm-admin" type="button" id="btnAddAdminNote">Add Note</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 8: Current Status -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-flag"></i> 8. Current Status &amp; State</div>
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <span class="badge-admin badge-pending fs-6 px-3 py-1" id="drawerCurrentStatusBadge">Pending Review</span>
+            <small class="d-block text-muted mt-1" id="drawerStatusHelper">Patient submitted request; pending clinic confirmation.</small>
+          </div>
+          <div class="dropdown">
+            <button class="btn-btc-outline btn-sm-admin dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Update Status (UI)
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" type="button" onclick="updateMockStatus('Pending', 'badge-pending')"><i class="bi bi-hourglass-split me-2 text-warning"></i>Mark Pending</button></li>
+              <li><button class="dropdown-item" type="button" onclick="updateMockStatus('Confirmed', 'badge-confirmed')"><i class="bi bi-check2-circle me-2 text-info"></i>Mark Confirmed</button></li>
+              <li><button class="dropdown-item" type="button" onclick="updateMockStatus('Reschedule Requested', 'badge-rescheduled')"><i class="bi bi-calendar2-range me-2 text-warning"></i>Mark Reschedule Requested</button></li>
+              <li><button class="dropdown-item" type="button" onclick="updateMockStatus('Completed', 'badge-completed')"><i class="bi bi-clipboard2-check me-2 text-success"></i>Mark Completed</button></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item text-danger" type="button" onclick="updateMockStatus('Cancelled', 'badge-cancelled')"><i class="bi bi-x-circle me-2"></i>Mark Cancelled</button></li>
+              <li><button class="dropdown-item text-danger" type="button" onclick="updateMockStatus('Declined', 'badge-declined')"><i class="bi bi-slash-circle me-2"></i>Mark Declined</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 9: Appointment Activity Timeline -->
+      <div class="appt-detail-card">
+        <div class="appt-detail-card-title"><i class="bi bi-clock-history"></i> 9. Appointment Activity Timeline</div>
+        <div class="appt-timeline" id="drawerTimeline">
+          <!-- Step 1 -->
+          <div class="appt-timeline-item completed">
+            <div class="appt-timeline-dot"></div>
+            <div class="appt-timeline-title">
+              <span>Request Submitted</span>
+              <span class="appt-timeline-time">Sep 22 · 09:30 AM</span>
+            </div>
+            <div class="appt-timeline-actor">Patient: Elle Adams (Web Form)</div>
+            <div class="appt-timeline-note">Online booking request received via book-appointment.html. Out-of-network terms accepted.</div>
+          </div>
+          <!-- Step 2 -->
+          <div class="appt-timeline-item completed">
+            <div class="appt-timeline-dot"></div>
+            <div class="appt-timeline-title">
+              <span>Reviewed &amp; Triaged</span>
+              <span class="appt-timeline-time">Sep 22 · 11:15 AM</span>
+            </div>
+            <div class="appt-timeline-actor">Admin: Sarah Jenkins (Intake Coord)</div>
+            <div class="appt-timeline-note">Verified patient contact details and Maryland residency for telehealth coverage.</div>
+          </div>
+          <!-- Step 3 -->
+          <div class="appt-timeline-item">
+            <div class="appt-timeline-dot"></div>
+            <div class="appt-timeline-title">
+              <span>Appointment Confirmed</span>
+              <span class="appt-timeline-time">Sep 22 · 02:40 PM</span>
+            </div>
+            <div class="appt-timeline-actor">Clinician: Sultana Afrooz, D.O.</div>
+            <div class="appt-timeline-note">Assigned 10:00 AM EDT slot on Dr. Afrooz's schedule. Telehealth meeting link generated.</div>
+          </div>
+          <!-- Step 4 -->
+          <div class="appt-timeline-item pending">
+            <div class="appt-timeline-dot"></div>
+            <div class="appt-timeline-title">
+              <span>Appointment Completed</span>
+              <span class="appt-timeline-time">Scheduled Sep 24</span>
+            </div>
+            <div class="appt-timeline-actor">Pending visit occurrence</div>
+            <div class="appt-timeline-note">Clinical documentation and Superbill will generate upon visit conclusion.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Communication Links -->
+      <div class="p-3 bg-light rounded-3 border mb-3">
+        <small class="text-muted fw-bold d-block text-uppercase mb-2">Patient Contact Actions</small>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn-btc-outline btn-sm-admin" href="mailto:elle@email.com" id="drawerBtnEmail">
+            <i class="bi bi-envelope me-1"></i> Email Patient
+          </a>
+          <a class="btn-btc-outline btn-sm-admin" href="tel:3015550191" id="drawerBtnCall">
+            <i class="bi bi-telephone me-1"></i> Call (301) 555-0191
+          </a>
+          <button class="btn-btc-outline btn-sm-admin" type="button" data-save="SMS reminder dispatched to patient phone.">
+            <i class="bi bi-chat-dots me-1"></i> Send SMS Reminder
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons In Detail Drawer -->
+      <div class="d-grid gap-2">
+        <button class="btn-btc" type="button" id="drawerBtnApprove" onclick="triggerDrawerApprove()">
+          <i class="bi bi-check-lg me-1"></i> Approve / Confirm Appointment
+        </button>
+        <div class="row g-2">
+          <div class="col-6">
+            <button class="btn-btc-outline w-100" type="button" id="drawerBtnReschedule" onclick="triggerDrawerReschedule()">
+              <i class="bi bi-calendar2-range me-1"></i> Reschedule
+            </button>
+          </div>
+          <div class="col-6">
+            <button class="btn-btc-outline w-100 text-danger border-danger" type="button" id="drawerBtnDecline" onclick="triggerDrawerDecline()">
+              <i class="bi bi-slash-circle me-1"></i> Decline
+            </button>
+          </div>
+        </div>
+        <button class="btn-danger-soft" type="button" id="drawerBtnCancel" onclick="triggerDrawerCancel()">
+          <i class="bi bi-x-circle me-1"></i> Cancel Confirmed Appointment
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       APPROVAL UI MODAL (#approveModal)
+       ============================================================ -->
+  <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title text-navy fw-bold" id="approveModalLabel">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Approve Appointment Request
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Review the requested visit information below, configure scheduling parameters, and confirm the patient slot.</p>
+
+          <!-- Requested Summary Box -->
+          <div class="appt-modal-recap">
+            <div class="appt-modal-recap-grid">
+              <div class="appt-modal-recap-item">
+                <small>Patient</small>
+                <strong id="approveModalPatient">Elle Adams</strong>
+                <span class="badge-admin badge-new" id="approveModalPTypeBadge">New Patient</span>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Requested Date &amp; Time</small>
+                <strong id="approveModalRequested">Sep 24, 2026 · Morning (10:00 AM)</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Provider</small>
+                <strong id="approveModalProvider">Sultana Afrooz, D.O.</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Service</small>
+                <strong id="approveModalService">New patient consultation</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Visit Type</small>
+                <span class="badge-admin badge-tele" id="approveModalVisitBadge">Telehealth</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scheduling Controls Form -->
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-admin" for="approveDateDisplay">Confirmed Date</label>
+              <div class="calendar-picker-wrapper" id="approveCalendarWrapper">
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-end-0 text-teal"><i class="bi bi-calendar3"></i></span>
+                  <input type="text" class="form-control border-start-0 border-end-0 ps-0 calendar-input-trigger" id="approveDateDisplay" value="Sep 24, 2026" readonly role="button" aria-haspopup="dialog" aria-expanded="false" title="Click to choose appointment confirmation date">
+                  <button class="btn btn-outline-secondary border-start-0 bg-white text-muted px-2" type="button" id="btnToggleApproveCalendar" title="Toggle calendar popover" aria-label="Toggle calendar">
+                    <i class="bi bi-chevron-down small"></i>
+                  </button>
+                </div>
+                <input type="hidden" id="approveInputDate" value="2026-09-24">
+
+                <!-- Custom Calendar Popover -->
+                <div class="calendar-popover" id="approveCalendarPopover" style="display: none;" role="dialog" aria-modal="false" aria-label="Choose appointment confirmation date">
+                  <div class="calendar-header">
+                    <button type="button" class="calendar-nav-btn" id="calPrevMonthApprove" title="Previous month" aria-label="Previous month">
+                      <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <span class="calendar-month-year" id="calMonthYearApprove">September 2026</span>
+                    <button type="button" class="calendar-nav-btn" id="calNextMonthApprove" title="Next month" aria-label="Next month">
+                      <i class="bi bi-chevron-right"></i>
+                    </button>
+                  </div>
+                  <div class="calendar-weekdays" aria-hidden="true">
+                    <div class="calendar-weekday">Sun</div>
+                    <div class="calendar-weekday">Mon</div>
+                    <div class="calendar-weekday">Tue</div>
+                    <div class="calendar-weekday">Wed</div>
+                    <div class="calendar-weekday">Thu</div>
+                    <div class="calendar-weekday">Fri</div>
+                    <div class="calendar-weekday">Sat</div>
+                  </div>
+                  <div class="calendar-days-grid" id="calDaysGridApprove" role="grid" aria-label="Calendar days"></div>
+                  <div class="calendar-footer">
+                    <button type="button" class="btn btn-link text-muted" id="calBtnClearApprove"><i class="bi bi-x me-1"></i>Clear</button>
+                    <span class="small text-muted" id="calHelperTextApprove">Sep 24 selected</span>
+                    <button type="button" class="btn btn-link text-teal fw-semibold" id="calBtnTodayApprove"><i class="bi bi-calendar-check me-1"></i>Today</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Select: Confirmed Time Slot -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="approveTimeTrigger">Confirmed Time Slot</label>
+              <div class="custom-select-wrapper" id="approveTimeWrapper">
+                <div class="custom-select-trigger" id="approveTimeTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select confirmed appointment slot">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-clock select-leading-icon"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="approveTimePrimaryText">10:00 AM – 11:00 AM</span>
+                      <span class="custom-select-secondary-text" id="approveTimeSecondaryText">Requested patient slot · Confirmed</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+                <input type="hidden" id="approveInputTime" value="10:00 AM – 11:00 AM">
+
+                <div class="custom-select-panel" id="approveTimePanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option" data-value="09:00 AM – 10:00 AM" data-primary="09:00 AM – 10:00 AM" data-secondary="Early morning opening" role="option">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">09:00 AM – 10:00 AM</span>
+                        <span class="badge-availability available-today">Morning</span>
+                      </div>
+                      <span class="option-secondary">Early morning opening · First clinic slot</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option selected" data-value="10:00 AM – 11:00 AM" data-primary="10:00 AM – 11:00 AM" data-secondary="Requested patient slot · Confirmed" role="option" aria-selected="true">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">10:00 AM – 11:00 AM</span>
+                        <span class="badge-availability recommended">Requested Slot</span>
+                      </div>
+                      <span class="option-secondary">Requested patient slot · Available on provider schedule</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="11:30 AM – 12:30 PM" data-primary="11:30 AM – 12:30 PM" data-secondary="Next available midday slot" role="option">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">11:30 AM – 12:30 PM</span>
+                        <span class="badge-availability available-today">Available</span>
+                      </div>
+                      <span class="option-secondary">Next available midday slot</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="02:00 PM – 03:00 PM" data-primary="02:00 PM – 03:00 PM" data-secondary="Afternoon consultation block" role="option">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">02:00 PM – 03:00 PM</span>
+                        <span class="badge-availability future-slot">Afternoon</span>
+                      </div>
+                      <span class="option-secondary">Afternoon consultation block</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="03:30 PM – 04:30 PM" data-primary="03:30 PM – 04:30 PM" data-secondary="Late afternoon slot" role="option">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">03:30 PM – 04:30 PM</span>
+                        <span class="badge-availability future-slot">Afternoon</span>
+                      </div>
+                      <span class="option-secondary">Late afternoon slot · Final daily block</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Select: Assigned Provider -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="approveProviderTrigger">Assigned Provider</label>
+              <div class="custom-select-wrapper" id="approveProviderWrapper">
+                <div class="custom-select-trigger" id="approveProviderTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select assigned clinician">
+                  <div class="custom-select-selected-content">
+                    <span class="provider-avatar-chip" id="approveProviderChip">SA</span>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="approveProviderPrimaryText">Sultana Afrooz, D.O.</span>
+                      <span class="custom-select-secondary-text" id="approveProviderSecondaryText">Integrative &amp; Functional Medicine Physician</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+                <input type="hidden" id="approveInputProvider" value="Sultana Afrooz, D.O.">
+
+                <div class="custom-select-panel" id="approveProviderPanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="Sultana Afrooz, D.O." data-primary="Sultana Afrooz, D.O." data-secondary="Integrative &amp; Functional Medicine Physician" data-chip="SA" role="option" aria-selected="true">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <span class="provider-avatar-chip">SA</span>
+                      <div>
+                        <span class="option-primary d-block">Sultana Afrooz, D.O.</span>
+                        <span class="option-secondary">Integrative &amp; Functional Medicine Physician</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="Jessica Needle, N.D." data-primary="Jessica Needle, N.D." data-secondary="Naturopathic Medicine Doctor" data-chip="JN" role="option">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <span class="provider-avatar-chip chip-teal">JN</span>
+                      <div>
+                        <span class="option-primary d-block">Jessica Needle, N.D.</span>
+                        <span class="option-secondary">Naturopathic Medicine Doctor</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Select: Visit Type -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="approveVisitTrigger">Visit Type</label>
+              <div class="custom-select-wrapper" id="approveVisitWrapper">
+                <div class="custom-select-trigger" id="approveVisitTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select appointment visit type">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-laptop select-leading-icon" id="approveVisitLeadingIcon"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="approveVisitPrimaryText">Telehealth Consultation</span>
+                      <span class="custom-select-secondary-text" id="approveVisitSecondaryText">Secure Video Room · Maryland Patients</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+                <input type="hidden" id="approveInputVisit" value="Telehealth">
+
+                <div class="custom-select-panel" id="approveVisitPanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="Telehealth" data-primary="Telehealth Consultation" data-secondary="Secure Video Room · Maryland Patients" data-icon="bi-laptop" role="option" aria-selected="true">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <div class="option-icon-box"><i class="bi bi-laptop"></i></div>
+                      <div>
+                        <span class="option-primary d-block">Telehealth Consultation</span>
+                        <span class="option-secondary">Secure Video Room · Maryland Patients</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="In-office" data-primary="In-office Visit" data-secondary="Columbia, MD Suite 301 · Exam &amp; Treatment" data-icon="bi-building" role="option">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <div class="option-icon-box"><i class="bi bi-building"></i></div>
+                      <div>
+                        <span class="option-primary d-block">In-office Visit</span>
+                        <span class="option-secondary">Columbia, MD Suite 301 · Exam &amp; Treatment</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-admin">Treatment Location / Telehealth URL</label>
+              <input type="text" class="form-control" id="approveInputRoom" value="https://meet.btc-health.org/apt-0941">
+              <div class="help">Automated link sent to patient with .ics calendar invitation.</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-admin">Confirmation Notes / Preparation Advice</label>
+              <textarea class="form-control" rows="2" placeholder="Optional notes for patient confirmation email...">Please have your previous 12 months of lab work ready and ensure you are in a quiet private room with stable internet connection.</textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="approveSendEmail" checked>
+                <label class="form-check-label small" for="approveSendEmail">
+                  Send automated confirmation email with intake packet and calendar invite (.ics)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="approveSendSms" checked>
+                <label class="form-check-label small" for="approveSendSms">
+                  Send SMS confirmation text message to patient phone
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn-btc-outline" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn-btc" data-bs-dismiss="modal" data-save="Appointment confirmed. Patient notification sent.">
+            <i class="bi bi-check2-circle me-1"></i> Confirm Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       RESCHEDULE UI MODAL (#rescheduleModal)
+       ============================================================ -->
+  <div class="modal fade" id="rescheduleModal" tabindex="-1" aria-labelledby="rescheduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title text-navy fw-bold" id="rescheduleModalLabel">
+            <i class="bi bi-clock-history text-warning me-2"></i>Reschedule Appointment
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Coordinate a new appointment date and time for the patient and clinician. A reschedule notification will be dispatched to the patient.</p>
+
+          <!-- Current Requested Date/Time Recap -->
+          <div class="appt-modal-recap">
+            <div class="d-flex align-items-center justify-content-between mb-2 pb-2 border-bottom">
+              <div>
+                <small class="text-muted text-uppercase fw-bold">Current Requested Appointment</small>
+                <div class="fw-bold text-navy fs-6" id="rescheduleModalPatient">David K. Reynolds</div>
+              </div>
+              <span class="badge-admin badge-rescheduled">Reschedule Workflow</span>
+            </div>
+            <div class="appt-modal-recap-grid">
+              <div class="appt-modal-recap-item">
+                <small>Current Date &amp; Time</small>
+                <strong id="rescheduleModalCurrentTime">Sep 24, 2026 · 10:00 AM – 11:00 AM</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Assigned Provider</small>
+                <strong id="rescheduleModalCurrentProvider">Sultana Afrooz, D.O.</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Service</small>
+                <strong id="rescheduleModalCurrentService">Frequency Specific Microcurrent™</strong>
+              </div>
+              <div class="appt-modal-recap-item">
+                <small>Visit Type</small>
+                <strong id="rescheduleModalCurrentVisit">In-office</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Date / Time Controls -->
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-admin" for="rescheduleNewDateDisplay">New Date</label>
+              <div class="calendar-picker-wrapper" id="rescheduleCalendarWrapper">
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-end-0 text-teal"><i class="bi bi-calendar3"></i></span>
+                  <input type="text" class="form-control border-start-0 border-end-0 ps-0 calendar-input-trigger" id="rescheduleNewDateDisplay" value="Sep 24, 2026" readonly role="button" aria-haspopup="dialog" aria-expanded="false" title="Click to choose a new appointment date">
+                  <button class="btn btn-outline-secondary border-start-0 bg-white text-muted px-2" type="button" id="btnToggleRescheduleCalendar" title="Toggle calendar popover" aria-label="Toggle calendar">
+                    <i class="bi bi-chevron-down small"></i>
+                  </button>
+                </div>
+                <!-- Hidden input maintaining existing ID and value for compatibility -->
+                <input type="hidden" id="rescheduleNewDate" value="2026-09-24">
+
+                <!-- Custom Healthcare SaaS Calendar Popover -->
+                <div class="calendar-popover" id="rescheduleCalendarPopover" style="display: none;" role="dialog" aria-modal="false" aria-label="Choose reschedule date">
+                  <!-- Calendar Header -->
+                  <div class="calendar-header">
+                    <button type="button" class="calendar-nav-btn" id="calPrevMonth" title="Previous month" aria-label="Previous month">
+                      <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <span class="calendar-month-year" id="calMonthYear">September 2026</span>
+                    <button type="button" class="calendar-nav-btn" id="calNextMonth" title="Next month" aria-label="Next month">
+                      <i class="bi bi-chevron-right"></i>
+                    </button>
+                  </div>
+
+                  <!-- 7 Weekday Labels -->
+                  <div class="calendar-weekdays" aria-hidden="true">
+                    <div class="calendar-weekday">Sun</div>
+                    <div class="calendar-weekday">Mon</div>
+                    <div class="calendar-weekday">Tue</div>
+                    <div class="calendar-weekday">Wed</div>
+                    <div class="calendar-weekday">Thu</div>
+                    <div class="calendar-weekday">Fri</div>
+                    <div class="calendar-weekday">Sat</div>
+                  </div>
+
+                  <!-- 7-Column Days Grid -->
+                  <div class="calendar-days-grid" id="calDaysGrid" role="grid" aria-label="Calendar days">
+                    <!-- Populated dynamically by script -->
+                  </div>
+
+                  <!-- Calendar Footer -->
+                  <div class="calendar-footer">
+                    <button type="button" class="btn btn-link text-muted" id="calBtnClear">
+                      <i class="bi bi-x me-1"></i>Clear
+                    </button>
+                    <span class="small text-muted" id="calHelperText">Sep 24 selected</span>
+                    <button type="button" class="btn btn-link text-teal fw-semibold" id="calBtnToday">
+                      <i class="bi bi-calendar-check me-1"></i>Today
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Custom Select: New Time -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="rescheduleTimeTrigger">New Time</label>
+              <div class="custom-select-wrapper" id="rescheduleTimeWrapper">
+                <!-- Closed State Trigger -->
+                <div class="custom-select-trigger" id="rescheduleTimeTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select new appointment time">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-clock select-leading-icon"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="rescheduleTimePrimaryText">11:15 AM – 12:15 PM</span>
+                      <span class="custom-select-secondary-text" id="rescheduleTimeSecondaryText">Next available today</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+
+                <!-- Hidden input for form value -->
+                <input type="hidden" id="rescheduleNewTime" value="11:15 AM – 12:15 PM">
+
+                <!-- Opened Custom Dropdown Panel -->
+                <div class="custom-select-panel" id="rescheduleTimePanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="11:15 AM – 12:15 PM" data-primary="11:15 AM – 12:15 PM" data-secondary="Next available today" role="option" aria-selected="true">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">11:15 AM – 12:15 PM</span>
+                        <span class="badge-availability available-today">Today</span>
+                      </div>
+                      <span class="option-secondary">Next available today · Immediate opening</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="01:30 PM – 02:30 PM" data-primary="01:30 PM – 02:30 PM" data-secondary="Recommended today" role="option" aria-selected="false">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">01:30 PM – 02:30 PM</span>
+                        <span class="badge-availability recommended">Recommended</span>
+                      </div>
+                      <span class="option-secondary">Recommended today · Dr. Afrooz opening</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="03:30 PM – 04:30 PM" data-primary="03:30 PM – 04:30 PM" data-secondary="Available today" role="option" aria-selected="false">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">03:30 PM – 04:30 PM</span>
+                        <span class="badge-availability available-today">Today</span>
+                      </div>
+                      <span class="option-secondary">Available today · Late afternoon slot</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="Sep 25 · 10:00 AM – 11:00 AM" data-primary="Sep 25, 2026 · 10:00 AM – 11:00 AM" data-secondary="Tomorrow" role="option" aria-selected="false">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">Sep 25, 2026 · 10:00 AM – 11:00 AM</span>
+                        <span class="badge-availability future-slot">Tomorrow</span>
+                      </div>
+                      <span class="option-secondary">Friday morning · Clinical suite open</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="Sep 28 · 09:30 AM – 10:30 AM" data-primary="Sep 28, 2026 · 09:30 AM – 10:30 AM" data-secondary="Future availability" role="option" aria-selected="false">
+                    <div class="option-content">
+                      <div class="option-time-header">
+                        <span class="option-primary">Sep 28, 2026 · 09:30 AM – 10:30 AM</span>
+                        <span class="badge-availability future-slot">Next Week</span>
+                      </div>
+                      <span class="option-secondary">Future availability · First morning slot</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Select: Provider -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="rescheduleProviderTrigger">Provider</label>
+              <div class="custom-select-wrapper" id="rescheduleProviderWrapper">
+                <!-- Closed State Trigger -->
+                <div class="custom-select-trigger" id="rescheduleProviderTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select clinical provider">
+                  <div class="custom-select-selected-content">
+                    <span class="provider-avatar-chip" id="rescheduleProviderChip">SA</span>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="rescheduleProviderPrimaryText">Sultana Afrooz, D.O.</span>
+                      <span class="custom-select-secondary-text" id="rescheduleProviderSecondaryText">Integrative &amp; Functional Medicine Physician</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+
+                <!-- Hidden input for form value -->
+                <input type="hidden" id="rescheduleProvider" value="Sultana Afrooz, D.O.">
+
+                <!-- Opened Custom Dropdown Panel -->
+                <div class="custom-select-panel" id="rescheduleProviderPanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="Sultana Afrooz, D.O." data-primary="Sultana Afrooz, D.O." data-secondary="Integrative &amp; Functional Medicine Physician" data-chip="SA" role="option" aria-selected="true">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <span class="provider-avatar-chip">SA</span>
+                      <div>
+                        <span class="option-primary d-block">Sultana Afrooz, D.O.</span>
+                        <span class="option-secondary">Integrative &amp; Functional Medicine Physician</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="Jessica Needle, N.D." data-primary="Jessica Needle, N.D." data-secondary="Naturopathic Medicine Doctor" data-chip="JN" role="option" aria-selected="false">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <span class="provider-avatar-chip chip-teal">JN</span>
+                      <div>
+                        <span class="option-primary d-block">Jessica Needle, N.D.</span>
+                        <span class="option-secondary">Naturopathic Medicine Doctor</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Select: Visit Type -->
+            <div class="col-md-6">
+              <label class="form-label-admin" for="rescheduleVisitTypeTrigger">Visit Type</label>
+              <div class="custom-select-wrapper" id="rescheduleVisitTypeWrapper">
+                <!-- Closed State Trigger -->
+                <div class="custom-select-trigger" id="rescheduleVisitTypeTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select visit type">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-building select-leading-icon" id="rescheduleVisitLeadingIcon"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="rescheduleVisitPrimaryText">In-office Visit</span>
+                      <span class="custom-select-secondary-text" id="rescheduleVisitSecondaryText">Columbia, MD Suite 301 · Exam &amp; Treatment</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+
+                <!-- Hidden input for form value -->
+                <input type="hidden" id="rescheduleVisitType" value="In-office">
+
+                <!-- Opened Custom Dropdown Panel -->
+                <div class="custom-select-panel" id="rescheduleVisitTypePanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="In-office" data-primary="In-office Visit" data-secondary="Columbia, MD Suite 301 · Exam &amp; Treatment" data-icon="bi-building" role="option" aria-selected="true">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <div class="option-icon-box"><i class="bi bi-building"></i></div>
+                      <div>
+                        <span class="option-primary d-block">In-office Visit</span>
+                        <span class="option-secondary">Columbia, MD Suite 301 · Exam &amp; Treatment</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+
+                  <div class="custom-select-option" data-value="Telehealth" data-primary="Telehealth Consultation" data-secondary="Secure Video Room · Maryland Patients" data-icon="bi-laptop" role="option" aria-selected="false">
+                    <div class="d-flex align-items-center gap-2 option-content">
+                      <div class="option-icon-box"><i class="bi bi-laptop"></i></div>
+                      <div>
+                        <span class="option-primary d-block">Telehealth Consultation</span>
+                        <span class="option-secondary">Secure Video Room · Maryland Patients</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label-admin" for="rescheduleReasonText">Reason / Admin Note</label>
+              <textarea class="form-control" rows="3" id="rescheduleReasonText" style="border-color: rgba(0, 48, 72, 0.16); border-radius: var(--radius-sm); font-size: 0.88rem; color: #0B3A53; padding: 0.65rem 0.85rem;">Dear patient, Dr. Sultana Afrooz has a prior clinical procedure at 10:00 AM today. We have held open 1:30 PM today or 10:00 AM tomorrow for your Frequency Specific Microcurrent session. Please confirm your preferred time.</textarea>
+              <div class="help">This message will be included in the reschedule proposal email and SMS sent to the patient.</div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rescheduleNotifyCheck" checked>
+                <label class="form-check-label small" for="rescheduleNotifyCheck">
+                  Send reschedule request proposal to patient with 1-click confirmation link
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn-btc-outline" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn-btc" data-bs-dismiss="modal" data-save="Reschedule request sent to patient.">
+            <i class="bi bi-send me-1"></i> Send Reschedule Request
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       DECLINE UI MODAL (#declineModal)
+       ============================================================ -->
+  <div class="modal fade" id="declineModal" tabindex="-1" aria-labelledby="declineModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title text-danger fw-bold" id="declineModalLabel">
+            <i class="bi bi-slash-circle me-2"></i>Decline Appointment Request
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Decline this appointment request. You may specify the clinical or administrative reason and communicate next steps to the patient.</p>
+
+          <!-- Appointment Summary -->
+          <div class="appt-modal-recap mb-3">
+            <div class="row g-2">
+              <div class="col-6">
+                <small class="text-muted text-uppercase fw-bold">Patient</small>
+                <div class="fw-bold text-navy" id="declineModalPatient">Evelyn Bennett</div>
+              </div>
+              <div class="col-6">
+                <small class="text-muted text-uppercase fw-bold">Requested Appointment</small>
+                <div class="fw-bold text-navy" id="declineModalRequested">Sep 27, 2026 · 11:00 AM</div>
+              </div>
+              <div class="col-6 mt-2">
+                <small class="text-muted text-uppercase fw-bold">Provider</small>
+                <div class="fw-bold text-navy" id="declineModalProvider">Jessica Needle, N.D.</div>
+              </div>
+              <div class="col-6 mt-2">
+                <small class="text-muted text-uppercase fw-bold">Service</small>
+                <div class="fw-bold text-navy" id="declineModalService">IV Nutritional Infusions</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fields -->
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label-admin" for="declineReasonTrigger">Decline Reason</label>
+              <div class="custom-select-wrapper" id="declineReasonWrapper">
+                <div class="custom-select-trigger" id="declineReasonTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select clinical decline reason">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-slash-circle select-leading-icon text-danger"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="declineReasonPrimaryText">Clinical schedule at capacity / Fully booked</span>
+                      <span class="custom-select-secondary-text" id="declineReasonSecondaryText">No open appointment slot for requested modality</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+                <input type="hidden" id="declineReasonSelect" value="capacity">
+
+                <div class="custom-select-panel" id="declineReasonPanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="capacity" data-primary="Clinical schedule at capacity / Fully booked" data-secondary="No open appointment slot for requested modality" role="option" aria-selected="true">
+                    <div class="option-content">
+                      <span class="option-primary">Clinical schedule at capacity / Fully booked</span>
+                      <span class="option-secondary">No open appointment slot for requested modality</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="criteria" data-primary="Clinical intake criteria not met / Outside scope" data-secondary="Requires specialized medical referral or hospital care" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Clinical intake criteria not met / Outside scope</span>
+                      <span class="option-secondary">Requires specialized medical referral or hospital care</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="licensing" data-primary="Patient outside licensed jurisdiction" data-secondary="Telehealth statutory restriction (Maryland licensure only)" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Patient outside licensed jurisdiction</span>
+                      <span class="option-secondary">Telehealth statutory restriction (Maryland licensure only)</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="service_unavailable" data-primary="Requested therapy or suite unavailable" data-secondary="Clinical device under maintenance or procedure room occupied" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Requested therapy or suite unavailable</span>
+                      <span class="option-secondary">Clinical device under maintenance or procedure room occupied</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="duplicate" data-primary="Duplicate appointment submission" data-secondary="Patient already has an active slot on the clinical calendar" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Duplicate appointment submission</span>
+                      <span class="option-secondary">Patient already has an active slot on the clinical calendar</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="other" data-primary="Other clinical or administrative reason" data-secondary="Custom reasoning noted in message below" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Other clinical or administrative reason</span>
+                      <span class="option-secondary">Custom reasoning noted in message below</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-admin">Additional Note (Sent to Patient)</label>
+              <textarea class="form-control" rows="3" id="declineNoteText">Thank you for your interest in Be The Change Health. Our clinical schedule is fully booked for IV Nutritional Infusions on this requested date. We would be happy to accommodate you next week or add you to our priority cancellation waitlist.</textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="declineNotifyCheck" checked>
+                <label class="form-check-label small" for="declineNotifyCheck">
+                  Send polite decline notification email with alternative options
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn-btc-outline" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn-danger-soft" data-bs-dismiss="modal" data-save="Appointment request declined. Patient notified.">
+            <i class="bi bi-slash-circle me-1"></i> Decline Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       CANCEL CONFIRMED APPOINTMENT UI MODAL (#cancelModal)
+       ============================================================ -->
+  <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title text-danger fw-bold" id="cancelModalLabel">
+            <i class="bi bi-exclamation-octagon text-danger me-2"></i>Cancel Confirmed Appointment
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="p-3 mb-3 rounded-3 bg-danger bg-opacity-10 border border-danger border-opacity-25 text-danger small">
+            <i class="bi bi-exclamation-triangle-fill me-1"></i>
+            <strong>Warning:</strong> This appointment is currently <strong>Confirmed</strong> on the provider schedule. Cancelling will release the booked slot back into general clinic availability.
+          </div>
+
+          <!-- Appointment Information -->
+          <div class="appt-modal-recap mb-3">
+            <div class="row g-2">
+              <div class="col-6">
+                <small class="text-muted text-uppercase fw-bold">Patient</small>
+                <div class="fw-bold text-navy" id="cancelModalPatient">Marcus Vance</div>
+              </div>
+              <div class="col-6">
+                <small class="text-muted text-uppercase fw-bold">Confirmed Date &amp; Time</small>
+                <div class="fw-bold text-navy" id="cancelModalTime">Sep 24, 2026 · 10:00 AM – 10:45 AM</div>
+              </div>
+              <div class="col-6 mt-2">
+                <small class="text-muted text-uppercase fw-bold">Provider</small>
+                <div class="fw-bold text-navy" id="cancelModalProvider">Sultana Afrooz, D.O.</div>
+              </div>
+              <div class="col-6 mt-2">
+                <small class="text-muted text-uppercase fw-bold">Service</small>
+                <div class="fw-bold text-navy" id="cancelModalService">Ozone Therapy</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cancellation Form -->
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label-admin" for="cancelReasonTrigger">Cancellation Reason</label>
+              <div class="custom-select-wrapper" id="cancelReasonWrapper">
+                <div class="custom-select-trigger" id="cancelReasonTrigger" role="combobox" aria-expanded="false" aria-haspopup="listbox" tabindex="0" title="Select cancellation reason">
+                  <div class="custom-select-selected-content">
+                    <i class="bi bi-x-circle select-leading-icon text-danger"></i>
+                    <div class="custom-select-text-group">
+                      <span class="custom-select-primary-text" id="cancelReasonPrimaryText">Patient requested cancellation</span>
+                      <span class="custom-select-secondary-text" id="cancelReasonSecondaryText">Patient contacted office with personal scheduling conflict</span>
+                    </div>
+                  </div>
+                  <i class="bi bi-chevron-down custom-select-chevron"></i>
+                </div>
+                <input type="hidden" id="cancelReasonSelect" value="patient_request">
+
+                <div class="custom-select-panel" id="cancelReasonPanel" role="listbox" style="display: none;">
+                  <div class="custom-select-option selected" data-value="patient_request" data-primary="Patient requested cancellation" data-secondary="Patient contacted office with personal scheduling conflict" role="option" aria-selected="true">
+                    <div class="option-content">
+                      <span class="option-primary">Patient requested cancellation</span>
+                      <span class="option-secondary">Patient contacted office with personal scheduling conflict</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="no_show" data-primary="Patient no-show" data-secondary="Patient did not attend scheduled consultation" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Patient no-show</span>
+                      <span class="option-secondary">Patient did not attend scheduled consultation</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="emergency" data-primary="Provider emergency / Illness" data-secondary="Clinician unavailable due to urgent medical circumstance" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Provider emergency / Illness</span>
+                      <span class="option-secondary">Clinician unavailable due to urgent medical circumstance</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="weather" data-primary="Clinic closure / Inclement weather" data-secondary="Facility closed under safety protocol" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Clinic closure / Inclement weather</span>
+                      <span class="option-secondary">Facility closed under safety protocol</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="contraindication" data-primary="Medical contraindication identified" data-secondary="Clinical review flagged safety exclusion for chosen therapy" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Medical contraindication identified</span>
+                      <span class="option-secondary">Clinical review flagged safety exclusion for chosen therapy</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                  <div class="custom-select-option" data-value="postponed" data-primary="Patient postponed indefinitely" data-secondary="Patient requested holding treatment plan until future notice" role="option">
+                    <div class="option-content">
+                      <span class="option-primary">Patient postponed indefinitely</span>
+                      <span class="option-secondary">Patient requested holding treatment plan until future notice</span>
+                    </div>
+                    <i class="bi bi-check2 option-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-admin">Admin Note / Cancellation Documentation</label>
+              <textarea class="form-control" rows="3" id="cancelAdminNoteText">Patient called the office to cancel due to unforeseen scheduling conflict. Requested follow-up call next month to reschedule.</textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cancelReleaseCheck" checked>
+                <label class="form-check-label small" for="cancelReleaseCheck">
+                  Release reserved practitioner slot immediately on calendar
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cancelNotifyPatientCheck" checked>
+                <label class="form-check-label small" for="cancelNotifyPatientCheck">
+                  Send cancellation confirmation email to patient
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn-btc" data-bs-dismiss="modal">Keep Appointment</button>
+          <button type="button" class="btn-danger-soft" data-bs-dismiss="modal" data-save="Appointment cancelled. Practitioner calendar slot released.">
+            <i class="bi bi-x-circle me-1"></i> Cancel Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+
+  <!-- Appointment Management Client Prototype Script -->
+  <script>
+    /**
+     * Appointment Management UI Mock Data Store & Interaction Handlers
+     */
+    var APPOINTMENT_STORE = {
+      "apt-1": {
+        id: "apt-1",
+        ref: "#APT-2026-0941",
+        name: "Elle Adams",
+        initials: "EA",
+        color: "#4f46e5",
+        email: "elle@email.com",
+        phone: "(301) 555-0191",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "Telehealth",
+        visitBadgeClass: "badge-tele",
+        room: "Telehealth Video Room (meet.btc-health.org/apt-0941)",
+        provider: "Sultana Afrooz, D.O.",
+        service: "New patient consultation",
+        date: "Thursday, Sep 24, 2026",
+        dateRaw: "2026-09-24",
+        time: "Morning (10:00 AM – 11:00 AM EDT)",
+        status: "Pending",
+        statusBadgeClass: "badge-pending",
+        patientSub: "New Patient · Female · Columbia, MD",
+        duration: "60 Minutes Comprehensive",
+        location: "Columbia, MD 21045 (Eligible for MD Telehealth)",
+        notes: "Looking for root-cause functional medicine care after years of persistent fatigue and brain fog. Previous lab tests with conventional PCP showed normal thyroid panels, but symptoms persist. Interested in comprehensive hormone mapping and nutritional therapies.",
+        adminNotes: [
+          { author: "Sarah Jenkins (Intake Coord)", time: "Sep 22, 11:15 AM", text: "Verified patient out-of-network acknowledgment and Maryland telehealth residency status. Intake packet sent via email." },
+          { author: "Dr. Sultana Afrooz, D.O.", time: "Sep 22, 02:40 PM", text: "Preliminary chart reviewed. 60-min intake protocol assigned. Instructed coordinator to request past 12-month bloodwork." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 22 · 09:30 AM", actor: "Patient: Elle Adams (Web Form)", note: "Online booking request received via book-appointment.html. Out-of-network terms accepted.", completed: true },
+          { title: "Reviewed & Triaged", time: "Sep 22 · 11:15 AM", actor: "Admin: Sarah Jenkins (Intake Coord)", note: "Verified patient contact details and Maryland residency for telehealth coverage.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 22 · 02:40 PM", actor: "Clinician: Sultana Afrooz, D.O.", note: "Assigned 10:00 AM EDT slot on Dr. Afrooz's schedule. Telehealth meeting link generated.", completed: false },
+          { title: "Appointment Completed", time: "Scheduled Sep 24", actor: "Pending visit occurrence", note: "Clinical documentation and Superbill will generate upon visit conclusion.", completed: false }
+        ]
+      },
+      "apt-2": {
+        id: "apt-2",
+        ref: "#APT-2026-0939",
+        name: "David K. Reynolds",
+        initials: "DR",
+        color: "#d97706",
+        email: "dreynolds@email.com",
+        phone: "(410) 555-0199",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Treatment Room 3",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Frequency Specific Microcurrent™",
+        date: "Thursday, Sep 24, 2026",
+        dateRaw: "2026-09-24",
+        time: "10:00 AM – 11:00 AM",
+        status: "Reschedule Requested",
+        statusBadgeClass: "badge-rescheduled",
+        patientSub: "Existing Patient · Male · Ellicott City, MD",
+        duration: "45 Minutes Treatment Session",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Managing chronic cervical spine pain and nerve impingement. Follow-up FSM therapy session #4. Prior session provided significant relief for 8 days.",
+        adminNotes: [
+          { author: "Reception Desk", time: "Sep 23, 03:00 PM", text: "Flagged schedule overlap with Marcus Vance (10:00 AM Ozone Therapy). Reschedule proposed for 1:30 PM." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 23 · 02:15 PM", actor: "David K. Reynolds", note: "Requested 10:00 AM slot on Sep 24.", completed: true },
+          { title: "Conflict Identified", time: "Sep 23 · 03:00 PM", actor: "Care Coordinator", note: "Time overlap detected with existing Ozone appointment. Reschedule initiated.", completed: true },
+          { title: "Reschedule Request Sent", time: "Sep 23 · 03:30 PM", actor: "Staff", note: "Proposed 1:30 PM opening sent to patient.", completed: true },
+          { title: "Appointment Confirmed", time: "Pending confirmation", actor: "Pending", note: "Awaiting patient response to reschedule.", completed: false }
+        ]
+      },
+      "apt-3": {
+        id: "apt-3",
+        ref: "#APT-2026-0938",
+        name: "Marcus Vance",
+        initials: "MV",
+        color: "#0284c7",
+        email: "marcus.v@email.com",
+        phone: "(301) 555-0128",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Ozone Therapy Room",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Ozone Therapy",
+        date: "Thursday, Sep 24, 2026",
+        dateRaw: "2026-09-24",
+        time: "10:00 AM – 10:45 AM",
+        status: "Confirmed",
+        statusBadgeClass: "badge-confirmed",
+        patientSub: "Existing Patient · Male · Columbia, MD",
+        duration: "45 Minutes Treatment",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Routine bi-weekly ozone therapy session for immune modulation and mold recovery. Vital signs stable at last check-in.",
+        adminNotes: [
+          { author: "Dr. Sultana Afrooz, D.O.", time: "Sep 21, 04:00 PM", text: "Confirmed session #6 of 10. Protocol: Major autohemotherapy 150ml." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 21 · 01:20 PM", actor: "Marcus Vance", note: "Scheduled ongoing protocol session.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 21 · 04:00 PM", actor: "Dr. Sultana Afrooz", note: "Confirmed for Room 301 Ozone Suite.", completed: true },
+          { title: "Pre-Visit Checked", time: "Sep 24 · 08:30 AM", actor: "Nursing Staff", note: "IV supply and saline prepared.", completed: true },
+          { title: "Appointment Completed", time: "Scheduled Today", actor: "Clinician", note: "Pending visit conclusion.", completed: false }
+        ]
+      },
+      "apt-4": {
+        id: "apt-4",
+        ref: "#APT-2026-0940",
+        name: "Clara Montgomery",
+        initials: "CM",
+        color: "#7c3aed",
+        email: "clara.m@email.com",
+        phone: "(301) 555-0133",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Hydrotherapy Suite B",
+        provider: "Jessica Needle, N.D.",
+        service: "Constitutional Hydrotherapy",
+        date: "Thursday, Sep 24, 2026",
+        dateRaw: "2026-09-24",
+        time: "02:30 PM – 03:30 PM",
+        status: "Confirmed",
+        statusBadgeClass: "badge-confirmed",
+        patientSub: "New Patient · Female · Silver Spring, MD",
+        duration: "60 Minutes Session",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Experiencing digestive sluggishness and sluggish lymphatic circulation. Recommended by functional nutritionist. No acute skin lesions.",
+        adminNotes: [
+          { author: "Sarah Jenkins", time: "Sep 22, 10:00 AM", text: "Intake form and consent for hot/cold compresses completed. Assigned to Suite B." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 21 · 11:00 AM", actor: "Clara Montgomery", note: "Booked via online form.", completed: true },
+          { title: "Intake Verified", time: "Sep 22 · 10:00 AM", actor: "Sarah Jenkins", note: "Hydrotherapy safety screening cleared.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 22 · 10:30 AM", actor: "Dr. Jessica Needle", note: "Confirmed for 2:30 PM.", completed: true }
+        ]
+      },
+      "apt-5": {
+        id: "apt-5",
+        ref: "#APT-2026-0935",
+        name: "Oxana Oleson",
+        initials: "OO",
+        color: "#059669",
+        email: "oxana@email.com",
+        phone: "(410) 555-0177",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Hyperbaric Chamber 1",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Hyperbaric Oxygen Therapy",
+        date: "Saturday, Sep 26, 2026",
+        dateRaw: "2026-09-26",
+        time: "11:30 AM – 12:30 PM",
+        status: "Reschedule Requested",
+        statusBadgeClass: "badge-rescheduled",
+        patientSub: "Existing Patient · Female · Clarksville, MD",
+        duration: "60 Minutes Dive",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Patient requested morning chamber slot if available. Post-concussion recovery protocol session 8 of 10. Reports notable memory improvements.",
+        adminNotes: [
+          { author: "Front Desk Staff", time: "Sep 23, 09:15 AM", text: "Chamber maintenance scheduled Saturday 11am-1pm. Reschedule sent for 2:00 PM." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 22 · 04:00 PM", actor: "Oxana Oleson", note: "Requested HBOT dive session #8.", completed: true },
+          { title: "Reschedule Initiated", time: "Sep 23 · 09:15 AM", actor: "Staff", note: "Chamber maintenance window conflict.", completed: true }
+        ]
+      },
+      "apt-6": {
+        id: "apt-6",
+        ref: "#APT-2026-0943",
+        name: "Sumaiyah Khan",
+        initials: "SK",
+        color: "#0284c7",
+        email: "sumaiyah@email.com",
+        phone: "(240) 555-0102",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "Telehealth",
+        visitBadgeClass: "badge-tele",
+        room: "Telehealth Video Room (meet.btc-health.org/apt-0943)",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Hormone Imbalance Consultation",
+        date: "Monday, Sep 28, 2026",
+        dateRaw: "2026-09-28",
+        time: "Late afternoon (03:30 PM)",
+        status: "Pending",
+        statusBadgeClass: "badge-pending",
+        patientSub: "New Patient · Female · Bethesda, MD",
+        duration: "60 Minutes Consultation",
+        location: "Bethesda, MD (Telehealth Eligible)",
+        notes: "Perimenopause symptoms, sleep disturbances, unexplained weight changes over past 18 months. Seeking comprehensive functional Dutch test evaluation.",
+        adminNotes: [
+          { author: "Intake Coordinator", time: "Sep 23, 01:00 PM", text: "New patient questionnaire sent. Pending response before final confirmation." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 23 · 12:45 PM", actor: "Sumaiyah Khan", note: "Submitted request via book-appointment.html.", completed: true }
+        ]
+      },
+      "apt-7": {
+        id: "apt-7",
+        ref: "#APT-2026-0944",
+        name: "Priya Sharma",
+        initials: "PS",
+        color: "#db2777",
+        email: "priya.s@email.com",
+        phone: "(443) 555-0155",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "Telehealth",
+        visitBadgeClass: "badge-tele",
+        room: "Telehealth Video Room (meet.btc-health.org/apt-0944)",
+        provider: "Jessica Needle, N.D.",
+        service: "Chronic Fatigue Evaluation",
+        date: "Tuesday, Sep 29, 2026",
+        dateRaw: "2026-09-29",
+        time: "04:00 PM – 05:00 PM",
+        status: "Pending",
+        statusBadgeClass: "badge-pending",
+        patientSub: "New Patient · Female · Baltimore, MD",
+        duration: "60 Minutes Consultation",
+        location: "Baltimore, MD (Telehealth Eligible)",
+        notes: "Seeking naturopathic botanical and lifestyle protocol after post-viral fatigue syndrome diagnosis. Cannot tolerate pharmaceutical stimulants.",
+        adminNotes: [
+          { author: "Intake Team", time: "Sep 23, 04:30 PM", text: "Awaiting patient return of medical release form from previous PCP." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 23 · 04:10 PM", actor: "Priya Sharma", note: "Booked online for Dr. Needle.", completed: true }
+        ]
+      },
+      "apt-8": {
+        id: "apt-8",
+        ref: "#APT-2026-0937",
+        name: "Manzur Ahmed",
+        initials: "MA",
+        color: "#2563eb",
+        email: "manzur@email.com",
+        phone: "(301) 555-0144",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Consultation Room 2",
+        provider: "Jessica Needle, N.D.",
+        service: "Follow-up visit",
+        date: "Friday, Sep 25, 2026",
+        dateRaw: "2026-09-25",
+        time: "Afternoon (02:00 PM)",
+        status: "Confirmed",
+        statusBadgeClass: "badge-confirmed",
+        patientSub: "Existing Patient · Male · Laurel, MD",
+        duration: "45 Minutes Follow-up",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Follow-up comprehensive metabolic review and adjustment of herbal adaptogen formula. Recent lipid panels uploaded.",
+        adminNotes: [
+          { author: "Dr. Jessica Needle, N.D.", time: "Sep 20, 02:00 PM", text: "Lab results reviewed. Glucose and HgbA1c trending downward favorably." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 19 · 10:30 AM", actor: "Manzur Ahmed", note: "Requested afternoon follow-up.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 20 · 02:00 PM", actor: "Dr. Jessica Needle", note: "Slot confirmed.", completed: true }
+        ]
+      },
+      "apt-9": {
+        id: "apt-9",
+        ref: "#APT-2026-0929",
+        name: "Samson Zewde",
+        initials: "SZ",
+        color: "#16a34a",
+        email: "samson@email.com",
+        phone: "(443) 555-0189",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Detox Suite",
+        provider: "Jessica Needle, N.D.",
+        service: "Ion Foot Detox",
+        date: "Friday, Sep 18, 2026",
+        dateRaw: "2026-09-18",
+        time: "Morning (09:15 AM)",
+        status: "Completed",
+        statusBadgeClass: "badge-completed",
+        patientSub: "Existing Patient · Male · Columbia, MD",
+        duration: "30 Minutes Treatment",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Monthly heavy metal detox regimen. Visit completed without complications. Superbill generated.",
+        adminNotes: [
+          { author: "Staff Nurse", time: "Sep 18, 09:50 AM", text: "Session completed smoothly. Patient rebooked for October." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 15 · 09:00 AM", actor: "Samson Zewde", note: "Routine monthly booking.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 15 · 11:00 AM", actor: "Admin", note: "Confirmed for Sep 18.", completed: true },
+          { title: "Appointment Completed", time: "Sep 18 · 09:45 AM", actor: "Clinical Staff", note: "Encounter documented and finalized.", completed: true }
+        ]
+      },
+      "apt-10": {
+        id: "apt-10",
+        ref: "#APT-2026-0932",
+        name: "Robert Chen",
+        initials: "RC",
+        color: "#0d9488",
+        email: "rchen@email.com",
+        phone: "(301) 555-0167",
+        ptype: "Existing Patient",
+        ptypeShort: "Existing",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · Consultation Room 1",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Personalized Wellness Plan",
+        date: "Monday, Sep 21, 2026",
+        dateRaw: "2026-09-21",
+        time: "Afternoon (03:00 PM)",
+        status: "Completed",
+        statusBadgeClass: "badge-completed",
+        patientSub: "Existing Patient · Male · Fulton, MD",
+        duration: "60 Minutes Comprehensive Review",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "60-day plan review. Cholesterol markers improved by 18%; energy levels reported significantly higher.",
+        adminNotes: [
+          { author: "Dr. Sultana Afrooz, D.O.", time: "Sep 21, 04:00 PM", text: "Excellent progress on dietary elimination protocol. Phase 2 plan delivered." }
+        ],
+        timeline: [
+          { title: "Appointment Confirmed", time: "Sep 18 · 02:00 PM", actor: "Dr. Sultana Afrooz", note: "Confirmed for Sep 21.", completed: true },
+          { title: "Appointment Completed", time: "Sep 21 · 04:00 PM", actor: "Dr. Sultana Afrooz", note: "Encounter signed.", completed: true }
+        ]
+      },
+      "apt-11": {
+        id: "apt-11",
+        ref: "#APT-2026-0931",
+        name: "Muhammad Haroon",
+        initials: "MH",
+        color: "#e11d48",
+        email: "haroon@email.com",
+        phone: "(202) 555-0165",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "Telehealth",
+        visitBadgeClass: "badge-tele",
+        room: "Telehealth Video Room",
+        provider: "Sultana Afrooz, D.O.",
+        service: "Membership inquiry",
+        date: "Sunday, Sep 20, 2026",
+        dateRaw: "2026-09-20",
+        time: "Afternoon (01:00 PM)",
+        status: "Cancelled",
+        statusBadgeClass: "badge-cancelled",
+        patientSub: "New Patient · Male · Washington, DC",
+        duration: "30 Minutes Inquiry",
+        location: "Washington, DC",
+        notes: "Interested in Executive Health & Wellness Annual Membership. Inquired about IV packages and routine osteopathic manipulative treatment.",
+        adminNotes: [
+          { author: "Patient Coordinator", time: "Sep 19, 05:00 PM", text: "Patient phoned to cancel due to unforeseen business trip. Offered reschedule in October." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 18 · 11:30 AM", actor: "Muhammad Haroon", note: "Online request submitted.", completed: true },
+          { title: "Appointment Confirmed", time: "Sep 18 · 03:00 PM", actor: "Admin", note: "Telehealth link created.", completed: true },
+          { title: "Appointment Cancelled", time: "Sep 19 · 05:00 PM", actor: "Patient Coordinator", note: "Patient cancelled due to travel. Slot released.", completed: true }
+        ]
+      },
+      "apt-12": {
+        id: "apt-12",
+        ref: "#APT-2026-0942",
+        name: "Evelyn Bennett",
+        initials: "EB",
+        color: "#9333ea",
+        email: "evelyn.b@email.com",
+        phone: "(240) 555-0182",
+        ptype: "New Patient (First Visit)",
+        ptypeShort: "New",
+        visit: "In-office",
+        visitBadgeClass: "badge-in-office",
+        room: "Suite 301 · IV Infusion Lounge",
+        provider: "Jessica Needle, N.D.",
+        service: "IV Nutritional Infusions",
+        date: "Sunday, Sep 27, 2026",
+        dateRaw: "2026-09-27",
+        time: "Morning (11:00 AM)",
+        status: "Declined",
+        statusBadgeClass: "badge-declined",
+        patientSub: "New Patient · Female · Rockville, MD",
+        duration: "60 Minutes Infusion",
+        location: "8808 Centre Park Dr, Suite 301, Columbia, MD",
+        notes: "Requested Myers Cocktail infusion for travel recovery. Prefers Sunday mornings.",
+        adminNotes: [
+          { author: "Sarah Jenkins", time: "Sep 23, 11:00 AM", text: "Clinic IV suite at max capacity on Sep 27. Declined with alternative offer for following Tuesday." }
+        ],
+        timeline: [
+          { title: "Request Submitted", time: "Sep 23 · 08:30 AM", actor: "Evelyn Bennett", note: "Requested Sunday 11:00 AM.", completed: true },
+          { title: "Request Declined", time: "Sep 23 · 11:00 AM", actor: "Sarah Jenkins", note: "Capacity constraint. Decline email with Tuesday openings sent.", completed: true }
+        ]
+      }
+    };
+
+    var currentActiveAptId = "apt-1";
+
+    /**
+     * Populate and open Appointment Detail Drawer
+     */
+    function openAppointmentDetail(aptId) {
+      var item = APPOINTMENT_STORE[aptId] || APPOINTMENT_STORE["apt-1"];
+      currentActiveAptId = item.id;
+
+      // Update Header
+      document.getElementById("drawerAvatar").textContent = item.initials;
+      document.getElementById("drawerAvatar").style.background = item.color;
+      document.getElementById("drawerPatientName").textContent = item.name;
+      document.getElementById("drawerPatientSub").textContent = item.patientSub;
+      
+      var statusBadge = document.getElementById("drawerStatusBadge");
+      statusBadge.textContent = item.status;
+      statusBadge.className = "badge-admin " + item.statusBadgeClass;
+
+      var currentBadge = document.getElementById("drawerCurrentStatusBadge");
+      currentBadge.textContent = item.status;
+      currentBadge.className = "badge-admin " + item.statusBadgeClass + " fs-6 px-3 py-1";
+
+      var visitBadge = document.getElementById("drawerVisitBadge");
+      visitBadge.textContent = item.visit;
+      visitBadge.className = "badge-admin " + item.visitBadgeClass;
+
+      document.getElementById("drawerApptId").textContent = "Ref: " + item.ref;
+
+      // Section 1: Patient Information
+      document.getElementById("drawerDetailName").textContent = item.name;
+      document.getElementById("drawerDetailPType").textContent = item.ptype;
+      document.getElementById("drawerDetailEmail").textContent = item.email;
+      document.getElementById("drawerDetailEmail").href = "mailto:" + item.email;
+      document.getElementById("drawerDetailPhone").textContent = item.phone;
+      document.getElementById("drawerDetailPhone").href = "tel:" + item.phone.replace(/[^0-9]/g, '');
+      document.getElementById("drawerDetailLocation").textContent = item.location;
+
+      // Section 2: Appointment Information
+      document.getElementById("drawerInfoRef").textContent = item.ref;
+      document.getElementById("drawerInfoDuration").textContent = item.duration;
+
+      // Section 3: Provider & Service
+      document.getElementById("drawerDetailProvider").textContent = item.provider;
+      document.getElementById("drawerDetailService").textContent = item.service;
+
+      // Section 4: Date & Time
+      document.getElementById("drawerDetailDate").textContent = item.date;
+      document.getElementById("drawerDetailTime").textContent = item.time;
+
+      // Section 5: Visit Type
+      document.getElementById("drawerDetailVisitTypeDesc").textContent = item.visit === "Telehealth" ? "Secure Telehealth Video Session" : "In-Office Clinical Encounter";
+      document.getElementById("drawerDetailRoom").textContent = item.room;
+
+      // Section 6: Patient Notes
+      document.getElementById("drawerPatientNotes").textContent = '"' + item.notes + '"';
+
+      // Section 7: Admin Notes
+      var notesHtml = "";
+      if (item.adminNotes && item.adminNotes.length) {
+        item.adminNotes.forEach(function (n) {
+          notesHtml += '<div class="appt-admin-note-item">' +
+                       '<div class="appt-admin-note-meta">' +
+                       '<span>' + n.author + '</span><span>' + n.time + '</span>' +
+                       '</div><div>' + n.text + '</div></div>';
+        });
+      }
+      document.getElementById("drawerAdminNotesList").innerHTML = notesHtml;
+
+      // Section 9: Timeline
+      var timelineHtml = "";
+      if (item.timeline && item.timeline.length) {
+        item.timeline.forEach(function (t) {
+          var cls = t.completed ? "completed" : "pending";
+          timelineHtml += '<div class="appt-timeline-item ' + cls + '">' +
+                          '<div class="appt-timeline-dot"></div>' +
+                          '<div class="appt-timeline-title">' +
+                          '<span>' + t.title + '</span><span class="appt-timeline-time">' + t.time + '</span>' +
+                          '</div>' +
+                          '<div class="appt-timeline-actor">' + t.actor + '</div>' +
+                          '<div class="appt-timeline-note">' + t.note + '</div>' +
+                          '</div>';
+        });
+      }
+      document.getElementById("drawerTimeline").innerHTML = timelineHtml;
+
+      // Action Links
+      document.getElementById("drawerBtnEmail").href = "mailto:" + item.email;
+      document.getElementById("drawerBtnCall").href = "tel:" + item.phone.replace(/[^0-9]/g, '');
+
+      // Show Offcanvas
+      var drawerEl = document.getElementById("apptDrawer");
+      var bsDrawer = bootstrap.Offcanvas.getInstance(drawerEl);
+      if (!bsDrawer) {
+        bsDrawer = new bootstrap.Offcanvas(drawerEl);
+      }
+      bsDrawer.show();
+    }
+
+    /**
+     * Pre-populate and open Approve Modal
+     */
+    function openApproveModal(aptId) {
+      var item = APPOINTMENT_STORE[aptId] || APPOINTMENT_STORE[currentActiveAptId] || APPOINTMENT_STORE["apt-1"];
+      currentActiveAptId = item.id;
+      document.getElementById("approveModalPatient").textContent = item.name;
+      document.getElementById("approveModalPTypeBadge").textContent = item.ptypeShort + " Patient";
+      document.getElementById("approveModalRequested").textContent = item.date + " · " + item.time;
+      document.getElementById("approveModalProvider").textContent = item.provider;
+      document.getElementById("approveModalService").textContent = item.service;
+      
+      var vBadge = document.getElementById("approveModalVisitBadge");
+      vBadge.textContent = item.visit;
+      vBadge.className = "badge-admin " + item.visitBadgeClass;
+
+      if (item.dateRaw) {
+        document.getElementById("approveInputDate").value = item.dateRaw;
+        var parts = item.dateRaw.split("-");
+        if (parts.length === 3) {
+          var y = parseInt(parts[0], 10);
+          var m = parseInt(parts[1], 10) - 1;
+          var d = parseInt(parts[2], 10);
+          var disp = document.getElementById("approveDateDisplay");
+          if (disp) disp.value = formatCalReadable(y, m, d);
+        }
+      }
+      setApproveSelectProvider(item.provider);
+      setApproveSelectVisit(item.visit);
+      var approvePop = document.getElementById("approveCalendarPopover");
+      if (approvePop) approvePop.style.display = "none";
+
+      var modalEl = document.getElementById("approveModal");
+      var bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (!bsModal) {
+        bsModal = new bootstrap.Modal(modalEl);
+      }
+      bsModal.show();
+    }
+
+    /**
+     * Pre-populate and open Reschedule Modal
+     */
+    function openRescheduleModal(aptId) {
+      var item = APPOINTMENT_STORE[aptId] || APPOINTMENT_STORE[currentActiveAptId] || APPOINTMENT_STORE["apt-1"];
+      currentActiveAptId = item.id;
+      document.getElementById("rescheduleModalPatient").textContent = item.name + " (" + item.ptypeShort + " Patient)";
+      document.getElementById("rescheduleModalCurrentTime").textContent = item.date + " · " + item.time;
+      document.getElementById("rescheduleModalCurrentProvider").textContent = item.provider;
+      document.getElementById("rescheduleModalCurrentService").textContent = item.service;
+      document.getElementById("rescheduleModalCurrentVisit").textContent = item.visit;
+
+      if (item.dateRaw) {
+        document.getElementById("rescheduleNewDate").value = item.dateRaw;
+        var parts = item.dateRaw.split("-");
+        if (parts.length === 3) {
+          var y = parseInt(parts[0], 10);
+          var m = parseInt(parts[1], 10) - 1;
+          var d = parseInt(parts[2], 10);
+          CAL_STATE.year = y;
+          CAL_STATE.month = m;
+          CAL_STATE.selectedYear = y;
+          CAL_STATE.selectedMonth = m;
+          CAL_STATE.selectedDay = d;
+          document.getElementById("rescheduleNewDateDisplay").value = formatCalReadable(y, m, d);
+          renderCustomRescheduleCalendar();
+        }
+      }
+      var pop = document.getElementById("rescheduleCalendarPopover");
+      if (pop) pop.style.display = "none";
+
+      // Synchronize custom dropdown components
+      setCustomSelectProvider(item.provider);
+      setCustomSelectVisit(item.visit);
+      closeAllCustomSelects();
+
+      var modalEl = document.getElementById("rescheduleModal");
+      var bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (!bsModal) {
+        bsModal = new bootstrap.Modal(modalEl);
+      }
+      bsModal.show();
+    }
+
+    /**
+     * Pre-populate and open Decline Modal
+     */
+    function openDeclineModal(aptId) {
+      var item = APPOINTMENT_STORE[aptId] || APPOINTMENT_STORE[currentActiveAptId] || APPOINTMENT_STORE["apt-1"];
+      currentActiveAptId = item.id;
+      document.getElementById("declineModalPatient").textContent = item.name;
+      document.getElementById("declineModalRequested").textContent = item.date + " · " + item.time;
+      document.getElementById("declineModalProvider").textContent = item.provider;
+      document.getElementById("declineModalService").textContent = item.service;
+
+      var modalEl = document.getElementById("declineModal");
+      var bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (!bsModal) {
+        bsModal = new bootstrap.Modal(modalEl);
+      }
+      bsModal.show();
+    }
+
+    /**
+     * Pre-populate and open Cancel Modal
+     */
+    function openCancelModal(aptId) {
+      var item = APPOINTMENT_STORE[aptId] || APPOINTMENT_STORE[currentActiveAptId] || APPOINTMENT_STORE["apt-1"];
+      currentActiveAptId = item.id;
+      document.getElementById("cancelModalPatient").textContent = item.name + " (" + item.ptypeShort + ")";
+      document.getElementById("cancelModalTime").textContent = item.date + " · " + item.time;
+      document.getElementById("cancelModalProvider").textContent = item.provider;
+      document.getElementById("cancelModalService").textContent = item.service;
+
+      var modalEl = document.getElementById("cancelModal");
+      var bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (!bsModal) {
+        bsModal = new bootstrap.Modal(modalEl);
+      }
+      bsModal.show();
+    }
+
+    /**
+     * Actions from Drawer to Modals
+     */
+    function triggerDrawerApprove() {
+      var drawerEl = document.getElementById("apptDrawer");
+      var bsDrawer = bootstrap.Offcanvas.getInstance(drawerEl);
+      if (bsDrawer) bsDrawer.hide();
+      openApproveModal(currentActiveAptId);
+    }
+    function triggerDrawerReschedule() {
+      var drawerEl = document.getElementById("apptDrawer");
+      var bsDrawer = bootstrap.Offcanvas.getInstance(drawerEl);
+      if (bsDrawer) bsDrawer.hide();
+      openRescheduleModal(currentActiveAptId);
+    }
+    function triggerDrawerDecline() {
+      var drawerEl = document.getElementById("apptDrawer");
+      var bsDrawer = bootstrap.Offcanvas.getInstance(drawerEl);
+      if (bsDrawer) bsDrawer.hide();
+      openDeclineModal(currentActiveAptId);
+    }
+    function triggerDrawerCancel() {
+      var drawerEl = document.getElementById("apptDrawer");
+      var bsDrawer = bootstrap.Offcanvas.getInstance(drawerEl);
+      if (bsDrawer) bsDrawer.hide();
+      openCancelModal(currentActiveAptId);
+    }
+
+    /**
+     * Mock Status Update inside Drawer
+     */
+    function updateMockStatus(newStatus, badgeClass) {
+      var badge = document.getElementById("drawerStatusBadge");
+      var currBadge = document.getElementById("drawerCurrentStatusBadge");
+      badge.textContent = newStatus;
+      badge.className = "badge-admin " + badgeClass;
+      currBadge.textContent = newStatus;
+      currBadge.className = "badge-admin " + badgeClass + " fs-6 px-3 py-1";
+
+      // Also update in table row
+      var row = document.querySelector('tr[data-id="' + currentActiveAptId + '"]');
+      if (row) {
+        var statusCell = row.children[9];
+        if (statusCell) {
+          statusCell.innerHTML = '<span class="badge-admin ' + badgeClass + '">' + newStatus + '</span>';
+        }
+      }
+
+      if (window.toast) {
+        window.toast("Status updated to " + newStatus + ".");
+      }
+    }
+
+    /**
+     * Add Mock Admin Note in Drawer
+     */
+    document.getElementById("btnAddAdminNote").addEventListener("click", function() {
+      var input = document.getElementById("newAdminNoteInput");
+      var note = input.value.trim();
+      if (!note) return;
+      var list = document.getElementById("drawerAdminNotesList");
+      var node = document.createElement("div");
+      node.className = "appt-admin-note-item";
+      node.innerHTML = '<div class="appt-admin-note-meta">' +
+                       '<span>Practice Admin (You)</span><span>Just now</span>' +
+                       '</div><div>' + note + '</div>';
+      list.prepend(node);
+      input.value = "";
+      if (window.toast) window.toast("Internal admin note saved.");
+    });
+
+    /**
+     * Filter Execution Logic
+     */
+    function filterAppointments() {
+      var q = document.getElementById("filter-search").value.toLowerCase().trim();
+      var status = document.getElementById("filter-status-select").value.toLowerCase();
+      var ptype = document.getElementById("filter-ptype-select").value;
+      var visit = document.getElementById("filter-visit-select").value.toLowerCase();
+      var provider = document.getElementById("filter-provider-select").value;
+      var service = document.getElementById("filter-service-select").value.toLowerCase();
+      var date = document.getElementById("filter-date-input").value;
+
+      var rows = document.querySelectorAll("#appt-tbody tr");
+      var visible = 0;
+
+      rows.forEach(function (row) {
+        var text = row.textContent.toLowerCase();
+        var rowStatus = (row.getAttribute("data-status") || "").toLowerCase();
+        var rowPtype = row.getAttribute("data-ptype") || "";
+        var rowVisit = (row.getAttribute("data-visit") || "").toLowerCase();
+        var rowProvider = row.getAttribute("data-provider") || "";
+        var rowDate = row.getAttribute("data-date") || "";
+
+        var matches = true;
+
+        if (q && text.indexOf(q) === -1) matches = false;
+        if (status && rowStatus !== status) matches = false;
+        if (ptype && rowPtype !== ptype) matches = false;
+        if (visit && rowVisit !== visit) matches = false;
+        if (provider && rowProvider.indexOf(provider) === -1) matches = false;
+        if (service && text.indexOf(service) === -1) matches = false;
+        if (date && rowDate !== date) matches = false;
+
+        row.style.display = matches ? "" : "none";
+        if (matches) visible++;
+      });
+
+      document.getElementById("appt-count-visible").textContent = visible;
+      document.getElementById("pager-count").textContent = visible;
+    }
+
+    // Attach Search & Filter Listeners
+    document.getElementById("filter-search").addEventListener("input", filterAppointments);
+    document.getElementById("filter-status-select").addEventListener("change", function() {
+      // Sync status pills
+      var val = this.value;
+      document.querySelectorAll(".filter-pill-tab").forEach(function(pill) {
+        if (pill.getAttribute("data-status-filter") === val) {
+          pill.classList.add("active");
+        } else {
+          pill.classList.remove("active");
+        }
+      });
+      filterAppointments();
+    });
+    document.getElementById("filter-ptype-select").addEventListener("change", filterAppointments);
+    document.getElementById("filter-visit-select").addEventListener("change", filterAppointments);
+    document.getElementById("filter-provider-select").addEventListener("change", filterAppointments);
+    document.getElementById("filter-service-select").addEventListener("change", filterAppointments);
+    document.getElementById("filter-date-input").addEventListener("change", filterAppointments);
+
+    function syncFilterSelectUI(selectId) {
+      var sel = document.getElementById(selectId);
+      if (!sel) return;
+      var wrapper = sel.closest(".custom-select-wrapper");
+      if (!wrapper) return;
+      var val = sel.value;
+      var opt = wrapper.querySelector('.custom-select-option[data-value="' + val + '"]');
+      var primText = wrapper.querySelector(".custom-select-primary-text");
+      wrapper.querySelectorAll(".custom-select-option").forEach(function(o) {
+        var isMatch = (o.getAttribute("data-value") === val);
+        o.classList.toggle("selected", isMatch);
+        o.setAttribute("aria-selected", isMatch ? "true" : "false");
+      });
+      if (opt && primText) {
+        primText.textContent = opt.getAttribute("data-primary") || opt.textContent.trim();
+      }
+    }
+
+    ["filter-status-select", "filter-ptype-select", "filter-visit-select", "filter-provider-select", "filter-service-select"].forEach(function(id) {
+      var sel = document.getElementById(id);
+      if (sel) {
+        sel.addEventListener("change", function() {
+          syncFilterSelectUI(id);
+        });
+      }
+    });
+
+    document.getElementById("btnApplyFilter").addEventListener("click", filterAppointments);
+    document.getElementById("btnResetFilter").addEventListener("click", function() {
+      document.getElementById("filter-search").value = "";
+      document.getElementById("filter-status-select").value = "";
+      document.getElementById("filter-ptype-select").value = "";
+      document.getElementById("filter-visit-select").value = "";
+      document.getElementById("filter-provider-select").value = "";
+      document.getElementById("filter-service-select").value = "";
+      document.getElementById("filter-date-input").value = "";
+      var filterDateDisp = document.getElementById("filter-date-display");
+      if (filterDateDisp) filterDateDisp.value = "";
+      syncFilterSelectUI("filter-status-select");
+      syncFilterSelectUI("filter-ptype-select");
+      syncFilterSelectUI("filter-visit-select");
+      syncFilterSelectUI("filter-provider-select");
+      syncFilterSelectUI("filter-service-select");
+      document.querySelectorAll(".filter-pill-tab").forEach(function(pill) {
+        pill.classList.toggle("active", pill.getAttribute("data-status-filter") === "");
+      });
+      filterAppointments();
+      if (window.toast) window.toast("Filters reset to default.");
+    });
+
+    // Status Pill Tabs click handler
+    document.querySelectorAll(".filter-pill-tab").forEach(function(pill) {
+      pill.addEventListener("click", function() {
+        document.querySelectorAll(".filter-pill-tab").forEach(function(p) { p.classList.remove("active"); });
+        pill.classList.add("active");
+        var st = pill.getAttribute("data-status-filter");
+        document.getElementById("filter-status-select").value = st;
+        syncFilterSelectUI("filter-status-select");
+        filterAppointments();
+      });
+    });
+
+    // Conflict buttons wireup
+    document.getElementById("btnConflictChooseTime").addEventListener("click", function() {
+      openRescheduleModal("apt-2");
+    });
+    document.getElementById("btnConflictChooseProvider").addEventListener("click", function() {
+      openApproveModal("apt-2");
+      document.getElementById("approveInputProvider").value = "Jessica Needle, N.D.";
+      if (window.toast) window.toast("Switched provider to Dr. Jessica Needle, N.D. (Available at 10:00 AM).");
+    });
+
+    /**
+     * Custom Healthcare SaaS Calendar Picker State & Handlers
+     */
+    var CAL_STATE = {
+      year: 2026,
+      month: 8, // September (0-indexed)
+      selectedYear: 2026,
+      selectedMonth: 8,
+      selectedDay: 24,
+      todayYear: 2026,
+      todayMonth: 8,
+      todayDay: 24
+    };
+
+    var CAL_MONTH_NAMES = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    var CAL_MONTH_SHORT = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    function formatCalReadable(y, m, d) {
+      if (!y || m === null || !d) return "Select date...";
+      return CAL_MONTH_SHORT[m] + " " + (d < 10 ? "0" + d : d) + ", " + y;
+    }
+
+    function formatCalISO(y, m, d) {
+      if (!y || m === null || !d) return "";
+      var mm = (m + 1) < 10 ? "0" + (m + 1) : (m + 1);
+      var dd = d < 10 ? "0" + d : d;
+      return y + "-" + mm + "-" + dd;
+    }
+
+    function renderCustomRescheduleCalendar() {
+      var wrapper = document.getElementById("rescheduleCalendarWrapper");
+      if (wrapper && typeof wrapper.syncFromHiddenInput === "function") {
+        wrapper.syncFromHiddenInput();
+        wrapper.renderCalendar();
+      }
+    }
+
+    /**
+     * Custom Healthcare SaaS Select Dropdown Handlers
+     */
+    function closeAllCustomSelects() {
+      if (window.BTCAdmin && typeof window.BTCAdmin.closeAllCustomSelects === "function") {
+        window.BTCAdmin.closeAllCustomSelects();
+      } else {
+        document.querySelectorAll(".custom-select-panel").forEach(function(p) {
+          p.style.display = "none";
+        });
+        document.querySelectorAll(".custom-select-trigger").forEach(function(t) {
+          t.classList.remove("active");
+          t.setAttribute("aria-expanded", "false");
+        });
+        document.querySelectorAll(".custom-select-wrapper").forEach(function(w) {
+          w.classList.remove("open");
+        });
+      }
+    }
+
+    function setCustomSelectProvider(providerName) {
+      var hiddenInput = document.getElementById("rescheduleProvider");
+      var prim = document.getElementById("rescheduleProviderPrimaryText");
+      var sec = document.getElementById("rescheduleProviderSecondaryText");
+      var chip = document.getElementById("rescheduleProviderChip");
+      var panel = document.getElementById("rescheduleProviderPanel");
+      if (!hiddenInput || !prim) return;
+
+      var targetVal = (providerName && providerName.indexOf("Jessica") !== -1) ? "Jessica Needle, N.D." : "Sultana Afrooz, D.O.";
+      hiddenInput.value = targetVal;
+
+      if (targetVal === "Jessica Needle, N.D.") {
+        prim.textContent = "Jessica Needle, N.D.";
+        sec.textContent = "Naturopathic Medicine Doctor";
+        if (chip) {
+          chip.textContent = "JN";
+          chip.className = "provider-avatar-chip chip-teal";
+        }
+      } else {
+        prim.textContent = "Sultana Afrooz, D.O.";
+        sec.textContent = "Integrative & Functional Medicine Physician";
+        if (chip) {
+          chip.textContent = "SA";
+          chip.className = "provider-avatar-chip";
+        }
+      }
+
+      if (panel) {
+        panel.querySelectorAll(".custom-select-option").forEach(function(opt) {
+          var isMatch = opt.getAttribute("data-value") === targetVal;
+          opt.classList.toggle("selected", isMatch);
+          opt.setAttribute("aria-selected", isMatch ? "true" : "false");
+        });
+      }
+    }
+
+    function setCustomSelectVisit(visitType) {
+      var hiddenInput = document.getElementById("rescheduleVisitType");
+      var prim = document.getElementById("rescheduleVisitPrimaryText");
+      var sec = document.getElementById("rescheduleVisitSecondaryText");
+      var icon = document.getElementById("rescheduleVisitLeadingIcon");
+      var panel = document.getElementById("rescheduleVisitTypePanel");
+      if (!hiddenInput || !prim) return;
+
+      var isTele = (visitType && visitType.toLowerCase().indexOf("tele") !== -1);
+      var targetVal = isTele ? "Telehealth" : "In-office";
+      hiddenInput.value = targetVal;
+
+      if (isTele) {
+        prim.textContent = "Telehealth Consultation";
+        sec.textContent = "Secure Video Room · Maryland Patients";
+        if (icon) icon.className = "bi bi-laptop select-leading-icon";
+      } else {
+        prim.textContent = "In-office Visit";
+        sec.textContent = "Columbia, MD Suite 301 · Exam & Treatment";
+        if (icon) icon.className = "bi bi-building select-leading-icon";
+      }
+
+      if (panel) {
+        panel.querySelectorAll(".custom-select-option").forEach(function(opt) {
+          var isMatch = opt.getAttribute("data-value") === targetVal;
+          opt.classList.toggle("selected", isMatch);
+          opt.setAttribute("aria-selected", isMatch ? "true" : "false");
+        });
+      }
+    }
+
+    function setApproveSelectProvider(providerName) {
+      var hiddenInput = document.getElementById("approveInputProvider");
+      var prim = document.getElementById("approveProviderPrimaryText");
+      var sec = document.getElementById("approveProviderSecondaryText");
+      var chip = document.getElementById("approveProviderChip");
+      var panel = document.getElementById("approveProviderPanel");
+      if (!hiddenInput || !prim) return;
+
+      var targetVal = (providerName && providerName.indexOf("Jessica") !== -1) ? "Jessica Needle, N.D." : "Sultana Afrooz, D.O.";
+      hiddenInput.value = targetVal;
+
+      if (targetVal === "Jessica Needle, N.D.") {
+        prim.textContent = "Jessica Needle, N.D.";
+        sec.textContent = "Naturopathic Medicine Doctor";
+        if (chip) {
+          chip.textContent = "JN";
+          chip.className = "provider-avatar-chip chip-teal";
+        }
+      } else {
+        prim.textContent = "Sultana Afrooz, D.O.";
+        sec.textContent = "Integrative & Functional Medicine Physician";
+        if (chip) {
+          chip.textContent = "SA";
+          chip.className = "provider-avatar-chip";
+        }
+      }
+
+      if (panel) {
+        panel.querySelectorAll(".custom-select-option").forEach(function(opt) {
+          var isMatch = opt.getAttribute("data-value") === targetVal;
+          opt.classList.toggle("selected", isMatch);
+          opt.setAttribute("aria-selected", isMatch ? "true" : "false");
+        });
+      }
+    }
+
+    function setApproveSelectVisit(visitType) {
+      var hiddenInput = document.getElementById("approveInputVisit");
+      var prim = document.getElementById("approveVisitPrimaryText");
+      var sec = document.getElementById("approveVisitSecondaryText");
+      var icon = document.getElementById("approveVisitLeadingIcon");
+      var panel = document.getElementById("approveVisitPanel");
+      if (!hiddenInput || !prim) return;
+
+      var isTele = (visitType && visitType.toLowerCase().indexOf("tele") !== -1);
+      var targetVal = isTele ? "Telehealth" : "In-office";
+      hiddenInput.value = targetVal;
+
+      if (isTele) {
+        prim.textContent = "Telehealth Consultation";
+        sec.textContent = "Secure Video Room · Maryland Patients";
+        if (icon) icon.className = "bi bi-laptop select-leading-icon";
+      } else {
+        prim.textContent = "In-office Visit";
+        sec.textContent = "Columbia, MD Suite 301 · Exam & Treatment";
+        if (icon) icon.className = "bi bi-building select-leading-icon";
+      }
+
+      if (panel) {
+        panel.querySelectorAll(".custom-select-option").forEach(function(opt) {
+          var isMatch = opt.getAttribute("data-value") === targetVal;
+          opt.classList.toggle("selected", isMatch);
+          opt.setAttribute("aria-selected", isMatch ? "true" : "false");
+        });
+      }
+    }
+
+    // All custom select dropdowns and calendar popovers are globally managed by script.js (BTCAdmin)
+
+    // Test automation hook for headless visual verification
+    var urlParams = new URLSearchParams(window.location.search);
+    var testAction = urlParams.get("testAction");
+    if (testAction) {
+      setTimeout(function() {
+        var toolbar = document.querySelector(".table-toolbar");
+        if (toolbar) toolbar.scrollIntoView();
+        if (testAction === "openStatus") {
+          var el = document.getElementById("filterStatusTrigger");
+          if (el) el.click();
+        } else if (testAction === "openPtype") {
+          var el = document.getElementById("filterPtypeTrigger");
+          if (el) el.click();
+        } else if (testAction === "openVisit") {
+          var el = document.getElementById("filterVisitTrigger");
+          if (el) el.click();
+        } else if (testAction === "openProvider") {
+          var el = document.getElementById("filterProviderTrigger");
+          if (el) el.click();
+        } else if (testAction === "openService") {
+          var el = document.getElementById("filterServiceTrigger");
+          if (el) el.click();
+        } else if (testAction === "openDate") {
+          var el = document.getElementById("filter-date-display");
+          if (el) el.click();
+        } else if (testAction === "selectPending") {
+          var opt = document.querySelector("#filterStatusTrigger").closest(".filter-select-wrapper").querySelector('.custom-select-option[data-value="pending"]');
+          if (opt) opt.click();
+        }
+      }, 350);
+    }
+  </script>
+</body>
+</html>

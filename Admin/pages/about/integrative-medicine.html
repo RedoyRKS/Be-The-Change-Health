@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrative Medicine CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .repeater-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="integrative">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About</a></li>
+                <li class="breadcrumb-item active">Integrative Medicine</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Integrative Medicine CMS</h1>
+            <p class="text-muted small mb-0">Manage hero, editorial narrative, media image, external resource links repeater, action buttons, doctors section and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/about/integrative-medicine.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero</a>
+          <a href="#sec-content"><i class="bi bi-file-text me-1"></i> Narrative &amp; Philosophy</a>
+          <a href="#sec-media"><i class="bi bi-camera me-1"></i> Featured Media</a>
+          <a href="#sec-resources"><i class="bi bi-link-45deg me-1"></i> External Resources</a>
+          <a href="#sec-actions"><i class="bi bi-cursor me-1"></i> Action Buttons</a>
+          <a href="#sec-doctors"><i class="bi bi-people me-1"></i> Meet Our Doctors</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO</a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <!-- Hero Section -->
+            <section id="sec-hero" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Page Hero</h2><p>Top banner and breadcrumb</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero Heading (H1)</label>
+                  <input type="text" id="heroTitle" class="form-control" value="Integrative Medicine">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Hero Subtitle</label>
+                  <input type="text" id="heroSubtitle" class="form-control" value="Whole-person care for optimal health and healing.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Breadcrumb Label</label>
+                  <input type="text" id="heroBreadcrumb" class="form-control" value="Integrative Medicine">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Parent Page Label</label>
+                  <input type="text" id="heroParent" class="form-control" value="About">
+                </div>
+              </div>
+            </section>
+
+            <!-- Main Content -->
+            <section id="sec-content" class="card-admin mb-4">
+              <div class="card-head"><div><h2>What is Integrative Medicine?</h2><p>Clinical explanation and philosophy</p></div></div>
+              <div class="card-body-admin">
+                <div class="mb-3">
+                  <label class="form-label-admin">Section Heading (H2)</label>
+                  <input type="text" id="contentHeading" class="form-control" value="What is Integrative Medicine?">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 1: Whole-Person Definition</label>
+                  <textarea id="contentPara1" class="form-control" rows="4">The field of integrative health and medicine reaffirms the importance of the relationship between practitioner and patient, focuses on the whole person, is informed by evidence, and makes use of all appropriate therapeutic approaches, healthcare professionals, and professions to achieve optimal health and healing. Simply put, integrative health and medicine offer best practices for optimal health and healing.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Paragraph 2: Therapeutic Relationship &amp; Personalized Care</label>
+                  <textarea id="contentPara2" class="form-control" rows="6">Integrative care seeks to develop a therapeutic relationship between the doctor and patient. This specialized form of medicine emphasizes the bio-psycho-socio-spiritual aspects of a person to improve health. The therapeutic relationship between the doctor and you results in longer in-depth appointments. During the appointment, the doctor discusses all aspects of your life and creates a customized treatment plan. Personalized care is offered based on the patient’s unique set of circumstances, including dietary choices, community, and family history, and lifestyle choices. This is because there are many things that influence health, including body, mind, spirit, and community. A variety of tests may be ordered, including blood tests, saliva tests, and more.</textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Resource Intro Label</label>
+                  <input type="text" id="resourceIntro" class="form-control" value="Additional information about the integrated medicine approach:">
+                </div>
+              </div>
+            </section>
+
+            <!-- External Resources Repeater -->
+            <section id="sec-resources" class="card-admin mb-4">
+              <div class="card-head d-flex justify-content-between align-items-center">
+                <div>
+                  <h2>External Resources &amp; Professional Links</h2>
+                  <p>Reputable medical associations and references</p>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="addResourceBtn">
+                  <i class="bi bi-plus-lg me-1"></i> Add Resource
+                </button>
+              </div>
+              <div class="card-body-admin" id="resourcesContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section id="sec-actions" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Action Buttons</h2><p>In-page CTA links</p></div></div>
+              <div class="card-body-admin row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Primary CTA Button</label>
+                  <input type="text" id="btn1Text" class="form-control mb-1" value="Request An Appointment">
+                  <input type="text" id="btn1Url" class="form-control" value="../book-appointment.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Secondary Outline Button</label>
+                  <input type="text" id="btn2Text" class="form-control mb-1" value="Our Practice">
+                  <input type="text" id="btn2Url" class="form-control" value="index.html">
+                </div>
+              </div>
+            </section>
+
+            <!-- Meet Our Doctors Section -->
+            <section id="sec-doctors" class="card-admin mb-4">
+              <div class="card-head d-flex justify-content-between align-items-center">
+                <div>
+                  <h2>Meet Our Doctors Section</h2>
+                  <p>Doctors section at bottom of page</p>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="doctorsSectionVisible" checked>
+                  <label class="form-check-label small" for="doctorsSectionVisible">Show Section</label>
+                </div>
+              </div>
+              <div class="card-body-admin">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Section Heading</label>
+                    <input type="text" id="doctorsHeading" class="form-control" value="Meet Our Doctors">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Ordering</label>
+                    <select id="doctorsOrdering" class="form-select">
+                      <option value="sultana_first" selected>Dr. Afrooz first, Dr. Needle second</option>
+                      <option value="jessica_first">Dr. Needle first, Dr. Afrooz second</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-admin">Section Description</label>
+                    <textarea id="doctorsDesc" class="form-control" rows="2">Our team of doctors include Osteopathic Physician (D.O.) and Naturopathic Doctor (N.D)s. We recognize that you have complex needs related to chronic illness and are here to guide you with kindness, generosity, and compassion.</textarea>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SEO & Metadata -->
+            <section id="sec-seo" class="card-admin mb-4">
+              <div class="card-head"><div><h2>SEO &amp; Metadata</h2></div></div>
+              <div class="card-body-admin">
+                <div class="row g-4">
+                  <div class="col-md-7">
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Title Tag</label>
+                      <input type="text" id="seoTitle" class="form-control" value="Integrative Medicine | Be The Change Health &amp; Wellness Center">
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 50–60 characters</span>
+                        <span class="small text-muted" id="seoTitleCount">63 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Meta Description</label>
+                      <textarea id="seoDesc" class="form-control" rows="3">Discover whole-person integrative medicine in Columbia, MD. Comprehensive care addressing the bio-psycho-socio-spiritual aspects of your health.</textarea>
+                      <div class="d-flex justify-content-between mt-1">
+                        <span class="small text-muted">Recommended: 150–160 characters</span>
+                        <span class="small text-muted" id="seoDescCount">150 chars</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label-admin">Canonical URL</label>
+                      <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/about/integrative-medicine.html">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                    <div class="serp-preview">
+                      <div class="serp-title" id="serpTitlePreview">Integrative Medicine | Be The Change Health &amp; Wellness Center</div>
+                      <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/about/integrative-medicine.html</div>
+                      <div class="serp-desc" id="serpDescPreview">Discover whole-person integrative medicine in Columbia, MD. Comprehensive care addressing the bio-psycho-socio-spiritual aspects of your health.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column: Media -->
+          <div class="col-lg-4">
+            <section id="sec-media" class="card-admin mb-4">
+              <div class="card-head"><div><h2>Featured Media</h2><p>Article illustration photo</p></div></div>
+              <div class="card-body-admin">
+                <label class="form-label-admin">Image Path</label>
+                <input type="text" id="mediaImgSrc" class="form-control mb-2" value="../assets/uploads/2024/10/hh.jpg">
+                <div class="upload-box text-center p-2 border rounded bg-white mb-2">
+                  <img src="../../../Frontend/assets/uploads/2024/10/hh.jpg" class="img-fluid rounded mb-1" style="max-height: 180px;" alt="Integrative medicine">
+                  <p class="small text-muted mb-0">Frontend/assets/uploads/2024/10/hh.jpg</p>
+                </div>
+                <label class="form-label-admin">Image Alt Text</label>
+                <input type="text" id="mediaImgAlt" class="form-control" value="Integrative medicine">
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_integrative_medicine';
+
+      const defaultResources = [
+        { title: "Academy of Integrative Health & Medicine", url: "http://www.aihm.org/", desc: "Leading interprofessional association for integrative medicine." },
+        { title: "American College for Advancement in Medicine", url: "http://www.acam.org/", desc: "Non-profit organization dedicated to preventive and integrative medicine education." }
+      ];
+
+      let resources = [...defaultResources];
+
+      function renderResources() {
+        const container = document.getElementById('resourcesContainer');
+        container.innerHTML = '';
+        resources.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'repeater-card';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-primary">Resource #${index + 1}</span>
+              <button type="button" class="btn btn-sm btn-outline-danger remove-res" data-index="${index}"><i class="bi bi-trash"></i></button>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label-admin small">Resource Title / Organization</label>
+                <input type="text" class="form-control form-control-sm res-title" data-index="${index}" value="${escapeHtml(item.title)}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin small">Resource Website URL</label>
+                <input type="text" class="form-control form-control-sm res-url" data-index="${index}" value="${escapeHtml(item.url)}">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin small">Description / Notes</label>
+                <input type="text" class="form-control form-control-sm res-desc" data-index="${index}" value="${escapeHtml(item.desc || '')}">
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.res-title').forEach(i => {
+          i.addEventListener('input', e => { resources[parseInt(e.currentTarget.dataset.index, 10)].title = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.res-url').forEach(i => {
+          i.addEventListener('input', e => { resources[parseInt(e.currentTarget.dataset.index, 10)].url = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.res-desc').forEach(i => {
+          i.addEventListener('input', e => { resources[parseInt(e.currentTarget.dataset.index, 10)].desc = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.remove-res').forEach(b => {
+          b.addEventListener('click', e => {
+            resources.splice(parseInt(e.currentTarget.dataset.index, 10), 1);
+            renderResources();
+          });
+        });
+      }
+
+      document.getElementById('addResourceBtn').addEventListener('click', () => {
+        resources.push({ title: "New Resource Link", url: "https://example.com", desc: "Resource organization details." });
+        renderResources();
+      });
+
+      // SERP preview
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Integrative Medicine';
+        serpDesc.textContent = seoDesc.value || 'Discover whole-person integrative medicine...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          heroTitle: document.getElementById('heroTitle').value,
+          heroSubtitle: document.getElementById('heroSubtitle').value,
+          heroBreadcrumb: document.getElementById('heroBreadcrumb').value,
+          heroParent: document.getElementById('heroParent').value,
+          contentHeading: document.getElementById('contentHeading').value,
+          contentPara1: document.getElementById('contentPara1').value,
+          contentPara2: document.getElementById('contentPara2').value,
+          resourceIntro: document.getElementById('resourceIntro').value,
+          resources: resources,
+          btn1Text: document.getElementById('btn1Text').value,
+          btn1Url: document.getElementById('btn1Url').value,
+          btn2Text: document.getElementById('btn2Text').value,
+          btn2Url: document.getElementById('btn2Url').value,
+          doctorsSectionVisible: document.getElementById('doctorsSectionVisible').checked,
+          doctorsHeading: document.getElementById('doctorsHeading').value,
+          doctorsOrdering: document.getElementById('doctorsOrdering').value,
+          doctorsDesc: document.getElementById('doctorsDesc').value,
+          mediaImgSrc: document.getElementById('mediaImgSrc').value,
+          mediaImgAlt: document.getElementById('mediaImgAlt').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderResources();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.heroTitle) document.getElementById('heroTitle').value = d.heroTitle;
+          if (d.heroSubtitle) document.getElementById('heroSubtitle').value = d.heroSubtitle;
+          if (d.heroBreadcrumb) document.getElementById('heroBreadcrumb').value = d.heroBreadcrumb;
+          if (d.heroParent) document.getElementById('heroParent').value = d.heroParent;
+          if (d.contentHeading) document.getElementById('contentHeading').value = d.contentHeading;
+          if (d.contentPara1) document.getElementById('contentPara1').value = d.contentPara1;
+          if (d.contentPara2) document.getElementById('contentPara2').value = d.contentPara2;
+          if (d.resourceIntro) document.getElementById('resourceIntro').value = d.resourceIntro;
+          if (Array.isArray(d.resources) && d.resources.length) resources = d.resources;
+          if (d.btn1Text) document.getElementById('btn1Text').value = d.btn1Text;
+          if (d.btn1Url) document.getElementById('btn1Url').value = d.btn1Url;
+          if (d.btn2Text) document.getElementById('btn2Text').value = d.btn2Text;
+          if (d.btn2Url) document.getElementById('btn2Url').value = d.btn2Url;
+          if (d.doctorsSectionVisible !== undefined) document.getElementById('doctorsSectionVisible').checked = d.doctorsSectionVisible;
+          if (d.doctorsHeading) document.getElementById('doctorsHeading').value = d.doctorsHeading;
+          if (d.doctorsOrdering) document.getElementById('doctorsOrdering').value = d.doctorsOrdering;
+          if (d.doctorsDesc) document.getElementById('doctorsDesc').value = d.doctorsDesc;
+          if (d.mediaImgSrc) document.getElementById('mediaImgSrc').value = d.mediaImgSrc;
+          if (d.mediaImgAlt) document.getElementById('mediaImgAlt').value = d.mediaImgAlt;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+        } catch (e) {
+          console.error(e);
+        }
+        renderResources();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Integrative Medicine page saved successfully!');
+        } else {
+          alert('Integrative Medicine page saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset to default values?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

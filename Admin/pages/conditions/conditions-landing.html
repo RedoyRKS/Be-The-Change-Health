@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditions Hub Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .card-editor-unit {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .card-editor-unit:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .card-editor-unit.active-unit {
+      border-left: 4px solid var(--btc-teal);
+    }
+    .card-badge-num {
+      width: 28px;
+      height: 28px;
+      background: var(--btc-navy);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thumb-preview-box {
+      width: 100px;
+      height: 70px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid #e2e8f0;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .cms-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .cms-jump-bar a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #0d9488;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: #f0fdfa;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cms-jump-bar a:hover {
+      background: #0d9488;
+      color: #fff;
+    }
+  </style>
+</head>
+<body data-page="condition-landing">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumbs & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Conditions</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Conditions Landing Hub</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/index.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/conditions/index.html</p>
+              <h2>Conditions Landing Hub Content Management</h2>
+              <p>Manage the public Conditions landing hub: hero title, eyebrow introduction, 8 individual condition cards (title, excerpt, image, badge, read-more link, ordering, visibility), bottom CTA band, and SEO metadata.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="diabetes.html">
+                Individual: Diabetes CMS →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-grid-3x3-gap-fill text-teal"></i> Condition Hub
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark" id="stat-cards-count">8 Active Cards</h4>
+                  <small class="text-muted">Managed via repeater</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-link-45deg text-teal"></i> Public Route
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">conditions/index.html</h4>
+                  <small class="text-muted">Primary clinical landing</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-geo-alt-fill text-teal"></i> Care Location
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Columbia, MD</h4>
+                  <small class="text-muted">In-office &amp; Telehealth</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-check text-teal"></i> Integrative Focus
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Root-Cause Care</h4>
+                  <small class="text-muted">Holistic disease management</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar" aria-label="Jump to section">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-hero"><i class="bi bi-window me-1"></i> 1. Page Hero</a>
+          <a href="#section-intro"><i class="bi bi-card-text me-1"></i> 2. Hub Intro Panel</a>
+          <a href="#section-cards"><i class="bi bi-grid me-1"></i> 3. Condition Cards Repeater</a>
+          <a href="#section-cta"><i class="bi bi-megaphone me-1"></i> 4. Bottom Consultation CTA</a>
+          <a href="#section-seo"><i class="bi bi-search me-1"></i> 5. SEO &amp; Social Share</a>
+        </nav>
+
+        <!-- SECTION 1: PAGE HERO -->
+        <div class="card-admin mb-4" id="section-hero">
+          <div class="card-head">
+            <div>
+              <span class="badge bg-secondary mb-1">Section 01</span>
+              <h2>Page Hero &amp; Breadcrumb</h2>
+              <p>Controls the hero banner at the top of the Conditions landing page.</p>
+            </div>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-hero"><i class="bi bi-save me-1"></i> Save Hero</button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin" for="hero-title">Hero Title (H1)</label>
+                <input type="text" class="form-control" id="hero-title" value="Conditions We Treat">
+                <small class="text-muted">Displayed inside the main hero container.</small>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin" for="hero-subtitle">Hero Subtitle</label>
+                <input type="text" class="form-control" id="hero-subtitle" value="Holistic, integrative care for the conditions that affect your daily life.">
+                <small class="text-muted">Support paragraph under H1.</small>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin" for="hero-breadcrumb-parent">Parent Breadcrumb Label</label>
+                <input type="text" class="form-control" id="hero-breadcrumb-parent" value="Home">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin" for="hero-breadcrumb-active">Active Breadcrumb Label</label>
+                <input type="text" class="form-control" id="hero-breadcrumb-active" value="Conditions">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: INTRO PANEL -->
+        <div class="card-admin mb-4" id="section-intro">
+          <div class="card-head">
+            <div>
+              <span class="badge bg-secondary mb-1">Section 02</span>
+              <h2>Condition Hub Intro Panel</h2>
+              <p>Highlighted callout box positioned between the hero and cards grid.</p>
+            </div>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-intro"><i class="bi bi-save me-1"></i> Save Intro</button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <label class="form-label-admin" for="intro-eyebrow">Service Eyebrow</label>
+                <input type="text" class="form-control" id="intro-eyebrow" value="Be The Change Health & Wellness Center">
+                <small class="text-muted">Small teal subtitle tag above lead text.</small>
+              </div>
+              <div class="col-md-7">
+                <label class="form-label-admin" for="intro-desc">Intro Description</label>
+                <textarea class="form-control" id="intro-desc" rows="2">Explore the conditions we treat with naturopathic and integrative medicine in Columbia, MD.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: CONDITION CARDS REPEATER -->
+        <div class="card-admin mb-4" id="section-cards">
+          <div class="card-head">
+            <div>
+              <span class="badge bg-secondary mb-1">Section 03</span>
+              <h2>Condition Cards Grid (Repeater)</h2>
+              <p>Add, edit, reorder, or toggle visibility for each condition card displayed on the public landing page.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-add-condition-card">
+                <i class="bi bi-plus-lg me-1"></i> Add Condition Card
+              </button>
+              <button class="btn-btc btn-sm-admin" type="button" id="btn-save-cards"><i class="bi bi-save me-1"></i> Save Cards</button>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div id="condition-cards-container">
+              <!-- Dynamically populated card editor units -->
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: BOTTOM CONSULTATION CTA -->
+        <div class="card-admin mb-4" id="section-cta">
+          <div class="card-head">
+            <div>
+              <span class="badge bg-secondary mb-1">Section 04</span>
+              <h2>Bottom Consultation CTA Band</h2>
+              <p>Full-width gradient call-to-action block at the bottom of the conditions hub.</p>
+            </div>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-cta"><i class="bi bi-save me-1"></i> Save CTA</button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin" for="cta-heading">CTA Heading</label>
+                <input type="text" class="form-control" id="cta-heading" value="Ready to reclaim your health?">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin" for="cta-subtitle">CTA Subtitle / Description</label>
+                <input type="text" class="form-control" id="cta-subtitle" value="Request an appointment or call our Columbia, MD team today.">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin" for="cta-btn1-text">Primary Button Label</label>
+                <input type="text" class="form-control" id="cta-btn1-text" value="Request An Appointment">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin" for="cta-btn1-link">Primary Button Link</label>
+                <input type="text" class="form-control" id="cta-btn1-link" value="../book-appointment.html">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin" for="cta-phone">Phone Button (Display &amp; Call)</label>
+                <input type="text" class="form-control" id="cta-phone" value="301-970-9724">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: SEO METADATA -->
+        <div class="card-admin mb-4" id="section-seo">
+          <div class="card-head">
+            <div>
+              <span class="badge bg-secondary mb-1">Section 05</span>
+              <h2>SEO &amp; Open Graph Metadata</h2>
+              <p>Page metadata, search snippet preview, and social sharing tags for conditions/index.html.</p>
+            </div>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-seo"><i class="bi bi-save me-1"></i> Save SEO</button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="mb-3">
+                  <label class="form-label-admin" for="seo-title">Meta Title Tag</label>
+                  <input type="text" class="form-control" id="seo-title" value="Conditions - Be The Change Health and Wellness Center">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="3">Conditions we treat at Be The Change Health & Wellness Center in Columbia, MD — diabetes, obesity, heart disease, chronic fatigue, chronic pain, hormone imbalance, detoxification, and concussion.</textarea>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin" for="seo-canonical">Canonical URL</label>
+                    <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/conditions/index.html">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin" for="seo-robots">Robots Meta</label>
+                    <select class="form-select" id="seo-robots">
+                      <option value="index, follow" selected>index, follow (Standard)</option>
+                      <option value="noindex, follow">noindex, follow</option>
+                      <option value="noindex, nofollow">noindex, nofollow</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                <div class="serp-card">
+                  <div class="serp-url" id="serp-preview-url">bethechangehealth.com › conditions</div>
+                  <div class="serp-title" id="serp-preview-title">Conditions - Be The Change Health and Wellness Center</div>
+                  <div class="serp-desc" id="serp-preview-desc">Conditions we treat at Be The Change Health & Wellness Center in Columbia, MD — diabetes, obesity, heart disease, chronic fatigue, chronic pain...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Bottom Bar -->
+        <div class="d-flex justify-content-between align-items-center bg-white p-3 border rounded-3 shadow-sm">
+          <span class="text-muted small"><i class="bi bi-info-circle me-1"></i> Manage all condition cards and hub copy from this screen.</span>
+          <button class="btn-btc" type="button" id="btn-save-all-bottom">
+            <i class="bi bi-check2 me-1"></i> Save All Conditions Hub Content
+          </button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-stack"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_conditions_landing";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Conditions We Treat",
+          subtitle: "Holistic, integrative care for the conditions that affect your daily life.",
+          parentBreadcrumb: "Home",
+          activeBreadcrumb: "Conditions"
+        },
+        intro: {
+          eyebrow: "Be The Change Health & Wellness Center",
+          description: "Explore the conditions we treat with naturopathic and integrative medicine in Columbia, MD."
+        },
+        cards: [
+          {
+            id: "card-diabetes",
+            title: "Diabetes",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Diabetes.jpg",
+            desc: "We can help prevent and manage diabetes by using holistic therapies to support your metabolism and blood sugar balance.",
+            moreText: "Diabetes Treatment",
+            link: "diabetes.html",
+            visible: true
+          },
+          {
+            id: "card-obesity",
+            title: "Obesity",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Medical-Weight-Loss.jpg",
+            desc: "We work with you as you complete an individualized medical weight loss plan, including regular appointments and personalized diet planning.",
+            moreText: "Obesity Treatment",
+            link: "obesity.html",
+            visible: true
+          },
+          {
+            id: "card-heart-disease",
+            title: "Heart Disease",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Heart-Disease.jpg",
+            desc: "We offer holistic wellness plans that can reduce your risk of heart disease and heart disease complications.",
+            moreText: "Heart Disease Treatment",
+            link: "heart-disease.html",
+            visible: true
+          },
+          {
+            id: "card-chronic-fatigue",
+            title: "Chronic Fatigue",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Chronic-fatigue-1.jpg",
+            desc: "We treat chronic fatigue and fibromyalgia with a holistic approach and can reduce your need for pharmaceutical medications.",
+            moreText: "Chronic Fatigue Treatment",
+            link: "chronic-fatigue.html",
+            visible: true
+          },
+          {
+            id: "card-chronic-pain",
+            title: "Chronic Pain",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Pain-relief-Services.jpg",
+            desc: "Be The Change Health & Wellness Center offers Frequency Specific Microcurrent™ (FSM) therapy to reduce pain using low-level electromagnetic pulses.",
+            moreText: "Chronic Pain Treatment",
+            link: "chronic-pain.html",
+            visible: true
+          },
+          {
+            id: "card-hormone-imbalance",
+            title: "Hormone Imbalance",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Hormone.jpg",
+            desc: "Naturopathic and integrative medicine services at Be The Change Wellness Center can help you achieve and maintain hormonal balance by using holistic therapies to support hormonal health in both men and women at all stages of life.",
+            moreText: "Hormone Treatment",
+            link: "hormone-imbalance.html",
+            visible: true
+          },
+          {
+            id: "card-toxins",
+            title: "Detoxification",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Detoxification.jpg",
+            desc: "Detoxification is the process of removing toxins that can build up in your body and lead to pain, discomfort, and other ambiguous symptoms.",
+            moreText: "Detoxification Treatment",
+            link: "toxins.html",
+            visible: true
+          },
+          {
+            id: "card-concussion",
+            title: "Concussion",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Concussion.jpg",
+            desc: "We can treat brain injuries like concussions with hyperbaric oxygen therapy or Frequency Specific Microcurrent™ (FSM) therapy.",
+            moreText: "Concussion Treatment",
+            link: "concussion.html",
+            visible: true
+          }
+        ],
+        cta: {
+          heading: "Ready to reclaim your health?",
+          subtitle: "Request an appointment or call our Columbia, MD team today.",
+          btn1Text: "Request An Appointment",
+          btn1Link: "../book-appointment.html",
+          phone: "301-970-9724"
+        },
+        seo: {
+          title: "Conditions - Be The Change Health and Wellness Center",
+          desc: "Conditions we treat at Be The Change Health & Wellness Center in Columbia, MD — diabetes, obesity, heart disease, chronic fatigue, chronic pain, hormone imbalance, detoxification, and concussion.",
+          canonical: "https://bethechangehealth.com/conditions/index.html",
+          robots: "index, follow"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(d) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+        } catch (e) {}
+      }
+
+      function toast(msg) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg);
+        } else {
+          alert(msg);
+        }
+      }
+
+      function val(id, v) {
+        var el = document.getElementById(id);
+        if (!el) return "";
+        if (v !== undefined) el.value = v;
+        return el.value;
+      }
+
+      function updateSerp() {
+        var t = val("seo-title") || "Conditions - Be The Change Health and Wellness Center";
+        var d = val("seo-desc") || "";
+        var pt = document.getElementById("serp-preview-title");
+        var pd = document.getElementById("serp-preview-desc");
+        if (pt) pt.textContent = t;
+        if (pd) pd.textContent = d.length > 155 ? d.substring(0, 155) + "…" : d;
+      }
+
+      function renderCards(cards) {
+        var c = document.getElementById("condition-cards-container");
+        if (!c) return;
+        c.innerHTML = "";
+
+        cards.forEach(function (card, idx) {
+          var unit = document.createElement("div");
+          unit.className = "card-editor-unit active-unit";
+          unit.dataset.cardId = card.id || ("card-" + idx);
+
+          unit.innerHTML =
+            '<div class="d-flex justify-content-between align-items-center mb-3">' +
+              '<div class="d-flex align-items-center gap-2">' +
+                '<span class="card-badge-num">' + (idx + 1) + '</span>' +
+                '<h4 class="h6 fw-bold mb-0 text-dark">' + (card.title || "Condition Card") + '</h4>' +
+                '<span class="badge bg-light text-dark border ms-2">' + (card.tag || "Condition") + '</span>' +
+              '</div>' +
+              '<div class="d-flex align-items-center gap-2">' +
+                '<label class="form-check form-switch mb-0">' +
+                  '<input class="form-check-input card-vis-check" type="checkbox"' + (card.visible !== false ? ' checked' : '') + '>' +
+                  '<small class="text-muted ms-1">Visible</small>' +
+                '</label>' +
+                '<button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2 btn-move-up" title="Move Up"><i class="bi bi-arrow-up"></i></button>' +
+                '<button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2 btn-move-down" title="Move Down"><i class="bi bi-arrow-down"></i></button>' +
+                '<button type="button" class="btn btn-outline-danger btn-sm py-0 px-2 btn-remove-card" title="Delete Card"><i class="bi bi-trash"></i></button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="row g-3">' +
+              '<div class="col-md-3">' +
+                '<label class="form-label-admin small">Card Image</label>' +
+                '<div class="d-flex align-items-center gap-2 mb-2">' +
+                  '<img src="' + card.image + '" alt="" class="thumb-preview-box card-img-preview">' +
+                '</div>' +
+                '<input type="text" class="form-control form-control-sm card-img-input" value="' + (card.image || '') + '" placeholder="Image path">' +
+              '</div>' +
+              '<div class="col-md-9">' +
+                '<div class="row g-2">' +
+                  '<div class="col-md-4">' +
+                    '<label class="form-label-admin small">Condition Name / Title</label>' +
+                    '<input type="text" class="form-control form-control-sm card-title-input" value="' + (card.title || '').replace(/"/g, '&quot;') + '">' +
+                  '</div>' +
+                  '<div class="col-md-3">' +
+                    '<label class="form-label-admin small">Tag / Category</label>' +
+                    '<input type="text" class="form-control form-control-sm card-tag-input" value="' + (card.tag || 'Condition').replace(/"/g, '&quot;') + '">' +
+                  '</div>' +
+                  '<div class="col-md-3">' +
+                    '<label class="form-label-admin small">Button Text</label>' +
+                    '<input type="text" class="form-control form-control-sm card-more-input" value="' + (card.moreText || 'Learn More').replace(/"/g, '&quot;') + '">' +
+                  '</div>' +
+                  '<div class="col-md-2">' +
+                    '<label class="form-label-admin small">Page Link</label>' +
+                    '<input type="text" class="form-control form-control-sm card-link-input" value="' + (card.link || '').replace(/"/g, '&quot;') + '">' +
+                  '</div>' +
+                  '<div class="col-12">' +
+                    '<label class="form-label-admin small">Short Excerpt / Description</label>' +
+                    '<textarea class="form-control form-control-sm card-desc-input" rows="2">' + (card.desc || '') + '</textarea>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+
+          // Event handlers
+          unit.querySelector(".btn-remove-card").addEventListener("click", function () {
+            if (confirm("Remove this condition card from the landing hub?")) {
+              unit.remove();
+              updateCardCount();
+            }
+          });
+
+          unit.querySelector(".btn-move-up").addEventListener("click", function () {
+            var prev = unit.previousElementSibling;
+            if (prev) {
+              c.insertBefore(unit, prev);
+              updateCardOrderNums();
+            }
+          });
+
+          unit.querySelector(".btn-move-down").addEventListener("click", function () {
+            var next = unit.nextElementSibling;
+            if (next) {
+              c.insertBefore(next, unit);
+              updateCardOrderNums();
+            }
+          });
+
+          unit.querySelector(".card-img-input").addEventListener("input", function (e) {
+            unit.querySelector(".card-img-preview").src = e.target.value;
+          });
+
+          c.appendChild(unit);
+        });
+
+        updateCardCount();
+      }
+
+      function updateCardOrderNums() {
+        var c = document.getElementById("condition-cards-container");
+        var badges = c.querySelectorAll(".card-badge-num");
+        badges.forEach(function (b, i) { b.textContent = i + 1; });
+      }
+
+      function updateCardCount() {
+        var c = document.getElementById("condition-cards-container");
+        var count = c ? c.querySelectorAll(".card-editor-unit").length : 0;
+        var el = document.getElementById("stat-cards-count");
+        if (el) el.textContent = count + " Active Cards";
+        updateCardOrderNums();
+      }
+
+      function gatherCards() {
+        var c = document.getElementById("condition-cards-container");
+        if (!c) return [];
+        var units = c.querySelectorAll(".card-editor-unit");
+        var arr = [];
+        units.forEach(function (u, i) {
+          arr.push({
+            id: u.dataset.cardId || ("card-" + i),
+            title: u.querySelector(".card-title-input").value.trim(),
+            tag: u.querySelector(".card-tag-input").value.trim(),
+            image: u.querySelector(".card-img-input").value.trim(),
+            desc: u.querySelector(".card-desc-input").value.trim(),
+            moreText: u.querySelector(".card-more-input").value.trim(),
+            link: u.querySelector(".card-link-input").value.trim(),
+            visible: u.querySelector(".card-vis-check").checked
+          });
+        });
+        return arr;
+      }
+
+      function populateForm(d) {
+        if (!d) return;
+        val("hero-title", d.hero.title);
+        val("hero-subtitle", d.hero.subtitle);
+        val("hero-breadcrumb-parent", d.hero.parentBreadcrumb);
+        val("hero-breadcrumb-active", d.hero.activeBreadcrumb);
+
+        val("intro-eyebrow", d.intro.eyebrow);
+        val("intro-desc", d.intro.description);
+
+        val("cta-heading", d.cta.heading);
+        val("cta-subtitle", d.cta.subtitle);
+        val("cta-btn1-text", d.cta.btn1Text);
+        val("cta-btn1-link", d.cta.btn1Link);
+        val("cta-phone", d.cta.phone);
+
+        val("seo-title", d.seo.title);
+        val("seo-desc", d.seo.desc);
+        val("seo-canonical", d.seo.canonical);
+        val("seo-robots", d.seo.robots || "index, follow");
+
+        renderCards(d.cards || []);
+        updateSerp();
+      }
+
+      function saveAll() {
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            parentBreadcrumb: val("hero-breadcrumb-parent"),
+            activeBreadcrumb: val("hero-breadcrumb-active")
+          },
+          intro: {
+            eyebrow: val("intro-eyebrow"),
+            description: val("intro-desc")
+          },
+          cards: gatherCards(),
+          cta: {
+            heading: val("cta-heading"),
+            subtitle: val("cta-subtitle"),
+            btn1Text: val("cta-btn1-text"),
+            btn1Link: val("cta-btn1-link"),
+            phone: val("cta-phone")
+          },
+          seo: {
+            title: val("seo-title"),
+            desc: val("seo-desc"),
+            canonical: val("seo-canonical"),
+            robots: val("seo-robots")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Conditions Landing Hub content saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var current = loadData();
+        populateForm(current);
+
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-intro").addEventListener("click", function () {
+          saveAll();
+          toast("Intro panel saved.");
+        });
+        document.getElementById("btn-save-cards").addEventListener("click", function () {
+          saveAll();
+          toast("Condition cards grid saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("Consultation CTA band saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        document.getElementById("btn-add-condition-card").addEventListener("click", function () {
+          var cards = gatherCards();
+          cards.push({
+            id: "card-" + Date.now(),
+            title: "New Condition",
+            tag: "Condition",
+            image: "../assets/uploads/2024/08/Diabetes.jpg",
+            desc: "Description of the condition and how integrative medicine addresses root causes.",
+            moreText: "Learn More",
+            link: "conditions/index.html",
+            visible: true
+          });
+          renderCards(cards);
+          toast("New condition card added.");
+        });
+
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Restore Conditions Landing Hub back to original defaults?")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored default clinic content.");
+          }
+        });
+
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

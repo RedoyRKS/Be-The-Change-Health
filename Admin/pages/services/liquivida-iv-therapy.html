@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liquivida IV Therapy CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .service-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .offer-card-edit {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      height: 100%;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .cms-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .cms-jump-bar a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #0d9488;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: #f0fdfa;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cms-jump-bar a:hover {
+      background: #0d9488;
+      color: #fff;
+    }
+  </style>
+</head>
+<body data-page="service-liquivida-iv-therapy">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Services</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Liquivida IV Therapy</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/liquivida-iv-therapy.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/services/liquivida-iv-therapy.html</p>
+              <h2>Liquivida IV Therapy CMS</h2>
+              <p>Manage hero title, 2-week advance booking policy notice, featured drip bottle graphic, and 8 signature Liquivida offer cards (Fountain of Youth, Performance, Liquilift, NAD, Chelation, Executive, Defense, Glutathione).</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="iv-nutritional-infusions.html">
+                ← Prev: IV Infusions
+              </a>
+              <a class="btn-btc-ghost btn-sm-admin" href="reflexology.html">
+                Next: Reflexology →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-calendar-event text-teal"></i> Booking Policy
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">2 Weeks Notice</h4>
+                  <small class="text-muted">Required advance reservation</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-grid-3x3-gap text-teal"></i> Signature Drips
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">8 Offer Cards</h4>
+                  <small class="text-muted">NAD, Chelation, Liquilift, etc.</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-award text-teal"></i> Brand Quality
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Liquivida Partner</h4>
+                  <small class="text-muted">Premium medical formulation</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-check text-teal"></i> Patient Benefit
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Cellular Vitality</h4>
+                  <small class="text-muted">Rapid absorption &amp; recovery</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Jump Navigation Bar -->
+        <nav class="cms-jump-bar" aria-label="Section Quick Jump">
+          <span class="text-muted small align-self-center me-1"><i class="bi bi-signpost-split"></i> Jump to:</span>
+          <a href="#editor-hero">Hero Header</a>
+          <a href="#editor-intro">Intro &amp; Booking Notice</a>
+          <a href="#editor-offers">8 Signature Drip Cards</a>
+          <a href="#editor-process">Process Steps</a>
+          <a href="#editor-cta">CTA Band</a>
+          <a href="#editor-seo">SEO &amp; Metadata</a>
+        </nav>
+
+        <!-- Stacked CMS Editor Sections -->
+        <div class="editor-stack">
+
+          <!-- 1. Hero Section -->
+          <div class="editor-card open mb-4" id="editor-hero">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 1</span>
+                <h3 class="mb-0">Page Hero Header</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-title">Hero H1 Title</label>
+                  <input type="text" class="form-control" id="hero-title" value="LIQUIVIDA IV Therapy">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-subtitle">Hero Subtitle</label>
+                  <input type="text" class="form-control" id="hero-subtitle" value="Premium IV drips for hydration, immunity, and wellness.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input type="text" class="form-control" id="hero-breadcrumb" value="Liquivida IV Therapy">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero"><i class="bi bi-check2 me-1"></i> Save Hero</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Intro & Advance Booking Notice -->
+          <div class="editor-card open mb-4" id="editor-intro">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 2</span>
+                <h3 class="mb-0">Intro Overview &amp; Booking Policy</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label fw-semibold" for="intro-image">Featured Bottle Graphic Path</label>
+                  <input type="text" class="form-control" id="intro-image" value="../assets/uploads/2024/10/The-Liquilift.png">
+                  <div class="form-text">Frontend relative image path: Frontend/assets/uploads/2024/10/The-Liquilift.png</div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                  <img src="../../../Frontend/assets/uploads/2024/10/The-Liquilift.png" alt="Preview" class="service-preview-thumb ms-auto" onerror="this.style.display='none'">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="intro-p1">Therapy Benefits Lead Paragraph</label>
+                  <textarea class="form-control" id="intro-p1" rows="3">LIQUIVIDA IV Therapy offers a range of benefits, including rapid hydration, enhanced nutrient absorption, and increased energy levels, making it an effective solution for recovering from dehydration, boosting immunity, and promoting overall wellness.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="booking-notice">Advance Reservation Notice</label>
+                  <input type="text" class="form-control" id="booking-notice" value="Liquivida IV’s must be booked 2 weeks in advance.">
+                  <div class="form-text">Displayed prominently in italics before the offer grid.</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-intro"><i class="bi bi-check2 me-1"></i> Save Intro</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 8 Signature Offer Cards -->
+          <div class="editor-card open mb-4" id="editor-offers">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 3</span>
+                <h3 class="mb-0">8 Signature Offer Cards</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 1</span>
+                    <label class="form-label fw-semibold" for="offer1-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer1-title" value="FOUNTAIN OF YOUTH">
+                    <label class="form-label fw-semibold" for="offer1-desc">Description</label>
+                    <textarea class="form-control" id="offer1-desc" rows="3">Replenishes the body for noticeably healthier skin, hair, and nails.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 2</span>
+                    <label class="form-label fw-semibold" for="offer2-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer2-title" value="PERFORMANCE HYDRATION">
+                    <label class="form-label fw-semibold" for="offer2-desc">Description</label>
+                    <textarea class="form-control" id="offer2-desc" rows="3">Strengthens muscles and joints, before or after intense physical activity.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 3</span>
+                    <label class="form-label fw-semibold" for="offer3-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer3-title" value="THE LIQUILIFT">
+                    <label class="form-label fw-semibold" for="offer3-desc">Description</label>
+                    <textarea class="form-control" id="offer3-desc" rows="3">Liquivida’s signature vitamin IV drip is designed to improve health in the long term.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 4</span>
+                    <label class="form-label fw-semibold" for="offer4-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer4-title" value="NAD IV DRIP">
+                    <label class="form-label fw-semibold" for="offer4-desc">Description</label>
+                    <textarea class="form-control" id="offer4-desc" rows="3">Promotes brain cell regeneration to help cognitive functions. Replenish brain nutrients that have been depleted by substance abuse. Slows down degenerative aging processes at a cellular level.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 5</span>
+                    <label class="form-label fw-semibold" for="offer5-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer5-title" value="CHELATION THERAPY">
+                    <label class="form-label fw-semibold" for="offer5-desc">Description</label>
+                    <textarea class="form-control" id="offer5-desc" rows="3">Improves blood flow by removing heavy metals in the bloodstream.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 6</span>
+                    <label class="form-label fw-semibold" for="offer6-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer6-title" value="THE EXECUTIVE">
+                    <label class="form-label fw-semibold" for="offer6-desc">Description</label>
+                    <textarea class="form-control" id="offer6-desc" rows="3">Promotes mental clarity and focus during work hours and beyond.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 7</span>
+                    <label class="form-label fw-semibold" for="offer7-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer7-title" value="NATURAL DEFENSE">
+                    <label class="form-label fw-semibold" for="offer7-desc">Description</label>
+                    <textarea class="form-control" id="offer7-desc" rows="3">Protects the body and speeds up recovery from an airborne illness such as a cold.</textarea>
+                  </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-md-6">
+                  <div class="offer-card-edit">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Offer 8</span>
+                    <label class="form-label fw-semibold" for="offer8-title">Title</label>
+                    <input type="text" class="form-control fw-bold mb-2" id="offer8-title" value="GLUTATHIONE">
+                    <label class="form-label fw-semibold" for="offer8-desc">Description</label>
+                    <textarea class="form-control" id="offer8-desc" rows="3">Empowers cells, slows down aging and produces a brighter, healthier skin glow.</textarea>
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-offers"><i class="bi bi-check2 me-1"></i> Save Offer Cards</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Process Steps -->
+          <div class="editor-card open mb-4" id="editor-process">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 4</span>
+                <h3 class="mb-0">"Feel Good, Live Better!" 3-Step Process</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-heading">Process Heading</label>
+                  <input type="text" class="form-control" id="process-heading" value="Feel Good, Live Better!">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-subheading">Process Subheading</label>
+                  <input type="text" class="form-control" id="process-subheading" value="It’s easy to get started…">
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 1</h6>
+                    <input type="text" class="form-control mb-2" id="step1-title" value="Request An Appointment">
+                    <textarea class="form-control" id="step1-desc" rows="3">Your first step is to either call our clinic or complete the online request form for a new patient appointment.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 2</h6>
+                    <input type="text" class="form-control mb-2" id="step2-title" value="Experience Our Clinic">
+                    <textarea class="form-control" id="step2-desc" rows="3">Come to our clinic to receive your integrative consultation or treatment session.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 3</h6>
+                    <input type="text" class="form-control mb-2" id="step3-title" value="Choose A Membership">
+                    <textarea class="form-control mb-2" id="step3-desc" rows="2">All patients enroll in one of our membership plans designed for discounts and complimentary services.</textarea>
+                    <input type="text" class="form-control" id="step3-link" value="../memberships.html">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-process"><i class="bi bi-check2 me-1"></i> Save Process</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Call to Action Band -->
+          <div class="editor-card open mb-4" id="editor-cta">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 5</span>
+                <h3 class="mb-0">Consultation CTA Band</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-heading">CTA Band Heading</label>
+                  <input type="text" class="form-control" id="cta-heading" value="Interested in LIQUIVIDA IV Therapy?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-subtitle">CTA Band Subtitle</label>
+                  <input type="text" class="form-control" id="cta-subtitle" value="Our team can help you decide if this therapy is right for you.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-text">Primary Button Label</label>
+                  <input type="text" class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-link">Primary Button URL</label>
+                  <input type="text" class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-phone">Phone Call CTA</label>
+                  <input type="text" class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta"><i class="bi bi-check2 me-1"></i> Save CTA Band</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. SEO & Live Google SERP Preview -->
+          <div class="editor-card open mb-4" id="editor-seo">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 6</span>
+                <h3 class="mb-0">SEO Metadata &amp; Google Search Preview</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-title">Meta Title Tag</label>
+                  <input type="text" class="form-control" id="seo-title" value="LIQUIVIDA IV Therapy - Be The Change Health and Wellness Center">
+                  <div class="form-text">Recommended: 50–60 characters.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-canonical">Canonical URL</label>
+                  <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/services/liquivida-iv-therapy.html">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">LIQUIVIDA IV Therapy in Columbia, MD. Premium nutrient infusions for rapid hydration, immunity boost, performance recovery, and long-term wellness.</textarea>
+                </div>
+              </div>
+              <div class="serp-card mb-3">
+                <div class="small text-muted mb-2 fw-semibold"><i class="bi bi-google me-1"></i> Google Search Result Snippet Preview</div>
+                <div class="serp-title" id="serp-preview-title">LIQUIVIDA IV Therapy - Be The Change Health and Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › services › liquivida-iv-therapy</div>
+                <div class="serp-desc" id="serp-preview-desc">LIQUIVIDA IV Therapy in Columbia, MD. Premium nutrient infusions for rapid hydration, immunity boost, performance recovery, and long-term wellness.</div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo"><i class="bi bi-check2 me-1"></i> Save SEO</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin p-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2 text-muted small">
+            <i class="bi bi-clock-history"></i>
+            <span id="save-status-text">Draft state saved locally</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/liquivida-iv-therapy.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_service_liquivida_iv_therapy";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "LIQUIVIDA IV Therapy",
+          subtitle: "Premium IV drips for hydration, immunity, and wellness.",
+          breadcrumb: "Liquivida IV Therapy"
+        },
+        intro: {
+          image: "../assets/uploads/2024/10/The-Liquilift.png",
+          p1: "LIQUIVIDA IV Therapy offers a range of benefits, including rapid hydration, enhanced nutrient absorption, and increased energy levels, making it an effective solution for recovering from dehydration, boosting immunity, and promoting overall wellness.",
+          bookingNotice: "Liquivida IV’s must be booked 2 weeks in advance."
+        },
+        offers: {
+          o1Title: "FOUNTAIN OF YOUTH",
+          o1Desc: "Replenishes the body for noticeably healthier skin, hair, and nails.",
+          o2Title: "PERFORMANCE HYDRATION",
+          o2Desc: "Strengthens muscles and joints, before or after intense physical activity.",
+          o3Title: "THE LIQUILIFT",
+          o3Desc: "Liquivida’s signature vitamin IV drip is designed to improve health in the long term.",
+          o4Title: "NAD IV DRIP",
+          o4Desc: "Promotes brain cell regeneration to help cognitive functions. Replenish brain nutrients that have been depleted by substance abuse. Slows down degenerative aging processes at a cellular level.",
+          o5Title: "CHELATION THERAPY",
+          o5Desc: "Improves blood flow by removing heavy metals in the bloodstream.",
+          o6Title: "THE EXECUTIVE",
+          o6Desc: "Promotes mental clarity and focus during work hours and beyond.",
+          o7Title: "NATURAL DEFENSE",
+          o7Desc: "Protects the body and speeds up recovery from an airborne illness such as a cold.",
+          o8Title: "GLUTATHIONE",
+          o8Desc: "Empowers cells, slows down aging and produces a brighter, healthier skin glow."
+        },
+        process: {
+          heading: "Feel Good, Live Better!",
+          subheading: "It’s easy to get started…",
+          step1Title: "Request An Appointment",
+          step1Desc: "Your first step is to either call our clinic or complete the online request form for a new patient appointment.",
+          step2Title: "Experience Our Clinic",
+          step2Desc: "Come to our clinic to receive your integrative consultation or treatment session.",
+          step3Title: "Choose A Membership",
+          step3Desc: "All patients enroll in one of our membership plans designed for discounts and complimentary services.",
+          step3Link: "../memberships.html"
+        },
+        cta: {
+          heading: "Interested in LIQUIVIDA IV Therapy?",
+          subtitle: "Our team can help you decide if this therapy is right for you.",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html",
+          phone: "301-970-9724"
+        },
+        seo: {
+          title: "LIQUIVIDA IV Therapy - Be The Change Health and Wellness Center",
+          desc: "LIQUIVIDA IV Therapy in Columbia, MD. Premium nutrient infusions for rapid hydration, immunity boost, performance recovery, and long-term wellness.",
+          canonical: "https://bethechangehealth.com/services/liquivida-iv-therapy.html"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.error(e);
+        }
+        return DEFAULT_DATA;
+      }
+
+      function saveData(d) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+          var now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          var st = document.getElementById("save-status-text");
+          if (st) st.textContent = "Last saved at " + now;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function toast(msg) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg);
+        } else {
+          alert(msg);
+        }
+      }
+
+      function updateSerp() {
+        var t = document.getElementById("seo-title").value.trim();
+        var d = document.getElementById("seo-desc").value.trim();
+        var c = document.getElementById("seo-canonical").value.trim();
+        document.getElementById("serp-preview-title").textContent = t || "LIQUIVIDA IV Therapy";
+        document.getElementById("serp-preview-desc").textContent = d || "No description provided.";
+        document.getElementById("serp-preview-url").textContent = c || "https://bethechangehealth.com/services/liquivida-iv-therapy.html";
+      }
+
+      function populateForm(data) {
+        var d = data || DEFAULT_DATA;
+        function setVal(id, v) {
+          var el = document.getElementById(id);
+          if (el && v !== undefined) el.value = v;
+        }
+
+        setVal("hero-title", d.hero.title);
+        setVal("hero-subtitle", d.hero.subtitle);
+        setVal("hero-breadcrumb", d.hero.breadcrumb);
+
+        setVal("intro-image", d.intro.image);
+        setVal("intro-p1", d.intro.p1);
+        setVal("booking-notice", d.intro.bookingNotice);
+
+        setVal("offer1-title", d.offers.o1Title);
+        setVal("offer1-desc", d.offers.o1Desc);
+        setVal("offer2-title", d.offers.o2Title);
+        setVal("offer2-desc", d.offers.o2Desc);
+        setVal("offer3-title", d.offers.o3Title);
+        setVal("offer3-desc", d.offers.o3Desc);
+        setVal("offer4-title", d.offers.o4Title);
+        setVal("offer4-desc", d.offers.o4Desc);
+        setVal("offer5-title", d.offers.o5Title);
+        setVal("offer5-desc", d.offers.o5Desc);
+        setVal("offer6-title", d.offers.o6Title);
+        setVal("offer6-desc", d.offers.o6Desc);
+        setVal("offer7-title", d.offers.o7Title);
+        setVal("offer7-desc", d.offers.o7Desc);
+        setVal("offer8-title", d.offers.o8Title);
+        setVal("offer8-desc", d.offers.o8Desc);
+
+        setVal("process-heading", d.process.heading);
+        setVal("process-subheading", d.process.subheading);
+        setVal("step1-title", d.process.step1Title);
+        setVal("step1-desc", d.process.step1Desc);
+        setVal("step2-title", d.process.step2Title);
+        setVal("step2-desc", d.process.step2Desc);
+        setVal("step3-title", d.process.step3Title);
+        setVal("step3-desc", d.process.step3Desc);
+        setVal("step3-link", d.process.step3Link);
+
+        setVal("cta-heading", d.cta.heading);
+        setVal("cta-subtitle", d.cta.subtitle);
+        setVal("cta-btn-text", d.cta.btnText);
+        setVal("cta-btn-link", d.cta.btnLink);
+        setVal("cta-phone", d.cta.phone);
+
+        setVal("seo-title", d.seo.title);
+        setVal("seo-canonical", d.seo.canonical);
+        setVal("seo-desc", d.seo.desc);
+
+        updateSerp();
+      }
+
+      function saveAll() {
+        function val(id) {
+          var el = document.getElementById(id);
+          return el ? el.value.trim() : "";
+        }
+
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            breadcrumb: val("hero-breadcrumb")
+          },
+          intro: {
+            image: val("intro-image"),
+            p1: val("intro-p1"),
+            bookingNotice: val("booking-notice")
+          },
+          offers: {
+            o1Title: val("offer1-title"),
+            o1Desc: val("offer1-desc"),
+            o2Title: val("offer2-title"),
+            o2Desc: val("offer2-desc"),
+            o3Title: val("offer3-title"),
+            o3Desc: val("offer3-desc"),
+            o4Title: val("offer4-title"),
+            o4Desc: val("offer4-desc"),
+            o5Title: val("offer5-title"),
+            o5Desc: val("offer5-desc"),
+            o6Title: val("offer6-title"),
+            o6Desc: val("offer6-desc"),
+            o7Title: val("offer7-title"),
+            o7Desc: val("offer7-desc"),
+            o8Title: val("offer8-title"),
+            o8Desc: val("offer8-desc")
+          },
+          process: {
+            heading: val("process-heading"),
+            subheading: val("process-subheading"),
+            step1Title: val("step1-title"),
+            step1Desc: val("step1-desc"),
+            step2Title: val("step2-title"),
+            step2Desc: val("step2-desc"),
+            step3Title: val("step3-title"),
+            step3Desc: val("step3-desc"),
+            step3Link: val("step3-link")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            subtitle: val("cta-subtitle"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link"),
+            phone: val("cta-phone")
+          },
+          seo: {
+            title: val("seo-title"),
+            canonical: val("seo-canonical"),
+            desc: val("seo-desc")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Liquivida IV Therapy CMS saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-intro").addEventListener("click", function () {
+          saveAll();
+          toast("Intro & notice saved.");
+        });
+        document.getElementById("btn-save-offers").addEventListener("click", function () {
+          saveAll();
+          toast("Signature offer cards saved.");
+        });
+        document.getElementById("btn-save-process").addEventListener("click", function () {
+          saveAll();
+          toast("Process steps saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("Consultation CTA saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Save All buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Liquivida IV Therapy back to original clinic defaults?")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored clinic defaults for Liquivida IV Therapy.");
+          }
+        });
+
+        // Live SERP listeners
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

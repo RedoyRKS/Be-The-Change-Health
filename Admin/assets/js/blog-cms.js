@@ -38,6 +38,16 @@
     return months[d.getUTCMonth()] + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
   }
 
+  function escapeAttr(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
   /* =========================================================================
      REUSABLE MEDIA LIBRARY MODAL CONTROLLER
      ========================================================================= */
@@ -196,8 +206,9 @@
         var starClass = p.featured ? "active" : "";
         var starTitle = p.featured ? "Featured on Blog Landing Page" : "Click to set as Featured";
 
-        var imgUrl = store.resolveImage(p.image, "admin");
+        var imgUrl = store.resolveImage(p.image, "admin", p.id);
         var formattedDate = formatDate(p.date);
+        var fallbackSrc = store.FALLBACK_IMAGE;
 
         // Tags badges
         var tagBadges = (p.tags || []).slice(0, 3).map(function (t) {
@@ -212,7 +223,7 @@
           '</td>' +
           '<td>' +
             '<div class="d-flex align-items-center gap-3">' +
-              '<img src="' + imgUrl + '" alt="" class="table-thumb" onerror="this.src=\'../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg\'">' +
+              '<img src="' + escapeAttr(imgUrl) + '" alt="' + escapeAttr(p.title || "Article thumbnail") + '" class="table-thumb" onerror="this.onerror=null;this.src=\'' + fallbackSrc + '\';">' +
               '<div>' +
                 '<a href="javascript:void(0)" class="fw-bold text-dark text-decoration-none d-block mb-1 hover-teal btn-edit-post-title" data-action="edit">' +
                   p.title +
@@ -364,7 +375,7 @@
         ? ((mCategoryCustom ? mCategoryCustom.value : "").trim() || "General")
         : (mCategory ? mCategory.value : "Therapies");
       var dateStr = (mDate ? mDate.value : "") || new Date().toISOString().split("T")[0];
-      var img = (mImageVal ? mImageVal.value : "") || "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+      var img = (mImageVal ? mImageVal.value : "") || "assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
 
       // Card Preview
       if (mPvTitle) mPvTitle.textContent = title;
@@ -372,7 +383,13 @@
       if (mPvCat) mPvCat.textContent = category;
       if (mPvAuthor) mPvAuthor.textContent = author;
       if (mPvDate) mPvDate.textContent = formatDate(dateStr);
-      if (mPvImg) mPvImg.src = store.resolveImage(img, "admin");
+      if (mPvImg) {
+        mPvImg.src = store.resolveImage(img, "admin");
+        mPvImg.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
 
       // SERP Preview
       var seoT = (mSeoTitle ? mSeoTitle.value : "").trim() || title;
@@ -431,9 +448,15 @@
         mReadTime.value = "5 min read";
         mOrder.value = store.getPosts().length + 1;
 
-        var defImg = "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+        var defImg = store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin");
         mImageVal.value = defImg;
-        if (mImagePreview) mImagePreview.src = defImg;
+        if (mImagePreview) {
+          mImagePreview.src = defImg;
+          mImagePreview.onerror = function () {
+            this.onerror = null;
+            this.src = store.FALLBACK_IMAGE;
+          };
+        }
         if (mImageUrlInput) mImageUrlInput.value = defImg;
 
         // CTA
@@ -499,10 +522,16 @@
         mReadTime.value = p.readTime || "5 min read";
         mOrder.value = p.order || 1;
 
-        var resolvedImg = store.resolveImage(p.image, "admin");
-        mImageVal.value = p.image || resolvedImg;
-        if (mImagePreview) mImagePreview.src = resolvedImg;
-        if (mImageUrlInput) mImageUrlInput.value = p.image || resolvedImg;
+        var resolvedImg = store.resolveImage(p.image, "admin", p.id);
+        mImageVal.value = resolvedImg;
+        if (mImagePreview) {
+          mImagePreview.src = resolvedImg;
+          mImagePreview.onerror = function () {
+            this.onerror = null;
+            this.src = store.FALLBACK_IMAGE;
+          };
+        }
+        if (mImageUrlInput) mImageUrlInput.value = resolvedImg;
 
         // CTA
         if (mCtaToggle) mCtaToggle.checked = p.ctaTitle !== false;
@@ -705,9 +734,15 @@
 
     if (mBtnRemoveImage) {
       mBtnRemoveImage.addEventListener("click", function () {
-        var placeholder = "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+        var placeholder = store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin");
         mImageVal.value = placeholder;
-        if (mImagePreview) mImagePreview.src = placeholder;
+        if (mImagePreview) {
+          mImagePreview.src = placeholder;
+          mImagePreview.onerror = function () {
+            this.onerror = null;
+            this.src = store.FALLBACK_IMAGE;
+          };
+        }
         if (mImageUrlInput) mImageUrlInput.value = "";
         updateModalLivePreview();
         toast("Featured image reset to default.");
@@ -719,7 +754,13 @@
         var url = mImageUrlInput.value.trim();
         if (url) {
           mImageVal.value = url;
-          if (mImagePreview) mImagePreview.src = store.resolveImage(url, "admin");
+          if (mImagePreview) {
+            mImagePreview.src = store.resolveImage(url, "admin");
+            mImagePreview.onerror = function () {
+              this.onerror = null;
+              this.src = store.FALLBACK_IMAGE;
+            };
+          }
           updateModalLivePreview();
         }
       });
@@ -780,7 +821,7 @@
         featured: !!mFeatured.checked,
         status: status,
         order: parseInt(mOrder.value, 10) || 1,
-        image: mImageVal.value || "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg",
+        image: mImageVal.value || store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin"),
         ctaTitle: mCtaToggle && mCtaToggle.checked ? (mCtaHeading.value.trim() || "Ready to experience these therapies?") : false,
         ctaPrimaryText: mCtaPrimaryText ? mCtaPrimaryText.value.trim() : "REQUEST AN APPOINTMENT",
         ctaPrimaryLink: mCtaPrimaryLink ? mCtaPrimaryLink.value.trim() : "../contact.html",
@@ -1014,7 +1055,7 @@
         dateInput.value = new Date().toISOString().split("T")[0];
         readTimeInput.value = "5 min read";
         orderInput.value = store.getPosts().length + 1;
-        imageInput.value = "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+        imageInput.value = store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin");
 
         // CTA defaults
         if (ctaToggle) ctaToggle.checked = true;
@@ -1067,7 +1108,7 @@
       dateInput.value = post.date ? post.date.split("T")[0] : new Date().toISOString().split("T")[0];
       readTimeInput.value = post.readTime || store.calcReadTime(post.content);
       orderInput.value = post.order || 1;
-      imageInput.value = store.resolveImage(post.image, "admin");
+      imageInput.value = store.resolveImage(post.image, "admin", post.id);
 
       // CTA
       if (ctaToggle) ctaToggle.checked = post.ctaTitle !== false;
@@ -1105,7 +1146,7 @@
       var category = categorySelect.value || "Therapies";
       var dateStr = dateInput.value || new Date().toISOString().split("T")[0];
       var readTime = readTimeInput.value || "5 min read";
-      var img = imageInput.value || "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+      var img = imageInput.value || "assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
 
       // Update Card Preview
       if (pvTitle) pvTitle.textContent = title;
@@ -1114,8 +1155,20 @@
       if (pvCat) pvCat.textContent = category;
       if (pvDate) pvDate.textContent = formatDate(dateStr);
       if (pvReadTime) pvReadTime.textContent = readTime;
-      if (pvImage) pvImage.src = store.resolveImage(img, "admin");
-      if (imagePreview) imagePreview.src = store.resolveImage(img, "admin");
+      if (pvImage) {
+        pvImage.src = store.resolveImage(img, "admin");
+        pvImage.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
+      if (imagePreview) {
+        imagePreview.src = store.resolveImage(img, "admin");
+        imagePreview.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
 
       // Status badge
       var status = statusSelect.value;
@@ -1244,7 +1297,7 @@
 
     if (btnEditRemoveMedia) {
       btnEditRemoveMedia.addEventListener("click", function () {
-        imageInput.value = "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg";
+        imageInput.value = store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin");
         updateLivePreview();
         toast("Featured image reset to default.");
       });
@@ -1299,7 +1352,7 @@
         featured: !!featuredCheck.checked,
         status: status,
         order: parseInt(orderInput.value, 10) || 1,
-        image: imageInput.value || "../../Frontend/assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg",
+        image: imageInput.value || store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin"),
         ctaTitle: ctaToggle && ctaToggle.checked ? (ctaHeading.value.trim() || "Ready to experience these therapies?") : false,
         ctaPrimaryText: ctaPrimaryText ? ctaPrimaryText.value.trim() : "REQUEST AN APPOINTMENT",
         ctaPrimaryLink: ctaPrimaryLink ? ctaPrimaryLink.value.trim() : "../contact.html",
@@ -1358,22 +1411,22 @@
      ========================================================================= */
 
   function initBlogPreview() {
-    var titleEl = document.getElementById("pv-article-title");
+    var titleEl = document.getElementById("pv-article-title") || document.getElementById("preview-title");
     if (!titleEl || !store) return;
 
-    var dateEl = document.getElementById("pv-article-date");
-    var authorEl = document.getElementById("pv-article-author");
-    var catEl = document.getElementById("pv-article-cat");
-    var readTimeEl = document.getElementById("pv-article-readtime");
-    var heroImgEl = document.getElementById("pv-article-hero-img");
-    var contentEl = document.getElementById("pv-article-content");
-    var ctaBoxEl = document.getElementById("pv-article-cta-box");
-    var ctaHeadingEl = document.getElementById("pv-cta-heading");
-    var ctaBtnEl = document.getElementById("pv-cta-btn");
-    var ctaSecEl = document.getElementById("pv-cta-service-link");
-    var recentListEl = document.getElementById("pv-recent-posts-list");
-    var crumbTitleEl = document.getElementById("pv-crumb-article-title");
-    var editLinkEl = document.getElementById("pv-btn-edit-article");
+    var dateEl = document.getElementById("pv-article-date") || document.getElementById("preview-date");
+    var authorEl = document.getElementById("pv-article-author") || document.getElementById("preview-author");
+    var catEl = document.getElementById("pv-article-cat") || document.getElementById("preview-cat");
+    var readTimeEl = document.getElementById("pv-article-readtime") || document.getElementById("preview-readtime");
+    var heroImgEl = document.getElementById("pv-article-hero-img") || document.getElementById("preview-hero-img");
+    var contentEl = document.getElementById("pv-article-content") || document.getElementById("preview-body-content");
+    var ctaBoxEl = document.getElementById("pv-article-cta-box") || document.getElementById("preview-cta-box");
+    var ctaHeadingEl = document.getElementById("pv-cta-heading") || document.getElementById("preview-cta-heading");
+    var ctaBtnEl = document.getElementById("pv-cta-btn") || document.getElementById("preview-cta-btn");
+    var ctaSecEl = document.getElementById("pv-cta-service-link") || document.getElementById("preview-cta-service-link");
+    var recentListEl = document.getElementById("pv-recent-posts-list") || document.getElementById("preview-recent-articles");
+    var crumbTitleEl = document.getElementById("pv-crumb-article-title") || document.getElementById("preview-crumb-title");
+    var editLinkEl = document.getElementById("pv-btn-edit-article") || document.getElementById("preview-edit-link");
     var publishBtn = document.getElementById("pv-btn-publish-now");
 
     var targetId = getQueryParam("post") || "what-is-frequency-specific-microcurrent-therapy";
@@ -1390,7 +1443,13 @@
     if (authorEl) authorEl.textContent = post.author || "Sultana Afrooz, D.O.";
     if (catEl) catEl.textContent = post.category || "Therapies";
     if (readTimeEl) readTimeEl.textContent = post.readTime || "5 min read";
-    if (heroImgEl) heroImgEl.src = store.resolveImage(post.image, "admin");
+    if (heroImgEl) {
+      heroImgEl.src = store.resolveImage(post.image, "admin", post.id);
+      heroImgEl.onerror = function () {
+        this.onerror = null;
+        this.src = store.FALLBACK_IMAGE;
+      };
+    }
     if (contentEl) contentEl.innerHTML = post.content || "<p>No content entered for this article.</p>";
 
     if (editLinkEl) {
@@ -1431,18 +1490,31 @@
       var allPosts = store.getPublishedPosts();
       recentListEl.innerHTML = "";
       allPosts.slice(0, 4).forEach(function (rp) {
-        var li = document.createElement("li");
-        li.className = "mb-3 pb-3 border-bottom";
-        li.innerHTML =
-          '<a href="blog-preview.html?post=' + encodeURIComponent(rp.id) + '" class="fw-semibold text-dark text-decoration-none d-block mb-1 hover-teal">' +
-            rp.title +
-          '</a>' +
-          '<div class="d-flex align-items-center gap-2 text-muted" style="font-size:0.75rem;">' +
-            '<span><i class="bi bi-calendar3 me-1"></i>' + formatDate(rp.date) + '</span>' +
-            '<span>•</span>' +
-            '<span>' + (rp.readTime || "5 min read") + '</span>' +
-          '</div>';
-        recentListEl.appendChild(li);
+        var itemImg = store.resolveImage(rp.image, "admin", rp.id);
+        var isUl = recentListEl.tagName === "UL" || recentListEl.tagName === "OL";
+        var el = document.createElement(isUl ? "li" : "div");
+        el.className = isUl ? "mb-3 pb-3 border-bottom" : "d-flex gap-3 align-items-center";
+        if (isUl) {
+          el.innerHTML =
+            '<a href="blog-preview.html?post=' + encodeURIComponent(rp.id) + '" class="fw-semibold text-dark text-decoration-none d-block mb-1 hover-teal">' +
+              rp.title +
+            '</a>' +
+            '<div class="d-flex align-items-center gap-2 text-muted" style="font-size:0.75rem;">' +
+              '<span><i class="bi bi-calendar3 me-1"></i>' + formatDate(rp.date) + '</span>' +
+              '<span>•</span>' +
+              '<span>' + (rp.readTime || "5 min read") + '</span>' +
+            '</div>';
+        } else {
+          el.innerHTML =
+            '<img src="' + escapeAttr(itemImg) + '" class="rounded" width="64" height="64" style="object-fit:cover; flex-shrink:0;" alt="' + escapeAttr(rp.title) + '" onerror="this.onerror=null;this.src=\'' + store.FALLBACK_IMAGE + '\';">' +
+            '<div>' +
+              '<a href="blog-preview.html?post=' + encodeURIComponent(rp.id) + '" class="fw-semibold text-dark text-decoration-none d-block hover-teal" style="font-size:0.85rem;">' +
+                rp.title +
+              '</a>' +
+              '<small class="text-muted">' + formatDate(rp.date) + '</small>' +
+            '</div>';
+        }
+        recentListEl.appendChild(el);
       });
     }
 
@@ -1461,6 +1533,457 @@
     }
   }
 
+  /* =========================================================================
+     BLOG PAGE CMS CONTROLLER (Admin/pages/blog-content.html)
+     ========================================================================= */
+
+  function initBlogContentPage() {
+    if (!store) return;
+
+    function val(id) {
+      var el = document.getElementById(id);
+      return el ? el.value : "";
+    }
+
+    function setVal(id, v) {
+      var el = document.getElementById(id);
+      if (el) el.value = v == null ? "" : v;
+    }
+
+    function loadAllFields() {
+      var content = store.getPageContent();
+      if (!content) return;
+
+      // 01. Hero
+      setVal("hero-title", content.hero.title);
+      setVal("hero-subtitle", content.hero.subtitle);
+      setVal("hero-breadcrumb", content.hero.breadcrumb);
+
+      // 02. Toolbar & Categories
+      setVal("toolbar-placeholder", content.intro.searchPlaceholder);
+      setVal("toolbar-categories", Array.isArray(content.intro.categories) ? content.intro.categories.join(", ") : content.intro.categories);
+      setVal("toolbar-empty-msg", content.intro.emptyMessage);
+
+      // 03. Featured Article Spotlight
+      var featToggle = document.getElementById("featured-enabled");
+      if (featToggle) featToggle.checked = content.featured.enabled !== false;
+      setVal("featured-badge", content.featured.badgeText);
+      setVal("featured-category", content.featured.category);
+      setVal("featured-title", content.featured.title);
+      setVal("featured-excerpt", content.featured.excerpt);
+      setVal("featured-date", content.featured.date);
+      setVal("featured-btn-text", content.featured.buttonText);
+      setVal("featured-link", content.featured.link);
+      setVal("featured-image", content.featured.image);
+      var featImgPrev = document.getElementById("featured-image-preview");
+      if (featImgPrev) {
+        featImgPrev.src = store.resolveImage(content.featured.image, "admin");
+        featImgPrev.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
+
+      // 04. Articles Grid Header
+      setVal("grid-heading", content.articlesHeader.title);
+      setVal("grid-subtitle", content.articlesHeader.subtitle);
+      setVal("grid-readmore-text", content.articlesHeader.readMoreText);
+
+      // 05. CTA Band
+      setVal("cta-title", content.cta.title);
+      setVal("cta-desc", content.cta.description);
+      setVal("cta-btn1-text", content.cta.primaryBtnText);
+      setVal("cta-btn1-link", content.cta.primaryBtnLink);
+      setVal("cta-btn2-text", content.cta.secondaryBtnText);
+      setVal("cta-btn2-link", content.cta.secondaryBtnLink);
+
+      // 06. SEO & OG
+      setVal("seo-title", content.seo.title);
+      setVal("seo-desc", content.seo.description);
+      setVal("seo-keywords", content.seo.keywords);
+      setVal("seo-canonical", content.seo.canonicalUrl);
+      setVal("og-title", content.seo.ogTitle);
+      setVal("og-desc", content.seo.ogDescription);
+      setVal("og-image", content.seo.ogImage);
+      var ogImgPrev = document.getElementById("og-image-preview");
+      if (ogImgPrev) {
+        ogImgPrev.src = store.resolveImage(content.seo.ogImage, "admin");
+        ogImgPrev.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
+
+      // SERP Simulation
+      var previewTitle = document.getElementById("seo-preview-title");
+      var previewDesc = document.getElementById("seo-preview-desc");
+      if (previewTitle) previewTitle.textContent = content.seo.title || "Blog - Be The Change";
+      if (previewDesc) previewDesc.textContent = content.seo.description || "";
+
+      // Quick Stats Banner
+      var stats = store.getStats();
+      var statTotal = document.getElementById("stat-total-articles");
+      var statPub = document.getElementById("stat-published-articles");
+      var statCats = document.getElementById("stat-categories-count");
+      var statFeat = document.getElementById("stat-featured-title");
+      if (statTotal) statTotal.textContent = stats.total;
+      if (statPub) statPub.textContent = stats.published;
+      if (statCats) {
+        var catsArr = Array.isArray(content.intro.categories) ? content.intro.categories : (content.intro.categories || "").split(",");
+        statCats.textContent = catsArr.length;
+      }
+      if (statFeat) statFeat.textContent = content.featured.title || stats.featuredTitle || "Frequency Specific Microcurrent";
+    }
+
+    // Populate article picker
+    function populateArticlePicker() {
+      var sel = document.getElementById("featured-select-post");
+      if (!sel) return;
+      var posts = store.getPosts();
+      sel.innerHTML = '<option value="">-- Choose an article from library to auto-fill --</option>';
+      posts.forEach(function (p) {
+        var opt = document.createElement("option");
+        opt.value = p.id;
+        opt.textContent = (p.featured ? "★ " : "") + p.title + " (" + (p.category || "Therapies") + ")";
+        sel.appendChild(opt);
+      });
+
+      sel.addEventListener("change", function () {
+        var selectedId = sel.value;
+        if (!selectedId) return;
+        var p = store.getPost(selectedId);
+        if (!p) return;
+
+        setVal("featured-title", p.title);
+        setVal("featured-category", p.category || "Therapies");
+        setVal("featured-excerpt", p.excerpt || "");
+        setVal("featured-date", p.date || "");
+        setVal("featured-link", p.slug ? p.slug + ".html" : "");
+        setVal("featured-image", p.image || "");
+        var featImgPrev = document.getElementById("featured-image-preview");
+        if (featImgPrev) {
+          featImgPrev.src = store.resolveImage(p.image, "admin", p.id);
+          featImgPrev.onerror = function () {
+            this.onerror = null;
+            this.src = store.FALLBACK_IMAGE;
+          };
+        }
+
+        toast("Loaded article details for: " + p.title);
+      });
+    }
+
+    function saveHeroSection() {
+      var data = {
+        title: val("hero-title").trim() || "Be The Change Blog",
+        subtitle: val("hero-subtitle").trim(),
+        breadcrumb: val("hero-breadcrumb").trim() || "Blog"
+      };
+      store.saveHero(data);
+      toast("Hero section saved.");
+    }
+
+    function saveToolbarSection() {
+      var catsRaw = val("toolbar-categories");
+      var cats = catsRaw.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+      if (!cats.length) cats = ["All", "Therapies", "Wellness", "Detox", "Blog"];
+
+      var data = {
+        searchPlaceholder: val("toolbar-placeholder").trim() || "Search articles…",
+        categories: cats,
+        emptyMessage: val("toolbar-empty-msg").trim() || "No articles match your search. Try another keyword or category."
+      };
+      store.saveIntro(data);
+      var statCats = document.getElementById("stat-categories-count");
+      if (statCats) statCats.textContent = cats.length;
+      toast("Search & category toolbar saved.");
+    }
+
+    function saveFeaturedSection() {
+      var enabledBox = document.getElementById("featured-enabled");
+      var data = {
+        enabled: enabledBox ? enabledBox.checked : true,
+        badgeText: val("featured-badge").trim() || "Featured Article",
+        category: val("featured-category").trim() || "Therapies",
+        title: val("featured-title").trim() || "What Is Frequency-specific Microcurrent Therapy?",
+        excerpt: val("featured-excerpt").trim(),
+        date: val("featured-date").trim(),
+        buttonText: val("featured-btn-text").trim() || "Read More",
+        link: val("featured-link").trim() || "what-is-frequency-specific-microcurrent-therapy.html",
+        image: val("featured-image").trim() || store.resolveImage("assets/uploads/2024/08/What-is-Microcurrent-1024x683-1.jpg", "admin")
+      };
+      store.saveFeaturedSection(data);
+      var statFeat = document.getElementById("stat-featured-title");
+      if (statFeat) statFeat.textContent = data.title;
+      toast("Featured article spotlight saved.");
+    }
+
+    function saveArticlesSection() {
+      var data = {
+        title: val("grid-heading").trim() || "All Articles",
+        subtitle: val("grid-subtitle").trim() || "Explore our wellness library.",
+        readMoreText: val("grid-readmore-text").trim() || "Read More"
+      };
+      store.saveArticlesHeader(data);
+      toast("Articles grid header section saved.");
+    }
+
+    function saveCtaSection() {
+      var data = {
+        title: val("cta-title").trim() || "Ready to experience these therapies?",
+        description: val("cta-desc").trim(),
+        primaryBtnText: val("cta-btn1-text").trim() || "Book Appointment",
+        primaryBtnLink: val("cta-btn1-link").trim() || "../book-appointment.html",
+        secondaryBtnText: val("cta-btn2-text").trim() || "Contact Us",
+        secondaryBtnLink: val("cta-btn2-link").trim() || "../contact.html"
+      };
+      store.saveCta(data);
+      toast("Consultation CTA band saved.");
+    }
+
+    function saveSeoSection() {
+      var data = {
+        title: val("seo-title").trim(),
+        description: val("seo-desc").trim(),
+        keywords: val("seo-keywords").trim(),
+        canonicalUrl: val("seo-canonical").trim() || "Frontend/blog/index.html",
+        ogTitle: val("og-title").trim(),
+        ogDescription: val("og-desc").trim(),
+        ogImage: val("og-image").trim()
+      };
+      store.saveSeo(data);
+
+      var previewTitle = document.getElementById("seo-preview-title");
+      var previewDesc = document.getElementById("seo-preview-desc");
+      if (previewTitle) previewTitle.textContent = data.title || "Blog - Be The Change";
+      if (previewDesc) previewDesc.textContent = data.description || "";
+
+      toast("SEO & Open Graph settings saved.");
+    }
+
+    function saveAllSections() {
+      saveHeroSection();
+      saveToolbarSection();
+      saveFeaturedSection();
+      saveArticlesSection();
+      saveCtaSection();
+      saveSeoSection();
+      toast("All Blog Page sections saved successfully!");
+    }
+
+    // Media library pickers
+    var btnPickFeat = document.getElementById("btn-pick-featured-img");
+    if (btnPickFeat) {
+      btnPickFeat.addEventListener("click", function () {
+        openMediaLibrary(function (url) {
+          setVal("featured-image", url);
+          var prev = document.getElementById("featured-image-preview");
+          if (prev) prev.src = store.resolveImage(url, "admin");
+          toast("Featured image updated.");
+        });
+      });
+    }
+
+    var btnPickOg = document.getElementById("btn-pick-og-img");
+    if (btnPickOg) {
+      btnPickOg.addEventListener("click", function () {
+        openMediaLibrary(function (url) {
+          setVal("og-image", url);
+          var prev = document.getElementById("og-image-preview");
+          if (prev) prev.src = store.resolveImage(url, "admin");
+          toast("Social share image updated.");
+        });
+      });
+    }
+
+    // Image upload inputs
+    var fileFeat = document.getElementById("file-featured-img");
+    if (fileFeat) {
+      fileFeat.addEventListener("change", function () {
+        if (fileFeat.files && fileFeat.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            setVal("featured-image", e.target.result);
+            var prev = document.getElementById("featured-image-preview");
+            if (prev) prev.src = e.target.result;
+            toast("Featured image uploaded.");
+          };
+          reader.readAsDataURL(fileFeat.files[0]);
+        }
+      });
+    }
+
+    var fileOg = document.getElementById("file-og-img");
+    if (fileOg) {
+      fileOg.addEventListener("change", function () {
+        if (fileOg.files && fileOg.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            setVal("og-image", e.target.result);
+            var prev = document.getElementById("og-image-preview");
+            if (prev) prev.src = e.target.result;
+            toast("Social share image uploaded.");
+          };
+          reader.readAsDataURL(fileOg.files[0]);
+        }
+      });
+    }
+
+    // Live SERP Snippet updates
+    var seoTitleInput = document.getElementById("seo-title");
+    var seoDescInput = document.getElementById("seo-desc");
+    if (seoTitleInput) {
+      seoTitleInput.addEventListener("input", function () {
+        var pt = document.getElementById("seo-preview-title");
+        if (pt) pt.textContent = seoTitleInput.value || "Blog - Be The Change Health and Wellness Center";
+      });
+    }
+    if (seoDescInput) {
+      seoDescInput.addEventListener("input", function () {
+        var pd = document.getElementById("seo-preview-desc");
+        if (pd) pd.textContent = seoDescInput.value || "";
+      });
+    }
+
+    // Section save button listeners
+    var btnHero = document.getElementById("btn-save-hero");
+    if (btnHero) btnHero.addEventListener("click", saveHeroSection);
+
+    var btnToolbar = document.getElementById("btn-save-toolbar");
+    if (btnToolbar) btnToolbar.addEventListener("click", saveToolbarSection);
+
+    var btnFeat = document.getElementById("btn-save-featured");
+    if (btnFeat) btnFeat.addEventListener("click", saveFeaturedSection);
+
+    var btnArticles = document.getElementById("btn-save-articles");
+    if (btnArticles) btnArticles.addEventListener("click", saveArticlesSection);
+
+    var btnCta = document.getElementById("btn-save-cta");
+    if (btnCta) btnCta.addEventListener("click", saveCtaSection);
+
+    var btnSeo = document.getElementById("btn-save-seo");
+    if (btnSeo) btnSeo.addEventListener("click", saveSeoSection);
+
+    var btnAllTop = document.getElementById("btn-save-all-content");
+    if (btnAllTop) btnAllTop.addEventListener("click", saveAllSections);
+
+    var btnAllBot = document.getElementById("btn-save-all-bottom");
+    if (btnAllBot) btnAllBot.addEventListener("click", saveAllSections);
+
+    var btnPublish = document.getElementById("btn-publish-live");
+    if (btnPublish) {
+      btnPublish.addEventListener("click", function () {
+        saveAllSections();
+        toast("Blog Page published to live website!");
+      });
+    }
+
+    // Reset Defaults
+    var btnReset = document.getElementById("btn-reset-content-defaults");
+    if (btnReset) {
+      btnReset.addEventListener("click", function () {
+        if (window.confirm("Reset all Blog Page sections (Hero, Search/Filter, Featured Spotlight, Articles Header, CTA, and SEO) to default?")) {
+          store.resetPageContentToDefaults();
+          loadAllFields();
+          toast("Blog Page content restored to default.");
+        }
+      });
+    }
+
+    // Live Preview Modal
+    function updateLivePreviewModal() {
+      var content = store.getPageContent();
+      var pvHeroTitle = document.getElementById("pv-page-hero-title");
+      var pvHeroSubtitle = document.getElementById("pv-page-hero-sub");
+      var pvHeroCrumb = document.getElementById("pv-page-hero-crumb");
+      var pvSearch = document.getElementById("pv-page-search");
+      var pvCats = document.getElementById("pv-page-cats");
+      var pvFeatArticle = document.getElementById("pv-page-featured");
+      var pvFeatBadge = document.getElementById("pv-page-feat-badge");
+      var pvFeatCat = document.getElementById("pv-page-feat-cat");
+      var pvFeatTitle = document.getElementById("pv-page-feat-title");
+      var pvFeatExcerpt = document.getElementById("pv-page-feat-excerpt");
+      var pvFeatDate = document.getElementById("pv-page-feat-date");
+      var pvFeatBtn = document.getElementById("pv-page-feat-btn");
+      var pvFeatImg = document.getElementById("pv-page-feat-img");
+      var pvGridHeading = document.getElementById("pv-page-grid-heading");
+      var pvGridSub = document.getElementById("pv-page-grid-sub");
+      var pvCtaHeading = document.getElementById("pv-page-cta-heading");
+      var pvCtaDesc = document.getElementById("pv-page-cta-desc");
+      var pvCtaBtn1 = document.getElementById("pv-page-cta-btn1");
+      var pvCtaBtn2 = document.getElementById("pv-page-cta-btn2");
+
+      if (pvHeroTitle) pvHeroTitle.textContent = val("hero-title") || content.hero.title;
+      if (pvHeroSubtitle) pvHeroSubtitle.textContent = val("hero-subtitle") || content.hero.subtitle;
+      if (pvHeroCrumb) pvHeroCrumb.textContent = val("hero-breadcrumb") || content.hero.breadcrumb;
+      if (pvSearch) pvSearch.placeholder = val("toolbar-placeholder") || content.intro.searchPlaceholder;
+
+      if (pvCats) {
+        var rawC = val("toolbar-categories") || (content.intro.categories || []).join(", ");
+        var arr = rawC.split(",").map(function (c) { return c.trim(); }).filter(Boolean);
+        pvCats.innerHTML = arr.map(function (cat, i) {
+          return '<button type="button" class="btn btn-sm ' + (i === 0 ? "btn-secondary text-white" : "btn-outline-secondary") + ' rounded-pill px-3 py-1 me-1 mb-1">' + cat + '</button>';
+        }).join("");
+      }
+
+      var featCheck = document.getElementById("featured-enabled");
+      var isFeatOn = featCheck ? featCheck.checked : content.featured.enabled !== false;
+      if (pvFeatArticle) {
+        pvFeatArticle.style.display = isFeatOn ? "" : "none";
+      }
+      if (pvFeatBadge) pvFeatBadge.textContent = val("featured-badge") || content.featured.badgeText;
+      if (pvFeatCat) pvFeatCat.textContent = val("featured-category") || content.featured.category;
+      if (pvFeatTitle) pvFeatTitle.textContent = val("featured-title") || content.featured.title;
+      if (pvFeatExcerpt) pvFeatExcerpt.textContent = val("featured-excerpt") || content.featured.excerpt;
+      if (pvFeatDate) pvFeatDate.textContent = val("featured-date") || content.featured.date;
+      if (pvFeatBtn) pvFeatBtn.textContent = val("featured-btn-text") || content.featured.buttonText;
+      if (pvFeatImg) {
+        var featImgVal = val("featured-image") || content.featured.image;
+        pvFeatImg.src = store.resolveImage(featImgVal, "admin");
+        pvFeatImg.onerror = function () {
+          this.onerror = null;
+          this.src = store.FALLBACK_IMAGE;
+        };
+      }
+
+      if (pvGridHeading) pvGridHeading.textContent = val("grid-heading") || content.articlesHeader.title;
+      if (pvGridSub) pvGridSub.textContent = val("grid-subtitle") || content.articlesHeader.subtitle;
+
+      if (pvCtaHeading) pvCtaHeading.textContent = val("cta-title") || content.cta.title;
+      if (pvCtaDesc) pvCtaDesc.textContent = val("cta-desc") || content.cta.description;
+      if (pvCtaBtn1) pvCtaBtn1.textContent = val("cta-btn1-text") || content.cta.primaryBtnText;
+      if (pvCtaBtn2) pvCtaBtn2.textContent = val("cta-btn2-text") || content.cta.secondaryBtnText;
+    }
+
+    var previewModalEl = document.getElementById("blogPagePreviewModal");
+    if (previewModalEl) {
+      previewModalEl.addEventListener("show.bs.modal", updateLivePreviewModal);
+    }
+
+    var previewDeviceBtns = document.querySelectorAll("#blogPagePreviewModal .device-btn");
+    var previewFrame = document.getElementById("pv-page-screen-frame");
+    if (previewDeviceBtns && previewFrame) {
+      previewDeviceBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          previewDeviceBtns.forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var vp = btn.getAttribute("data-viewport");
+          if (vp === "mobile") {
+            previewFrame.style.maxWidth = "390px";
+          } else if (vp === "tablet") {
+            previewFrame.style.maxWidth = "768px";
+          } else {
+            previewFrame.style.maxWidth = "100%";
+          }
+        });
+      });
+    }
+
+    // Initial load
+    populateArticlePicker();
+    loadAllFields();
+  }
+
   // Initialize depending on active page
   document.addEventListener("DOMContentLoaded", function () {
     initMediaLibraryModal();
@@ -1471,6 +1994,8 @@
       initBlogEditor();
     } else if (PAGE === "blog-preview") {
       initBlogPreview();
+    } else if (PAGE === "blog-content") {
+      initBlogContentPage();
     }
   });
 

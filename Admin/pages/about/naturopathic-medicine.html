@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naturopathic Medicine CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .repeater-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .repeater-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+    .card-handle {
+      cursor: grab;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="naturopathic">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About</a></li>
+                <li class="breadcrumb-item active">Naturopathic Medicine</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Naturopathic Medicine Page CMS</h1>
+            <p class="text-muted small mb-0">Manage hero, core clinical copy, 6 principles repeater, YouTube video, therapeutic order diagram, doctors section, CTA and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/about/naturopathic-medicine.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero & Header</a>
+          <a href="#sec-intro"><i class="bi bi-file-text me-1"></i> Clinical Overview</a>
+          <a href="#sec-principles"><i class="bi bi-list-check me-1"></i> Naturopathic Principles</a>
+          <a href="#sec-media"><i class="bi bi-play-circle me-1"></i> Video & Diagrams</a>
+          <a href="#sec-actions"><i class="bi bi-cursor me-1"></i> Action Buttons</a>
+          <a href="#sec-doctors"><i class="bi bi-people me-1"></i> Meet Our Doctors</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO & Metadata</a>
+        </div>
+
+        <!-- Section 1: Hero & Header -->
+        <section id="sec-hero" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Page Hero Section</h2>
+              <p>Top banner title, subtitle, and breadcrumb label displayed on Frontend/about/naturopathic-medicine.html</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Hero Heading (H1)</label>
+                <input type="text" id="heroTitle" class="form-control" value="Naturopathic Medicine">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Hero Subtitle / Motto</label>
+                <input type="text" id="heroSubtitle" class="form-control" value="Treat the cause, not just the symptoms.">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Breadcrumb Current Label</label>
+                <input type="text" id="heroBreadcrumb" class="form-control" value="Naturopathic Medicine">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Parent Page Label</label>
+                <input type="text" id="heroParent" class="form-control" value="About">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Clinical Overview -->
+        <section id="sec-intro" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>What is Naturopathic Medicine? (Clinical Overview)</h2>
+              <p>Main explanatory text introducing naturopathic medicine philosophy, training, and modalities.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label-admin">Section Heading (H2)</label>
+                <input type="text" id="introHeading" class="form-control" value="What is Naturopathic Medicine?">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Paragraph 1: Definition & Philosophy</label>
+                <textarea id="introPara1" class="form-control" rows="4">Naturopathic Medicine is evidence-based medicine that treats the whole person by addressing the root cause(s) of illness and emphasizes prevention of illness. Naturopathic doctors educate and empower patients to be the leaders and decision-makers of their own health. Naturopathic medicine philosophy is grounded in the understanding that our bodies have an innate ability to heal; when disturbances to health are removed and the foundations of health are restored, our bodies can return to balance by first using the least invasive interventions.</textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Paragraph 2: Doctor Training & Treatment Modalities</label>
+                <textarea id="introPara2" class="form-control" rows="3">Naturopathic doctors are trained in lifestyle medicine, botanical medicine, physical medicine, nutrition, homeopathy, mind-body medicine, pharmacology, nutraceuticals, and other modalities, and aim to individualize these treatments to support and restore function with no harm done to the patient.</textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Paragraph 3: Clinical Qualifications (4-year post-graduate program)</label>
+                <textarea id="introPara3" class="form-control" rows="2">Naturopathic Doctors (NDs) attend a 4-year post-graduate program that includes clinical training.</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Naturopathic Principles Repeater -->
+        <section id="sec-principles" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Naturopathic Principles</h2>
+              <p>The 6 core guiding principles of naturopathic medicine shown as a numbered ordered list.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-primary" id="addPrincipleBtn">
+              <i class="bi bi-plus-lg me-1"></i> Add Principle
+            </button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Subheading (H3)</label>
+                <input type="text" id="principlesHeading" class="form-control" value="Naturopathic Principles">
+              </div>
+            </div>
+            <div id="principlesContainer">
+              <!-- Dynamically populated principles -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Video & Therapeutic Order Diagram -->
+        <section id="sec-media" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Sidebar Media: Video & Therapeutic Order</h2>
+              <p>YouTube video player embed and therapeutic order hierarchy pyramid diagram.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <!-- YouTube Video -->
+              <div class="col-lg-6">
+                <div class="border rounded p-3 bg-light h-100">
+                  <h6 class="fw-semibold mb-2"><i class="bi bi-youtube text-danger me-2"></i>YouTube Video Embed</h6>
+                  <p class="text-muted small mb-3">Enter the YouTube video ID or embed URL.</p>
+                  <label class="form-label-admin">YouTube Embed URL</label>
+                  <input type="text" id="youtubeUrl" class="form-control mb-2" value="https://www.youtube.com/embed/p5zb17r0f3U">
+                  <label class="form-label-admin">Video Iframe Title / Accessibility</label>
+                  <input type="text" id="youtubeTitle" class="form-control mb-3" value="Naturopathic Medicine">
+                  <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm bg-dark">
+                    <iframe id="youtubePreview" src="https://www.youtube.com/embed/p5zb17r0f3U" title="Naturopathic Medicine" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Therapeutic Order Image -->
+              <div class="col-lg-6">
+                <div class="border rounded p-3 bg-light h-100">
+                  <h6 class="fw-semibold mb-2"><i class="bi bi-image text-primary me-2"></i>Therapeutic Order Diagram</h6>
+                  <p class="text-muted small mb-3">Pyramid graphic illustrating the hierarchy of healing interventions.</p>
+                  <label class="form-label-admin">Image Path / URL</label>
+                  <input type="text" id="therapeuticOrderSrc" class="form-control mb-2" value="../assets/uploads/2024/10/therapeutic-order.png">
+                  <label class="form-label-admin">Image Alt Text</label>
+                  <input type="text" id="therapeuticOrderAlt" class="form-control mb-3" value="Therapeutic order">
+                  <div class="upload-box text-center p-3 border rounded bg-white">
+                    <img id="therapeuticOrderPreview" src="../../../Frontend/assets/uploads/2024/10/therapeutic-order.png" class="img-fluid rounded shadow-sm mb-2" style="max-height: 220px;" alt="Therapeutic order">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2024/10/therapeutic-order.png</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Action Buttons (In-page CTAs) -->
+        <section id="sec-actions" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Page Action Buttons</h2>
+              <p>Primary and secondary CTA buttons beneath the Naturopathic Principles section.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="border rounded p-3 bg-light">
+                  <span class="badge bg-primary mb-2">Primary Button</span>
+                  <label class="form-label-admin">Button Label</label>
+                  <input type="text" id="btnPrimaryText" class="form-control mb-2" value="Request An Appointment">
+                  <label class="form-label-admin">Target URL</label>
+                  <input type="text" id="btnPrimaryUrl" class="form-control" value="../book-appointment.html">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="border rounded p-3 bg-light">
+                  <span class="badge bg-secondary mb-2">Secondary Outline Button</span>
+                  <label class="form-label-admin">Button Label</label>
+                  <input type="text" id="btnSecondaryText" class="form-control mb-2" value="Our Practice">
+                  <label class="form-label-admin">Target URL</label>
+                  <input type="text" id="btnSecondaryUrl" class="form-control" value="index.html">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Meet Our Doctors Section -->
+        <section id="sec-doctors" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Meet Our Doctors Section</h2>
+              <p>Section title, description and practitioner cards displayed at the bottom of the page.</p>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="doctorsSectionVisible" checked>
+              <label class="form-check-label small fw-semibold" for="doctorsSectionVisible">Show Section</label>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Heading (H2)</label>
+                <input type="text" id="doctorsHeading" class="form-control" value="Meet Our Doctors">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Tagline / Description</label>
+                <textarea id="doctorsDesc" class="form-control" rows="2">Our team of doctors include Osteopathic Physician (D.O.) and Naturopathic Doctor (N.D)s. We recognize that you have complex needs related to chronic illness and are here to guide you with kindness, generosity, and compassion.</textarea>
+              </div>
+            </div>
+
+            <!-- Doctor 1: Dr Sultana Afrooz -->
+            <div class="repeater-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-grip-vertical card-handle"></i>
+                  <h6 class="fw-semibold mb-0">Doctor Card 1: Sultana Afrooz, D.O.</h6>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="doc1Visible" checked>
+                  <label class="form-check-label small" for="doc1Visible">Visible</label>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label-admin">Photo Path</label>
+                  <input type="text" id="doc1Photo" class="form-control mb-2" value="../assets/uploads/2024/08/sa.jpg">
+                  <img src="../../../Frontend/assets/uploads/2024/08/sa.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Sultana Afrooz">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Full Name & Title</label>
+                  <input type="text" id="doc1Name" class="form-control mb-2" value="Sultana Afrooz, D.O.">
+                  <label class="form-label-admin">Specialty Subtitle</label>
+                  <input type="text" id="doc1Specialty" class="form-control" value="Integrative Family Medicine Physician &amp; Osteopathic Physician">
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin">Bio Summary</label>
+                  <textarea id="doc1Bio" class="form-control mb-2" rows="2">Dedicated to root-cause care and guiding patients through complex chronic illness with compassion.</textarea>
+                  <label class="form-label-admin">Profile Link</label>
+                  <input type="text" id="doc1Url" class="form-control" value="../about/sultana-afrooz.html">
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 2: Dr Jessica Needle -->
+            <div class="repeater-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-grip-vertical card-handle"></i>
+                  <h6 class="fw-semibold mb-0">Doctor Card 2: Jessica Needle, N.D.</h6>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="doc2Visible" checked>
+                  <label class="form-check-label small" for="doc2Visible">Visible</label>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label-admin">Photo Path</label>
+                  <input type="text" id="doc2Photo" class="form-control mb-2" value="../assets/uploads/2025/02/jn-5.jpg">
+                  <img src="../../../Frontend/assets/uploads/2025/02/jn-5.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Jessica Needle">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Full Name & Title</label>
+                  <input type="text" id="doc2Name" class="form-control mb-2" value="Jessica Needle, N.D.">
+                  <label class="form-label-admin">Specialty Subtitle</label>
+                  <input type="text" id="doc2Specialty" class="form-control" value="Naturopathic Doctor">
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin">Bio Summary</label>
+                  <textarea id="doc2Bio" class="form-control mb-2" rows="2">Focused on naturopathic medicine that supports the body’s natural ability to heal.</textarea>
+                  <label class="form-label-admin">Profile Link</label>
+                  <input type="text" id="doc2Url" class="form-control" value="../about/jessica-needle.html">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: SEO & Metadata -->
+        <section id="sec-seo" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>SEO & Metadata</h2>
+              <p>Manage meta title, description, keywords, Open Graph, and search snippet preview.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Title Tag (50-60 characters)</label>
+                  <input type="text" id="seoTitle" class="form-control" value="Naturopathic Medicine | Be The Change Health &amp; Wellness Center">
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 50–60 characters</span>
+                    <span class="small text-muted" id="seoTitleCount">66 chars</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Description (150-160 characters)</label>
+                  <textarea id="seoDesc" class="form-control" rows="3">Naturopathic Medicine is evidence-based medicine that treats the whole person by addressing the root cause(s) of illness.</textarea>
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 150–160 characters</span>
+                    <span class="small text-muted" id="seoDescCount">114 chars</span>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Canonical URL</label>
+                    <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/about/naturopathic-medicine.html">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Robots Meta</label>
+                    <select id="seoRobots" class="form-select">
+                      <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                      <option value="noindex, follow">Noindex, Follow</option>
+                      <option value="index, nofollow">Index, Nofollow</option>
+                      <option value="noindex, nofollow">Noindex, Nofollow</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                <div class="serp-preview">
+                  <div class="serp-title" id="serpTitlePreview">Naturopathic Medicine | Be The Change Health &amp; Wellness Center</div>
+                  <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/about/naturopathic-medicine.html</div>
+                  <div class="serp-desc" id="serpDescPreview">Naturopathic Medicine is evidence-based medicine that treats the whole person by addressing the root cause(s) of illness.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_naturopathic_medicine';
+
+      const defaultPrinciples = [
+        { title: "First do no harm", desc: "Utilize the most natural, least invasive and least toxic therapies first." },
+        { title: "Identify and treat the root cause(s)", desc: "Look beyond symptoms to identify and remove underlying physiological causes." },
+        { title: "Healing power of nature", desc: "Trust in the body’s inherent, self-organizing ability to heal and regenerate." },
+        { title: "Doctor as teacher", desc: "Educate and empower patients to take personal responsibility for their lifelong health." },
+        { title: "Treat the whole person", desc: "Acknowledge the physical, mental, emotional, genetic, environmental and social factors." },
+        { title: "Focus on prevention", desc: "Emphasize health maintenance and disease prevention before pathology develops." }
+      ];
+
+      let principles = [...defaultPrinciples];
+
+      function renderPrinciples() {
+        const container = document.getElementById('principlesContainer');
+        container.innerHTML = '';
+        principles.forEach((item, index) => {
+          const card = document.createElement('div');
+          card.className = 'repeater-card';
+          card.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-grip-vertical card-handle"></i>
+                <span class="badge bg-secondary me-2">Principle #${index + 1}</span>
+                <strong class="text-dark">${escapeHtml(item.title)}</strong>
+              </div>
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-secondary move-up-btn" data-index="${index}" ${index === 0 ? 'disabled' : ''} title="Move Up"><i class="bi bi-arrow-up"></i></button>
+                <button type="button" class="btn btn-outline-secondary move-down-btn" data-index="${index}" ${index === principles.length - 1 ? 'disabled' : ''} title="Move Down"><i class="bi bi-arrow-down"></i></button>
+                <button type="button" class="btn btn-outline-danger remove-btn" data-index="${index}" title="Remove"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label-admin small">Principle Title</label>
+                <input type="text" class="form-control form-control-sm principle-title" data-index="${index}" value="${escapeHtml(item.title)}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin small">Clinical Explanation / Philosophy Note</label>
+                <input type="text" class="form-control form-control-sm principle-desc" data-index="${index}" value="${escapeHtml(item.desc)}">
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        // Attach listeners
+        container.querySelectorAll('.move-up-btn').forEach(b => {
+          b.addEventListener('click', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (idx > 0) {
+              const temp = principles[idx];
+              principles[idx] = principles[idx - 1];
+              principles[idx - 1] = temp;
+              renderPrinciples();
+            }
+          });
+        });
+
+        container.querySelectorAll('.move-down-btn').forEach(b => {
+          b.addEventListener('click', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (idx < principles.length - 1) {
+              const temp = principles[idx];
+              principles[idx] = principles[idx + 1];
+              principles[idx + 1] = temp;
+              renderPrinciples();
+            }
+          });
+        });
+
+        container.querySelectorAll('.remove-btn').forEach(b => {
+          b.addEventListener('click', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            if (confirm(`Remove principle #${idx + 1}?`)) {
+              principles.splice(idx, 1);
+              renderPrinciples();
+            }
+          });
+        });
+
+        container.querySelectorAll('.principle-title').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            principles[idx].title = e.currentTarget.value;
+          });
+        });
+
+        container.querySelectorAll('.principle-desc').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            principles[idx].desc = e.currentTarget.value;
+          });
+        });
+      }
+
+      document.getElementById('addPrincipleBtn').addEventListener('click', () => {
+        principles.push({ title: "New Principle", desc: "Description of the principle." });
+        renderPrinciples();
+      });
+
+      // YouTube preview live update
+      const ytInput = document.getElementById('youtubeUrl');
+      const ytIframe = document.getElementById('youtubePreview');
+      ytInput.addEventListener('input', () => {
+        ytIframe.src = ytInput.value;
+      });
+
+      // SERP counter & live preview
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Naturopathic Medicine';
+        serpDesc.textContent = seoDesc.value || 'Naturopathic Medicine is evidence-based medicine...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      // Save & Load
+      function saveToStorage() {
+        const data = {
+          heroTitle: document.getElementById('heroTitle').value,
+          heroSubtitle: document.getElementById('heroSubtitle').value,
+          heroBreadcrumb: document.getElementById('heroBreadcrumb').value,
+          heroParent: document.getElementById('heroParent').value,
+          introHeading: document.getElementById('introHeading').value,
+          introPara1: document.getElementById('introPara1').value,
+          introPara2: document.getElementById('introPara2').value,
+          introPara3: document.getElementById('introPara3').value,
+          principlesHeading: document.getElementById('principlesHeading').value,
+          principles: principles,
+          youtubeUrl: document.getElementById('youtubeUrl').value,
+          youtubeTitle: document.getElementById('youtubeTitle').value,
+          therapeuticOrderSrc: document.getElementById('therapeuticOrderSrc').value,
+          therapeuticOrderAlt: document.getElementById('therapeuticOrderAlt').value,
+          btnPrimaryText: document.getElementById('btnPrimaryText').value,
+          btnPrimaryUrl: document.getElementById('btnPrimaryUrl').value,
+          btnSecondaryText: document.getElementById('btnSecondaryText').value,
+          btnSecondaryUrl: document.getElementById('btnSecondaryUrl').value,
+          doctorsSectionVisible: document.getElementById('doctorsSectionVisible').checked,
+          doctorsHeading: document.getElementById('doctorsHeading').value,
+          doctorsDesc: document.getElementById('doctorsDesc').value,
+          doc1Visible: document.getElementById('doc1Visible').checked,
+          doc1Photo: document.getElementById('doc1Photo').value,
+          doc1Name: document.getElementById('doc1Name').value,
+          doc1Specialty: document.getElementById('doc1Specialty').value,
+          doc1Bio: document.getElementById('doc1Bio').value,
+          doc1Url: document.getElementById('doc1Url').value,
+          doc2Visible: document.getElementById('doc2Visible').checked,
+          doc2Photo: document.getElementById('doc2Photo').value,
+          doc2Name: document.getElementById('doc2Name').value,
+          doc2Specialty: document.getElementById('doc2Specialty').value,
+          doc2Bio: document.getElementById('doc2Bio').value,
+          doc2Url: document.getElementById('doc2Url').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          seoRobots: document.getElementById('seoRobots').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderPrinciples();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.heroTitle) document.getElementById('heroTitle').value = d.heroTitle;
+          if (d.heroSubtitle) document.getElementById('heroSubtitle').value = d.heroSubtitle;
+          if (d.heroBreadcrumb) document.getElementById('heroBreadcrumb').value = d.heroBreadcrumb;
+          if (d.heroParent) document.getElementById('heroParent').value = d.heroParent;
+          if (d.introHeading) document.getElementById('introHeading').value = d.introHeading;
+          if (d.introPara1) document.getElementById('introPara1').value = d.introPara1;
+          if (d.introPara2) document.getElementById('introPara2').value = d.introPara2;
+          if (d.introPara3) document.getElementById('introPara3').value = d.introPara3;
+          if (d.principlesHeading) document.getElementById('principlesHeading').value = d.principlesHeading;
+          if (Array.isArray(d.principles) && d.principles.length) {
+            principles = d.principles;
+          }
+          if (d.youtubeUrl) {
+            document.getElementById('youtubeUrl').value = d.youtubeUrl;
+            ytIframe.src = d.youtubeUrl;
+          }
+          if (d.youtubeTitle) document.getElementById('youtubeTitle').value = d.youtubeTitle;
+          if (d.therapeuticOrderSrc) document.getElementById('therapeuticOrderSrc').value = d.therapeuticOrderSrc;
+          if (d.therapeuticOrderAlt) document.getElementById('therapeuticOrderAlt').value = d.therapeuticOrderAlt;
+          if (d.btnPrimaryText) document.getElementById('btnPrimaryText').value = d.btnPrimaryText;
+          if (d.btnPrimaryUrl) document.getElementById('btnPrimaryUrl').value = d.btnPrimaryUrl;
+          if (d.btnSecondaryText) document.getElementById('btnSecondaryText').value = d.btnSecondaryText;
+          if (d.btnSecondaryUrl) document.getElementById('btnSecondaryUrl').value = d.btnSecondaryUrl;
+          if (d.doctorsSectionVisible !== undefined) document.getElementById('doctorsSectionVisible').checked = d.doctorsSectionVisible;
+          if (d.doctorsHeading) document.getElementById('doctorsHeading').value = d.doctorsHeading;
+          if (d.doctorsDesc) document.getElementById('doctorsDesc').value = d.doctorsDesc;
+          if (d.doc1Visible !== undefined) document.getElementById('doc1Visible').checked = d.doc1Visible;
+          if (d.doc1Photo) document.getElementById('doc1Photo').value = d.doc1Photo;
+          if (d.doc1Name) document.getElementById('doc1Name').value = d.doc1Name;
+          if (d.doc1Specialty) document.getElementById('doc1Specialty').value = d.doc1Specialty;
+          if (d.doc1Bio) document.getElementById('doc1Bio').value = d.doc1Bio;
+          if (d.doc1Url) document.getElementById('doc1Url').value = d.doc1Url;
+          if (d.doc2Visible !== undefined) document.getElementById('doc2Visible').checked = d.doc2Visible;
+          if (d.doc2Photo) document.getElementById('doc2Photo').value = d.doc2Photo;
+          if (d.doc2Name) document.getElementById('doc2Name').value = d.doc2Name;
+          if (d.doc2Specialty) document.getElementById('doc2Specialty').value = d.doc2Specialty;
+          if (d.doc2Bio) document.getElementById('doc2Bio').value = d.doc2Bio;
+          if (d.doc2Url) document.getElementById('doc2Url').value = d.doc2Url;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+          if (d.seoRobots) document.getElementById('seoRobots').value = d.seoRobots;
+        } catch (e) {
+          console.error(e);
+        }
+        renderPrinciples();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Naturopathic Medicine page changes saved successfully!');
+        } else {
+          alert('Naturopathic Medicine page changes saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset to default values?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

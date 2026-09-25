@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Process CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .step-accordion {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .step-header {
+      background: #f8fafc;
+      padding: 1.15rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .step-header:hover {
+      background: #f1f5f9;
+    }
+    .step-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #0d9488;
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .subcard-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="process">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About</a></li>
+                <li class="breadcrumb-item active">Our Process</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Our Process Page CMS</h1>
+            <p class="text-muted small mb-0">Manage hero, all 6 steps, sub-cards repeater (including all 6 Step 4 modalities), testimonials, Why Choose Us cards, CTA and SEO.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../../Frontend/our-process/index.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+          </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero</a>
+          <a href="#sec-step1"><i class="bi bi-1-circle me-1"></i> Step 1: Consultation</a>
+          <a href="#sec-step2"><i class="bi bi-2-circle me-1"></i> Step 2: Labs</a>
+          <a href="#sec-step3"><i class="bi bi-3-circle me-1"></i> Step 3: Lifestyle</a>
+          <a href="#sec-step4"><i class="bi bi-4-circle me-1"></i> Step 4: Therapies</a>
+          <a href="#sec-step5"><i class="bi bi-5-circle me-1"></i> Step 5: Supplements</a>
+          <a href="#sec-step6"><i class="bi bi-6-circle me-1"></i> Step 6: Follow-Up</a>
+          <a href="#sec-why"><i class="bi bi-star me-1"></i> Why Choose Us</a>
+          <a href="#sec-testimonials"><i class="bi bi-chat-quote me-1"></i> Testimonials</a>
+          <a href="#sec-cta"><i class="bi bi-megaphone me-1"></i> Consultation CTA</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO</a>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="sec-hero" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Page Hero Section</h2>
+              <p>Top banner heading, subtitle, and breadcrumb displayed on Frontend/our-process/index.html</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Hero Heading (H1)</label>
+                <input type="text" id="heroTitle" class="form-control" value="Our Process">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Hero Subtitle</label>
+                <input type="text" id="heroSubtitle" class="form-control" value="We help you understand your body, to achieve optimal health.">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Breadcrumb Label</label>
+                <input type="text" id="heroBreadcrumb" class="form-control" value="Our Process">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Parent Page Label</label>
+                <input type="text" id="heroParent" class="form-control" value="About">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Step 1: Consultation -->
+        <div id="sec-step1" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep1">
+            <div class="d-flex align-items-center">
+              <span class="step-badge">01</span>
+              <div>
+                <h5 class="mb-0 fw-semibold">Step #1: Consultation</h5>
+                <span class="text-muted small">Listen, Learn &amp; Apply · 3 Sub-Cards</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep1" class="collapse show p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step1Title" class="form-control" value="Step #1: Consultation">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step1Tag" class="form-control" value="Listen, Learn & Apply">
+              </div>
+            </div>
+            <h6 class="fw-semibold mt-3 mb-2">Sub-Cards (3 items)</h6>
+            <div id="step1Subcards">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Laboratory Testing -->
+        <div id="sec-step2" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep2">
+            <div class="d-flex align-items-center">
+              <span class="step-badge">02</span>
+              <div>
+                <h5 class="mb-0 fw-semibold">Step #2: Laboratory Testing</h5>
+                <span class="text-muted small">A Closer Look Inside the Body · 3 Sub-Cards + Lab Links</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep2" class="collapse p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step2Title" class="form-control" value="Step #2: Laboratory Testing">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step2Tag" class="form-control" value="A Closer Look Inside the Body">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Step Intro Description</label>
+                <textarea id="step2Intro" class="form-control" rows="3">We run insurance-covered blood tests to investigate the root cause of disease. We also incorporate specialty tests including, Genova Diagnostics, Igenix Lyme testing, Real Time Labs mold testing, Great Plains Laboratory, Doctor’s Data, Cyrex, ALCAT Tests, ZRT Heavy Metal Tests, Galaxy Labs, Fry Labs, DiagnosTechs and neurotransmitter testing.</textarea>
+              </div>
+            </div>
+            <h6 class="fw-semibold mt-3 mb-2">Sub-Cards (3 items)</h6>
+            <div id="step2Subcards"></div>
+            <h6 class="fw-semibold mt-4 mb-2">Lab Resource External Links</h6>
+            <textarea id="step2LabLinks" class="form-control" rows="2">Genova (https://www.gdx.net/), Igenex (https://www.igenex.com/), Great Plains (https://www.greatplainslaboratory.com/), Cyrex (https://www.cyrexlabs.com/), ALCAT (https://cellsciencesystems.com/patients/alcat-test/), ZRT (https://www.zrtlab.com/), Galaxy (https://www.galaxydx.com/), Fry Labs (https://www.frylabs.com/), DiagnosTechs (https://www.diagnostechs.com/)</textarea>
+          </div>
+        </div>
+
+        <!-- Step 3: Lifestyle Guidance -->
+        <div id="sec-step3" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep3">
+            <div class="d-flex align-items-center">
+              <span class="step-badge">03</span>
+              <div>
+                <h5 class="mb-0 fw-semibold">Step #3: Lifestyle Guidance</h5>
+                <span class="text-muted small">Helping You Create Healthy Changes · 3 Sub-Cards</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep3" class="collapse p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step3Title" class="form-control" value="Step #3: Lifestyle Guidance">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step3Tag" class="form-control" value="Helping You Create Healthy Changes">
+              </div>
+            </div>
+            <h6 class="fw-semibold mt-3 mb-2">Sub-Cards (Nutrition, Physical Activities, Environmental Toxins)</h6>
+            <div id="step3Subcards"></div>
+          </div>
+        </div>
+
+        <!-- Step 4: Effective Therapies (CRITICAL AUDIT ITEM) -->
+        <div id="sec-step4" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep4">
+            <div class="d-flex align-items-center">
+              <span class="step-badge" style="background: #2563eb;">04</span>
+              <div>
+                <h5 class="mb-0 fw-semibold text-primary">Step #4: Effective Therapies (Fully Editable Modalities)</h5>
+                <span class="text-muted small">Detox, Rejuvenate &amp; Heal · 6 Modalities (IV, FSM, CST, Hyperbaric, Ion Foot Detox, Oils)</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep4" class="collapse show p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step4Title" class="form-control" value="Step #4: Effective Therapies">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step4Tag" class="form-control" value="Detox, Rejuvenate & Heal">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
+              <h6 class="fw-semibold mb-0">Therapy Modality Cards Repeater</h6>
+              <button type="button" class="btn btn-sm btn-outline-primary" id="addTherapySubcardBtn">
+                <i class="bi bi-plus-lg me-1"></i> Add Modality Card
+              </button>
+            </div>
+            <div id="step4Subcards">
+              <!-- Dynamically populated 6 modalities -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Supplements, Medications & Detoxification -->
+        <div id="sec-step5" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep5">
+            <div class="d-flex align-items-center">
+              <span class="step-badge">05</span>
+              <div>
+                <h5 class="mb-0 fw-semibold">Step #5: Supplements, Medications &amp; Detoxification</h5>
+                <span class="text-muted small">Individualized for Your Needs · Featured Image &amp; Copy</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep5" class="collapse p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step5Title" class="form-control" value="Step #5: Supplements, Medications & Detoxification">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step5Tag" class="form-control" value="Individualized for Your Needs">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-admin">Featured Image Path</label>
+                <input type="text" id="step5Image" class="form-control mb-2" value="../assets/uploads/2025/05/treatment.png">
+                <img src="../../../Frontend/assets/uploads/2025/05/treatment.png" class="img-thumbnail" style="max-height: 100px;" alt="Supplements, Nutrients and Medication">
+              </div>
+              <div class="col-md-8">
+                <label class="form-label-admin">Card Title (H4)</label>
+                <input type="text" id="step5CardTitle" class="form-control mb-2" value="Supplements, Nutrients and Medication">
+                <label class="form-label-admin">Card Description</label>
+                <textarea id="step5CardDesc" class="form-control" rows="3">We use a research-based approach to individualize treatment plans. We use various combinations of trusted nutriceuticals &amp; supplements, as well as, prescription medications, to clear disease and support your body.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Follow-Up -->
+        <div id="sec-step6" class="step-accordion">
+          <div class="step-header" data-bs-toggle="collapse" data-bs-target="#collapseStep6">
+            <div class="d-flex align-items-center">
+              <span class="step-badge">06</span>
+              <div>
+                <h5 class="mb-0 fw-semibold">Step #6: Follow-Up</h5>
+                <span class="text-muted small">We Journey With You · 3 Sub-Cards</span>
+              </div>
+            </div>
+            <i class="bi bi-chevron-down"></i>
+          </div>
+          <div id="collapseStep6" class="collapse p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Title</label>
+                <input type="text" id="step6Title" class="form-control" value="Step #6: Follow-Up">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Step Subtitle Tag</label>
+                <input type="text" id="step6Tag" class="form-control" value="We Journey With You">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">Step Intro Description</label>
+                <textarea id="step6Intro" class="form-control" rows="2">We care about your long-term well-being. Follow-ups allow us to evaluate treatment effectiveness and to make any necessary adjustments to support your progress. We aim to build trust and lasting relationships with our patients.</textarea>
+              </div>
+            </div>
+            <h6 class="fw-semibold mt-3 mb-2">Sub-Cards (3 items)</h6>
+            <div id="step6Subcards"></div>
+          </div>
+        </div>
+
+        <!-- Why Choose Us / Features Section -->
+        <section id="sec-why" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Why Choose Us (4 Pillar Feature Cards)</h2>
+              <p>Key differentiators emphasizing root-cause medicine, holistic care, and patient empowerment.</p>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="whySectionVisible" checked>
+              <label class="form-check-label small fw-semibold" for="whySectionVisible">Show Section</label>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Heading</label>
+                <input type="text" id="whyHeading" class="form-control" value="Why Choose Be The Change Health">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Subtitle</label>
+                <input type="text" id="whySubtitle" class="form-control" value="Empowering your wellness journey with compassionate, integrative care.">
+              </div>
+            </div>
+            <div class="row g-3" id="whyCardsContainer">
+              <!-- 4 Feature Cards -->
+              <div class="col-md-6">
+                <div class="subcard-box">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-heart-pulse text-primary fs-5 me-2"></i>
+                    <strong class="text-dark">Feature #1: Root-Cause Investigation</strong>
+                  </div>
+                  <input type="text" id="why1Title" class="form-control mb-2" value="Root-Cause Medicine">
+                  <textarea id="why1Desc" class="form-control" rows="2">We go beyond surface symptoms to discover the biochemical, environmental, and lifestyle triggers causing chronic illness.</textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="subcard-box">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-person-check text-primary fs-5 me-2"></i>
+                    <strong class="text-dark">Feature #2: Individualized Plans</strong>
+                  </div>
+                  <input type="text" id="why2Title" class="form-control mb-2" value="Personalized Care">
+                  <textarea id="why2Desc" class="form-control" rows="2">No one-size-fits-all treatments. Every recommendation is tailored to your unique biochemistry, genetics, and lifestyle.</textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="subcard-box">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-shield-check text-primary fs-5 me-2"></i>
+                    <strong class="text-dark">Feature #3: Science & Nature</strong>
+                  </div>
+                  <input type="text" id="why3Title" class="form-control mb-2" value="Integrative & Evidence-Based">
+                  <textarea id="why3Desc" class="form-control" rows="2">Combining modern medical diagnostics with natural, restorative therapeutic modalities for maximum safety and efficacy.</textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="subcard-box">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-people text-primary fs-5 me-2"></i>
+                    <strong class="text-dark">Feature #4: Compassionate Doctors</strong>
+                  </div>
+                  <input type="text" id="why4Title" class="form-control mb-2" value="Compassionate Guidance">
+                  <textarea id="why4Desc" class="form-control" rows="2">We take time to listen, explain findings clearly, and support you at every milestone of your path to recovery.</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="sec-testimonials" class="card-admin mb-4">
+          <div class="card-head d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Patient Testimonials Section</h2>
+              <p>Add, edit, reorder or toggle patient stories and reviews.</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-primary" id="addTestimonialBtn">
+              <i class="bi bi-plus-lg me-1"></i> Add Testimonial
+            </button>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Heading</label>
+                <input type="text" id="testimonialsHeading" class="form-control" value="Patient Experiences">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Section Subtitle</label>
+                <input type="text" id="testimonialsSubtitle" class="form-control" value="Hear what our patients say about their healing journeys through our process.">
+              </div>
+            </div>
+            <div id="testimonialsContainer">
+              <!-- Dynamically populated testimonials -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Bottom Consultation CTA -->
+        <section id="sec-cta" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>Bottom Consultation CTA Band</h2>
+              <p>Displayed at the bottom of the page before the footer.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-admin">CTA Heading</label>
+                <input type="text" id="ctaHeading" class="form-control" value="Feel Good, Live Better!">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin">Call Text & Phone</label>
+                <input type="text" id="ctaPhone" class="form-control" value="Call now! 301-970-9724">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin">CTA Description</label>
+                <textarea id="ctaDesc" class="form-control" rows="2">If you suspect that you have a concussion, call Be The Change Health & Wellness Center or book online today.</textarea>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Button 1 Text</label>
+                <input type="text" id="ctaBtn1Text" class="form-control" value="Book Online">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Button 1 URL</label>
+                <input type="text" id="ctaBtn1Url" class="form-control" value="../book-appointment.html">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Button 2 Text</label>
+                <input type="text" id="ctaBtn2Text" class="form-control" value="Request An Appointment">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label-admin">Button 2 URL</label>
+                <input type="text" id="ctaBtn2Url" class="form-control" value="book-appointment.html">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEO Section -->
+        <section id="sec-seo" class="card-admin mb-4">
+          <div class="card-head">
+            <div>
+              <h2>SEO & Search Snippet</h2>
+              <p>Meta title, description, canonical and Google preview.</p>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Title Tag</label>
+                  <input type="text" id="seoTitle" class="form-control" value="Our Process | Be The Change Health &amp; Wellness Center">
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 50–60 characters</span>
+                    <span class="small text-muted" id="seoTitleCount">57 chars</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-admin">Meta Description</label>
+                  <textarea id="seoDesc" class="form-control" rows="3">Discover our 6-step root-cause healing process: Consultation, Lab Testing, Lifestyle Guidance, Effective Therapies, Supplements & Follow-Up.</textarea>
+                  <div class="d-flex justify-content-between mt-1">
+                    <span class="small text-muted">Recommended: 150–160 characters</span>
+                    <span class="small text-muted" id="seoDescCount">146 chars</span>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Canonical URL</label>
+                    <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/our-process/index.html">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Robots Meta</label>
+                    <select id="seoRobots" class="form-select">
+                      <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                      <option value="noindex, follow">Noindex, Follow</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                <div class="serp-preview">
+                  <div class="serp-title" id="serpTitlePreview">Our Process | Be The Change Health &amp; Wellness Center</div>
+                  <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/our-process/index.html</div>
+                  <div class="serp-desc" id="serpDescPreview">Discover our 6-step root-cause healing process: Consultation, Lab Testing, Lifestyle Guidance, Effective Therapies, Supplements &amp; Follow-Up.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_our_process';
+
+      // Default Subcard sets
+      const defaultStep1Cards = [
+        { title: "Consultation", img: "../assets/uploads/2025/05/Consultation.png", desc: "We listen to your needs, learn about your lifestyle, and discuss any symptoms you may be having." },
+        { title: "History Intake", img: "../assets/uploads/2025/05/History-Intake.png", desc: "We gather a thorough personal history, family history, medical history, and environmental exposure history to better understand your complete story." },
+        { title: "Physical Exam", img: "../assets/uploads/2025/05/Physical-Exam.png", desc: "We perform in-office physical exams of the cardiovascular, respiratory, digestive, neurological systems, and more." }
+      ];
+
+      const defaultStep2Cards = [
+        { title: "Lab Testing", img: "../assets/uploads/2025/05/Lab-Testing.png", desc: "Comprehensive laboratory investigation to uncover the root cause of disease." },
+        { title: "Blood Tests", img: "../assets/uploads/2025/05/Blood-Tests.png", desc: "Insurance-covered blood tests to investigate the root cause of disease." },
+        { title: "Specialty Tests", img: "../assets/uploads/2025/05/Specialty-Tests.png", desc: "Specialty labs including Genova, Igenex, Real Time Labs, Great Plains, Cyrex, ALCAT, ZRT, Galaxy, Fry Labs, DiagnosTechs, and more." }
+      ];
+
+      const defaultStep3Cards = [
+        { title: "Nutrition", img: "../assets/uploads/2025/05/Nutrition.png", desc: "We understand that “food is medicine” and an important part of the healing process. We have tailored individualized wellness plans to help guide nutrition, healthy weight loss and lifestyle changes day by day." },
+        { title: "Physical Activities", img: "../assets/uploads/2025/05/physical-activities.png", desc: "Our Wellness Plans include fitness plans to fit your unique activity level. Our staff is certified in personal training and in yoga instruction to further guide your physical activity goals." },
+        { title: "Environmental Toxins", img: "../assets/uploads/2025/05/environment.png", desc: "We understand that your home and work environment greatly affect your wellbeing. We help to investigate harmful exposures (Cleaning Products, Mold, Body Sprays, Toiletries, Smoke, Makeup & more) that could contribute to symptoms and prevent complete recovery." }
+      ];
+
+      // Step 4: 6 modalities
+      const defaultStep4Cards = [
+        { title: "IV Therapy", img: "../assets/uploads/2025/05/iv-therapy.png", desc: "Our intravenous infusions of nutrients can help support the immune system and organs of detoxification to help recover from chronic and acute conditions, or to simply give you a boost!" },
+        { title: "Frequency Specific Microcurrent™ (FSM) Therapy", img: "../assets/uploads/2025/05/frequency-specific-microcurrent.png", desc: "FSM is a new system of treatment using micro amperage current and the resonance effects of frequencies on tissues and conditions to create beneficial changes in acute and chronic conditions and in decreasing pain." },
+        { title: "Craniosacral Therapy", img: "../assets/uploads/2025/05/craniosacral-therapy.png", desc: "Craniosacral Therapy (CST) is a gentle, hands-on approach that releases restrictions in soft tissue and fascia that surrounds the central nervous system, joints, organs, muscles, and blood vessels to relieve pain and dysfunction." },
+        { title: "Hyperbaric Oxygen Chamber Therapy", img: "../assets/uploads/2025/05/hyperberic-oxygen-chamber.png", desc: "A non-invasive therapy that increases the amount of oxygen in your plasma to stimulate tissue healing and fight infections." },
+        { title: "Ion Foot Detox", img: "../assets/uploads/2025/05/Ion-foot-detox.png", desc: "The IonCleanse® detoxification system can reduce symptoms of “toxin overload” from an accumulation of everyday exposures through a series of short detox sessions." },
+        { title: "Essential Oil Consultations", img: "../assets/uploads/2025/05/essentail-oil-consultations.png", desc: "Our essential oil consultant can help guide you through the many benefits of essential oils, blends, and oil-infused products that can be used to support physical & mental health concerns and even to safely clean homes and products." }
+      ];
+
+      const defaultStep6Cards = [
+        { title: "Check-ins", img: "../assets/uploads/2025/05/check-ins.png", desc: "Ongoing follow-ups to evaluate how you are responding to care." },
+        { title: "Treatment Adjustments", img: "../assets/uploads/2025/05/treatment-adjustments.png", desc: "We refine your plan as needed to support lasting progress." },
+        { title: "Complimentary Support", img: "../assets/uploads/2025/05/free-foot-detox.png", desc: "Ask about supportive offerings, including complimentary foot detox opportunities for new newsletter subscribers." }
+      ];
+
+      const defaultTestimonials = [
+        { author: "Maria R.", text: "After years of unexplained fatigue, Dr. Afrooz listened to my story and uncovered the real root cause through specialty lab tests. My energy is back!", rating: 5 },
+        { author: "David T.", text: "The combination of Hyperbaric Oxygen Therapy and targeted nutritional guidance gave me relief when conventional medicine had no answers.", rating: 5 }
+      ];
+
+      let step1Cards = [...defaultStep1Cards];
+      let step2Cards = [...defaultStep2Cards];
+      let step3Cards = [...defaultStep3Cards];
+      let step4Cards = [...defaultStep4Cards];
+      let step6Cards = [...defaultStep6Cards];
+      let testimonials = [...defaultTestimonials];
+
+      function renderCardList(containerId, list, allowDeleteAdd = false) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        list.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'subcard-box';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-secondary">Card #${index + 1}</span>
+              ${allowDeleteAdd ? `
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-outline-secondary move-up-btn" data-index="${index}" ${index === 0 ? 'disabled' : ''}><i class="bi bi-arrow-up"></i></button>
+                  <button type="button" class="btn btn-outline-secondary move-down-btn" data-index="${index}" ${index === list.length - 1 ? 'disabled' : ''}><i class="bi bi-arrow-down"></i></button>
+                  <button type="button" class="btn btn-outline-danger remove-btn" data-index="${index}"><i class="bi bi-trash"></i></button>
+                </div>
+              ` : ''}
+            </div>
+            <div class="row g-2">
+              <div class="col-md-5">
+                <label class="form-label-admin small">Card Title</label>
+                <input type="text" class="form-control form-control-sm card-title-inp" data-index="${index}" value="${escapeHtml(item.title)}">
+              </div>
+              <div class="col-md-7">
+                <label class="form-label-admin small">Image Path</label>
+                <input type="text" class="form-control form-control-sm card-img-inp" data-index="${index}" value="${escapeHtml(item.img)}">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin small">Description</label>
+                <textarea class="form-control form-control-sm card-desc-inp" data-index="${index}" rows="2">${escapeHtml(item.desc)}</textarea>
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        // Event bindings
+        container.querySelectorAll('.card-title-inp').forEach(inp => {
+          inp.addEventListener('input', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            list[idx].title = e.currentTarget.value;
+          });
+        });
+
+        container.querySelectorAll('.card-img-inp').forEach(inp => {
+          inp.addEventListener('input', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            list[idx].img = e.currentTarget.value;
+          });
+        });
+
+        container.querySelectorAll('.card-desc-inp').forEach(inp => {
+          inp.addEventListener('input', e => {
+            const idx = parseInt(e.currentTarget.dataset.index, 10);
+            list[idx].desc = e.currentTarget.value;
+          });
+        });
+
+        if (allowDeleteAdd) {
+          container.querySelectorAll('.move-up-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+              const idx = parseInt(e.currentTarget.dataset.index, 10);
+              if (idx > 0) {
+                const tmp = list[idx];
+                list[idx] = list[idx - 1];
+                list[idx - 1] = tmp;
+                renderCardList(containerId, list, allowDeleteAdd);
+              }
+            });
+          });
+
+          container.querySelectorAll('.move-down-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+              const idx = parseInt(e.currentTarget.dataset.index, 10);
+              if (idx < list.length - 1) {
+                const tmp = list[idx];
+                list[idx] = list[idx + 1];
+                list[idx + 1] = tmp;
+                renderCardList(containerId, list, allowDeleteAdd);
+              }
+            });
+          });
+
+          container.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+              const idx = parseInt(e.currentTarget.dataset.index, 10);
+              if (confirm(`Remove this item?`)) {
+                list.splice(idx, 1);
+                renderCardList(containerId, list, allowDeleteAdd);
+              }
+            });
+          });
+        }
+      }
+
+      function renderTestimonials() {
+        const container = document.getElementById('testimonialsContainer');
+        container.innerHTML = '';
+        testimonials.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'subcard-box';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-primary">Testimonial #${index + 1}</span>
+              <button type="button" class="btn btn-sm btn-outline-danger test-remove-btn" data-index="${index}"><i class="bi bi-trash"></i></button>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label-admin small">Patient Name / Attribution</label>
+                <input type="text" class="form-control form-control-sm test-author" data-index="${index}" value="${escapeHtml(item.author)}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin small">Rating (1-5 Stars)</label>
+                <input type="number" class="form-control form-control-sm test-rating" data-index="${index}" min="1" max="5" value="${item.rating || 5}">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin small">Testimonial Quote</label>
+                <textarea class="form-control form-control-sm test-text" data-index="${index}" rows="2">${escapeHtml(item.text)}</textarea>
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.test-author').forEach(i => {
+          i.addEventListener('input', e => { testimonials[parseInt(e.currentTarget.dataset.index, 10)].author = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.test-rating').forEach(i => {
+          i.addEventListener('input', e => { testimonials[parseInt(e.currentTarget.dataset.index, 10)].rating = parseInt(e.currentTarget.value, 10); });
+        });
+        container.querySelectorAll('.test-text').forEach(i => {
+          i.addEventListener('input', e => { testimonials[parseInt(e.currentTarget.dataset.index, 10)].text = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.test-remove-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            testimonials.splice(parseInt(e.currentTarget.dataset.index, 10), 1);
+            renderTestimonials();
+          });
+        });
+      }
+
+      document.getElementById('addTherapySubcardBtn').addEventListener('click', () => {
+        step4Cards.push({
+          title: "New Therapy Modality",
+          img: "../assets/uploads/2025/05/iv-therapy.png",
+          desc: "Description of the therapy modality and clinical benefits."
+        });
+        renderCardList('step4Subcards', step4Cards, true);
+      });
+
+      document.getElementById('addTestimonialBtn').addEventListener('click', () => {
+        testimonials.push({
+          author: "Patient Name",
+          text: "Patient quote detailing their healing journey with Be The Change Health.",
+          rating: 5
+        });
+        renderTestimonials();
+      });
+
+      // SERP update
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Our Process';
+        serpDesc.textContent = seoDesc.value || 'Discover our 6-step root-cause healing process...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      // Storage
+      function saveToStorage() {
+        const data = {
+          heroTitle: document.getElementById('heroTitle').value,
+          heroSubtitle: document.getElementById('heroSubtitle').value,
+          heroBreadcrumb: document.getElementById('heroBreadcrumb').value,
+          heroParent: document.getElementById('heroParent').value,
+          step1Title: document.getElementById('step1Title').value,
+          step1Tag: document.getElementById('step1Tag').value,
+          step1Cards: step1Cards,
+          step2Title: document.getElementById('step2Title').value,
+          step2Tag: document.getElementById('step2Tag').value,
+          step2Intro: document.getElementById('step2Intro').value,
+          step2Cards: step2Cards,
+          step2LabLinks: document.getElementById('step2LabLinks').value,
+          step3Title: document.getElementById('step3Title').value,
+          step3Tag: document.getElementById('step3Tag').value,
+          step3Cards: step3Cards,
+          step4Title: document.getElementById('step4Title').value,
+          step4Tag: document.getElementById('step4Tag').value,
+          step4Cards: step4Cards,
+          step5Title: document.getElementById('step5Title').value,
+          step5Tag: document.getElementById('step5Tag').value,
+          step5Image: document.getElementById('step5Image').value,
+          step5CardTitle: document.getElementById('step5CardTitle').value,
+          step5CardDesc: document.getElementById('step5CardDesc').value,
+          step6Title: document.getElementById('step6Title').value,
+          step6Tag: document.getElementById('step6Tag').value,
+          step6Intro: document.getElementById('step6Intro').value,
+          step6Cards: step6Cards,
+          whySectionVisible: document.getElementById('whySectionVisible').checked,
+          whyHeading: document.getElementById('whyHeading').value,
+          whySubtitle: document.getElementById('whySubtitle').value,
+          why1Title: document.getElementById('why1Title').value,
+          why1Desc: document.getElementById('why1Desc').value,
+          why2Title: document.getElementById('why2Title').value,
+          why2Desc: document.getElementById('why2Desc').value,
+          why3Title: document.getElementById('why3Title').value,
+          why3Desc: document.getElementById('why3Desc').value,
+          why4Title: document.getElementById('why4Title').value,
+          why4Desc: document.getElementById('why4Desc').value,
+          testimonialsHeading: document.getElementById('testimonialsHeading').value,
+          testimonialsSubtitle: document.getElementById('testimonialsSubtitle').value,
+          testimonials: testimonials,
+          ctaHeading: document.getElementById('ctaHeading').value,
+          ctaPhone: document.getElementById('ctaPhone').value,
+          ctaDesc: document.getElementById('ctaDesc').value,
+          ctaBtn1Text: document.getElementById('ctaBtn1Text').value,
+          ctaBtn1Url: document.getElementById('ctaBtn1Url').value,
+          ctaBtn2Text: document.getElementById('ctaBtn2Text').value,
+          ctaBtn2Url: document.getElementById('ctaBtn2Url').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          seoRobots: document.getElementById('seoRobots').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderCardList('step1Subcards', step1Cards);
+            renderCardList('step2Subcards', step2Cards);
+            renderCardList('step3Subcards', step3Cards);
+            renderCardList('step4Subcards', step4Cards, true);
+            renderCardList('step6Subcards', step6Cards);
+            renderTestimonials();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.heroTitle) document.getElementById('heroTitle').value = d.heroTitle;
+          if (d.heroSubtitle) document.getElementById('heroSubtitle').value = d.heroSubtitle;
+          if (d.heroBreadcrumb) document.getElementById('heroBreadcrumb').value = d.heroBreadcrumb;
+          if (d.heroParent) document.getElementById('heroParent').value = d.heroParent;
+          if (d.step1Title) document.getElementById('step1Title').value = d.step1Title;
+          if (d.step1Tag) document.getElementById('step1Tag').value = d.step1Tag;
+          if (Array.isArray(d.step1Cards) && d.step1Cards.length) step1Cards = d.step1Cards;
+          if (d.step2Title) document.getElementById('step2Title').value = d.step2Title;
+          if (d.step2Tag) document.getElementById('step2Tag').value = d.step2Tag;
+          if (d.step2Intro) document.getElementById('step2Intro').value = d.step2Intro;
+          if (Array.isArray(d.step2Cards) && d.step2Cards.length) step2Cards = d.step2Cards;
+          if (d.step2LabLinks) document.getElementById('step2LabLinks').value = d.step2LabLinks;
+          if (d.step3Title) document.getElementById('step3Title').value = d.step3Title;
+          if (d.step3Tag) document.getElementById('step3Tag').value = d.step3Tag;
+          if (Array.isArray(d.step3Cards) && d.step3Cards.length) step3Cards = d.step3Cards;
+          if (d.step4Title) document.getElementById('step4Title').value = d.step4Title;
+          if (d.step4Tag) document.getElementById('step4Tag').value = d.step4Tag;
+          if (Array.isArray(d.step4Cards) && d.step4Cards.length) step4Cards = d.step4Cards;
+          if (d.step5Title) document.getElementById('step5Title').value = d.step5Title;
+          if (d.step5Tag) document.getElementById('step5Tag').value = d.step5Tag;
+          if (d.step5Image) document.getElementById('step5Image').value = d.step5Image;
+          if (d.step5CardTitle) document.getElementById('step5CardTitle').value = d.step5CardTitle;
+          if (d.step5CardDesc) document.getElementById('step5CardDesc').value = d.step5CardDesc;
+          if (d.step6Title) document.getElementById('step6Title').value = d.step6Title;
+          if (d.step6Tag) document.getElementById('step6Tag').value = d.step6Tag;
+          if (d.step6Intro) document.getElementById('step6Intro').value = d.step6Intro;
+          if (Array.isArray(d.step6Cards) && d.step6Cards.length) step6Cards = d.step6Cards;
+          if (d.whySectionVisible !== undefined) document.getElementById('whySectionVisible').checked = d.whySectionVisible;
+          if (d.whyHeading) document.getElementById('whyHeading').value = d.whyHeading;
+          if (d.whySubtitle) document.getElementById('whySubtitle').value = d.whySubtitle;
+          if (d.why1Title) document.getElementById('why1Title').value = d.why1Title;
+          if (d.why1Desc) document.getElementById('why1Desc').value = d.why1Desc;
+          if (d.why2Title) document.getElementById('why2Title').value = d.why2Title;
+          if (d.why2Desc) document.getElementById('why2Desc').value = d.why2Desc;
+          if (d.why3Title) document.getElementById('why3Title').value = d.why3Title;
+          if (d.why3Desc) document.getElementById('why3Desc').value = d.why3Desc;
+          if (d.why4Title) document.getElementById('why4Title').value = d.why4Title;
+          if (d.why4Desc) document.getElementById('why4Desc').value = d.why4Desc;
+          if (d.testimonialsHeading) document.getElementById('testimonialsHeading').value = d.testimonialsHeading;
+          if (d.testimonialsSubtitle) document.getElementById('testimonialsSubtitle').value = d.testimonialsSubtitle;
+          if (Array.isArray(d.testimonials) && d.testimonials.length) testimonials = d.testimonials;
+          if (d.ctaHeading) document.getElementById('ctaHeading').value = d.ctaHeading;
+          if (d.ctaPhone) document.getElementById('ctaPhone').value = d.ctaPhone;
+          if (d.ctaDesc) document.getElementById('ctaDesc').value = d.ctaDesc;
+          if (d.ctaBtn1Text) document.getElementById('ctaBtn1Text').value = d.ctaBtn1Text;
+          if (d.ctaBtn1Url) document.getElementById('ctaBtn1Url').value = d.ctaBtn1Url;
+          if (d.ctaBtn2Text) document.getElementById('ctaBtn2Text').value = d.ctaBtn2Text;
+          if (d.ctaBtn2Url) document.getElementById('ctaBtn2Url').value = d.ctaBtn2Url;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+          if (d.seoRobots) document.getElementById('seoRobots').value = d.seoRobots;
+        } catch (e) {
+          console.error(e);
+        }
+        renderCardList('step1Subcards', step1Cards);
+        renderCardList('step2Subcards', step2Cards);
+        renderCardList('step3Subcards', step3Cards);
+        renderCardList('step4Subcards', step4Cards, true);
+        renderCardList('step6Subcards', step6Cards);
+        renderTestimonials();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Our Process page saved successfully!');
+        } else {
+          alert('Our Process page saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset to default values?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
+</body>
+</html>

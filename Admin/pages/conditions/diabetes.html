@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diabetes Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .condition-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .check-item-row {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .check-item-row .handle {
+      color: #94a3b8;
+      cursor: grab;
+    }
+    .check-item-row input {
+      background: #fff;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="condition-diabetes">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Conditions</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Diabetes</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/diabetes.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/conditions/diabetes.html</p>
+              <h2>Diabetes Page Content Management</h2>
+              <p>Manage hero copy, 3 diabetes types, symptom and risk checklists, integrative medicine benefits, 3 treatment pillars, recommended reading books, and the consultation CTA band.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="heart-disease.html">
+                Next: Heart Disease CMS →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-list-check text-teal"></i> Diabetes Classifications
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">3 Disease Types</h4>
+                  <small class="text-muted">Type 1, Type 2, Gestational</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-activity text-teal"></i> Clinical Lists
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">8 Symptoms &amp; 6 Risks</h4>
+                  <small class="text-muted">With dedicated medical imagery</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-check text-teal"></i> Integrative Pillars
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">8 Benefits &amp; 3 Therapies</h4>
+                  <small class="text-muted">Naturopathic, Plans, Classes</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-book text-teal"></i> Recommended Reading
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">2 Medical Books</h4>
+                  <small class="text-muted">Blood Sugar Sol. &amp; UltraMetabolism</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-hero">01. Hero &amp; Breadcrumb</a>
+          <a href="#section-lead">02. Article Lead &amp; Image</a>
+          <a href="#section-types">03. 3 Diabetes Types</a>
+          <a href="#section-symptoms">04. Symptoms Checklist</a>
+          <a href="#section-risks">05. Risk Factors Checklist</a>
+          <a href="#section-integrative">06. Integrative Benefits</a>
+          <a href="#section-treatments">07. Treatment Modalities</a>
+          <a href="#section-books">08. Recommended Books</a>
+          <a href="#section-cta">09. Bottom CTA Band</a>
+          <a href="#section-seo">10. SEO &amp; SERP</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Hero & Breadcrumb -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Page Hero &amp; Breadcrumb</h3>
+                <p>Top title headline, subtitle, and breadcrumb navigation trail</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Hero Title (H1) *</label>
+                  <input class="form-control" id="hero-title" value="Diabetes" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle</label>
+                  <input class="form-control" id="hero-subtitle" value="Holistic and integrative care for diabetes management and blood sugar control.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-parent">Parent Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-parent" value="Conditions" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-active">Active Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-active" value="Diabetes" required>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Article Lead & Image -->
+          <article class="editor-card open" id="section-lead">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Article Hero Image &amp; Lead Intro</h3>
+                <p>Top banner image of the condition article, opening statement, and primary inline CTA</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="lead-image">Featured Article Image Path *</label>
+                  <input class="form-control" id="lead-image" value="../assets/uploads/2021/04/types-of-diabetes.jpg" required>
+                  <p class="help">Points to the condition banner image inside Frontend/assets/uploads/</p>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Image Preview</label>
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="../../../Frontend/assets/uploads/2024/08/Diabetes.jpg" alt="Types of diabetes" class="condition-preview-thumb" id="lead-image-preview">
+                    <small class="text-muted">Responsive article hero</small>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="lead-text">Lead Paragraph (Large text) *</label>
+                  <textarea class="form-control" id="lead-text" rows="3">We treat a variety of conditions with our integrative approach, including diabetes. This metabolic disease is characterized by elevated blood glucose, which can lead to serious damage to the heart, blood vessels, eyes, kidneys and nerves.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-text">Inline CTA Button Label</label>
+                  <input class="form-control" id="lead-cta-text" value="Book an Appointment">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-link">Inline CTA Destination</label>
+                  <input class="form-control" id="lead-cta-link" value="../contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-lead">
+                  <i class="bi bi-check2 me-1"></i> Save Lead Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: 3 Diabetes Types -->
+          <article class="editor-card open" id="section-types">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Types of Diabetes</h3>
+                <p>Detailed breakdown for Type 1, Type 2, and Gestational Diabetes</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">3 Types</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="types-heading">Section Headline (H2)</label>
+                <input class="form-control" id="types-heading" value="Types of Diabetes">
+              </div>
+
+              <!-- Type 1 -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-1-circle-fill text-teal me-1"></i> Type 1 Diabetes</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="type1-title">Title</label>
+                    <input class="form-control" id="type1-title" value="Type 1 Diabetes">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="type1-desc">Description</label>
+                    <textarea class="form-control" id="type1-desc" rows="2">A chronic condition in which the pancreas produces little or no insulin. Insulin is a hormone needed to allow sugar (glucose) to enter cells to produce energy.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Type 2 -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-2-circle-fill text-teal me-1"></i> Type 2 Diabetes</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="type2-title">Title</label>
+                    <input class="form-control" id="type2-title" value="Type 2 Diabetes">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="type2-desc">Description</label>
+                    <textarea class="form-control" id="type2-desc" rows="2">A chronic condition that affects the way the body processes blood sugar (glucose). With type 2 diabetes, the body either doesn't produce enough insulin, or it resists insulin.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gestational -->
+              <div class="p-3 bg-light border rounded-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-3-circle-fill text-teal me-1"></i> Gestational Diabetes</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="type3-title">Title</label>
+                    <input class="form-control" id="type3-title" value="Gestational Diabetes">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="type3-desc">Description</label>
+                    <textarea class="form-control" id="type3-desc" rows="2">A form of high blood sugar affecting pregnant women. Those who develop gestational diabetes are at higher risk of developing type 2 diabetes later in life.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-types">
+                  <i class="bi bi-check2 me-1"></i> Save Diabetes Types
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Symptoms Checklist -->
+          <article class="editor-card open" id="section-symptoms">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Symptoms of Diabetes</h3>
+                <p>Checklist of 8 common symptoms and accompanying clinical graphic</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">8 Items</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="symptoms-heading">Section Headline (H2)</label>
+                  <input class="form-control" id="symptoms-heading" value="Symptoms of Diabetes">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="symptoms-image">Accompanying Image Path</label>
+                  <input class="form-control" id="symptoms-image" value="../assets/uploads/2021/04/d.jpg">
+                </div>
+              </div>
+
+              <label class="form-label-admin mb-2">Checklist of Common Symptoms (service-check-list)</label>
+              <div id="symptoms-list-container">
+                <!-- Dynamically populated or static -->
+              </div>
+              <button type="button" class="btn-btc-ghost btn-sm-admin mt-2" id="btn-add-symptom">
+                <i class="bi bi-plus-circle me-1"></i> Add Symptom Item
+              </button>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-symptoms">
+                  <i class="bi bi-check2 me-1"></i> Save Symptoms Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: Risk Factors Checklist -->
+          <article class="editor-card open" id="section-risks">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Factors that Increase Risk</h3>
+                <p>Checklist of 6 primary risk factors and factor illustration</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">6 Items</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="risks-heading">Section Headline (H2)</label>
+                  <input class="form-control" id="risks-heading" value="Factors that Increase the Risk of Diabetes">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="risks-image">Accompanying Factor Image Path</label>
+                  <input class="form-control" id="risks-image" value="../assets/uploads/2021/04/diabetes-factor.jpg">
+                </div>
+              </div>
+
+              <label class="form-label-admin mb-2">Checklist of Risk Factors (service-check-list)</label>
+              <div id="risks-list-container">
+                <!-- Dynamically populated -->
+              </div>
+              <button type="button" class="btn-btc-ghost btn-sm-admin mt-2" id="btn-add-risk">
+                <i class="bi bi-plus-circle me-1"></i> Add Risk Factor
+              </button>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-risks">
+                  <i class="bi bi-check2 me-1"></i> Save Risk Factors
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: Integrative Approach & Benefits -->
+          <article class="editor-card open" id="section-integrative">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>An Integrative Approach to Diabetes</h3>
+                <p>Philosophy description and 8-item benefit grid badges</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">8 Benefits</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="integrative-heading">Section Headline (H2)</label>
+                <input class="form-control" id="integrative-heading" value="An Integrative Approach to Diabetes">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="integrative-p1">Approach Narrative Paragraph 1</label>
+                <textarea class="form-control" id="integrative-p1" rows="2">Integrative medicine focuses on the whole person and uses all appropriate therapies to achieve optimal health and healing. When it comes to diabetes, this approach can help you manage your condition and improve your overall quality of life.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="integrative-p2">Introductory Lead Paragraph 2</label>
+                <input class="form-control" id="integrative-p2" value="Some of the benefits of an integrative approach to diabetes include:">
+              </div>
+
+              <label class="form-label-admin mb-2">8 Benefits Grid (condition-benefit-grid)</label>
+              <div id="benefits-list-container">
+                <!-- Benefits items -->
+              </div>
+              <button type="button" class="btn-btc-ghost btn-sm-admin mt-2" id="btn-add-benefit">
+                <i class="bi bi-plus-circle me-1"></i> Add Benefit Item
+              </button>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-integrative">
+                  <i class="bi bi-check2 me-1"></i> Save Integrative Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 07: Treatment Modalities -->
+          <article class="editor-card open" id="section-treatments">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>How We Treat Diabetes (3 Modalities)</h3>
+                <p>Naturopathic Medicine, Personalized Treatment Plans, Classes &amp; Workshops</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">3 Modalities</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="treatments-heading">Section Headline (H2)</label>
+                <input class="form-control" id="treatments-heading" value="How We Treat Diabetes">
+              </div>
+
+              <!-- Modality 1 -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-heart-pulse-fill text-teal me-1"></i> Treatment 1: Naturopathic Medicine</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="treat1-title">Title</label>
+                    <input class="form-control" id="treat1-title" value="Naturopathic Medicine">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="treat1-desc">Description</label>
+                    <textarea class="form-control" id="treat1-desc" rows="2">Naturopathic medicine is a distinct system of primary healthcare that emphasizes the use of natural therapies to support and stimulate the body's self-healing process.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modality 2 -->
+              <div class="p-3 bg-light border rounded-3 mb-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-file-earmark-medical-fill text-teal me-1"></i> Treatment 2: Personalized Treatment Plans</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="treat2-title">Title</label>
+                    <input class="form-control" id="treat2-title" value="Personalized Treatment Plans">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="treat2-desc">Description</label>
+                    <textarea class="form-control" id="treat2-desc" rows="2">Personalized treatment plans are tailored to your unique needs and may include dietary recommendations, lifestyle modifications, nutritional supplements, and botanical medicine.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modality 3 -->
+              <div class="p-3 bg-light border rounded-3">
+                <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-mortarboard-fill text-teal me-1"></i> Treatment 3: Classes and Workshops</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="treat3-title">Title</label>
+                    <input class="form-control" id="treat3-title" value="Classes and Workshops">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="treat3-desc">Description</label>
+                    <textarea class="form-control" id="treat3-desc" rows="2">We offer classes and workshops on a variety of health topics, including diabetes education, nutrition, cooking, and stress management.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-treatments">
+                  <i class="bi bi-check2 me-1"></i> Save Treatment Modalities
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 08: Recommended Books -->
+          <article class="editor-card open" id="section-books">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div>
+                <h3>Recommended Reading</h3>
+                <p>Curated literature recommendations by Dr. Sultana Afrooz</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">2 Books</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="books-heading">Section Headline (H2)</label>
+                <input class="form-control" id="books-heading" value="Recommended Reading">
+              </div>
+
+              <div class="row g-3">
+                <!-- Book 1 -->
+                <div class="col-md-6">
+                  <div class="p-3 bg-light border rounded-3 h-100">
+                    <h5 class="fw-semibold text-dark mb-2">Book 1</h5>
+                    <div class="mb-2">
+                      <label class="form-label-admin" for="book1-title">Book Title</label>
+                      <input class="form-control" id="book1-title" value="The Blood Sugar Solution">
+                    </div>
+                    <div class="mb-2">
+                      <label class="form-label-admin" for="book1-author">Author</label>
+                      <input class="form-control" id="book1-author" value="Mark Hyman, M.D.">
+                    </div>
+                    <div>
+                      <label class="form-label-admin" for="book1-image">Book Cover Image Path</label>
+                      <input class="form-control" id="book1-image" value="../assets/uploads/2021/04/Blood-Sugar-Solution.jpg">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="col-md-6">
+                  <div class="p-3 bg-light border rounded-3 h-100">
+                    <h5 class="fw-semibold text-dark mb-2">Book 2</h5>
+                    <div class="mb-2">
+                      <label class="form-label-admin" for="book2-title">Book Title</label>
+                      <input class="form-control" id="book2-title" value="UltraMetabolism">
+                    </div>
+                    <div class="mb-2">
+                      <label class="form-label-admin" for="book2-author">Author</label>
+                      <input class="form-control" id="book2-author" value="Mark Hyman, M.D.">
+                    </div>
+                    <div>
+                      <label class="form-label-admin" for="book2-image">Book Cover Image Path</label>
+                      <input class="form-control" id="book2-image" value="../assets/uploads/2021/04/Ultra-Metabolism.jpg">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-books">
+                  <i class="bi bi-check2 me-1"></i> Save Recommended Books
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 09: Bottom CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">09</span>
+              <div>
+                <h3>Bottom Call to Action Band</h3>
+                <p>Full-width banner at the bottom of the page prompting consultation</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-heading">CTA Banner Headline (H2) *</label>
+                  <input class="form-control" id="cta-heading" value="Ready to Take Control of Your Diabetes?" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-text">CTA Banner Subtitle/Description *</label>
+                  <textarea class="form-control" id="cta-text" rows="2">Contact us today to schedule your consultation and begin your integrative health journey.</textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-phone">Direct Clinic Phone</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-text">Primary Button Text</label>
+                  <input class="form-control" id="cta-btn-text" value="Request an Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-link">Primary Button Link</label>
+                  <input class="form-control" id="cta-btn-link" value="../contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 10: SEO & SERP Preview -->
+          <article class="editor-card open" id="section-seo">
+            <div class="editor-head">
+              <span class="num">10</span>
+              <div>
+                <h3>SEO &amp; Search Engine Metadata</h3>
+                <p>Configure search snippet title, meta description, and keywords</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Live SERP</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">SEO Meta Title (Browser &amp; Google) *</label>
+                  <input class="form-control" id="seo-title" value="Diabetes - Integrative Medicine | Dr. Sultana Afrooz, D.O." required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">SEO Meta Description *</label>
+                  <textarea class="form-control" id="seo-desc" rows="3">Integrative medicine in Las Vegas NV for Diabetes. Dr. Sultana Afrooz, D.O. provides naturopathic &amp; holistic care for Diabetes.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-canonical">Canonical URL</label>
+                  <input class="form-control" id="seo-canonical" value="https://bethechangehealth.com/conditions/diabetes.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-robots">Search Engine Indexing</label>
+                  <select class="form-select" id="seo-robots">
+                    <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                    <option value="noindex, follow">Noindex, Follow</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Google SERP Live Simulation -->
+              <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-google text-primary me-1"></i> Google Search Snippet Simulation</h5>
+              <div class="serp-card mb-3">
+                <div class="serp-title" id="serp-preview-title">Diabetes - Integrative Medicine | Dr. Sultana Afrooz, D.O.</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › conditions › diabetes</div>
+                <div class="serp-desc" id="serp-preview-desc">Integrative medicine in Las Vegas NV for Diabetes. Dr. Sultana Afrooz, D.O. provides naturopathic &amp; holistic care for Diabetes.</div>
+              </div>
+
+              <div class="text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin mt-4">
+          <div class="card-body-admin d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <button type="button" class="btn btn-outline-danger btn-sm-admin" id="btn-reset-defaults">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset to Clinic Defaults
+              </button>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/diabetes.html" target="_blank" rel="noopener">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Page
+              </a>
+              <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+                <i class="bi bi-check2 me-1"></i> Save All Changes
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-stack"></div>
+
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_condition_diabetes";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Diabetes",
+          subtitle: "Holistic and integrative care for diabetes management and blood sugar control.",
+          parentBreadcrumb: "Conditions",
+          activeBreadcrumb: "Diabetes"
+        },
+        lead: {
+          image: "../assets/uploads/2021/04/types-of-diabetes.jpg",
+          text: "We treat a variety of conditions with our integrative approach, including diabetes. This metabolic disease is characterized by elevated blood glucose, which can lead to serious damage to the heart, blood vessels, eyes, kidneys and nerves.",
+          ctaText: "Book an Appointment",
+          ctaLink: "../contact.html"
+        },
+        types: {
+          heading: "Types of Diabetes",
+          type1Title: "Type 1 Diabetes",
+          type1Desc: "A chronic condition in which the pancreas produces little or no insulin. Insulin is a hormone needed to allow sugar (glucose) to enter cells to produce energy.",
+          type2Title: "Type 2 Diabetes",
+          type2Desc: "A chronic condition that affects the way the body processes blood sugar (glucose). With type 2 diabetes, the body either doesn't produce enough insulin, or it resists insulin.",
+          type3Title: "Gestational Diabetes",
+          type3Desc: "A form of high blood sugar affecting pregnant women. Those who develop gestational diabetes are at higher risk of developing type 2 diabetes later in life."
+        },
+        symptoms: {
+          heading: "Symptoms of Diabetes",
+          image: "../assets/uploads/2021/04/d.jpg",
+          items: [
+            "Increased thirst",
+            "Frequent urination",
+            "Increased hunger",
+            "Unintended weight loss",
+            "Fatigue",
+            "Blurred vision",
+            "Slow-healing sores",
+            "Frequent infections"
+          ]
+        },
+        risks: {
+          heading: "Factors that Increase the Risk of Diabetes",
+          image: "../assets/uploads/2021/04/diabetes-factor.jpg",
+          items: [
+            "Weight",
+            "Inactivity",
+            "Family history",
+            "Race or ethnicity",
+            "Age",
+            "Gestational diabetes"
+          ]
+        },
+        integrative: {
+          heading: "An Integrative Approach to Diabetes",
+          p1: "Integrative medicine focuses on the whole person and uses all appropriate therapies to achieve optimal health and healing. When it comes to diabetes, this approach can help you manage your condition and improve your overall quality of life.",
+          p2: "Some of the benefits of an integrative approach to diabetes include:",
+          benefits: [
+            "Improved blood sugar control",
+            "Reduced risk of complications",
+            "Better management of symptoms",
+            "More energy",
+            "Improved mood",
+            "Better sleep",
+            "Weight loss",
+            "Reduced stress"
+          ]
+        },
+        treatments: {
+          heading: "How We Treat Diabetes",
+          t1Title: "Naturopathic Medicine",
+          t1Desc: "Naturopathic medicine is a distinct system of primary healthcare that emphasizes the use of natural therapies to support and stimulate the body's self-healing process.",
+          t2Title: "Personalized Treatment Plans",
+          t2Desc: "Personalized treatment plans are tailored to your unique needs and may include dietary recommendations, lifestyle modifications, nutritional supplements, and botanical medicine.",
+          t3Title: "Classes and Workshops",
+          t3Desc: "We offer classes and workshops on a variety of health topics, including diabetes education, nutrition, cooking, and stress management."
+        },
+        books: {
+          heading: "Recommended Reading",
+          b1Title: "The Blood Sugar Solution",
+          b1Author: "Mark Hyman, M.D.",
+          b1Image: "../assets/uploads/2021/04/Blood-Sugar-Solution.jpg",
+          b2Title: "UltraMetabolism",
+          b2Author: "Mark Hyman, M.D.",
+          b2Image: "../assets/uploads/2021/04/Ultra-Metabolism.jpg"
+        },
+        cta: {
+          heading: "Ready to Take Control of Your Diabetes?",
+          text: "Contact us today to schedule your consultation and begin your integrative health journey.",
+          phone: "301-970-9724",
+          btnText: "Request an Appointment",
+          btnLink: "../contact.html"
+        },
+        seo: {
+          title: "Diabetes - Integrative Medicine | Dr. Sultana Afrooz, D.O.",
+          desc: "Integrative medicine in Las Vegas NV for Diabetes. Dr. Sultana Afrooz, D.O. provides naturopathic & holistic care for Diabetes.",
+          canonical: "https://bethechangehealth.com/conditions/diabetes.html",
+          robots: "index, follow"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {}
+      }
+
+      function val(id, value) {
+        var el = document.getElementById(id);
+        if (!el) return "";
+        if (value !== undefined) el.value = value;
+        return el.value;
+      }
+
+      function renderChecklist(containerId, items, placeholder) {
+        var c = document.getElementById(containerId);
+        if (!c) return;
+        c.innerHTML = "";
+        items.forEach(function (text, idx) {
+          var row = document.createElement("div");
+          row.className = "check-item-row";
+          row.innerHTML =
+            '<span class="handle"><i class="bi bi-grip-vertical"></i></span>' +
+            '<span class="badge bg-secondary rounded-pill">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control form-control-sm" value="' + text.replace(/"/g, '&quot;') + '" placeholder="' + (placeholder || 'Item') + '">' +
+            '<button type="button" class="btn btn-outline-danger btn-sm py-0 px-2 btn-remove-item" title="Remove item"><i class="bi bi-x"></i></button>';
+          
+          row.querySelector(".btn-remove-item").addEventListener("click", function () {
+            row.remove();
+          });
+          c.appendChild(row);
+        });
+      }
+
+      function gatherChecklist(containerId) {
+        var c = document.getElementById(containerId);
+        if (!c) return [];
+        var inputs = c.querySelectorAll("input");
+        var res = [];
+        inputs.forEach(function (inp) {
+          if (inp.value.trim()) res.push(inp.value.trim());
+        });
+        return res;
+      }
+
+      function populateForm(d) {
+        val("hero-title", d.hero.title);
+        val("hero-subtitle", d.hero.subtitle);
+        val("breadcrumb-active", d.hero.activeBreadcrumb);
+
+        val("lead-image", d.lead.image);
+        val("lead-text", d.lead.text);
+        val("lead-cta-text", d.lead.ctaText);
+        val("lead-cta-link", d.lead.ctaLink);
+
+        val("types-heading", d.types.heading);
+        val("type1-title", d.types.type1Title);
+        val("type1-desc", d.types.type1Desc);
+        val("type2-title", d.types.type2Title);
+        val("type2-desc", d.types.type2Desc);
+        val("type3-title", d.types.type3Title);
+        val("type3-desc", d.types.type3Desc);
+
+        val("symptoms-heading", d.symptoms.heading);
+        val("symptoms-image", d.symptoms.image);
+        renderChecklist("symptoms-list-container", d.symptoms.items, "Symptom description");
+
+        val("risks-heading", d.risks.heading);
+        val("risks-image", d.risks.image);
+        renderChecklist("risks-list-container", d.risks.items, "Risk factor");
+
+        val("integrative-heading", d.integrative.heading);
+        val("integrative-p1", d.integrative.p1);
+        val("integrative-p2", d.integrative.p2);
+        renderChecklist("benefits-list-container", d.integrative.benefits, "Benefit title");
+
+        val("treatments-heading", d.treatments.heading);
+        val("treat1-title", d.treatments.t1Title);
+        val("treat1-desc", d.treatments.t1Desc);
+        val("treat2-title", d.treatments.t2Title);
+        val("treat2-desc", d.treatments.t2Desc);
+        val("treat3-title", d.treatments.t3Title);
+        val("treat3-desc", d.treatments.t3Desc);
+
+        val("books-heading", d.books.heading);
+        val("book1-title", d.books.b1Title);
+        val("book1-author", d.books.b1Author);
+        val("book1-image", d.books.b1Image);
+        val("book2-title", d.books.b2Title);
+        val("book2-author", d.books.b2Author);
+        val("book2-image", d.books.b2Image);
+
+        val("cta-heading", d.cta.heading);
+        val("cta-text", d.cta.text);
+        val("cta-phone", d.cta.phone);
+        val("cta-btn-text", d.cta.btnText);
+        val("cta-btn-link", d.cta.btnLink);
+
+        val("seo-title", d.seo.title);
+        val("seo-desc", d.seo.desc);
+        val("seo-canonical", d.seo.canonical);
+        val("seo-robots", d.seo.robots);
+
+        updateSerp();
+      }
+
+      function updateSerp() {
+        var t = val("seo-title");
+        var ds = val("seo-desc");
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (st) st.textContent = t || "Diabetes - Integrative Medicine | Dr. Sultana Afrooz, D.O.";
+        if (sd) sd.textContent = ds || "Integrative medicine in Las Vegas NV for Diabetes.";
+      }
+
+      function toast(msg) {
+        if (window.adminToast) {
+          window.adminToast(msg);
+        } else {
+          var stack = document.querySelector(".toast-stack");
+          if (!stack) return;
+          var t = document.createElement("div");
+          t.className = "toast show align-items-center text-white bg-dark border-0 mb-2";
+          t.innerHTML = '<div class="d-flex"><div class="toast-body">' + msg + '</div></div>';
+          stack.appendChild(t);
+          setTimeout(function () { t.remove(); }, 3200);
+        }
+      }
+
+      function saveAll() {
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            parentBreadcrumb: "Conditions",
+            activeBreadcrumb: val("breadcrumb-active")
+          },
+          lead: {
+            image: val("lead-image"),
+            text: val("lead-text"),
+            ctaText: val("lead-cta-text"),
+            ctaLink: val("lead-cta-link")
+          },
+          types: {
+            heading: val("types-heading"),
+            type1Title: val("type1-title"),
+            type1Desc: val("type1-desc"),
+            type2Title: val("type2-title"),
+            type2Desc: val("type2-desc"),
+            type3Title: val("type3-title"),
+            type3Desc: val("type3-desc")
+          },
+          symptoms: {
+            heading: val("symptoms-heading"),
+            image: val("symptoms-image"),
+            items: gatherChecklist("symptoms-list-container")
+          },
+          risks: {
+            heading: val("risks-heading"),
+            image: val("risks-image"),
+            items: gatherChecklist("risks-list-container")
+          },
+          integrative: {
+            heading: val("integrative-heading"),
+            p1: val("integrative-p1"),
+            p2: val("integrative-p2"),
+            benefits: gatherChecklist("benefits-list-container")
+          },
+          treatments: {
+            heading: val("treatments-heading"),
+            t1Title: val("treat1-title"),
+            t1Desc: val("treat1-desc"),
+            t2Title: val("treat2-title"),
+            t2Desc: val("treat2-desc"),
+            t3Title: val("treat3-title"),
+            t3Desc: val("treat3-desc")
+          },
+          books: {
+            heading: val("books-heading"),
+            b1Title: val("book1-title"),
+            b1Author: val("book1-author"),
+            b1Image: val("book1-image"),
+            b2Title: val("book2-title"),
+            b2Author: val("book2-author"),
+            b2Image: val("book2-image")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            text: val("cta-text"),
+            phone: val("cta-phone"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link")
+          },
+          seo: {
+            title: val("seo-title"),
+            desc: val("seo-desc"),
+            canonical: val("seo-canonical"),
+            robots: val("seo-robots")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Diabetes Page Content saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-lead").addEventListener("click", function () {
+          saveAll();
+          toast("Article lead & image saved.");
+        });
+        document.getElementById("btn-save-types").addEventListener("click", function () {
+          saveAll();
+          toast("Diabetes types saved.");
+        });
+        document.getElementById("btn-save-symptoms").addEventListener("click", function () {
+          saveAll();
+          toast("Symptoms list saved.");
+        });
+        document.getElementById("btn-save-risks").addEventListener("click", function () {
+          saveAll();
+          toast("Risk factors saved.");
+        });
+        document.getElementById("btn-save-integrative").addEventListener("click", function () {
+          saveAll();
+          toast("Integrative benefits saved.");
+        });
+        document.getElementById("btn-save-treatments").addEventListener("click", function () {
+          saveAll();
+          toast("Treatment modalities saved.");
+        });
+        document.getElementById("btn-save-books").addEventListener("click", function () {
+          saveAll();
+          toast("Recommended books saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("CTA band saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Add item buttons
+        document.getElementById("btn-add-symptom").addEventListener("click", function () {
+          var items = gatherChecklist("symptoms-list-container");
+          items.push("New symptom item");
+          renderChecklist("symptoms-list-container", items, "Symptom description");
+        });
+        document.getElementById("btn-add-risk").addEventListener("click", function () {
+          var items = gatherChecklist("risks-list-container");
+          items.push("New risk factor");
+          renderChecklist("risks-list-container", items, "Risk factor");
+        });
+        document.getElementById("btn-add-benefit").addEventListener("click", function () {
+          var items = gatherChecklist("benefits-list-container");
+          items.push("New health benefit");
+          renderChecklist("benefits-list-container", items, "Benefit title");
+        });
+
+        // Top & bottom save all
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Diabetes page back to original clinic defaults? Unsaved edits will be lost.")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored original clinic defaults for Diabetes.");
+          }
+        });
+
+        // Live SERP listeners
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

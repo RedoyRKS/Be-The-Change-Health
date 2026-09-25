@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patients Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .patient-card-preview {
+      background: #fff;
+      border: 1px solid rgba(0, 48, 72, 0.12);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .patient-card-preview:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 48, 72, 0.08);
+      border-color: var(--btc-teal);
+    }
+    .patient-card-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--btc-teal-soft);
+      color: var(--btc-teal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .patient-card-preview h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--btc-navy);
+      margin-bottom: 0.85rem;
+    }
+    .patient-card-preview .action-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--btc-teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .card-editor-unit {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+    .card-editor-unit:hover {
+      border-color: #cbd5e1;
+    }
+    .card-editor-unit.active-card {
+      border-left: 4px solid var(--btc-teal);
+    }
+    .card-badge-num {
+      width: 26px;
+      height: 26px;
+      background: var(--btc-navy);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body data-page="patients-content">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Page Content CMS</span><span class="sep">/</span>
+            <span>Patients</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Existing Patients</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/patients.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/patients.html</p>
+              <h2>Patients Page Content Management (Existing Patients Hub)</h2>
+              <p>Configure the patient portal shortcut, book-a-service button, Fullscript supplement dispensary, membership link, "New to our practice?" referral banner, and assistance CTA.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="new-patient-questions-content.html">
+                <i class="bi bi-question-circle me-1"></i> New Patient Questions CMS →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-grid-fill text-teal"></i> Resource Cards
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">4 Action Cards</h4>
+                  <small class="text-muted">Portal, Booking, Supplements, Membership</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-laptop text-teal"></i> Patient Portal Destination
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">MD-HQ EHR Portal</h4>
+                  <small class="text-muted">External secure portal link</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-bag-heart text-teal"></i> Supplement Dispensary
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Fullscript</h4>
+                  <small class="text-muted">Direct patient dispensary welcome link</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-arrow-repeat text-teal"></i> Onboarding Funnel
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">New Patient Questions</h4>
+                  <small class="text-muted">Referral banner to questions &amp; fees</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-notice">01. Notice Bar</a>
+          <a href="#section-hero">02. Page Hero</a>
+          <a href="#section-intro">03. Hub Intro</a>
+          <a href="#section-cards">04. Resource Cards (4)</a>
+          <a href="#section-referral">05. New Practice Banner</a>
+          <a href="#section-cta">06. Support CTA Band</a>
+          <a href="#section-seo">07. SEO &amp; SERP</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Practice Notice Bar -->
+          <article class="editor-card open" id="section-notice">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Notice Bar (Top Strip)</h3>
+                <p>Telehealth availability &amp; out-of-network insurance notice shown above the header</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published" id="badge-notice-status">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="notice-primary">Primary Notice Headline *</label>
+                  <input class="form-control" id="notice-primary" value="Now offering Telehealth appointments." required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="notice-visibility">Notice Bar Visibility</label>
+                  <select class="form-select" id="notice-visibility">
+                    <option value="visible" selected>Visible on website</option>
+                    <option value="hidden">Hide notice bar</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="notice-disclaimer">Out-of-Network Secondary Note (Hidden on small mobile screens) *</label>
+                  <textarea class="form-control" id="notice-disclaimer" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                  <p class="help">Renders inside &lt;span class="d-none d-md-inline"&gt; on Frontend/patients.html to prevent header clutter on smartphones.</p>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-notice">
+                  <i class="bi bi-check2 me-1"></i> Save Notice Bar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Page Hero & Breadcrumbs -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Page Hero &amp; Breadcrumb</h3>
+                <p>Top section headline and navigation hierarchy trail on patients.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Hero Headline (H1) *</label>
+                  <input class="form-control" id="hero-title" value="Existing Patients" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-active">Active Breadcrumb Item *</label>
+                  <input class="form-control" id="breadcrumb-active" value="Existing Patients" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-root">Breadcrumb Root Label</label>
+                  <input class="form-control" id="breadcrumb-root" value="Home" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-parent">Breadcrumb Parent Label</label>
+                  <input class="form-control" id="breadcrumb-parent" value="Patients" readonly>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: Resources Intro & Eyebrow -->
+          <article class="editor-card open" id="section-intro">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Patient Resources Intro</h3>
+                <p>Section eyebrow and welcoming orientation text on the patients-hub section</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="intro-eyebrow">Service Eyebrow Tag *</label>
+                  <input class="form-control" id="intro-eyebrow" value="Patient Resources" required>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="intro-text">Hub Welcome &amp; Orientation Message *</label>
+                  <textarea class="form-control" id="intro-text" rows="2" required>Select a resource below to continue your care with Be The Change Health & Wellness Center.</textarea>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-intro">
+                  <i class="bi bi-check2 me-1"></i> Save Hub Intro
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Patient Action Cards Grid -->
+          <article class="editor-card open" id="section-cards">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Patient Resource Cards (4 Core Portals)</h3>
+                <p>The 4 primary gateway cards: Patient Portal, Book a Service, Shop Supplements, and Membership</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">4 Cards Active</span>
+            </div>
+            <div class="editor-body">
+
+              <!-- Live Card Preview Grid -->
+              <div class="mb-4">
+                <label class="form-label-admin mb-2"><i class="bi bi-eye me-1"></i> Live Card Render Preview (Updates as you edit)</label>
+                <div class="row g-3" id="live-cards-preview">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <!-- Card 1: Patient Portal -->
+              <div class="card-editor-unit active-card" id="card-unit-1">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="card-badge-num">1</span>
+                    <h4 class="h6 fw-bold mb-0 text-dark">Card 1 · Patient Portal</h4>
+                  </div>
+                  <span class="badge bg-light text-dark border">External EHR Portal</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label-admin" for="card1-icon">Bootstrap Icon *</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-laptop" id="card1-icon-preview"></i></span>
+                      <input class="form-control" id="card1-icon" value="bi-laptop" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin" for="card1-title">Card Heading (H2) *</label>
+                    <input class="form-control" id="card1-title" value="Patient Portal" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card1-action">Action Link Text *</label>
+                    <input class="form-control" id="card1-action" value="Open Portal" required>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="card1-url">Target Destination URL *</label>
+                    <input class="form-control" id="card1-url" value="https://be-the-change-portal.md-hq.com/" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card1-target">Window Target *</label>
+                    <select class="form-select" id="card1-target">
+                      <option value="_blank" selected>Open in New Tab (_blank)</option>
+                      <option value="_self">Open in Same Tab (_self)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Book a Service -->
+              <div class="card-editor-unit active-card" id="card-unit-2">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="card-badge-num">2</span>
+                    <h4 class="h6 fw-bold mb-0 text-dark">Card 2 · Book A Service</h4>
+                  </div>
+                  <span class="badge bg-light text-dark border">Appointments Link</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label-admin" for="card2-icon">Bootstrap Icon *</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-calendar2-check" id="card2-icon-preview"></i></span>
+                      <input class="form-control" id="card2-icon" value="bi-calendar2-check" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin" for="card2-title">Card Heading (H2) *</label>
+                    <input class="form-control" id="card2-title" value="BOOK A SERVICE" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card2-action">Action Link Text *</label>
+                    <input class="form-control" id="card2-action" value="Continue" required>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="card2-url">Target Destination URL *</label>
+                    <input class="form-control" id="card2-url" value="#" placeholder="e.g. book-appointment.html or booking portal URL" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card2-target">Window Target *</label>
+                    <select class="form-select" id="card2-target">
+                      <option value="_self" selected>Open in Same Tab (_self)</option>
+                      <option value="_blank">Open in New Tab (_blank)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Shop Supplements -->
+              <div class="card-editor-unit active-card" id="card-unit-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="card-badge-num">3</span>
+                    <h4 class="h6 fw-bold mb-0 text-dark">Card 3 · Shop Supplements</h4>
+                  </div>
+                  <span class="badge bg-light text-dark border">Fullscript Dispensary</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label-admin" for="card3-icon">Bootstrap Icon *</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-bag-heart" id="card3-icon-preview"></i></span>
+                      <input class="form-control" id="card3-icon" value="bi-bag-heart" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin" for="card3-title">Card Heading (H2) *</label>
+                    <input class="form-control" id="card3-title" value="Shop Supplements" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card3-action">Action Link Text *</label>
+                    <input class="form-control" id="card3-action" value="Open Fullscript" required>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="card3-url">Target Destination URL *</label>
+                    <input class="form-control" id="card3-url" value="https://us.fullscript.com//welcome/safrooz" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card3-target">Window Target *</label>
+                    <select class="form-select" id="card3-target">
+                      <option value="_blank" selected>Open in New Tab (_blank)</option>
+                      <option value="_self">Open in Same Tab (_self)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Membership -->
+              <div class="card-editor-unit active-card" id="card-unit-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="card-badge-num">4</span>
+                    <h4 class="h6 fw-bold mb-0 text-dark">Card 4 · Membership</h4>
+                  </div>
+                  <span class="badge bg-light text-dark border">Internal Care Program</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-3">
+                    <label class="form-label-admin" for="card4-icon">Bootstrap Icon *</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-stars" id="card4-icon-preview"></i></span>
+                      <input class="form-control" id="card4-icon" value="bi-stars" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label class="form-label-admin" for="card4-title">Card Heading (H2) *</label>
+                    <input class="form-control" id="card4-title" value="Membership" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card4-action">Action Link Text *</label>
+                    <input class="form-control" id="card4-action" value="View Membership" required>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label-admin" for="card4-url">Target Destination URL *</label>
+                    <input class="form-control" id="card4-url" value="memberships.html" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label-admin" for="card4-target">Window Target *</label>
+                    <select class="form-select" id="card4-target">
+                      <option value="_self" selected>Open in Same Tab (_self)</option>
+                      <option value="_blank">Open in New Tab (_blank)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cards">
+                  <i class="bi bi-check2 me-1"></i> Save All Resource Cards
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: "New to our practice?" Callout -->
+          <article class="editor-card open" id="section-referral">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>"New to our practice?" Referral Banner</h3>
+                <p>Conversion callout routing first-time visitors to the comprehensive questions guide</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-7">
+                  <label class="form-label-admin" for="ref-title">Banner Heading (H2) *</label>
+                  <input class="form-control" id="ref-title" value="New to our practice?" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="ref-btn-primary-text">Primary Button Label *</label>
+                  <input class="form-control" id="ref-btn-primary-text" value="New Patient Questions" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="ref-desc">Banner Description *</label>
+                  <textarea class="form-control" id="ref-desc" rows="2" required>Review common questions about scheduling, insurance, pricing, and therapies before your first visit.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="ref-btn-primary-link">Primary Button Target URL *</label>
+                  <input class="form-control" id="ref-btn-primary-link" value="new-patient-questions.html" required>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded border">
+                    <div class="form-check form-switch mb-2">
+                      <input class="form-check-input" type="checkbox" id="ref-secondary-enable">
+                      <label class="form-check-label fw-semibold" for="ref-secondary-enable">Enable Secondary "Request An Appointment" Button</label>
+                    </div>
+                    <div id="secondary-btn-fields" style="display:none;">
+                      <label class="form-label-admin small" for="ref-btn-sec-text">Button Label</label>
+                      <input class="form-control form-control-sm mb-2" id="ref-btn-sec-text" value="Request An Appointment">
+                      <label class="form-label-admin small" for="ref-btn-sec-link">Button Target URL</label>
+                      <input class="form-control form-control-sm" id="ref-btn-sec-link" value="book-appointment.html">
+                    </div>
+                    <small class="text-muted d-block">Present in frontend as commented HTML; toggle to display or hide.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-referral">
+                  <i class="bi bi-check2 me-1"></i> Save Referral Banner
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: "Need help from our team?" CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Assistance &amp; Support CTA Band</h3>
+                <p>Direct phone hotline and navigation buttons at the bottom of the page</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-7">
+                  <label class="form-label-admin" for="cta-title">Band Heading (H2) *</label>
+                  <input class="form-control" id="cta-title" value="Need help from our team?" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="cta-phone">Support Hotline Phone Number *</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-desc">Support Instruction Note *</label>
+                  <input class="form-control" id="cta-desc" value="Call the office or send a message — we’re happy to assist." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn1-text">Button 1 Label (Filled Primary) *</label>
+                  <input class="form-control mb-2" id="cta-btn1-text" value="Contact Us" required>
+                  <label class="form-label-admin small" for="cta-btn1-link">Button 1 Target URL *</label>
+                  <input class="form-control" id="cta-btn1-link" value="contact.html" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn2-text">Button 2 Label (Outline Secondary) *</label>
+                  <input class="form-control mb-2" id="cta-btn2-text" value="Book Appointment" required>
+                  <label class="form-label-admin small" for="cta-btn2-link">Button 2 Target URL *</label>
+                  <input class="form-control" id="cta-btn2-link" value="book-appointment.html" required>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save Support CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 07: SEO & Metadata -->
+          <article class="editor-card" id="section-seo">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>SEO &amp; Search Engine Appearance</h3>
+                <p>Page &lt;title&gt;, meta description, and Google SERP search snippet simulation</p>
+              </div>
+              <span class="spacer"></span>
+              <a href="../seo.html" class="btn-btc-ghost btn-sm-admin">Open Full SEO CMS</a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">Meta Title Tag *</label>
+                  <input class="form-control" id="seo-title" value="Patients - Be The Change Health and Wellness Center" required>
+                  <small class="text-muted">Recommended: Under 60 characters</small>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">Meta Description Tag *</label>
+                  <textarea class="form-control" id="seo-desc" rows="2" required>Existing patient resources for Be The Change Health & Wellness Center — patient portal, book a service, shop supplements, and memberships.</textarea>
+                  <small class="text-muted">Recommended: 120-160 characters</small>
+                </div>
+              </div>
+
+              <!-- Google SERP Box -->
+              <label class="form-label-admin mb-2">Google Search Snippet Simulation</label>
+              <div class="serp-box">
+                <div class="serp-url-crumb"><i class="bi bi-globe2 me-1"></i> https://bethechangehealth.com › patients.html</div>
+                <div class="serp-title" id="serp-preview-title">Patients - Be The Change Health and Wellness Center</div>
+                <p class="serp-desc" id="serp-preview-desc">Existing patient resources for Be The Change Health &amp; Wellness Center — patient portal, book a service, shop supplements, and memberships.</p>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sticky Floating Save Bar -->
+        <div class="sticky-actions mt-4 justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small"><i class="bi bi-shield-check text-success me-1"></i> Status: <strong class="text-dark">All Sections Synced</strong></span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Page Defaults
+            </button>
+            <a class="btn-btc-outline" href="../../../Frontend/patients.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Frontend
+            </a>
+            <button class="btn-btc" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2-circle me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_patients_cms_data";
+
+      var DEFAULT_DATA = {
+        notice: {
+          primary: "Now offering Telehealth appointments.",
+          disclaimer: "Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.",
+          visibility: "visible"
+        },
+        hero: {
+          title: "Existing Patients",
+          breadcrumb: "Existing Patients"
+        },
+        intro: {
+          eyebrow: "Patient Resources",
+          text: "Select a resource below to continue your care with Be The Change Health & Wellness Center."
+        },
+        cards: [
+          {
+            id: 1,
+            icon: "bi-laptop",
+            title: "Patient Portal",
+            actionText: "Open Portal",
+            actionIcon: "bi-arrow-up-right",
+            url: "https://be-the-change-portal.md-hq.com/",
+            target: "_blank"
+          },
+          {
+            id: 2,
+            icon: "bi-calendar2-check",
+            title: "BOOK A SERVICE",
+            actionText: "Continue",
+            actionIcon: "bi-arrow-right",
+            url: "#",
+            target: "_self"
+          },
+          {
+            id: 3,
+            icon: "bi-bag-heart",
+            title: "Shop Supplements",
+            actionText: "Open Fullscript",
+            actionIcon: "bi-arrow-up-right",
+            url: "https://us.fullscript.com//welcome/safrooz",
+            target: "_blank"
+          },
+          {
+            id: 4,
+            icon: "bi-stars",
+            title: "Membership",
+            actionText: "View Membership",
+            actionIcon: "bi-arrow-right",
+            url: "memberships.html",
+            target: "_self"
+          }
+        ],
+        referral: {
+          title: "New to our practice?",
+          desc: "Review common questions about scheduling, insurance, pricing, and therapies before your first visit.",
+          primaryBtnText: "New Patient Questions",
+          primaryBtnLink: "new-patient-questions.html",
+          secondaryEnabled: false,
+          secondaryBtnText: "Request An Appointment",
+          secondaryBtnLink: "book-appointment.html"
+        },
+        cta: {
+          title: "Need help from our team?",
+          desc: "Call the office or send a message — we’re happy to assist.",
+          phone: "301-970-9724",
+          btn1Text: "Contact Us",
+          btn1Link: "contact.html",
+          btn2Text: "Book Appointment",
+          btn2Link: "book-appointment.html"
+        },
+        seo: {
+          title: "Patients - Be The Change Health and Wellness Center",
+          desc: "Existing patient resources for Be The Change Health & Wellness Center — patient portal, book a service, shop supplements, and memberships."
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.warn("Could not read localStorage for patients CMS", e);
+        }
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {
+          console.warn("Could not write to localStorage for patients CMS", e);
+        }
+      }
+
+      function toast(msg, type) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg, type || "success");
+        } else {
+          alert(msg);
+        }
+      }
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+      }
+
+      function setVal(id, v) {
+        var el = document.getElementById(id);
+        if (el) el.value = v == null ? "" : v;
+      }
+
+      function renderLiveCardPreview(cards) {
+        var wrap = document.getElementById("live-cards-preview");
+        if (!wrap) return;
+        wrap.innerHTML = cards.map(function (c) {
+          var targetBadge = c.target === "_blank" ? '<span class="badge bg-light text-muted border small mt-2"><i class="bi bi-box-arrow-up-right me-1"></i>New Tab</span>' : '<span class="badge bg-light text-muted border small mt-2">Same Tab</span>';
+          return (
+            '<div class="col-sm-6 col-lg-3">' +
+              '<div class="patient-card-preview">' +
+                '<div>' +
+                  '<div class="patient-card-icon-box"><i class="bi ' + (c.icon || "bi-card-heading") + '"></i></div>' +
+                  '<h4>' + (c.title || "Card Title") + '</h4>' +
+                '</div>' +
+                '<div>' +
+                  '<div class="action-link">' + (c.actionText || "Learn More") + ' <i class="bi ' + (c.actionIcon || "bi-arrow-right") + '"></i></div>' +
+                  '<div>' + targetBadge + '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>'
+          );
+        }).join("");
+      }
+
+      function populateForm(data) {
+        // Notice
+        setVal("notice-primary", data.notice.primary);
+        setVal("notice-disclaimer", data.notice.disclaimer);
+        setVal("notice-visibility", data.notice.visibility);
+        var noticeBadge = document.getElementById("badge-notice-status");
+        if (noticeBadge) {
+          noticeBadge.textContent = data.notice.visibility === "visible" ? "Visible" : "Hidden";
+          noticeBadge.className = data.notice.visibility === "visible" ? "badge-admin badge-published" : "badge-admin badge-draft";
+        }
+
+        // Hero
+        setVal("hero-title", data.hero.title);
+        setVal("breadcrumb-active", data.hero.breadcrumb);
+
+        // Intro
+        setVal("intro-eyebrow", data.intro.eyebrow);
+        setVal("intro-text", data.intro.text);
+
+        // Cards
+        var cards = data.cards || DEFAULT_DATA.cards;
+        if (cards[0]) {
+          setVal("card1-icon", cards[0].icon);
+          setVal("card1-title", cards[0].title);
+          setVal("card1-action", cards[0].actionText);
+          setVal("card1-url", cards[0].url);
+          setVal("card1-target", cards[0].target);
+          var ico1 = document.getElementById("card1-icon-preview");
+          if (ico1) ico1.className = "bi " + cards[0].icon;
+        }
+        if (cards[1]) {
+          setVal("card2-icon", cards[1].icon);
+          setVal("card2-title", cards[1].title);
+          setVal("card2-action", cards[1].actionText);
+          setVal("card2-url", cards[1].url);
+          setVal("card2-target", cards[1].target);
+          var ico2 = document.getElementById("card2-icon-preview");
+          if (ico2) ico2.className = "bi " + cards[1].icon;
+        }
+        if (cards[2]) {
+          setVal("card3-icon", cards[2].icon);
+          setVal("card3-title", cards[2].title);
+          setVal("card3-action", cards[2].actionText);
+          setVal("card3-url", cards[2].url);
+          setVal("card3-target", cards[2].target);
+          var ico3 = document.getElementById("card3-icon-preview");
+          if (ico3) ico3.className = "bi " + cards[2].icon;
+        }
+        if (cards[3]) {
+          setVal("card4-icon", cards[3].icon);
+          setVal("card4-title", cards[3].title);
+          setVal("card4-action", cards[3].actionText);
+          setVal("card4-url", cards[3].url);
+          setVal("card4-target", cards[3].target);
+          var ico4 = document.getElementById("card4-icon-preview");
+          if (ico4) ico4.className = "bi " + cards[3].icon;
+        }
+        renderLiveCardPreview(cards);
+
+        // Referral
+        setVal("ref-title", data.referral.title);
+        setVal("ref-desc", data.referral.desc);
+        setVal("ref-btn-primary-text", data.referral.primaryBtnText);
+        setVal("ref-btn-primary-link", data.referral.primaryBtnLink);
+        var secCheck = document.getElementById("ref-secondary-enable");
+        if (secCheck) secCheck.checked = !!data.referral.secondaryEnabled;
+        var secFields = document.getElementById("secondary-btn-fields");
+        if (secFields) secFields.style.display = data.referral.secondaryEnabled ? "block" : "none";
+        setVal("ref-btn-sec-text", data.referral.secondaryBtnText);
+        setVal("ref-btn-sec-link", data.referral.secondaryBtnLink);
+
+        // CTA
+        setVal("cta-title", data.cta.title);
+        setVal("cta-desc", data.cta.desc);
+        setVal("cta-phone", data.cta.phone);
+        setVal("cta-btn1-text", data.cta.btn1Text);
+        setVal("cta-btn1-link", data.cta.btn1Link);
+        setVal("cta-btn2-text", data.cta.btn2Text);
+        setVal("cta-btn2-link", data.cta.btn2Link);
+
+        // SEO
+        setVal("seo-title", data.seo.title);
+        setVal("seo-desc", data.seo.desc);
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (st) st.textContent = data.seo.title;
+        if (sd) sd.textContent = data.seo.desc;
+      }
+
+      function gatherCurrentCards() {
+        return [
+          {
+            id: 1,
+            icon: val("card1-icon") || "bi-laptop",
+            title: val("card1-title") || "Patient Portal",
+            actionText: val("card1-action") || "Open Portal",
+            actionIcon: val("card1-target") === "_blank" ? "bi-arrow-up-right" : "bi-arrow-right",
+            url: val("card1-url"),
+            target: val("card1-target")
+          },
+          {
+            id: 2,
+            icon: val("card2-icon") || "bi-calendar2-check",
+            title: val("card2-title") || "BOOK A SERVICE",
+            actionText: val("card2-action") || "Continue",
+            actionIcon: val("card2-target") === "_blank" ? "bi-arrow-up-right" : "bi-arrow-right",
+            url: val("card2-url"),
+            target: val("card2-target")
+          },
+          {
+            id: 3,
+            icon: val("card3-icon") || "bi-bag-heart",
+            title: val("card3-title") || "Shop Supplements",
+            actionText: val("card3-action") || "Open Fullscript",
+            actionIcon: val("card3-target") === "_blank" ? "bi-arrow-up-right" : "bi-arrow-right",
+            url: val("card3-url"),
+            target: val("card3-target")
+          },
+          {
+            id: 4,
+            icon: val("card4-icon") || "bi-stars",
+            title: val("card4-title") || "Membership",
+            actionText: val("card4-action") || "View Membership",
+            actionIcon: val("card4-target") === "_blank" ? "bi-arrow-up-right" : "bi-arrow-right",
+            url: val("card4-url"),
+            target: val("card4-target")
+          }
+        ];
+      }
+
+      function bindLiveEvents() {
+        // Icon inputs preview update
+        [1, 2, 3, 4].forEach(function (num) {
+          var input = document.getElementById("card" + num + "-icon");
+          var ico = document.getElementById("card" + num + "-icon-preview");
+          if (input && ico) {
+            input.addEventListener("input", function () {
+              ico.className = "bi " + input.value.trim();
+              renderLiveCardPreview(gatherCurrentCards());
+            });
+          }
+          ["title", "action", "target"].forEach(function (prop) {
+            var el = document.getElementById("card" + num + "-" + prop);
+            if (el) {
+              el.addEventListener("input", function () {
+                renderLiveCardPreview(gatherCurrentCards());
+              });
+              el.addEventListener("change", function () {
+                renderLiveCardPreview(gatherCurrentCards());
+              });
+            }
+          });
+        });
+
+        // Secondary referral button toggle
+        var secCheck = document.getElementById("ref-secondary-enable");
+        var secFields = document.getElementById("secondary-btn-fields");
+        if (secCheck && secFields) {
+          secCheck.addEventListener("change", function () {
+            secFields.style.display = secCheck.checked ? "block" : "none";
+          });
+        }
+
+        // Live SERP update
+        var seoTitle = document.getElementById("seo-title");
+        var seoDesc = document.getElementById("seo-desc");
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (seoTitle && st) {
+          seoTitle.addEventListener("input", function () {
+            st.textContent = seoTitle.value || "Patients - Be The Change Health and Wellness Center";
+          });
+        }
+        if (seoDesc && sd) {
+          seoDesc.addEventListener("input", function () {
+            sd.textContent = seoDesc.value || "";
+          });
+        }
+
+        // Section save buttons
+        var btnNotice = document.getElementById("btn-save-notice");
+        if (btnNotice) {
+          btnNotice.addEventListener("click", function () {
+            var d = loadData();
+            d.notice.primary = val("notice-primary");
+            d.notice.disclaimer = val("notice-disclaimer");
+            d.notice.visibility = val("notice-visibility");
+            saveData(d);
+            var noticeBadge = document.getElementById("badge-notice-status");
+            if (noticeBadge) {
+              noticeBadge.textContent = d.notice.visibility === "visible" ? "Visible" : "Hidden";
+              noticeBadge.className = d.notice.visibility === "visible" ? "badge-admin badge-published" : "badge-admin badge-draft";
+            }
+            toast("Notice bar settings saved successfully.");
+          });
+        }
+
+        var btnHero = document.getElementById("btn-save-hero");
+        if (btnHero) {
+          btnHero.addEventListener("click", function () {
+            var d = loadData();
+            d.hero.title = val("hero-title");
+            d.hero.breadcrumb = val("breadcrumb-active");
+            saveData(d);
+            toast("Page Hero & Breadcrumbs saved.");
+          });
+        }
+
+        var btnIntro = document.getElementById("btn-save-intro");
+        if (btnIntro) {
+          btnIntro.addEventListener("click", function () {
+            var d = loadData();
+            d.intro.eyebrow = val("intro-eyebrow");
+            d.intro.text = val("intro-text");
+            saveData(d);
+            toast("Patient Resources intro text saved.");
+          });
+        }
+
+        var btnCards = document.getElementById("btn-save-cards");
+        if (btnCards) {
+          btnCards.addEventListener("click", function () {
+            var d = loadData();
+            d.cards = gatherCurrentCards();
+            saveData(d);
+            renderLiveCardPreview(d.cards);
+            toast("All 4 Patient Resource Cards saved successfully.");
+          });
+        }
+
+        var btnReferral = document.getElementById("btn-save-referral");
+        if (btnReferral) {
+          btnReferral.addEventListener("click", function () {
+            var d = loadData();
+            d.referral.title = val("ref-title");
+            d.referral.desc = val("ref-desc");
+            d.referral.primaryBtnText = val("ref-btn-primary-text");
+            d.referral.primaryBtnLink = val("ref-btn-primary-link");
+            d.referral.secondaryEnabled = !!(document.getElementById("ref-secondary-enable") && document.getElementById("ref-secondary-enable").checked);
+            d.referral.secondaryBtnText = val("ref-btn-sec-text");
+            d.referral.secondaryBtnLink = val("ref-btn-sec-link");
+            saveData(d);
+            toast("New patient referral banner saved.");
+          });
+        }
+
+        var btnCta = document.getElementById("btn-save-cta");
+        if (btnCta) {
+          btnCta.addEventListener("click", function () {
+            var d = loadData();
+            d.cta.title = val("cta-title");
+            d.cta.desc = val("cta-desc");
+            d.cta.phone = val("cta-phone");
+            d.cta.btn1Text = val("cta-btn1-text");
+            d.cta.btn1Link = val("cta-btn1-link");
+            d.cta.btn2Text = val("cta-btn2-text");
+            d.cta.btn2Link = val("cta-btn2-link");
+            saveData(d);
+            toast("Assistance CTA band saved.");
+          });
+        }
+
+        var btnSeo = document.getElementById("btn-save-seo");
+        if (btnSeo) {
+          btnSeo.addEventListener("click", function () {
+            var d = loadData();
+            d.seo.title = val("seo-title");
+            d.seo.desc = val("seo-desc");
+            saveData(d);
+            toast("SEO metadata settings saved.");
+          });
+        }
+
+        function saveAll() {
+          var d = {
+            notice: {
+              primary: val("notice-primary"),
+              disclaimer: val("notice-disclaimer"),
+              visibility: val("notice-visibility")
+            },
+            hero: {
+              title: val("hero-title"),
+              breadcrumb: val("breadcrumb-active")
+            },
+            intro: {
+              eyebrow: val("intro-eyebrow"),
+              text: val("intro-text")
+            },
+            cards: gatherCurrentCards(),
+            referral: {
+              title: val("ref-title"),
+              desc: val("ref-desc"),
+              primaryBtnText: val("ref-btn-primary-text"),
+              primaryBtnLink: val("ref-btn-primary-link"),
+              secondaryEnabled: !!(document.getElementById("ref-secondary-enable") && document.getElementById("ref-secondary-enable").checked),
+              secondaryBtnText: val("ref-btn-sec-text"),
+              secondaryBtnLink: val("ref-btn-sec-link")
+            },
+            cta: {
+              title: val("cta-title"),
+              desc: val("cta-desc"),
+              phone: val("cta-phone"),
+              btn1Text: val("cta-btn1-text"),
+              btn1Link: val("cta-btn1-link"),
+              btn2Text: val("cta-btn2-text"),
+              btn2Link: val("cta-btn2-link")
+            },
+            seo: {
+              title: val("seo-title"),
+              desc: val("seo-desc")
+            }
+          };
+          saveData(d);
+          renderLiveCardPreview(d.cards);
+          toast("All sections of Patients page saved successfully!");
+        }
+
+        var btnAllTop = document.getElementById("btn-save-all-top");
+        if (btnAllTop) btnAllTop.addEventListener("click", saveAll);
+
+        var btnAllBot = document.getElementById("btn-save-all-bottom");
+        if (btnAllBot) btnAllBot.addEventListener("click", saveAll);
+
+        var btnReset = document.getElementById("btn-reset-defaults");
+        if (btnReset) {
+          btnReset.addEventListener("click", function () {
+            if (window.confirm("Reset all Patients Page content back to original clinic defaults? Any unsaved edits will be discarded.")) {
+              saveData(DEFAULT_DATA);
+              populateForm(DEFAULT_DATA);
+              toast("Restored Patients Page to clinic default content.");
+            }
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var currentData = loadData();
+        populateForm(currentData);
+        bindLiveEvents();
+      });
+    })();
+  </script>
+</body>
+</html>

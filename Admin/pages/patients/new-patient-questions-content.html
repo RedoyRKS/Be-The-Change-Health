@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Patient Questions Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .faq-admin-unit {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      transition: all 0.2s ease;
+    }
+    .faq-admin-unit:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 48, 72, 0.04);
+    }
+    .faq-admin-unit.highlight-unit {
+      border-left: 4px solid var(--btc-teal);
+    }
+    .badge-unit-num {
+      width: 28px;
+      height: 28px;
+      background: var(--btc-navy);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .therapy-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--btc-navy);
+      margin: 0.2rem;
+    }
+    .therapy-chip a {
+      color: var(--btc-teal);
+      text-decoration: none;
+    }
+    .pricing-table-admin {
+      width: 100%;
+      font-size: 0.88rem;
+    }
+    .pricing-table-admin th {
+      background: #f8fafc;
+      padding: 0.75rem;
+      color: var(--btc-navy);
+      font-weight: 600;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .pricing-table-admin td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid #edf2f7;
+    }
+  </style>
+</head>
+<body data-page="new-patient-questions-content">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Page Content CMS</span><span class="sep">/</span>
+            <span>Patients</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">New Patient Questions</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/new-patient-questions.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/new-patient-questions.html</p>
+              <h2>New Patient Questions Content Management (FAQ &amp; Clinic Policies)</h2>
+              <p>Manage the scheduling guides, Dr. Afrooz and Dr. Needle first-visit &amp; follow-up pricing tables, modalities catalog, office policies modal, Google review testimonials, and next-step CTA.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="patients-content.html">
+                <i class="bi bi-arrow-left me-1"></i> Existing Patients CMS
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-question-square-fill text-teal"></i> Appointments FAQs
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">7 Questions</h4>
+                  <small class="text-muted">Scheduling, Insurance, Pricing, Location</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-currency-dollar text-teal"></i> Doctor Pricing
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">2 Doctors Configured</h4>
+                  <small class="text-muted">Dr. Afrooz (4 tiers) · Dr. Needle (1 tier)</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-file-earmark-medical-fill text-teal"></i> Office Policies
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">3 Modal Topics</h4>
+                  <small class="text-muted">Visits, Insurance-Free, Deposits &amp; Labs</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-star-fill text-teal"></i> Patient Testimonials
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark" id="stat-review-count">7 Reviews</h4>
+                  <small class="text-muted">Google Reviews Swiper Carousel</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-notice">01. Notice Bar</a>
+          <a href="#section-hero">02. Page Hero</a>
+          <a href="#section-appointments">03. Appointments FAQ</a>
+          <a href="#section-pricing-afrooz">04. Dr. Afrooz Pricing</a>
+          <a href="#section-pricing-needle">05. Dr. Needle Pricing</a>
+          <a href="#section-therapies">06. Therapies FAQ &amp; List</a>
+          <a href="#section-policies">07. Office Policies Modal</a>
+          <a href="#section-testimonials">08. Testimonials</a>
+          <a href="#section-cta">09. Next Step CTA</a>
+          <a href="#section-seo">10. SEO &amp; SERP</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Practice Notice Bar -->
+          <article class="editor-card open" id="section-notice">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Notice Bar (Top Strip)</h3>
+                <p>Telehealth notification &amp; out-of-network disclaimer displayed above header</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published" id="badge-notice-status">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="notice-primary">Primary Notice Headline *</label>
+                  <input class="form-control" id="notice-primary" value="Now offering Telehealth appointments." required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="notice-visibility">Notice Bar Visibility</label>
+                  <select class="form-select" id="notice-visibility">
+                    <option value="visible" selected>Visible on website</option>
+                    <option value="hidden">Hide notice bar</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="notice-disclaimer">Out-of-Network Secondary Note (Hidden on small mobile screens) *</label>
+                  <textarea class="form-control" id="notice-disclaimer" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-notice">
+                  <i class="bi bi-check2 me-1"></i> Save Notice Bar
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Page Hero & Breadcrumbs -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Page Hero &amp; Breadcrumb</h3>
+                <p>Top section headline, descriptive subtitle, and breadcrumb path on new-patient-questions.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Hero Headline (H1) *</label>
+                  <input class="form-control" id="hero-title" value="New Patients" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-breadcrumb">Active Breadcrumb Item *</label>
+                  <input class="form-control" id="hero-breadcrumb" value="New Patient Questions" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle / Description *</label>
+                  <textarea class="form-control" id="hero-subtitle" rows="2" required>Common questions about scheduling, insurance, pricing, and therapies.</textarea>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: Appointments FAQ (Getting Started) -->
+          <article class="editor-card open" id="section-appointments">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Appointments FAQ (Getting Started)</h3>
+                <p>Section 1 accordion items: Scheduling, What to expect, Skepticism, Insurance, and Clinic Location</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">5 Questions</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="faq1-eyebrow">Section Eyebrow *</label>
+                  <input class="form-control" id="faq1-eyebrow" value="Getting Started" required>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="faq1-title">Section Heading (H2) *</label>
+                  <input class="form-control" id="faq1-title" value="Common Questions About Our Appointments" required>
+                </div>
+              </div>
+
+              <!-- Question 1: How do I schedule? -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">1</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 1 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q1-title" value="How do I schedule?" required>
+                <label class="form-label-admin small">Question 1 Answer Content (HTML Supported) *</label>
+                <textarea class="form-control mb-2" id="q1-body" rows="4" required><p><a href="../contact/contact.html"><strong>Please fill out this new patient form,</strong></a> and our new patient representative will contact you via phone and text. The scheduling process is very simple and takes about 5–10 minutes. The new patient representative will determine the length of your first appointment based on your health goals and medical history and provide you with a transparent pricing breakdown. Afterwards, we usually review <a href="#officePoliciesModal" data-bs-toggle="modal"><u><strong>office policies</strong></u></a> and afterwards our staff will send you email links to complete your set of new patient questionnaires before your appointment, and submit a deposit to hold your appointment time.</p>
+<p class="mb-0"><strong>YOU DO NOT</strong> need to get labs done before your appointment, as our doctors will most likely order customized lab work based on your initial evaluation.</p></textarea>
+                <small class="text-muted">Includes direct links to contact.html and office policies modal trigger.</small>
+              </div>
+
+              <!-- Question 2: What can I expect to receive after my first appointment? -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">2</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 2 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q2-title" value="What can I expect to receive after my first appointment?" required>
+                <label class="form-label-admin small">Question 2 Answer Content (HTML Supported) *</label>
+                <textarea class="form-control mb-2" id="q2-body" rows="6" required><p>A treatment plan based on your symptoms that will be adjusted once your lab work results come in and will be tailored to your medical history.</p>
+<ul>
+  <li>Thorough lab work is typically sent to Quest or LabCorp, depending on your evaluation. Our staff will also make recommendations for Specialty Lab Work after the initial consultation as needed to evaluate your medical condition.</li>
+  <li>Your Supplements will be sent to you via our online dispensary and your prescriptions will be sent to your pharmacy.</li>
+  <li>A list of medical-grade supplements emailed to you for purchase on Fullscript.</li>
+  <li>Follow-up appointments are available at an additional cost to track your progress.</li>
+</ul></textarea>
+              </div>
+
+              <!-- Question 3: Skeptical about medical care -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">3</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 3 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q3-title" value="I have been to other medical offices, which has made me skeptical about the medical care I will receive." required>
+                <label class="form-label-admin small">Question 3 Answer Content *</label>
+                <textarea class="form-control mb-2" id="q3-body" rows="4" required><p class="mb-0">We completely understand how infuriating the modern-day healthcare system can be, everything from doctors who don’t listen to you when you say you’re not feeling well, to 15-minute appointments that leave you feeling unheard while not addressing the root cause. If you want to get a feel for our doctors, you are welcome to request a <strong>FREE 10-minute discovery call</strong> to see if our doctors seem likely to meet your needs. This can be scheduled with our new patient care coordinator after filling out our <a href="../contact/contact.html">new patient inquiry form</a>. After the call, there is <strong>NO OBLIGATION</strong> to schedule if you are not comfortable, and you will have a better idea of how our physicians can support you on your healing journey.</p></textarea>
+              </div>
+
+              <!-- Question 4: Do we accept insurance? -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">4</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 4 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q4-title" value="Do we accept insurance?" required>
+                <label class="form-label-admin small">Question 4 Answer Content *</label>
+                <textarea class="form-control mb-2" id="q4-body" rows="6" required><p>We are classified as an out-of-network provider and do not directly deal with insurance. We have chosen this model because insurance limits our ability to tailor our protocols to our patients’ needs. Our focus is to provide a patient centered approach to care and our emphasis relies on putting the patient first in all circumstances. After your appointment, we will provide you with an invoice with codes so you can individually submit it to your insurance to see if they will cover any costs. However, we do NOT guarantee that insurance will cover our appointments or treatments—this depends on your out-of-network benefits and your insurance provider.</p>
+<p>To check your benefits, you may want to contact your insurance provider and ask:</p>
+<ul>
+  <li>Does my plan offer out-of-network reimbursement for medical visits?</li>
+  <li>What percentage of the visit cost will be reimbursed?</li>
+  <li>Do I need pre-authorization or a referral for reimbursement?</li>
+</ul>
+<p class="mb-0">We <strong>do</strong> accept <span class="npq-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="You apply with them, and we accept the card they provide you.">CareCredit</span>. We also accept <strong>FSA</strong> cards.</p></textarea>
+              </div>
+
+              <!-- Question 5: Where are we located? -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">5</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 5 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q5-title" value="Where are we located?" required>
+                <label class="form-label-admin small">Question 5 Answer Content *</label>
+                <textarea class="form-control mb-2" id="q5-body" rows="3" required><p>Our Office Address:</p>
+<p class="mb-0">
+  8808 Centre Park Drive Suite 301<br>
+  Columbia, MD 21045
+</p></textarea>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-appointments-faq">
+                  <i class="bi bi-check2 me-1"></i> Save Appointments FAQ Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Dr. Afrooz Pricing (Item 6) -->
+          <article class="editor-card open" id="section-pricing-afrooz">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Dr. Sultana Afrooz, D.O. — Appointment Pricing</h3>
+                <p>Accordion Question 6: Initial consultation tiers table (30m, 60m, 90m, 120m) &amp; follow-up rates</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">4 Pricing Tiers</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-7">
+                  <label class="form-label-admin" for="afrooz-q-title">Accordion Question Title *</label>
+                  <input class="form-control" id="afrooz-q-title" value="How much do appointments with Dr. Afrooz cost?" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="afrooz-intro-subhead">First Appointment Subheading *</label>
+                  <input class="form-control" id="afrooz-intro-subhead" value="Dr. Afrooz‘s First Appointment Prices" required>
+                </div>
+              </div>
+
+              <label class="form-label-admin mb-2">First Appointment Pricing Tiers Table</label>
+              <div class="table-wrap mb-4">
+                <table class="pricing-table-admin" id="table-pricing-afrooz">
+                  <thead>
+                    <tr>
+                      <th style="width: 15%;">Time</th>
+                      <th style="width: 15%;">Amount</th>
+                      <th style="width: 70%;">How much time does the patient need for their first appointment?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input class="form-control form-control-sm" id="afrooz-t1-time" value="30 Min."></td>
+                      <td><input class="form-control form-control-sm fw-bold text-success" id="afrooz-t1-price" value="$250"></td>
+                      <td>
+                        <textarea class="form-control form-control-sm" id="afrooz-t1-criteria" rows="2">• If they want bioidentical hormone replacement therapy and don’t have other health concerns&#10;• Healthy Patient General Checkup</textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input class="form-control form-control-sm" id="afrooz-t2-time" value="60 Min."></td>
+                      <td><input class="form-control form-control-sm fw-bold text-success" id="afrooz-t2-price" value="$450"></td>
+                      <td>
+                        <textarea class="form-control form-control-sm" id="afrooz-t2-criteria" rows="3">• If the patient is 15 and younger&#10;• Has been healthy until recently&#10;• Mold or Lyme is not significantly affecting the quality of life&#10;• Wants to do hormone replacement therapy</textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input class="form-control form-control-sm" id="afrooz-t3-time" value="90 Min."></td>
+                      <td><input class="form-control form-control-sm fw-bold text-success" id="afrooz-t3-price" value="$525"></td>
+                      <td>
+                        <textarea class="form-control form-control-sm" id="afrooz-t3-criteria" rows="2">• A patient who has been feeling unwell for 3-6 years</textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input class="form-control form-control-sm" id="afrooz-t4-time" value="120 Min."></td>
+                      <td><input class="form-control form-control-sm fw-bold text-success" id="afrooz-t4-price" value="$625"></td>
+                      <td>
+                        <textarea class="form-control form-control-sm" id="afrooz-t4-criteria" rows="2">• Has been unwell for 6+ years&#10;• Very complicated medical history</textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Follow-Up Pricing -->
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="afrooz-fu-subhead">Follow-Up Pricing Subhead *</label>
+                  <input class="form-control" id="afrooz-fu-subhead" value="Dr. Afrooz’s Follow-Up Prices" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="afrooz-fu-range">Follow-Up Pricing Range Note</label>
+                  <input class="form-control" id="afrooz-fu-range" value="30-45 minutes · $170 – $200">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="afrooz-fu-desc">Follow-Up Description / Policy *</label>
+                  <textarea class="form-control" id="afrooz-fu-desc" rows="2" required>Follow-ups are usually 8 weeks after initial appointments in order to go over how you’re feeling and your lab results. You may be seen earlier as needed. Follow-ups range between 30-45 minutes, and the price also ranges between 170 – 200 dollars.</textarea>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-afrooz-pricing">
+                  <i class="bi bi-check2 me-1"></i> Save Dr. Afrooz Pricing
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: Dr. Needle Pricing (Item 7) -->
+          <article class="editor-card open" id="section-pricing-needle">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Dr. Jessica Needle, N.D. — Appointment Pricing</h3>
+                <p>Accordion Question 7: Standard initial consult tier &amp; follow-up rates</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">1 Consult Tier</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-7">
+                  <label class="form-label-admin" for="needle-q-title">Accordion Question Title *</label>
+                  <input class="form-control" id="needle-q-title" value="How much do appointments with Dr. Needle cost?" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="needle-intro-subhead">First Appointment Subheading *</label>
+                  <input class="form-control" id="needle-intro-subhead" value="Dr. Needle’s First Appointment Prices" required>
+                </div>
+              </div>
+
+              <label class="form-label-admin mb-2">First Appointment Pricing Tier Table</label>
+              <div class="table-wrap mb-4">
+                <table class="pricing-table-admin" id="table-pricing-needle">
+                  <thead>
+                    <tr>
+                      <th style="width: 15%;">Time</th>
+                      <th style="width: 15%;">Amount</th>
+                      <th style="width: 70%;">How much time does the patient need for their first appointment?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input class="form-control form-control-sm" id="needle-t1-time" value="60 Min."></td>
+                      <td><input class="form-control form-control-sm fw-bold text-success" id="needle-t1-price" value="$300"></td>
+                      <td>
+                        <textarea class="form-control form-control-sm" id="needle-t1-criteria" rows="2">Standard initial consult time. Click here to learn more about whether you would be a good fit for Dr. Needle.</textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Follow-Up Pricing -->
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="needle-fu-subhead">Follow-Up Pricing Subhead *</label>
+                  <input class="form-control" id="needle-fu-subhead" value="Dr. Needle’s Follow-Up Prices" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="needle-fu-rates">Follow-Up Rate Breakdown</label>
+                  <input class="form-control" id="needle-fu-rates" value="30 Min: $150 · 45 Min: $200">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="needle-fu-desc">Follow-Up Description / Policy *</label>
+                  <textarea class="form-control" id="needle-fu-desc" rows="2" required>Follow-ups are usually 8 weeks after initial appointments in order to go over how you’re feeling and your lab results. You may be seen earlier as needed. Follow-ups range between 30-45 minutes. A 30-minute follow-up would be 150 dollars and a 45-minute follow-up would be 200.</textarea>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-needle-pricing">
+                  <i class="bi bi-check2 me-1"></i> Save Dr. Needle Pricing
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: Therapies FAQ & List -->
+          <article class="editor-card open" id="section-therapies">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Therapies FAQ &amp; Modalities Catalog</h3>
+                <p>Section 2 accordion: 12 available clinic therapies with links, expansion note, and consultation clearance policy</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">12 Therapies</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="therapies-eyebrow">Section Eyebrow *</label>
+                  <input class="form-control" id="therapies-eyebrow" value="Therapies" required>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="therapies-section-title">Section Heading (H2) *</label>
+                  <input class="form-control" id="therapies-section-title" value="Common Questions About Our Therapies" required>
+                </div>
+              </div>
+
+              <!-- Question 8: What therapies do you offer? -->
+              <div class="faq-admin-unit highlight-unit mb-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">8</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 8 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q8-title" value="What therapies do you offer?" required>
+                
+                <label class="form-label-admin small">Introductory Statement *</label>
+                <input class="form-control mb-3" id="q8-intro" value="We currently offer a wide range of therapies, including:" required>
+
+                <label class="form-label-admin small">Active 12 Modalities Catalog (Rendered as &lt;ul class="npq-therapy-list"&gt; on frontend)</label>
+                <div class="p-3 bg-light rounded border mb-3">
+                  <div class="d-flex flex-wrap gap-1">
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/iv-nutritional-infusions.html">Nutritional IVs</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/ozone-therapy.html">EBOO</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/frequency-specific-microcurrent.html">FSM</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/infrared-sauna-therapy.html">Infrared Sauna Therapy</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/infrared-sauna-therapy.html">Red Light Therapy</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/ion-foot-detox.html">Ionic Foot Detox</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/hyperbaric-oxygen-therapy.html">Hyperbaric Oxygen Therapy</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/ozone-therapy.html">Ozone IV</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/ozone-therapy.html">Ozone Ear Insufflation</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/iv-nutritional-infusions.html">Nutritional IV Infusions</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/iv-nutritional-infusions.html">NAD IV</a></span>
+                    <span class="therapy-chip"><i class="bi bi-link-45deg"></i> <a href="../services/iv-nutritional-infusions.html">Methylene Blue IV</a></span>
+                  </div>
+                </div>
+
+                <label class="form-label-admin small">Expansion / Closing Note *</label>
+                <input class="form-control" id="q8-closing" value="We are always expanding our available therapies to better meet the needs of our patients." required>
+              </div>
+
+              <!-- Question 9: Do I need an appointment to receive some of these therapies? -->
+              <div class="faq-admin-unit highlight-unit">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge-unit-num">9</span>
+                  <label class="form-label-admin mb-0 fw-bold">Question 9 Headline *</label>
+                </div>
+                <input class="form-control mb-3" id="q9-title" value="Do I need an appointment to receive some of these therapies?" required>
+                
+                <label class="form-label-admin small">Consultation &amp; Clearance Policy Body *</label>
+                <textarea class="form-control mb-2" id="q9-body" rows="4" required><p>No, most of our therapies are generally available to everyone. However, you are welcome to book a 15-minute consultation with <a href="about/sultana-afrooz.html">Dr. Afrooz</a> or <a href="about/jessica-needle.html">Dr. Needle</a> for $60 to determine which therapies best suit your current health goals.</p>
+<p class="mb-0">This <strong>15-minute evaluation may be mandatory</strong> to clear you for certain therapies such as High-Dose Vitamin C, EBOO, IV Methylene Blue or if you have a more sensitive medical history that may interfere with any of the therapies listed above.</p></textarea>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-therapies">
+                  <i class="bi bi-check2 me-1"></i> Save Therapies FAQ Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 07: Office Policies CTA Strip & Modal -->
+          <article class="editor-card open" id="section-policies">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>Office Policies CTA Strip &amp; Modal Document</h3>
+                <p>Callout strip on new-patient-questions.html and the popup modal (#officePoliciesModal)</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Modal Active</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="pol-strip-title">CTA Strip Heading (H3) *</label>
+                  <input class="form-control" id="pol-strip-title" value="Office Policies" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="pol-strip-desc">CTA Strip Description *</label>
+                  <input class="form-control" id="pol-strip-desc" value="Review intake visits, follow-ups, insurance, deposits, and specialty testing fees before you schedule." required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin" for="pol-strip-btn">Modal Button Label *</label>
+                  <input class="form-control" id="pol-strip-btn" value="View Office Policies" required>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <!-- Modal Content Topics -->
+              <h4 class="h6 fw-bold mb-3 text-dark"><i class="bi bi-window-stack me-1"></i> Modal Dialog (#officePoliciesModal) Content</h4>
+              
+              <!-- Topic 1: Intake and Follow-up Visits -->
+              <div class="faq-admin-unit mb-3">
+                <label class="form-label-admin fw-semibold">Policy Subsection 1: Heading *</label>
+                <input class="form-control mb-2" id="pol-h1" value="Intake and Follow-up Visits" required>
+                <label class="form-label-admin small">Subsection 1 Body Paragraphs *</label>
+                <textarea class="form-control" id="pol-body1" rows="7" required><p>Normally, our intake new patient first visit is 1-2 hours long. This is all time you will get one-on-one with the doctor, where she will review symptoms of your various systems, and review any relevant environmental history. The length of the visit depends mainly on the complexity of the symptoms, the age of the patient, and the length of time the patient has had symptoms.</p>
+<p>Follow up visits can be done as office visits. We also offer phone consults if reaching the office is logistically difficult. The length of the appointment depends on the individual; their complexity of treatment, age, progress, and place of residence. Duration of these visits varies between 30, 45, and 60 minutes. We understand some patient may prefer phone consultations, especially finding it difficult to travel while being sick, however, we do need to see you for an in-office visit at least once every 6 months to be able to evaluate you and adjust your treatment plan when needed.</p>
+<p>We are unable to send in blood work orders or request tests before your first intake visit. Dr. Afrooz prefers to evaluate to see you first, evaluate your symptoms, do the physical exam, so she is able to better determine what laboratory tests need to be ordered.</p>
+<p>Once you have made the decision to become our patient, we would get you set up with a patient portal, where you can communicate with the doctors and the office staff, update your demographic information, complete intake questionnaires, and if you already have relevant lab results and medical records, you can upload them to your portal or bring a copy with you to your visit.</p>
+<p>The length of the treatment, the frequency of follow-up visits, and the nature of a treatment plan varies based on the patient’s severity and duration of symptoms, test results, age, among many other factors. Therefore, we will be able to give you more answers to these questions after the doctor evaluates you.</p></textarea>
+              </div>
+
+              <!-- Topic 2: Insurance Free Practice -->
+              <div class="faq-admin-unit mb-3">
+                <label class="form-label-admin fw-semibold">Policy Subsection 2: Heading *</label>
+                <input class="form-control mb-2" id="pol-h2" value="Insurance Free Practice" required>
+                <label class="form-label-admin small">Subsection 2 Body Paragraphs *</label>
+                <textarea class="form-control" id="pol-body2" rows="3" required><p>We are an insurance free practice and classified as an out-of-network provider. We do not file for insurance reimbursement. However, we will provide an invoice you can submit to your insurance, to help you get as much of your visit covered. Unfortunately, we cannot guarantee your insurance would reimburse you for your visits. We do offer payment plans if needed.</p></textarea>
+              </div>
+
+              <!-- Topic 3: Fees and Charges -->
+              <div class="faq-admin-unit mb-3">
+                <label class="form-label-admin fw-semibold">Policy Subsection 3: Heading *</label>
+                <input class="form-control mb-2" id="pol-h3" value="Fees and Charges" required>
+                <label class="form-label-admin small">Subsection 3 Body Paragraphs *</label>
+                <textarea class="form-control" id="pol-body3" rows="5" required><p>When scheduling your first visit, we require a $100 deposit to hold your appointment. This goes towards your first visit, and is fully refundable if appointments are canceled or rescheduled 3 business days prior to the visit.</p>
+<p>These fees do not include any specialty testing done at the office. These tests are charged when samples are processed at specialty laboratories. A few examples of these tests are Igenex Lyme Panel, Frye Laboratories, Marcon testing, Real Time Mycotoxins testing, and Doctors Data Heavy Metal testing, and PANDAS. We are always adding new tests to our diagnosis tools.</p>
+<p class="mb-0">Regular blood work (non-specialty tests) can be done at your local laboratories and are usually covered by insurances.</p></textarea>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-policies">
+                  <i class="bi bi-check2 me-1"></i> Save Office Policies Content
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 08: Testimonials Carousel -->
+          <article class="editor-card open" id="section-testimonials">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div>
+                <h3>Patient Testimonials &amp; Google Reviews</h3>
+                <p>Google reviews rating badge &amp; Swiper carousel quotes on new-patient-questions.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published" id="badge-reviews-count">7 Reviews Active</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="testi-title">Section Title (H2) *</label>
+                  <input class="form-control" id="testi-title" value="What Our Patients Say" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="testi-subtitle">Section Subtitle *</label>
+                  <input class="form-control" id="testi-subtitle" value="Real experiences from patients of Be The Change Health & Wellness Center." required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-label">Rating Label *</label>
+                  <input class="form-control" id="testi-label" value="EXCELLENT" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-count">Verified Review Count *</label>
+                  <input class="form-control" id="testi-count" type="number" value="37" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="testi-delay">Autoplay Speed (ms)</label>
+                  <input class="form-control" id="testi-delay" type="number" value="5000">
+                </div>
+              </div>
+
+              <label class="form-label-admin mb-2">Live Review Quotes Roster</label>
+              <div class="table-wrap mb-3">
+                <table class="table-admin" id="table-reviews">
+                  <thead>
+                    <tr>
+                      <th style="width: 18%;">Patient</th>
+                      <th style="width: 14%;">Date</th>
+                      <th style="width: 12%;">Rating</th>
+                      <th style="width: 50%;">Quote Snippet</th>
+                      <th style="width: 6%; text-align: right;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-reviews">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Add Review Form -->
+              <div class="p-3 bg-light rounded border mb-3">
+                <h5 class="h6 fw-bold mb-2 text-dark"><i class="bi bi-plus-circle me-1"></i> Add Patient Review to Carousel</h5>
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <input class="form-control form-control-sm" id="new-rev-author" placeholder="Patient Name (e.g. Elle)">
+                  </div>
+                  <div class="col-md-4">
+                    <input class="form-control form-control-sm" type="date" id="new-rev-date" value="2025-02-25">
+                  </div>
+                  <div class="col-md-4">
+                    <select class="form-select form-select-sm" id="new-rev-stars">
+                      <option value="5" selected>5 Stars (★★★★★)</option>
+                      <option value="4">4 Stars (★★★★)</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <textarea class="form-control form-control-sm" id="new-rev-quote" rows="2" placeholder="Full patient quote text…"></textarea>
+                  </div>
+                  <div class="col-12 text-end">
+                    <button type="button" class="btn-btc btn-sm-admin" id="btn-add-review">
+                      <i class="bi bi-plus-lg me-1"></i> Add Review Row
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-testimonials">
+                  <i class="bi bi-check2 me-1"></i> Save Testimonials Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 09: "Ready to take the next step?" CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">09</span>
+              <div>
+                <h3>"Ready to take the next step?" Conversion CTA Band</h3>
+                <p>Callout strip at bottom of new patient questions page</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-7">
+                  <label class="form-label-admin" for="cta-title">Band Heading (H2) *</label>
+                  <input class="form-control" id="cta-title" value="Ready to take the next step?" required>
+                </div>
+                <div class="col-md-5">
+                  <label class="form-label-admin" for="cta-phone">Inquiry Phone Number *</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="cta-desc">CTA Description *</label>
+                  <input class="form-control" id="cta-desc" value="Fill out the new patient form or call our team — we’re here to help." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn1-text">Primary Button Label (Filled) *</label>
+                  <input class="form-control mb-2" id="cta-btn1-text" value="New Patient Form" required>
+                  <label class="form-label-admin small" for="cta-btn1-link">Primary Button Target URL *</label>
+                  <input class="form-control" id="cta-btn1-link" value="contact.html" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="cta-btn2-text">Secondary Button Label (Outline) *</label>
+                  <input class="form-control mb-2" id="cta-btn2-text" value="Book Appointment" required>
+                  <label class="form-label-admin small" for="cta-btn2-link">Secondary Button Target URL *</label>
+                  <input class="form-control" id="cta-btn2-link" value="book-appointment.html" required>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save Conversion CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 10: SEO & Search Preview -->
+          <article class="editor-card" id="section-seo">
+            <div class="editor-head">
+              <span class="num">10</span>
+              <div>
+                <h3>SEO &amp; Search Engine Appearance</h3>
+                <p>Page &lt;title&gt;, meta description, and Google SERP search snippet simulation</p>
+              </div>
+              <span class="spacer"></span>
+              <a href="../seo.html" class="btn-btc-ghost btn-sm-admin">Open Full SEO CMS</a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">Meta Title Tag *</label>
+                  <input class="form-control" id="seo-title" value="New Patient Questions - Be The Change Health and Wellness Center" required>
+                  <small class="text-muted">Recommended: Under 60 characters</small>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">Meta Description Tag *</label>
+                  <textarea class="form-control" id="seo-desc" rows="2" required>Answers for new patients at Be The Change Health & Wellness Center — scheduling, insurance, appointment pricing, therapies, and office policies.</textarea>
+                  <small class="text-muted">Recommended: 120-160 characters</small>
+                </div>
+              </div>
+
+              <!-- Google SERP Simulation Box -->
+              <label class="form-label-admin mb-2">Google Search Snippet Simulation</label>
+              <div class="serp-box">
+                <div class="serp-url-crumb"><i class="bi bi-globe2 me-1"></i> https://bethechangehealth.com › new-patient-questions.html</div>
+                <div class="serp-title" id="serp-preview-title">New Patient Questions - Be The Change Health and Wellness Center</div>
+                <p class="serp-desc" id="serp-preview-desc">Answers for new patients at Be The Change Health &amp; Wellness Center — scheduling, insurance, appointment pricing, therapies, and office policies.</p>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sticky Floating Save Bar -->
+        <div class="sticky-actions mt-4 justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small"><i class="bi bi-shield-check text-success me-1"></i> Status: <strong class="text-dark">All Sections Synced</strong></span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Page Defaults
+            </button>
+            <a class="btn-btc-outline" href="../../../Frontend/new-patient-questions.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Frontend
+            </a>
+            <button class="btn-btc" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2-circle me-1"></i> Save All Page Content
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_npq_cms_data";
+
+      var DEFAULT_DATA = {
+        notice: {
+          primary: "Now offering Telehealth appointments.",
+          disclaimer: "Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.",
+          visibility: "visible"
+        },
+        hero: {
+          title: "New Patients",
+          subtitle: "Common questions about scheduling, insurance, pricing, and therapies.",
+          breadcrumb: "New Patient Questions"
+        },
+        appointments: {
+          eyebrow: "Getting Started",
+          title: "Common Questions About Our Appointments",
+          q1: {
+            title: "How do I schedule?",
+            body: '<p><a href="../contact/contact.html"><strong>Please fill out this new patient form,</strong></a> and our new patient representative will contact you via phone and text. The scheduling process is very simple and takes about 5–10 minutes. The new patient representative will determine the length of your first appointment based on your health goals and medical history and provide you with a transparent pricing breakdown. Afterwards, we usually review <a href="#officePoliciesModal" data-bs-toggle="modal"><u><strong>office policies</strong></u></a> and afterwards our staff will send you email links to complete your set of new patient questionnaires before your appointment, and submit a deposit to hold your appointment time.</p>\n<p class="mb-0"><strong>YOU DO NOT</strong> need to get labs done before your appointment, as our doctors will most likely order customized lab work based on your initial evaluation.</p>'
+          },
+          q2: {
+            title: "What can I expect to receive after my first appointment?",
+            body: '<p>A treatment plan based on your symptoms that will be adjusted once your lab work results come in and will be tailored to your medical history.</p>\n<ul>\n  <li>Thorough lab work is typically sent to Quest or LabCorp, depending on your evaluation. Our staff will also make recommendations for Specialty Lab Work after the initial consultation as needed to evaluate your medical condition.</li>\n  <li>Your Supplements will be sent to you via our online dispensary and your prescriptions will be sent to your pharmacy.</li>\n  <li>A list of medical-grade supplements emailed to you for purchase on Fullscript.</li>\n  <li>Follow-up appointments are available at an additional cost to track your progress.</li>\n</ul>'
+          },
+          q3: {
+            title: "I have been to other medical offices, which has made me skeptical about the medical care I will receive.",
+            body: '<p class="mb-0">We completely understand how infuriating the modern-day healthcare system can be, everything from doctors who don’t listen to you when you say you’re not feeling well, to 15-minute appointments that leave you feeling unheard while not addressing the root cause. If you want to get a feel for our doctors, you are welcome to request a <strong>FREE 10-minute discovery call</strong> to see if our doctors seem likely to meet your needs. This can be scheduled with our new patient care coordinator after filling out our <a href="../contact/contact.html">new patient inquiry form</a>. After the call, there is <strong>NO OBLIGATION</strong> to schedule if you are not comfortable, and you will have a better idea of how our physicians can support you on your healing journey.</p>'
+          },
+          q4: {
+            title: "Do we accept insurance?",
+            body: '<p>We are classified as an out-of-network provider and do not directly deal with insurance. We have chosen this model because insurance limits our ability to tailor our protocols to our patients’ needs. Our focus is to provide a patient centered approach to care and our emphasis relies on putting the patient first in all circumstances. After your appointment, we will provide you with an invoice with codes so you can individually submit it to your insurance to see if they will cover any costs. However, we do NOT guarantee that insurance will cover our appointments or treatments—this depends on your out-of-network benefits and your insurance provider.</p>\n<p>To check your benefits, you may want to contact your insurance provider and ask:</p>\n<ul>\n  <li>Does my plan offer out-of-network reimbursement for medical visits?</li>\n  <li>What percentage of the visit cost will be reimbursed?</li>\n  <li>Do I need pre-authorization or a referral for reimbursement?</li>\n</ul>\n<p class="mb-0">We <strong>do</strong> accept <span class="npq-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="You apply with them, and we accept the card they provide you.">CareCredit</span>. We also accept <strong>FSA</strong> cards.</p>'
+          },
+          q5: {
+            title: "Where are we located?",
+            body: '<p>Our Office Address:</p>\n<p class="mb-0">\n  8808 Centre Park Drive Suite 301<br>\n  Columbia, MD 21045\n</p>'
+          }
+        },
+        afroozPricing: {
+          qTitle: "How much do appointments with Dr. Afrooz cost?",
+          subhead: "Dr. Afrooz‘s First Appointment Prices",
+          t1: { time: "30 Min.", price: "$250", criteria: "• If they want bioidentical hormone replacement therapy and don’t have other health concerns\n• Healthy Patient General Checkup" },
+          t2: { time: "60 Min.", price: "$450", criteria: "• If the patient is 15 and younger\n• Has been healthy until recently\n• Mold or Lyme is not significantly affecting the quality of life\n• Wants to do hormone replacement therapy" },
+          t3: { time: "90 Min.", price: "$525", criteria: "• A patient who has been feeling unwell for 3-6 years" },
+          t4: { time: "120 Min.", price: "$625", criteria: "• Has been unwell for 6+ years\n• Very complicated medical history" },
+          fuSubhead: "Dr. Afrooz’s Follow-Up Prices",
+          fuRange: "30-45 minutes · $170 – $200",
+          fuDesc: "Follow-ups are usually 8 weeks after initial appointments in order to go over how you’re feeling and your lab results. You may be seen earlier as needed. Follow-ups range between 30-45 minutes, and the price also ranges between 170 – 200 dollars."
+        },
+        needlePricing: {
+          qTitle: "How much do appointments with Dr. Needle cost?",
+          subhead: "Dr. Needle’s First Appointment Prices",
+          t1: { time: "60 Min.", price: "$300", criteria: "Standard initial consult time. Click here to learn more about whether you would be a good fit for Dr. Needle." },
+          fuSubhead: "Dr. Needle’s Follow-Up Prices",
+          fuRates: "30 Min: $150 · 45 Min: $200",
+          fuDesc: "Follow-ups are usually 8 weeks after initial appointments in order to go over how you’re feeling and your lab results. You may be seen earlier as needed. Follow-ups range between 30-45 minutes. A 30-minute follow-up would be 150 dollars and a 45-minute follow-up would be 200."
+        },
+        therapies: {
+          eyebrow: "Therapies",
+          title: "Common Questions About Our Therapies",
+          q8Title: "What therapies do you offer?",
+          q8Intro: "We currently offer a wide range of therapies, including:",
+          q8Closing: "We are always expanding our available therapies to better meet the needs of our patients.",
+          q9Title: "Do I need an appointment to receive some of these therapies?",
+          q9Body: "<p>No, most of our therapies are generally available to everyone. However, you are welcome to book a 15-minute consultation with <a href=\"about/sultana-afrooz.html\">Dr. Afrooz</a> or <a href=\"about/jessica-needle.html\">Dr. Needle</a> for $60 to determine which therapies best suit your current health goals.</p>\n<p class=\"mb-0\">This <strong>15-minute evaluation may be mandatory</strong> to clear you for certain therapies such as High-Dose Vitamin C, EBOO, IV Methylene Blue or if you have a more sensitive medical history that may interfere with any of the therapies listed above.</p>"
+        },
+        policies: {
+          stripTitle: "Office Policies",
+          stripDesc: "Review intake visits, follow-ups, insurance, deposits, and specialty testing fees before you schedule.",
+          stripBtn: "View Office Policies",
+          h1: "Intake and Follow-up Visits",
+          body1: "<p>Normally, our intake new patient first visit is 1-2 hours long. This is all time you will get one-on-one with the doctor, where she will review symptoms of your various systems, and review any relevant environmental history. The length of the visit depends mainly on the complexity of the symptoms, the age of the patient, and the length of time the patient has had symptoms.</p>\n<p>Follow up visits can be done as office visits. We also offer phone consults if reaching the office is logistically difficult. The length of the appointment depends on the individual; their complexity of treatment, age, progress, and place of residence. Duration of these visits varies between 30, 45, and 60 minutes. We understand some patient may prefer phone consultations, especially finding it difficult to travel while being sick, however, we do need to see you for an in-office visit at least once every 6 months to be able to evaluate you and adjust your treatment plan when needed.</p>\n<p>We are unable to send in blood work orders or request tests before your first intake visit. Dr. Afrooz prefers to evaluate to see you first, evaluate your symptoms, do the physical exam, so she is able to better determine what laboratory tests need to be ordered.</p>\n<p>Once you have made the decision to become our patient, we would get you set up with a patient portal, where you can communicate with the doctors and the office staff, update your demographic information, complete intake questionnaires, and if you already have relevant lab results and medical records, you can upload them to your portal or bring a copy with you to your visit.</p>\n<p>The length of the treatment, the frequency of follow-up visits, and the nature of a treatment plan varies based on the patient’s severity and duration of symptoms, test results, age, among many other factors. Therefore, we will be able to give you more answers to these questions after the doctor evaluates you.</p>",
+          h2: "Insurance Free Practice",
+          body2: "<p>We are an insurance free practice and classified as an out-of-network provider. We do not file for insurance reimbursement. However, we will provide an invoice you can submit to your insurance, to help you get as much of your visit covered. Unfortunately, we cannot guarantee your insurance would reimburse you for your visits. We do offer payment plans if needed.</p>",
+          h3: "Fees and Charges",
+          body3: "<p>When scheduling your first visit, we require a $100 deposit to hold your appointment. This goes towards your first visit, and is fully refundable if appointments are canceled or rescheduled 3 business days prior to the visit.</p>\n<p>These fees do not include any specialty testing done at the office. These tests are charged when samples are processed at specialty laboratories. A few examples of these tests are Igenex Lyme Panel, Frye Laboratories, Marcon testing, Real Time Mycotoxins testing, and Doctors Data Heavy Metal testing, and PANDAS. We are always adding new tests to our diagnosis tools.</p>\n<p class=\"mb-0\">Regular blood work (non-specialty tests) can be done at your local laboratories and are usually covered by insurances.</p>"
+        },
+        testimonials: {
+          title: "What Our Patients Say",
+          subtitle: "Real experiences from patients of Be The Change Health & Wellness Center.",
+          ratingLabel: "EXCELLENT",
+          reviewCount: 37,
+          autoplayDelay: 5000,
+          reviews: [
+            {
+              author: "Elle",
+              date: "2025-02-25",
+              stars: 5,
+              quote: "“I've been going to Dr. Afrooz since 2021 and before she switched buildings to this one. She gets to know her patients well and always knows what to look for and test for. She's been so vital in my quality of life and has helped me and my family every step of the way. Even when I was at my darkest, she was there helping from the sidelines. My entire family has all been helped by Dr. Afrooz and her husband. We've made connections and friendships and became familiar with each other in a way that other doctors are usually more one-dimensional with. Dr. Afrooz has changed my life in such a wonderful way! She is worth every penny we've paid and way more!”"
+            },
+            {
+              author: "Manzur Ahmed",
+              date: "2024-07-05",
+              stars: 5,
+              quote: "“Dr Afrooz is my favorite. She is very knowledgeable and patient with her patients. I was always feeling very tired and lethargic and I was thinking that maybe I had long covid. But Dr Afrooz knew all the right questions to help identify that my condition is related to tick bites instead from a hiking trip I had gone on. I ask a lot of questions and she seems to not find me to be frustrating and i know that she is straightforward because she’s not afraid to say I don’t know if she does not know the answer to any of my questions. Nor is she dismissive of me whether it be ideas as to what I think could possibly help me or if I tell her something does not feel right. I highly recommend her and I feel fortunate to have been able to see her.”"
+            },
+            {
+              author: "Muhammad Haroon",
+              date: "2024-06-27",
+              stars: 5,
+              quote: "“This is one of the most convenient doctor offices that I have been to. The appointments and treatments here are not nearly as atrociously priced as most of my visits to other doctors. The staff and workers really make me feel cared for. I recommend this doctor office over many other ones.”"
+            },
+            {
+              author: "Samson Zewde",
+              date: "2024-06-27",
+              stars: 5,
+              quote: "“Great place! I felt well taken care of and left feeling revitalized after treatment.”"
+            },
+            {
+              author: "Nas Moha",
+              date: "2024-06-27",
+              stars: 5,
+              quote: "“Doctors and staff are personable and friendly that provides excellent care. Best care so far around the area”"
+            },
+            {
+              author: "Oxana Oleson",
+              date: "2024-06-26",
+              stars: 5,
+              quote: "“I have known Dr. Afrooz for the past 8 years. Besides her knowledge and care she put in helping patients with different complex health issues, she is also one of the nicest people I know. She treated me and my family and never gave up on me trying to find a solution for treating chronic Lyme disease. Her office is equipped with lots of helpful tools to get you well. My favorite is a hyperbaric chamber, but there are many more. My daughter also recovered from Lyme disease with help of Dr. Afrooz. At that time, she was only 5 years old. I am beyond grateful for her help and knowledge. She is using both-conventional and integrative methods and always keeping up to date on new treatments.”"
+            },
+            {
+              author: "sumaiyah khan",
+              date: "2024-05-11",
+              stars: 5,
+              quote: "“Dr. Afrooz is one of the most caring doctors out there. She goes above and beyond with her patients and dedicates herself to them completely. It’s also amazing how many different types of beneficial treatments are available right at the office.”"
+            }
+          ]
+        },
+        cta: {
+          title: "Ready to take the next step?",
+          desc: "Fill out the new patient form or call our team — we’re here to help.",
+          phone: "301-970-9724",
+          btn1Text: "New Patient Form",
+          btn1Link: "contact.html",
+          btn2Text: "Book Appointment",
+          btn2Link: "book-appointment.html"
+        },
+        seo: {
+          title: "New Patient Questions - Be The Change Health and Wellness Center",
+          desc: "Answers for new patients at Be The Change Health & Wellness Center — scheduling, insurance, appointment pricing, therapies, and office policies."
+        }
+      };
+
+      var currentReviews = [];
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.warn("Could not read localStorage for NPQ CMS", e);
+        }
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {
+          console.warn("Could not write to localStorage for NPQ CMS", e);
+        }
+      }
+
+      function toast(msg, type) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg, type || "success");
+        } else {
+          alert(msg);
+        }
+      }
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+      }
+
+      function setVal(id, v) {
+        var el = document.getElementById(id);
+        if (el) el.value = v == null ? "" : v;
+      }
+
+      function renderReviewRows() {
+        var tbody = document.getElementById("tbody-reviews");
+        var countEl = document.getElementById("stat-review-count");
+        var badgeEl = document.getElementById("badge-reviews-count");
+        if (countEl) countEl.textContent = currentReviews.length + " Reviews";
+        if (badgeEl) badgeEl.textContent = currentReviews.length + " Reviews Active";
+        if (!tbody) return;
+        if (!currentReviews.length) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-3">No reviews listed. Add one below.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = currentReviews.map(function (rev, index) {
+          var starStr = "★★★★★".slice(0, rev.stars || 5);
+          return (
+            '<tr>' +
+              '<td><strong>' + (rev.author || "") + '</strong></td>' +
+              '<td class="small text-muted">' + (rev.date || "") + '</td>' +
+              '<td class="text-warning small">' + starStr + '</td>' +
+              '<td class="small text-dark" style="max-width:340px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="' + (rev.quote || "").replace(/"/g, '&quot;') + '">' + (rev.quote || "") + '</td>' +
+              '<td class="text-end">' +
+                '<button type="button" class="icon-action danger btn-remove-rev" data-index="' + index + '" title="Remove Review"><i class="bi bi-trash"></i></button>' +
+              '</td>' +
+            '</tr>'
+          );
+        }).join("");
+      }
+
+      function populateForm(data) {
+        // Notice
+        setVal("notice-primary", data.notice.primary);
+        setVal("notice-disclaimer", data.notice.disclaimer);
+        setVal("notice-visibility", data.notice.visibility);
+        var noticeBadge = document.getElementById("badge-notice-status");
+        if (noticeBadge) {
+          noticeBadge.textContent = data.notice.visibility === "visible" ? "Visible" : "Hidden";
+          noticeBadge.className = data.notice.visibility === "visible" ? "badge-admin badge-published" : "badge-admin badge-draft";
+        }
+
+        // Hero
+        setVal("hero-title", data.hero.title);
+        setVal("hero-subtitle", data.hero.subtitle);
+        setVal("hero-breadcrumb", data.hero.breadcrumb);
+
+        // Appointments FAQ
+        setVal("faq1-eyebrow", data.appointments.eyebrow);
+        setVal("faq1-title", data.appointments.title);
+        setVal("q1-title", data.appointments.q1.title);
+        setVal("q1-body", data.appointments.q1.body);
+        setVal("q2-title", data.appointments.q2.title);
+        setVal("q2-body", data.appointments.q2.body);
+        setVal("q3-title", data.appointments.q3.title);
+        setVal("q3-body", data.appointments.q3.body);
+        setVal("q4-title", data.appointments.q4.title);
+        setVal("q4-body", data.appointments.q4.body);
+        setVal("q5-title", data.appointments.q5.title);
+        setVal("q5-body", data.appointments.q5.body);
+
+        // Dr. Afrooz Pricing
+        setVal("afrooz-q-title", data.afroozPricing.qTitle);
+        setVal("afrooz-intro-subhead", data.afroozPricing.subhead);
+        setVal("afrooz-t1-time", data.afroozPricing.t1.time);
+        setVal("afrooz-t1-price", data.afroozPricing.t1.price);
+        setVal("afrooz-t1-criteria", data.afroozPricing.t1.criteria);
+        setVal("afrooz-t2-time", data.afroozPricing.t2.time);
+        setVal("afrooz-t2-price", data.afroozPricing.t2.price);
+        setVal("afrooz-t2-criteria", data.afroozPricing.t2.criteria);
+        setVal("afrooz-t3-time", data.afroozPricing.t3.time);
+        setVal("afrooz-t3-price", data.afroozPricing.t3.price);
+        setVal("afrooz-t3-criteria", data.afroozPricing.t3.criteria);
+        setVal("afrooz-t4-time", data.afroozPricing.t4.time);
+        setVal("afrooz-t4-price", data.afroozPricing.t4.price);
+        setVal("afrooz-t4-criteria", data.afroozPricing.t4.criteria);
+        setVal("afrooz-fu-subhead", data.afroozPricing.fuSubhead);
+        setVal("afrooz-fu-range", data.afroozPricing.fuRange);
+        setVal("afrooz-fu-desc", data.afroozPricing.fuDesc);
+
+        // Dr. Needle Pricing
+        setVal("needle-q-title", data.needlePricing.qTitle);
+        setVal("needle-intro-subhead", data.needlePricing.subhead);
+        setVal("needle-t1-time", data.needlePricing.t1.time);
+        setVal("needle-t1-price", data.needlePricing.t1.price);
+        setVal("needle-t1-criteria", data.needlePricing.t1.criteria);
+        setVal("needle-fu-subhead", data.needlePricing.fuSubhead);
+        setVal("needle-fu-rates", data.needlePricing.fuRates);
+        setVal("needle-fu-desc", data.needlePricing.fuDesc);
+
+        // Therapies
+        setVal("therapies-eyebrow", data.therapies.eyebrow);
+        setVal("therapies-section-title", data.therapies.title);
+        setVal("q8-title", data.therapies.q8Title);
+        setVal("q8-intro", data.therapies.q8Intro);
+        setVal("q8-closing", data.therapies.q8Closing);
+        setVal("q9-title", data.therapies.q9Title);
+        setVal("q9-body", data.therapies.q9Body);
+
+        // Policies
+        setVal("pol-strip-title", data.policies.stripTitle);
+        setVal("pol-strip-desc", data.policies.stripDesc);
+        setVal("pol-strip-btn", data.policies.stripBtn);
+        setVal("pol-h1", data.policies.h1);
+        setVal("pol-body1", data.policies.body1);
+        setVal("pol-h2", data.policies.h2);
+        setVal("pol-body2", data.policies.body2);
+        setVal("pol-h3", data.policies.h3);
+        setVal("pol-body3", data.policies.body3);
+
+        // Testimonials
+        setVal("testi-title", data.testimonials.title);
+        setVal("testi-subtitle", data.testimonials.subtitle);
+        setVal("testi-label", data.testimonials.ratingLabel);
+        setVal("testi-count", data.testimonials.reviewCount);
+        setVal("testi-delay", data.testimonials.autoplayDelay || 5000);
+        currentReviews = (data.testimonials.reviews || []).slice();
+        renderReviewRows();
+
+        // CTA
+        setVal("cta-title", data.cta.title);
+        setVal("cta-desc", data.cta.desc);
+        setVal("cta-phone", data.cta.phone);
+        setVal("cta-btn1-text", data.cta.btn1Text);
+        setVal("cta-btn1-link", data.cta.btn1Link);
+        setVal("cta-btn2-text", data.cta.btn2Text);
+        setVal("cta-btn2-link", data.cta.btn2Link);
+
+        // SEO
+        setVal("seo-title", data.seo.title);
+        setVal("seo-desc", data.seo.desc);
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (st) st.textContent = data.seo.title;
+        if (sd) sd.textContent = data.seo.desc;
+      }
+
+      function gatherAllData() {
+        return {
+          notice: {
+            primary: val("notice-primary"),
+            disclaimer: val("notice-disclaimer"),
+            visibility: val("notice-visibility")
+          },
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            breadcrumb: val("hero-breadcrumb")
+          },
+          appointments: {
+            eyebrow: val("faq1-eyebrow"),
+            title: val("faq1-title"),
+            q1: { title: val("q1-title"), body: val("q1-body") },
+            q2: { title: val("q2-title"), body: val("q2-body") },
+            q3: { title: val("q3-title"), body: val("q3-body") },
+            q4: { title: val("q4-title"), body: val("q4-body") },
+            q5: { title: val("q5-title"), body: val("q5-body") }
+          },
+          afroozPricing: {
+            qTitle: val("afrooz-q-title"),
+            subhead: val("afrooz-intro-subhead"),
+            t1: { time: val("afrooz-t1-time"), price: val("afrooz-t1-price"), criteria: val("afrooz-t1-criteria") },
+            t2: { time: val("afrooz-t2-time"), price: val("afrooz-t2-price"), criteria: val("afrooz-t2-criteria") },
+            t3: { time: val("afrooz-t3-time"), price: val("afrooz-t3-price"), criteria: val("afrooz-t3-criteria") },
+            t4: { time: val("afrooz-t4-time"), price: val("afrooz-t4-price"), criteria: val("afrooz-t4-criteria") },
+            fuSubhead: val("afrooz-fu-subhead"),
+            fuRange: val("afrooz-fu-range"),
+            fuDesc: val("afrooz-fu-desc")
+          },
+          needlePricing: {
+            qTitle: val("needle-q-title"),
+            subhead: val("needle-intro-subhead"),
+            t1: { time: val("needle-t1-time"), price: val("needle-t1-price"), criteria: val("needle-t1-criteria") },
+            fuSubhead: val("needle-fu-subhead"),
+            fuRates: val("needle-fu-rates"),
+            fuDesc: val("needle-fu-desc")
+          },
+          therapies: {
+            eyebrow: val("therapies-eyebrow"),
+            title: val("therapies-section-title"),
+            q8Title: val("q8-title"),
+            q8Intro: val("q8-intro"),
+            q8Closing: val("q8-closing"),
+            q9Title: val("q9-title"),
+            q9Body: val("q9-body")
+          },
+          policies: {
+            stripTitle: val("pol-strip-title"),
+            stripDesc: val("pol-strip-desc"),
+            stripBtn: val("pol-strip-btn"),
+            h1: val("pol-h1"),
+            body1: val("pol-body1"),
+            h2: val("pol-h2"),
+            body2: val("pol-body2"),
+            h3: val("pol-h3"),
+            body3: val("pol-body3")
+          },
+          testimonials: {
+            title: val("testi-title"),
+            subtitle: val("testi-subtitle"),
+            ratingLabel: val("testi-label"),
+            reviewCount: parseInt(val("testi-count"), 10) || 37,
+            autoplayDelay: parseInt(val("testi-delay"), 10) || 5000,
+            reviews: currentReviews
+          },
+          cta: {
+            title: val("cta-title"),
+            desc: val("cta-desc"),
+            phone: val("cta-phone"),
+            btn1Text: val("cta-btn1-text"),
+            btn1Link: val("cta-btn1-link"),
+            btn2Text: val("cta-btn2-text"),
+            btn2Link: val("cta-btn2-link")
+          },
+          seo: {
+            title: val("seo-title"),
+            desc: val("seo-desc")
+          }
+        };
+      }
+
+      function bindEvents() {
+        // Live SERP update
+        var seoTitle = document.getElementById("seo-title");
+        var seoDesc = document.getElementById("seo-desc");
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (seoTitle && st) {
+          seoTitle.addEventListener("input", function () {
+            st.textContent = seoTitle.value || "New Patient Questions - Be The Change Health and Wellness Center";
+          });
+        }
+        if (seoDesc && sd) {
+          seoDesc.addEventListener("input", function () {
+            sd.textContent = seoDesc.value || "";
+          });
+        }
+
+        // Section save buttons
+        var btnNotice = document.getElementById("btn-save-notice");
+        if (btnNotice) {
+          btnNotice.addEventListener("click", function () {
+            var d = loadData();
+            d.notice.primary = val("notice-primary");
+            d.notice.disclaimer = val("notice-disclaimer");
+            d.notice.visibility = val("notice-visibility");
+            saveData(d);
+            var noticeBadge = document.getElementById("badge-notice-status");
+            if (noticeBadge) {
+              noticeBadge.textContent = d.notice.visibility === "visible" ? "Visible" : "Hidden";
+              noticeBadge.className = d.notice.visibility === "visible" ? "badge-admin badge-published" : "badge-admin badge-draft";
+            }
+            toast("Notice bar settings saved.");
+          });
+        }
+
+        var btnHero = document.getElementById("btn-save-hero");
+        if (btnHero) {
+          btnHero.addEventListener("click", function () {
+            var d = loadData();
+            d.hero.title = val("hero-title");
+            d.hero.subtitle = val("hero-subtitle");
+            d.hero.breadcrumb = val("hero-breadcrumb");
+            saveData(d);
+            toast("Page Hero & Breadcrumb saved.");
+          });
+        }
+
+        var btnAppt = document.getElementById("btn-save-appointments-faq");
+        if (btnAppt) {
+          btnAppt.addEventListener("click", function () {
+            var d = loadData();
+            d.appointments = {
+              eyebrow: val("faq1-eyebrow"),
+              title: val("faq1-title"),
+              q1: { title: val("q1-title"), body: val("q1-body") },
+              q2: { title: val("q2-title"), body: val("q2-body") },
+              q3: { title: val("q3-title"), body: val("q3-body") },
+              q4: { title: val("q4-title"), body: val("q4-body") },
+              q5: { title: val("q5-title"), body: val("q5-body") }
+            };
+            saveData(d);
+            toast("Appointments FAQ section saved.");
+          });
+        }
+
+        var btnAfrooz = document.getElementById("btn-save-afrooz-pricing");
+        if (btnAfrooz) {
+          btnAfrooz.addEventListener("click", function () {
+            var d = loadData();
+            d.afroozPricing = {
+              qTitle: val("afrooz-q-title"),
+              subhead: val("afrooz-intro-subhead"),
+              t1: { time: val("afrooz-t1-time"), price: val("afrooz-t1-price"), criteria: val("afrooz-t1-criteria") },
+              t2: { time: val("afrooz-t2-time"), price: val("afrooz-t2-price"), criteria: val("afrooz-t2-criteria") },
+              t3: { time: val("afrooz-t3-time"), price: val("afrooz-t3-price"), criteria: val("afrooz-t3-criteria") },
+              t4: { time: val("afrooz-t4-time"), price: val("afrooz-t4-price"), criteria: val("afrooz-t4-criteria") },
+              fuSubhead: val("afrooz-fu-subhead"),
+              fuRange: val("afrooz-fu-range"),
+              fuDesc: val("afrooz-fu-desc")
+            };
+            saveData(d);
+            toast("Dr. Sultana Afrooz appointment pricing saved.");
+          });
+        }
+
+        var btnNeedle = document.getElementById("btn-save-needle-pricing");
+        if (btnNeedle) {
+          btnNeedle.addEventListener("click", function () {
+            var d = loadData();
+            d.needlePricing = {
+              qTitle: val("needle-q-title"),
+              subhead: val("needle-intro-subhead"),
+              t1: { time: val("needle-t1-time"), price: val("needle-t1-price"), criteria: val("needle-t1-criteria") },
+              fuSubhead: val("needle-fu-subhead"),
+              fuRates: val("needle-fu-rates"),
+              fuDesc: val("needle-fu-desc")
+            };
+            saveData(d);
+            toast("Dr. Jessica Needle appointment pricing saved.");
+          });
+        }
+
+        var btnTherapies = document.getElementById("btn-save-therapies");
+        if (btnTherapies) {
+          btnTherapies.addEventListener("click", function () {
+            var d = loadData();
+            d.therapies = {
+              eyebrow: val("therapies-eyebrow"),
+              title: val("therapies-section-title"),
+              q8Title: val("q8-title"),
+              q8Intro: val("q8-intro"),
+              q8Closing: val("q8-closing"),
+              q9Title: val("q9-title"),
+              q9Body: val("q9-body")
+            };
+            saveData(d);
+            toast("Therapies FAQ and modalities catalog saved.");
+          });
+        }
+
+        var btnPolicies = document.getElementById("btn-save-policies");
+        if (btnPolicies) {
+          btnPolicies.addEventListener("click", function () {
+            var d = loadData();
+            d.policies = {
+              stripTitle: val("pol-strip-title"),
+              stripDesc: val("pol-strip-desc"),
+              stripBtn: val("pol-strip-btn"),
+              h1: val("pol-h1"),
+              body1: val("pol-body1"),
+              h2: val("pol-h2"),
+              body2: val("pol-body2"),
+              h3: val("pol-h3"),
+              body3: val("pol-body3")
+            };
+            saveData(d);
+            toast("Office Policies modal and strip content saved.");
+          });
+        }
+
+        var btnTesti = document.getElementById("btn-save-testimonials");
+        if (btnTesti) {
+          btnTesti.addEventListener("click", function () {
+            var d = loadData();
+            d.testimonials = {
+              title: val("testi-title"),
+              subtitle: val("testi-subtitle"),
+              ratingLabel: val("testi-label"),
+              reviewCount: parseInt(val("testi-count"), 10) || 37,
+              autoplayDelay: parseInt(val("testi-delay"), 10) || 5000,
+              reviews: currentReviews
+            };
+            saveData(d);
+            toast("Testimonials & review quotes saved.");
+          });
+        }
+
+        var btnCta = document.getElementById("btn-save-cta");
+        if (btnCta) {
+          btnCta.addEventListener("click", function () {
+            var d = loadData();
+            d.cta = {
+              title: val("cta-title"),
+              desc: val("cta-desc"),
+              phone: val("cta-phone"),
+              btn1Text: val("cta-btn1-text"),
+              btn1Link: val("cta-btn1-link"),
+              btn2Text: val("cta-btn2-text"),
+              btn2Link: val("cta-btn2-link")
+            };
+            saveData(d);
+            toast("Next step CTA band saved.");
+          });
+        }
+
+        var btnSeo = document.getElementById("btn-save-seo");
+        if (btnSeo) {
+          btnSeo.addEventListener("click", function () {
+            var d = loadData();
+            d.seo = {
+              title: val("seo-title"),
+              desc: val("seo-desc")
+            };
+            saveData(d);
+            toast("SEO metadata settings saved.");
+          });
+        }
+
+        // Add Review Button
+        var btnAddRev = document.getElementById("btn-add-review");
+        if (btnAddRev) {
+          btnAddRev.addEventListener("click", function () {
+            var author = val("new-rev-author");
+            var quote = val("new-rev-quote");
+            var date = val("new-rev-date") || new Date().toISOString().slice(0, 10);
+            var stars = parseInt(val("new-rev-stars"), 10) || 5;
+
+            if (!author || !quote) {
+              toast("Please enter both patient author name and review quote.", "warn");
+              return;
+            }
+
+            currentReviews.push({
+              author: author,
+              date: date,
+              stars: stars,
+              quote: quote
+            });
+            renderReviewRows();
+            setVal("new-rev-author", "");
+            setVal("new-rev-quote", "");
+            toast("Patient review added to carousel draft.");
+          });
+        }
+
+        // Remove Review Button Delegation
+        var tbody = document.getElementById("tbody-reviews");
+        if (tbody) {
+          tbody.addEventListener("click", function (e) {
+            var btn = e.target.closest(".btn-remove-rev");
+            if (!btn) return;
+            var idx = parseInt(btn.getAttribute("data-index"), 10);
+            if (!isNaN(idx) && idx >= 0 && idx < currentReviews.length) {
+              var removed = currentReviews.splice(idx, 1);
+              renderReviewRows();
+              toast("Removed review quote by " + (removed[0] ? removed[0].author : "patient") + ".");
+            }
+          });
+        }
+
+        function saveAll() {
+          var d = gatherAllData();
+          saveData(d);
+          toast("All sections of New Patient Questions CMS saved successfully!");
+        }
+
+        var btnAllTop = document.getElementById("btn-save-all-top");
+        if (btnAllTop) btnAllTop.addEventListener("click", saveAll);
+
+        var btnAllBot = document.getElementById("btn-save-all-bottom");
+        if (btnAllBot) btnAllBot.addEventListener("click", saveAll);
+
+        var btnReset = document.getElementById("btn-reset-defaults");
+        if (btnReset) {
+          btnReset.addEventListener("click", function () {
+            if (window.confirm("Reset all New Patient Questions content back to clinic defaults? Any custom edits will be reverted.")) {
+              saveData(DEFAULT_DATA);
+              populateForm(DEFAULT_DATA);
+              toast("Restored New Patient Questions to clinic defaults.");
+            }
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var currentData = loadData();
+        populateForm(currentData);
+        bindEvents();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ozone Therapy CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .service-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .check-item-row {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.55rem 0.85rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .check-item-row .handle {
+      color: #94a3b8;
+      cursor: grab;
+    }
+    .check-item-row input {
+      background: #fff;
+    }
+    .category-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      height: 100%;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .cms-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .cms-jump-bar a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #0d9488;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: #f0fdfa;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cms-jump-bar a:hover {
+      background: #0d9488;
+      color: #fff;
+    }
+  </style>
+</head>
+<body data-page="service-ozone-therapy">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Services</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Ozone Therapy</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/ozone-therapy.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/services/ozone-therapy.html</p>
+              <h2>Ozone Therapy CMS</h2>
+              <p>Manage O3 gas biology, EBOO (extracorporeal blood oxygenation and ozonation) overview, antioxidant enzymes &amp; ATP mechanism, 6 clinical condition category checklists, NCBI research study, and consultation CTA.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="reflexology.html">
+                ← Prev: Reflexology
+              </a>
+              <a class="btn-btc-ghost btn-sm-admin" href="ion-foot-detox.html">
+                Next: Ion Foot Detox →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-radioactive text-teal"></i> Gas Modality
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">O3 Molecule</h4>
+                  <small class="text-muted">Dissolves in blood stream</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-filter-circle text-teal"></i> Advanced EBOO
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">External Filtration</h4>
+                  <small class="text-muted">Cleans blood &amp; reduces toxins</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-virus text-teal"></i> Indications
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">6 Body Systems</h4>
+                  <small class="text-muted">Ortho, GI, GU, Neuro, Skin, Eyes</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-journal-medical text-teal"></i> Peer-Reviewed
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">NCBI Trial Link</h4>
+                  <small class="text-muted">PMC5674660 validation</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Jump Navigation Bar -->
+        <nav class="cms-jump-bar" aria-label="Section Quick Jump">
+          <span class="text-muted small align-self-center me-1"><i class="bi bi-signpost-split"></i> Jump to:</span>
+          <a href="#editor-hero">Hero Header</a>
+          <a href="#editor-ozone-intro">What is Ozone &amp; EBOO</a>
+          <a href="#editor-mechanism">How Does It Work?</a>
+          <a href="#editor-categories">6 Indication Categories</a>
+          <a href="#editor-research">NCBI Research Link</a>
+          <a href="#editor-process">Process Steps</a>
+          <a href="#editor-cta">CTA Band</a>
+          <a href="#editor-seo">SEO &amp; Metadata</a>
+        </nav>
+
+        <!-- Stacked CMS Editor Sections -->
+        <div class="editor-stack">
+
+          <!-- 1. Hero Section -->
+          <div class="editor-card open mb-4" id="editor-hero">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 1</span>
+                <h3 class="mb-0">Page Hero Header</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-title">Hero H1 Title</label>
+                  <input type="text" class="form-control" id="hero-title" value="Ozone Therapy">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-subtitle">Hero Subtitle</label>
+                  <input type="text" class="form-control" id="hero-subtitle" value="Systemic and regenerative ozone therapies.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input type="text" class="form-control" id="hero-breadcrumb" value="Ozone Therapy">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero"><i class="bi bi-check2 me-1"></i> Save Hero</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. What is Ozone & EBOO? -->
+          <div class="editor-card open mb-4" id="editor-ozone-intro">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 2</span>
+                <h3 class="mb-0">What is Ozone? &amp; EBOO Advanced Form</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label fw-semibold" for="overview-image">Featured Clinical Photo Path</label>
+                  <input type="text" class="form-control" id="overview-image" value="../assets/uploads/2025/02/ozone-iv-therapy-phoenix-arizona-naturopathic-doctor.jpeg">
+                  <div class="form-text">Frontend relative image path: Frontend/assets/uploads/2025/02/ozone-iv-therapy-phoenix-arizona-naturopathic-doctor.jpeg</div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                  <img src="../../../Frontend/assets/uploads/2025/02/ozone-iv-therapy-phoenix-arizona-naturopathic-doctor.jpeg" alt="Preview" class="service-preview-thumb ms-auto" onerror="this.style.display='none'">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="overview-heading">Main Section Heading</label>
+                  <input type="text" class="form-control" id="overview-heading" value="What is ozone?">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="overview-p1">Paragraph 1: O3 Gas Properties &amp; Therapeutic Range</label>
+                  <textarea class="form-control" id="overview-p1" rows="3">Ozone is a gas consisting of 3 oxygen molecules (O3) which can dissolve in the bloodstream for therapeutic and preventive effects. It improves blood circulation and oxygen delivery to damaged tissues, decreases age-related cellular stress, inhibits the growth of bacteria and fungi, and activates the immune system. Ozone therapy has been used in patients with diverse conditions including coronary artery disease, multiple sclerosis, hepatitis, ulcers, and arthritis.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="overview-p2">Paragraph 2: EBOO Extracorporeal Blood Oxygenation &amp; Ozonation</label>
+                  <textarea class="form-control" id="overview-p2" rows="3">EBOO (extracorporeal blood oxygenation and ozonation) is an advanced form of ozone therapy that externally cleans the blood, boosting energy and well-being while reducing the body’s toxic burden. It requires drawing blood from one arm, filtering and oxygenating it, and returning it to the other arm. People may feel immediate improvements in breathing, clarity, and overall well-being after the treatment.</textarea>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-intro"><i class="bi bi-check2 me-1"></i> Save Overview</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. How Does It Work? -->
+          <div class="editor-card open mb-4" id="editor-mechanism">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 3</span>
+                <h3 class="mb-0">How Does It Work? (Biological Pathways)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="mech-heading">Heading (H6)</label>
+                  <input type="text" class="form-control" id="mech-heading" value="How does it work?">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="mech-p1">Paragraph 1: Delivery Routes, Peroxide Formation &amp; Antioxidant Enzymes</label>
+                  <textarea class="form-control" id="mech-p1" rows="4">Ozone can be delivered to the body through a vein, nasal passages, rectum, vagina or skin. Once inside the body, ozone reacts with water to form hydrogen peroxide which acts as a moderate oxidative stressor. This stress activates antioxidant enzymes including superoxide dismutase, glutathione peroxidase, catalase, and heme oxygenase-1, all of which help scavenge unstable free radicals. These markers can be measured in the blood to track the effectiveness of treatment. Ozone also activates heat shock proteins, offering protection against inflammation, cancer, and neurodegeneration. The heat shock response breaks down iron, nitric oxide, and carbon monoxide, which can be toxic at high levels.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="mech-p2">Paragraph 2: Mitochondrial Respiration &amp; ATP Production</label>
+                  <textarea class="form-control" id="mech-p2" rows="3">By increasing the flow of oxygen across cell membranes, ozone makes mitochondrial respiration more efficient, increasing the rate of glycolysis and ATP production—the fuel your body uses for energy.</textarea>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-mechanism"><i class="bi bi-check2 me-1"></i> Save Mechanism</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 6 Indication Categories -->
+          <div class="editor-card open mb-4" id="editor-categories">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 4</span>
+                <h3 class="mb-0">Who Benefits? (6 Clinical Indication Categories)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cat-heading">Section Heading (H6)</label>
+                  <input type="text" class="form-control" id="cat-heading" value="Who benefits from ozone?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cat-intro">Intro Text</label>
+                  <input type="text" class="form-control" id="cat-intro" value="Ozone can improve a wide variety of symptoms. Anyone living with the following conditions is a good candidate for ozone therapy.">
+                </div>
+
+                <!-- 1. Orthopedic -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">1. Orthopedic conditions</h6>
+                    <div id="ortho-list-container"></div>
+                  </div>
+                </div>
+
+                <!-- 2. Gastrointestinal -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">2. Gastrointestinal conditions</h6>
+                    <div id="gi-list-container"></div>
+                  </div>
+                </div>
+
+                <!-- 3. Genitourinary -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">3. Genitourinary conditions</h6>
+                    <div id="gu-list-container"></div>
+                  </div>
+                </div>
+
+                <!-- 4. Neurological -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">4. Neurological conditions</h6>
+                    <div id="neuro-list-container"></div>
+                  </div>
+                </div>
+
+                <!-- 5. Subcutaneous -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">5. Subcutaneous tissue indications</h6>
+                    <div id="subcut-list-container"></div>
+                  </div>
+                </div>
+
+                <!-- 6. Vision and Hearing -->
+                <div class="col-md-6">
+                  <div class="category-box">
+                    <h6 class="fw-bold text-dark mb-2">6. Vision and hearing indications</h6>
+                    <div id="vision-list-container"></div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-categories"><i class="bi bi-check2 me-1"></i> Save Categories</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Research Study Link -->
+          <div class="editor-card open mb-4" id="editor-research">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 5</span>
+                <h3 class="mb-0">Scientific Research &amp; Study Links</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="ncbi-label">Research Link Label</label>
+                  <input type="text" class="form-control" id="ncbi-label" value="For more information:">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="ncbi-url">NCBI PMC Study URL</label>
+                  <input type="text" class="form-control" id="ncbi-url" value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5674660/">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-research"><i class="bi bi-check2 me-1"></i> Save Research</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Process Steps -->
+          <div class="editor-card open mb-4" id="editor-process">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 6</span>
+                <h3 class="mb-0">"Feel Good, Live Better!" 3-Step Process</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-heading">Process Heading</label>
+                  <input type="text" class="form-control" id="process-heading" value="Feel Good, Live Better!">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-subheading">Process Subheading</label>
+                  <input type="text" class="form-control" id="process-subheading" value="It’s easy to get started…">
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 1</h6>
+                    <input type="text" class="form-control mb-2" id="step1-title" value="Request An Appointment">
+                    <textarea class="form-control" id="step1-desc" rows="3">Your first step is to either call our clinic or complete the online request form for a new patient appointment.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 2</h6>
+                    <input type="text" class="form-control mb-2" id="step2-title" value="Experience Our Clinic">
+                    <textarea class="form-control" id="step2-desc" rows="3">Come to our clinic to receive your integrative consultation or treatment session.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 3</h6>
+                    <input type="text" class="form-control mb-2" id="step3-title" value="Choose A Membership">
+                    <textarea class="form-control mb-2" id="step3-desc" rows="2">All patients enroll in one of our membership plans designed for discounts and complimentary services.</textarea>
+                    <input type="text" class="form-control" id="step3-link" value="../memberships.html">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-process"><i class="bi bi-check2 me-1"></i> Save Process</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Call to Action Band -->
+          <div class="editor-card open mb-4" id="editor-cta">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 7</span>
+                <h3 class="mb-0">Consultation CTA Band</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-heading">CTA Band Heading</label>
+                  <input type="text" class="form-control" id="cta-heading" value="Interested in Ozone Therapy?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-subtitle">CTA Band Subtitle</label>
+                  <input type="text" class="form-control" id="cta-subtitle" value="Our team can help you decide if this therapy is right for you.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-text">Primary Button Label</label>
+                  <input type="text" class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-link">Primary Button URL</label>
+                  <input type="text" class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-phone">Phone Call CTA</label>
+                  <input type="text" class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta"><i class="bi bi-check2 me-1"></i> Save CTA Band</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. SEO & Live Google SERP Preview -->
+          <div class="editor-card open mb-4" id="editor-seo">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 8</span>
+                <h3 class="mb-0">SEO Metadata &amp; Google Search Preview</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-title">Meta Title Tag</label>
+                  <input type="text" class="form-control" id="seo-title" value="Ozone Therapy - Be The Change Health and Wellness Center">
+                  <div class="form-text">Recommended: 50–60 characters.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-canonical">Canonical URL</label>
+                  <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/services/ozone-therapy.html">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">Systemic and regenerative ozone therapies (including EBOO) in Columbia, MD. Enhanced oxygen delivery, antioxidant enzyme stimulation, and tissue healing.</textarea>
+                </div>
+              </div>
+              <div class="serp-card mb-3">
+                <div class="small text-muted mb-2 fw-semibold"><i class="bi bi-google me-1"></i> Google Search Result Snippet Preview</div>
+                <div class="serp-title" id="serp-preview-title">Ozone Therapy - Be The Change Health and Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › services › ozone-therapy</div>
+                <div class="serp-desc" id="serp-preview-desc">Systemic and regenerative ozone therapies (including EBOO) in Columbia, MD. Enhanced oxygen delivery, antioxidant enzyme stimulation, and tissue healing.</div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo"><i class="bi bi-check2 me-1"></i> Save SEO</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin p-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2 text-muted small">
+            <i class="bi bi-clock-history"></i>
+            <span id="save-status-text">Draft state saved locally</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/ozone-therapy.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_service_ozone_therapy";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Ozone Therapy",
+          subtitle: "Systemic and regenerative ozone therapies.",
+          breadcrumb: "Ozone Therapy"
+        },
+        overview: {
+          image: "../assets/uploads/2025/02/ozone-iv-therapy-phoenix-arizona-naturopathic-doctor.jpeg",
+          heading: "What is ozone?",
+          p1: "Ozone is a gas consisting of 3 oxygen molecules (O3) which can dissolve in the bloodstream for therapeutic and preventive effects. It improves blood circulation and oxygen delivery to damaged tissues, decreases age-related cellular stress, inhibits the growth of bacteria and fungi, and activates the immune system. Ozone therapy has been used in patients with diverse conditions including coronary artery disease, multiple sclerosis, hepatitis, ulcers, and arthritis.",
+          p2: "EBOO (extracorporeal blood oxygenation and ozonation) is an advanced form of ozone therapy that externally cleans the blood, boosting energy and well-being while reducing the body’s toxic burden. It requires drawing blood from one arm, filtering and oxygenating it, and returning it to the other arm. People may feel immediate improvements in breathing, clarity, and overall well-being after the treatment."
+        },
+        mechanism: {
+          heading: "How does it work?",
+          p1: "Ozone can be delivered to the body through a vein, nasal passages, rectum, vagina or skin. Once inside the body, ozone reacts with water to form hydrogen peroxide which acts as a moderate oxidative stressor. This stress activates antioxidant enzymes including superoxide dismutase, glutathione peroxidase, catalase, and heme oxygenase-1, all of which help scavenge unstable free radicals. These markers can be measured in the blood to track the effectiveness of treatment. Ozone also activates heat shock proteins, offering protection against inflammation, cancer, and neurodegeneration. The heat shock response breaks down iron, nitric oxide, and carbon monoxide, which can be toxic at high levels.",
+          p2: "By increasing the flow of oxygen across cell membranes, ozone makes mitochondrial respiration more efficient, increasing the rate of glycolysis and ATP production—the fuel your body uses for energy."
+        },
+        categories: {
+          heading: "Who benefits from ozone?",
+          intro: "Ozone can improve a wide variety of symptoms. Anyone living with the following conditions is a good candidate for ozone therapy.",
+          ortho: ["Herniated discs", "Spine and joint osteoarthritis", "Spondylolisthesis", "Spondylolysis"],
+          gi: ["Chronic hepatitis C", "Liver cirrhosis", "GI tract ulcers"],
+          gu: ["Chronic cystitis", "Urinary tract infections", "Renal complications secondary to hepatitis"],
+          neuro: ["Refractory headaches", "Radiation-induced brain ischemia", "Multiple sclerosis"],
+          subcut: ["Non-healing wounds", "Diabetic foot ulcer"],
+          vision: ["Tinnitus", "Nystagmus", "Vertigo", "Hearing loss", "Macular degeneration"]
+        },
+        research: {
+          label: "For more information:",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5674660/"
+        },
+        process: {
+          heading: "Feel Good, Live Better!",
+          subheading: "It’s easy to get started…",
+          step1Title: "Request An Appointment",
+          step1Desc: "Your first step is to either call our clinic or complete the online request form for a new patient appointment.",
+          step2Title: "Experience Our Clinic",
+          step2Desc: "Come to our clinic to receive your integrative consultation or treatment session.",
+          step3Title: "Choose A Membership",
+          step3Desc: "All patients enroll in one of our membership plans designed for discounts and complimentary services.",
+          step3Link: "../memberships.html"
+        },
+        cta: {
+          heading: "Interested in Ozone Therapy?",
+          subtitle: "Our team can help you decide if this therapy is right for you.",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html",
+          phone: "301-970-9724"
+        },
+        seo: {
+          title: "Ozone Therapy - Be The Change Health and Wellness Center",
+          desc: "Systemic and regenerative ozone therapies (including EBOO) in Columbia, MD. Enhanced oxygen delivery, antioxidant enzyme stimulation, and tissue healing.",
+          canonical: "https://bethechangehealth.com/services/ozone-therapy.html"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.error(e);
+        }
+        return DEFAULT_DATA;
+      }
+
+      function saveData(d) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+          var now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          var st = document.getElementById("save-status-text");
+          if (st) st.textContent = "Last saved at " + now;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function toast(msg) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg);
+        } else {
+          alert(msg);
+        }
+      }
+
+      function renderChecklist(containerId, items) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = "";
+        items.forEach(function (val, idx) {
+          var row = document.createElement("div");
+          row.className = "check-item-row";
+          row.innerHTML =
+            '<i class="bi bi-grip-vertical handle"></i>' +
+            '<span class="badge bg-secondary-subtle text-secondary rounded-pill">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control form-control-sm" value="' + val.replace(/"/g, '&quot;') + '">' +
+            '<button type="button" class="btn btn-sm btn-outline-danger btn-remove-item" title="Remove"><i class="bi bi-trash"></i></button>';
+          row.querySelector(".btn-remove-item").addEventListener("click", function () {
+            row.remove();
+          });
+          container.appendChild(row);
+        });
+      }
+
+      function gatherChecklist(containerId) {
+        var items = [];
+        document.querySelectorAll("#" + containerId + " input[type=text]").forEach(function (inp) {
+          var v = inp.value.trim();
+          if (v) items.push(v);
+        });
+        return items;
+      }
+
+      function updateSerp() {
+        var t = document.getElementById("seo-title").value.trim();
+        var d = document.getElementById("seo-desc").value.trim();
+        var c = document.getElementById("seo-canonical").value.trim();
+        document.getElementById("serp-preview-title").textContent = t || "Ozone Therapy";
+        document.getElementById("serp-preview-desc").textContent = d || "No description provided.";
+        document.getElementById("serp-preview-url").textContent = c || "https://bethechangehealth.com/services/ozone-therapy.html";
+      }
+
+      function populateForm(data) {
+        var d = data || DEFAULT_DATA;
+        function setVal(id, v) {
+          var el = document.getElementById(id);
+          if (el && v !== undefined) el.value = v;
+        }
+
+        setVal("hero-title", d.hero.title);
+        setVal("hero-subtitle", d.hero.subtitle);
+        setVal("hero-breadcrumb", d.hero.breadcrumb);
+
+        setVal("overview-image", d.overview.image);
+        setVal("overview-heading", d.overview.heading);
+        setVal("overview-p1", d.overview.p1);
+        setVal("overview-p2", d.overview.p2);
+
+        setVal("mech-heading", d.mechanism.heading);
+        setVal("mech-p1", d.mechanism.p1);
+        setVal("mech-p2", d.mechanism.p2);
+
+        setVal("cat-heading", d.categories.heading);
+        setVal("cat-intro", d.categories.intro);
+        renderChecklist("ortho-list-container", d.categories.ortho || []);
+        renderChecklist("gi-list-container", d.categories.gi || []);
+        renderChecklist("gu-list-container", d.categories.gu || []);
+        renderChecklist("neuro-list-container", d.categories.neuro || []);
+        renderChecklist("subcut-list-container", d.categories.subcut || []);
+        renderChecklist("vision-list-container", d.categories.vision || []);
+
+        setVal("ncbi-label", d.research.label);
+        setVal("ncbi-url", d.research.url);
+
+        setVal("process-heading", d.process.heading);
+        setVal("process-subheading", d.process.subheading);
+        setVal("step1-title", d.process.step1Title);
+        setVal("step1-desc", d.process.step1Desc);
+        setVal("step2-title", d.process.step2Title);
+        setVal("step2-desc", d.process.step2Desc);
+        setVal("step3-title", d.process.step3Title);
+        setVal("step3-desc", d.process.step3Desc);
+        setVal("step3-link", d.process.step3Link);
+
+        setVal("cta-heading", d.cta.heading);
+        setVal("cta-subtitle", d.cta.subtitle);
+        setVal("cta-btn-text", d.cta.btnText);
+        setVal("cta-btn-link", d.cta.btnLink);
+        setVal("cta-phone", d.cta.phone);
+
+        setVal("seo-title", d.seo.title);
+        setVal("seo-canonical", d.seo.canonical);
+        setVal("seo-desc", d.seo.desc);
+
+        updateSerp();
+      }
+
+      function saveAll() {
+        function val(id) {
+          var el = document.getElementById(id);
+          return el ? el.value.trim() : "";
+        }
+
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            breadcrumb: val("hero-breadcrumb")
+          },
+          overview: {
+            image: val("overview-image"),
+            heading: val("overview-heading"),
+            p1: val("overview-p1"),
+            p2: val("overview-p2")
+          },
+          mechanism: {
+            heading: val("mech-heading"),
+            p1: val("mech-p1"),
+            p2: val("mech-p2")
+          },
+          categories: {
+            heading: val("cat-heading"),
+            intro: val("cat-intro"),
+            ortho: gatherChecklist("ortho-list-container"),
+            gi: gatherChecklist("gi-list-container"),
+            gu: gatherChecklist("gu-list-container"),
+            neuro: gatherChecklist("neuro-list-container"),
+            subcut: gatherChecklist("subcut-list-container"),
+            vision: gatherChecklist("vision-list-container")
+          },
+          research: {
+            label: val("ncbi-label"),
+            url: val("ncbi-url")
+          },
+          process: {
+            heading: val("process-heading"),
+            subheading: val("process-subheading"),
+            step1Title: val("step1-title"),
+            step1Desc: val("step1-desc"),
+            step2Title: val("step2-title"),
+            step2Desc: val("step2-desc"),
+            step3Title: val("step3-title"),
+            step3Desc: val("step3-desc"),
+            step3Link: val("step3-link")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            subtitle: val("cta-subtitle"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link"),
+            phone: val("cta-phone")
+          },
+          seo: {
+            title: val("seo-title"),
+            canonical: val("seo-canonical"),
+            desc: val("seo-desc")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Ozone Therapy CMS saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-intro").addEventListener("click", function () {
+          saveAll();
+          toast("Ozone overview saved.");
+        });
+        document.getElementById("btn-save-mechanism").addEventListener("click", function () {
+          saveAll();
+          toast("Mechanism saved.");
+        });
+        document.getElementById("btn-save-categories").addEventListener("click", function () {
+          saveAll();
+          toast("Indication categories saved.");
+        });
+        document.getElementById("btn-save-research").addEventListener("click", function () {
+          saveAll();
+          toast("Research link saved.");
+        });
+        document.getElementById("btn-save-process").addEventListener("click", function () {
+          saveAll();
+          toast("Process steps saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("Consultation CTA saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Save All buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Ozone Therapy back to original clinic defaults?")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored clinic defaults for Ozone Therapy.");
+          }
+        });
+
+        // Live SERP listeners
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

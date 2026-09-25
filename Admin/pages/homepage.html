@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Homepage | Be The Change Admin</title>
+  <title>Homepage CMS | Be The Change Admin</title>
   <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -11,6 +11,69 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    .jump-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 95;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav a {
+      color: #64748b;
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .jump-nav a:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .subcard-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .serp-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body data-page="homepage">
   <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
@@ -19,288 +82,910 @@
     <div class="app-main">
       <header class="topbar" id="topbar"></header>
       <main class="content">
-        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
           <div>
-            <p class="section-map mb-1">Frontend · index.html</p>
-            <p class="text-muted mb-0">Each card maps to a homepage section. Saving updates the draft CMS copy only.</p>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Homepage CMS</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Homepage Content Management</h1>
+            <p class="text-muted small mb-0">Manage notice bar, hero highlights, about approach, vision/goal/values cards, stats, condition cards, featured therapies, doctor cards, reviews, newsletter, contact teaser, and SEO.</p>
           </div>
-          <div class="d-flex gap-2">
-            <span class="badge-admin badge-published mt-1">Published</span>
-            <button class="btn-btc" type="button" data-save="Homepage draft saved.">Save homepage</button>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> Live on Site</span>
+            <a href="../../Frontend/index.html" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Site
+            </a>
           </div>
+        </div>
+
+        <!-- Sticky Quick Nav -->
+        <div class="jump-nav">
+          <a href="#sec-notice"><i class="bi bi-megaphone me-1"></i> Notice Bar</a>
+          <a href="#sec-hero"><i class="bi bi-image me-1"></i> Hero</a>
+          <a href="#sec-about"><i class="bi bi-file-text me-1"></i> About &amp; Approach</a>
+          <a href="#sec-pillars"><i class="bi bi-compass me-1"></i> Vision, Goal &amp; Values</a>
+          <a href="#sec-stats"><i class="bi bi-123 me-1"></i> Statistics</a>
+          <a href="#sec-conditions"><i class="bi bi-shield-plus me-1"></i> Conditions</a>
+          <a href="#sec-therapies"><i class="bi bi-stars me-1"></i> Featured Therapies</a>
+          <a href="#sec-doctors"><i class="bi bi-people me-1"></i> Meet Our Doctors</a>
+          <a href="#sec-reviews"><i class="bi bi-chat-heart me-1"></i> Testimonials</a>
+          <a href="#sec-newsletter"><i class="bi bi-envelope me-1"></i> Newsletter</a>
+          <a href="#sec-contact"><i class="bi bi-geo-alt me-1"></i> Contact &amp; Map Teaser</a>
+          <a href="#sec-seo"><i class="bi bi-search me-1"></i> SEO</a>
         </div>
 
         <div class="editor-stack">
 
-          <article class="editor-card open">
+          <!-- 01: Notice Bar -->
+          <article id="sec-notice" class="editor-card open">
             <div class="editor-head">
               <span class="num">01</span>
-              <div><h3>Notice bar</h3><p>Telehealth + out-of-network strip above the header</p></div>
+              <div><h3>Notice Bar</h3><p>Top banner message above header</p></div>
               <span class="spacer"></span>
-              <span class="badge-admin badge-published">Visible</span>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" id="noticeBarVisible" checked>
+                <label class="form-check-label small" for="noticeBarVisible">Visible</label>
+              </div>
             </div>
             <div class="editor-body">
               <div class="row g-3">
-                <div class="col-md-8">
-                  <label class="form-label-admin">Primary message</label>
-                  <input class="form-control" value="Now offering Telehealth appointments.">
+                <div class="col-md-7">
+                  <label class="form-label-admin">Primary Notice Text</label>
+                  <input type="text" id="noticePrimary" class="form-control" value="Now offering Telehealth appointments.">
                 </div>
-                <div class="col-md-4">
-                  <label class="form-label-admin">Desktop extra note</label>
-                  <select class="form-select">
-                    <option selected>Show on md+ screens</option>
-                    <option>Always show</option>
-                    <option>Hide extra note</option>
+                <div class="col-md-5">
+                  <label class="form-label-admin">Display Visibility Mode</label>
+                  <select id="noticeDisplayMode" class="form-select">
+                    <option value="md" selected>Show full note on Desktop (md+), short on mobile</option>
+                    <option value="always">Always show full note everywhere</option>
+                    <option value="primary">Primary message only</option>
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label-admin">Out-of-network note</label>
-                  <textarea class="form-control" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                  <label class="form-label-admin">Out-of-network Notice Sub-note</label>
+                  <textarea id="noticeSecondary" class="form-control" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="editor-card">
+          <!-- 02: Hero Section -->
+          <article id="sec-hero" class="editor-card">
             <div class="editor-head">
               <span class="num">02</span>
-              <div><h3>Hero</h3><p>Background image, welcome headline, why-box, three icon cards</p></div>
+              <div><h3>Hero Section</h3><p>Main banner, headline, why-box &amp; 3 highlight icon boxes</p></div>
               <span class="spacer"></span>
-              <span class="badge-admin badge-published">Visible</span>
             </div>
             <div class="editor-body">
               <div class="row g-4">
                 <div class="col-lg-4">
-                  <label class="form-label-admin">Hero image</label>
-                  <div class="upload-box">
-                    <img class="upload-preview" src="../../Frontend/assets/uploads/2025/06/home.jpg" alt="Hero">
-                    <p>Replace home.jpg · JPG/PNG</p>
-                    <input type="file" accept="image/*">
+                  <label class="form-label-admin">Hero Background Image</label>
+                  <input type="text" id="heroBgSrc" class="form-control mb-2" value="assets/uploads/2025/06/home.jpg">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img src="../../Frontend/assets/uploads/2025/06/home.jpg" class="img-fluid rounded mb-1" style="max-height: 120px;" alt="Hero">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2025/06/home.jpg</p>
                   </div>
                 </div>
                 <div class="col-lg-8">
                   <div class="row g-3">
                     <div class="col-12">
-                      <label class="form-label-admin">Headline</label>
-                      <input class="form-control" value="Be The Change Health & Wellness Center">
+                      <label class="form-label-admin">Main Headline (H1)</label>
+                      <input type="text" id="heroHeadline" class="form-control" value="Be The Change Health & Wellness Center">
                     </div>
                     <div class="col-12">
-                      <label class="form-label-admin">Subhead</label>
-                      <textarea class="form-control" rows="2">We’re changing your health for the better—one treatment at a time. Family Practice & Integrative Medicine in Columbia, MD.</textarea>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label-admin">Why-box heading</label>
-                      <input class="form-control" value="Get to the root cause">
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label-admin">Why-box button</label>
-                      <input class="form-control" value="New Patient Questions">
-                    </div>
-                    <div class="col-12">
-                      <label class="form-label-admin">Why-box body</label>
-                      <textarea class="form-control" rows="2">Get to the root cause of your health concerns with functional lab testing and a personalized plan to reclaim your health.</textarea>
+                      <label class="form-label-admin">Subheadline / Motto</label>
+                      <textarea id="heroSubhead" class="form-control" rows="2">We’re changing your health for the better—one treatment at a time. Family Practice & Integrative Medicine in Columbia, MD.</textarea>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <!-- Why-Box -->
+              <div class="subcard-box mt-3">
+                <h6 class="fw-semibold text-primary mb-2">Why-Box Callout</h6>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label-admin">Why-box Heading</label>
+                    <input type="text" id="whyBoxHeading" class="form-control" value="Get to the root cause">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label-admin">Button Label</label>
+                    <input type="text" id="whyBoxBtnText" class="form-control" value="New Patient Questions">
+                  </div>
+                  <div class="col-md-3">
+                    <label class="form-label-admin">Button URL</label>
+                    <input type="text" id="whyBoxBtnUrl" class="form-control" value="new-patient-questions.html">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-admin">Why-box Text</label>
+                    <textarea id="whyBoxBody" class="form-control" rows="2">Get to the root cause of your health concerns with functional lab testing and a personalized plan to reclaim your health.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3 Icon Cards -->
+              <h6 class="fw-semibold mt-3 mb-2">Three Hero Highlight Icon Boxes</h6>
+              <div class="row g-3">
                 <div class="col-md-4">
-                  <label class="form-label-admin">Icon card 1</label>
-                  <input class="form-control mb-2" value="Root-cause care">
-                  <textarea class="form-control" rows="2">Integrative and naturopathic medicine that addresses the whole person—not just symptoms.</textarea>
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Card 1 Title</label>
+                    <input type="text" id="icon1Title" class="form-control form-control-sm mb-2" value="Root-cause care">
+                    <label class="form-label-admin small">Card 1 Text</label>
+                    <textarea id="icon1Text" class="form-control form-control-sm" rows="2">Integrative and naturopathic medicine that addresses the whole person—not just symptoms.</textarea>
+                  </div>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label-admin">Icon card 2</label>
-                  <input class="form-control mb-2" value="Telehealth available">
-                  <textarea class="form-control" rows="2">Now offering Telehealth appointments for convenient care from home.</textarea>
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Card 2 Title</label>
+                    <input type="text" id="icon2Title" class="form-control form-control-sm mb-2" value="Telehealth available">
+                    <label class="form-label-admin small">Card 2 Text</label>
+                    <textarea id="icon2Text" class="form-control form-control-sm" rows="2">Now offering Telehealth appointments for convenient care from home.</textarea>
+                  </div>
                 </div>
                 <div class="col-md-4">
-                  <label class="form-label-admin">Icon card 3</label>
-                  <input class="form-control mb-2" value="Columbia, MD">
-                  <textarea class="form-control" rows="2">Conveniently located at Centre Park Drive to serve you and your family.</textarea>
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Card 3 Title</label>
+                    <input type="text" id="icon3Title" class="form-control form-control-sm mb-2" value="Columbia, MD">
+                    <label class="form-label-admin small">Card 3 Text</label>
+                    <textarea id="icon3Text" class="form-control form-control-sm" rows="2">Conveniently located at Centre Park Drive to serve you and your family.</textarea>
+                  </div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="editor-card">
+          <!-- 03: About Our Practice / Our Approach -->
+          <article id="sec-about" class="editor-card">
             <div class="editor-head">
               <span class="num">03</span>
-              <div><h3>About / Our Approach</h3><p>Media, features, integrative &amp; naturopathic pathways, vision/goal/values</p></div>
+              <div><h3>About &amp; Approach</h3><p>Practice overview, image, features &amp; pathways</p></div>
               <span class="spacer"></span>
-              <span class="badge-admin badge-published">Visible</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-4 mb-3">
+                <div class="col-lg-4">
+                  <label class="form-label-admin">Approach Media Image</label>
+                  <input type="text" id="approachImgSrc" class="form-control mb-2" value="assets/uploads/2024/08/approach.jpg">
+                  <div class="upload-box text-center p-2 border rounded bg-white">
+                    <img src="../../Frontend/assets/uploads/2024/08/approach.jpg" class="img-fluid rounded mb-1" style="max-height: 120px;" alt="Approach">
+                    <p class="small text-muted mb-0">Frontend/assets/uploads/2024/08/approach.jpg</p>
+                  </div>
+                  <label class="form-label-admin mt-2">Media Badge Label</label>
+                  <input type="text" id="approachBadgeLabel" class="form-control form-control-sm mb-2" value="Personalized Medicine">
+                  <label class="form-label-admin">Media Badge Text</label>
+                  <textarea id="approachBadgeText" class="form-control form-control-sm" rows="2">Discovering what makes your body unique &amp; planning a healthier journey together</textarea>
+                </div>
+                <div class="col-lg-8">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label-admin">Section Title (H2)</label>
+                      <input type="text" id="aboutSecTitle" class="form-control" value="About Our Practice">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label-admin">Eyebrow Tag</label>
+                      <input type="text" id="aboutEyebrow" class="form-control" value="Our Approach">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label-admin">Section Heading (H3)</label>
+                      <input type="text" id="aboutSecHeading" class="form-control" value="At Be the Change Health &amp; Wellness Center, we focus on the root cause.">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label-admin">Paragraph 1: Interconnected Body Systems</label>
+                      <textarea id="aboutPara1" class="form-control" rows="2">The human body consists of complex interconnected body systems, each with its unique functions and dependencies. They all rely on each other to maintain overall health and functionality. Through integrative medicine and naturopathic medicine, we provide a holistic approach that addresses the root cause of your symptoms and considers these body systems in order to stimulate the body’s natural ability to heal itself from the inside out.</textarea>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label-admin">Paragraph 2: Proactive Root-Cause</label>
+                      <textarea id="aboutPara2" class="form-control" rows="2">We help you get to the root cause of your health concerns using the latest advances in integrative medicine. Our proactive approach supports positive and lasting changes in your happiness and life.</textarea>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label-admin">Paragraph 3: Personalized Medicine</label>
+                      <textarea id="aboutPara3" class="form-control" rows="2">What makes us different is that we practice personalized medicine. We consider your physical, mental and emotional needs, and may use specialty tests of the immune system, nervous system, digestive system and nutrigenetic analysis, and more.</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3 Feature Points -->
+              <h6 class="fw-semibold mt-3 mb-2">Three Feature Rows</h6>
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Feature 1</label>
+                    <input type="text" id="feature1Title" class="form-control form-control-sm mb-1" value="Functional lab testing">
+                    <input type="text" id="feature1Desc" class="form-control form-control-sm" value="Identify underlying imbalances with personalized testing and clear next steps.">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Feature 2</label>
+                    <input type="text" id="feature2Title" class="form-control form-control-sm mb-1" value="Integrative & naturopathic medicine">
+                    <input type="text" id="feature2Desc" class="form-control form-control-sm" value="Blend conventional insight with natural therapies to support lasting wellness.">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Feature 3</label>
+                    <input type="text" id="feature3Title" class="form-control form-control-sm mb-1" value="Compassionate guidance">
+                    <input type="text" id="feature3Desc" class="form-control form-control-sm" value="Care for complex chronic needs with kindness, generosity, and compassion.">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Medicine Pathways -->
+              <h6 class="fw-semibold mt-3 mb-2">Medicine Pathway Cards</h6>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Pathway 1 Title &amp; Link</label>
+                    <input type="text" id="pathway1Title" class="form-control form-control-sm mb-1" value="Integrative Medicine">
+                    <input type="text" id="pathway1Url" class="form-control form-control-sm mb-2" value="about/integrative-medicine.html">
+                    <textarea id="pathway1Desc" class="form-control form-control-sm" rows="2">Informed by evidence and focused on the whole person—bio-psycho-socio-spiritual care with longer, in-depth appointments and customized treatment plans.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="subcard-box">
+                    <label class="form-label-admin small">Pathway 2 Title &amp; Link</label>
+                    <input type="text" id="pathway2Title" class="form-control form-control-sm mb-1" value="Naturopathic Medicine">
+                    <input type="text" id="pathway2Url" class="form-control form-control-sm mb-2" value="about/naturopathic-medicine.html">
+                    <textarea id="pathway2Desc" class="form-control form-control-sm" rows="2">Root-cause healing grounded in the six naturopathic principles, emphasizing prevention, lifestyle medicine, and natural therapeutics.</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04: Vision · Goal · Core Values Cards (CRITICAL AUDIT ITEM) -->
+          <article id="sec-pillars" class="editor-card">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div><h3 class="text-primary">Vision, Goal &amp; Core Values Pillars</h3><p>3 visual cards on the homepage with images &amp; text</p></div>
+              <span class="spacer"></span>
             </div>
             <div class="editor-body">
               <div class="row g-4">
-                <div class="col-lg-4">
-                  <label class="form-label-admin">Approach image</label>
-                  <div class="upload-box compact">
-                    <img class="upload-preview" src="../../Frontend/assets/uploads/2024/08/approach.jpg" alt="Approach">
-                    <p>Replace approach.jpg</p>
-                    <input type="file" accept="image/*">
+                <!-- Vision Card -->
+                <div class="col-md-4">
+                  <div class="subcard-box h-100">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge bg-primary me-2">Card 1</span>
+                      <strong class="text-dark">Our Vision</strong>
+                    </div>
+                    <label class="form-label-admin small">Card Image Path</label>
+                    <input type="text" id="visionImgSrc" class="form-control form-control-sm mb-2" value="assets/uploads/2024/10/Vision.jpg">
+                    <div class="text-center mb-2">
+                      <img src="../../Frontend/assets/uploads/2024/10/Vision.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Vision">
+                    </div>
+                    <label class="form-label-admin small">Title (H4)</label>
+                    <input type="text" id="visionTitle" class="form-control form-control-sm mb-2" value="Our Vision">
+                    <label class="form-label-admin small">Description</label>
+                    <textarea id="visionDesc" class="form-control form-control-sm" rows="3">To create a community of informed and empowered patients who are the leaders in promoting and implementing health and wellness.</textarea>
                   </div>
                 </div>
-                <div class="col-lg-8">
-                  <label class="form-label-admin">Section title</label>
-                  <input class="form-control mb-2" value="About Our Practice">
-                  <label class="form-label-admin">Eyebrow</label>
-                  <input class="form-control mb-2" value="Our Approach">
-                  <label class="form-label-admin">Heading</label>
-                  <input class="form-control mb-2" value="At Be the Change Health & Wellness Center, we focus on the root cause.">
-                  <label class="form-label-admin">Body</label>
-                  <textarea class="form-control" rows="4">The human body consists of complex interconnected body systems, each with its unique functions and dependencies. Through integrative medicine and naturopathic medicine, we provide a holistic approach that addresses the root cause of your symptoms.</textarea>
+
+                <!-- Goal Card -->
+                <div class="col-md-4">
+                  <div class="subcard-box h-100">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge bg-primary me-2">Card 2</span>
+                      <strong class="text-dark">Our Goal</strong>
+                    </div>
+                    <label class="form-label-admin small">Card Image Path</label>
+                    <input type="text" id="goalImgSrc" class="form-control form-control-sm mb-2" value="assets/uploads/2024/10/mission2.jpg">
+                    <div class="text-center mb-2">
+                      <img src="../../Frontend/assets/uploads/2024/10/mission2.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Goal">
+                    </div>
+                    <label class="form-label-admin small">Title (H4)</label>
+                    <input type="text" id="goalTitle" class="form-control form-control-sm mb-2" value="Our Goal">
+                    <label class="form-label-admin small">Description</label>
+                    <textarea id="goalDesc" class="form-control form-control-sm" rows="3">To bring health and wellness to families as a whole—find the root cause(s) of illness, prevent chronic illness, and recover from chronic illness.</textarea>
+                  </div>
                 </div>
-              </div>
-              <hr>
-              <p class="form-label-admin">Feature rows</p>
-              <div class="row g-3">
-                <div class="col-md-4"><input class="form-control" value="Functional lab testing"></div>
-                <div class="col-md-4"><input class="form-control" value="Integrative & naturopathic medicine"></div>
-                <div class="col-md-4"><input class="form-control" value="Compassionate guidance"></div>
-              </div>
-              <p class="help mt-3 mb-2">Pathway cards link to About pages</p>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <input class="form-control mb-2" value="Integrative Medicine">
-                  <a class="small" href="integrative-medicine.html">Open full page editor →</a>
-                </div>
-                <div class="col-md-6">
-                  <input class="form-control mb-2" value="Naturopathic Medicine">
-                  <a class="small" href="naturopathic-medicine.html">Open full page editor →</a>
+
+                <!-- Core Values Card -->
+                <div class="col-md-4">
+                  <div class="subcard-box h-100">
+                    <div class="d-flex align-items-center mb-2">
+                      <span class="badge bg-primary me-2">Card 3</span>
+                      <strong class="text-dark">Our Core Values</strong>
+                    </div>
+                    <label class="form-label-admin small">Card Image Path</label>
+                    <input type="text" id="valuesImgSrc" class="form-control form-control-sm mb-2" value="assets/uploads/2024/10/core.jpg">
+                    <div class="text-center mb-2">
+                      <img src="../../Frontend/assets/uploads/2024/10/core.jpg" class="img-thumbnail" style="max-height: 80px;" alt="Core Values">
+                    </div>
+                    <label class="form-label-admin small">Title (H4)</label>
+                    <input type="text" id="valuesTitle" class="form-control form-control-sm mb-2" value="Our Core Values">
+                    <label class="form-label-admin small">Values List (One per line)</label>
+                    <textarea id="valuesList" class="form-control form-control-sm" rows="5">Strive for Knowledge
+Be the Change
+Patient Empowerment
+Accountability
+Healing Communities</textarea>
+                  </div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="editor-card">
-            <div class="editor-head">
-              <span class="num">04</span>
-              <div><h3>Stats counters</h3><p>Purecounter values on the homepage</p></div>
-              <span class="spacer"></span>
-            </div>
-            <div class="editor-body">
-              <div class="row g-3">
-                <div class="col-md-3"><label class="form-label-admin">Doctors</label><input class="form-control" type="number" value="2"></div>
-                <div class="col-md-3"><label class="form-label-admin">Conditions we treat</label><input class="form-control" type="number" value="8"></div>
-                <div class="col-md-3"><label class="form-label-admin">Wellness services</label><input class="form-control" type="number" value="10"></div>
-                <div class="col-md-3"><label class="form-label-admin">Google reviews</label><input class="form-control" type="number" value="37"></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="editor-card">
+          <!-- 05: Statistics Counters -->
+          <article id="sec-stats" class="editor-card">
             <div class="editor-head">
               <span class="num">05</span>
-              <div><h3>Conditions we treat</h3><p>Eight homepage cards — manage full list in Conditions</p></div>
+              <div><h3>Statistics Counters</h3><p>Numbers animated via Purecounter on the homepage</p></div>
               <span class="spacer"></span>
-              <a class="btn-btc-ghost btn-sm-admin" href="conditions.html">Open Conditions CMS</a>
             </div>
             <div class="editor-body">
-              <p class="help">Featured on homepage: Diabetes, Obesity, Heart Disease, Chronic Fatigue, Chronic Pain, Detoxification, Concussion, Hormone Imbalance.</p>
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" checked> Show “View All Conditions” button
-              </label>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label-admin">Doctors Count</label>
+                  <input type="number" id="statsDoctors" class="form-control" value="2">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin">Conditions Count</label>
+                  <input type="number" id="statsConditions" class="form-control" value="8">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin">Wellness Services Count</label>
+                  <input type="number" id="statsServices" class="form-control" value="10">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label-admin">Google Reviews Count</label>
+                  <input type="number" id="statsReviews" class="form-control" value="37">
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="editor-card">
+          <!-- 06: Conditions We Treat -->
+          <article id="sec-conditions" class="editor-card">
             <div class="editor-head">
               <span class="num">06</span>
-              <div><h3>Featured therapies</h3><p>Image cards + six service items</p></div>
+              <div><h3>Conditions We Treat</h3><p>Homepage section title, intro, and card ordering</p></div>
               <span class="spacer"></span>
-              <a class="btn-btc-ghost btn-sm-admin" href="services.html">Open Services CMS</a>
-            </div>
-            <div class="editor-body">
-              <label class="form-label-admin">Section title</label>
-              <input class="form-control mb-2" value="Featured Therapies">
-              <label class="form-label-admin">Subtitle</label>
-              <input class="form-control" value="Advanced wellness therapies available at our Columbia center.">
-            </div>
-          </article>
-
-          <article class="editor-card">
-            <div class="editor-head">
-              <span class="num">07</span>
-              <div><h3>Meet our doctors</h3><p>Two practitioner cards</p></div>
-              <span class="spacer"></span>
-              <a class="btn-btc-ghost btn-sm-admin" href="doctors.html">Open Doctors CMS</a>
-            </div>
-            <div class="editor-body">
-              <textarea class="form-control" rows="3">Our team of doctors include Osteopathic Physician (D.O.) and Naturopathic Doctor (N.D)s. We recognize that you have complex needs related to chronic illness and are here to guide you with kindness, generosity, and compassion.</textarea>
-            </div>
-          </article>
-
-          <article class="editor-card">
-            <div class="editor-head">
-              <span class="num">08</span>
-              <div><h3>Testimonials</h3><p>Google reviews carousel (7 quotes on homepage)</p></div>
-              <span class="spacer"></span>
+              <a class="btn-btc-ghost btn-sm-admin" href="conditions/conditions-landing.html">Open Conditions Hub CMS</a>
             </div>
             <div class="editor-body">
               <div class="row g-3 mb-3">
-                <div class="col-md-4"><label class="form-label-admin">Rating label</label><input class="form-control" value="EXCELLENT"></div>
-                <div class="col-md-4"><label class="form-label-admin">Review count</label><input class="form-control" type="number" value="37"></div>
-                <div class="col-md-4"><label class="form-label-admin">Autoplay delay (ms)</label><input class="form-control" value="5000"></div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Section Title (H2)</label>
+                  <input type="text" id="condSecTitle" class="form-control" value="Conditions We Treat">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Section Description</label>
+                  <input type="text" id="condSecDesc" class="form-control" value="We provide comprehensive care for acute and chronic conditions to restore balance and long-term health.">
+                </div>
               </div>
-              <div class="table-wrap">
-                <table class="table-admin">
-                  <thead><tr><th>Author</th><th>Date</th><th>Quote</th><th></th></tr></thead>
-                  <tbody>
-                    <tr>
-                      <td>Elle</td><td>2025-02-25</td>
-                      <td>I've been going to Dr. Afrooz since 2021…</td>
-                      <td><button class="icon-action" data-delete="Elle’s review"><i class="bi bi-trash"></i></button></td>
-                    </tr>
-                    <tr>
-                      <td>Manzur Ahmed</td><td>2024-07-05</td>
-                      <td>Dr Afrooz is my favorite. She is very knowledgeable…</td>
-                      <td><button class="icon-action" data-delete="this review"><i class="bi bi-trash"></i></button></td>
-                    </tr>
-                    <tr>
-                      <td>Muhammad Haroon</td><td>2024-06-27</td>
-                      <td>This is one of the most convenient doctor offices…</td>
-                      <td><button class="icon-action" data-delete="this review"><i class="bi bi-trash"></i></button></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <p class="small text-muted mb-2">Featured conditions displayed: Diabetes, Heart Disease, Concussion, Chronic Fatigue, Obesity, Chronic Pain, Toxins, Hormone Imbalance.</p>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showAllCondBtn" checked>
+                <label class="form-check-label small" for="showAllCondBtn">Show "View All Conditions" Link</label>
               </div>
-              <button class="btn-btc-outline btn-sm-admin mt-3" type="button" data-save="Review row added (UI).">Add review</button>
             </div>
           </article>
 
-          <article class="editor-card">
+          <!-- 07: Featured Therapies -->
+          <article id="sec-therapies" class="editor-card">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div><h3>Featured Therapies</h3><p>Section title, subtitle, and service grid ordering</p></div>
+              <span class="spacer"></span>
+              <a class="btn-btc-ghost btn-sm-admin" href="services/services-landing.html">Open Services Hub CMS</a>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Section Title (H2)</label>
+                  <input type="text" id="therapiesSecTitle" class="form-control" value="Featured Therapies">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Subtitle</label>
+                  <input type="text" id="therapiesSecSubtitle" class="form-control" value="Advanced wellness therapies available at our Columbia center.">
+                </div>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showAllTherapiesBtn" checked>
+                <label class="form-check-label small" for="showAllTherapiesBtn">Show "View All Services" Button</label>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08: Meet Our Doctors -->
+          <article id="sec-doctors" class="editor-card">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div><h3>Meet Our Doctors</h3><p>Doctor cards display &amp; narrative intro</p></div>
+              <span class="spacer"></span>
+              <div class="d-flex gap-2">
+                <a class="btn-btc-ghost btn-sm-admin" href="doctors/doctor-sultana.html">Dr. Sultana</a>
+                <a class="btn-btc-ghost btn-sm-admin" href="doctors/doctor-jessica.html">Dr. Jessica</a>
+              </div>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Section Title</label>
+                  <input type="text" id="doctorsTitle" class="form-control" value="Meet Our Doctors">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Doctor Ordering &amp; Visibility</label>
+                  <select id="doctorOrderSelect" class="form-select">
+                    <option value="both_sultana_first" selected>Both Doctors (Dr. Afrooz first, Dr. Needle second)</option>
+                    <option value="both_jessica_first">Both Doctors (Dr. Needle first, Dr. Afrooz second)</option>
+                    <option value="sultana_only">Dr. Afrooz only</option>
+                    <option value="jessica_only">Dr. Needle only</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin">Section Tagline</label>
+                  <textarea id="doctorsDesc" class="form-control" rows="2">Our team of doctors include Osteopathic Physician (D.O.) and Naturopathic Doctor (N.D)s. We recognize that you have complex needs related to chronic illness and are here to guide you with kindness, generosity, and compassion.</textarea>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09: Testimonials / Google Reviews Carousel -->
+          <article id="sec-reviews" class="editor-card">
             <div class="editor-head">
               <span class="num">09</span>
-              <div><h3>Newsletter band</h3><p>Free ion cleanse offer</p></div>
+              <div><h3>Testimonials &amp; Google Reviews</h3><p>Manage review cards in the homepage carousel</p></div>
               <span class="spacer"></span>
+              <button class="btn btn-sm btn-outline-primary" type="button" id="addReviewBtn"><i class="bi bi-plus me-1"></i> Add Review</button>
             </div>
             <div class="editor-body">
-              <input class="form-control mb-2" value="Free Ion Cleanse Detox Session">
-              <textarea class="form-control" rows="2">Sign up for helpful health tips, offers, and updates on our classes to optimize your wellbeing!</textarea>
-              <p class="help mt-2">Accent line: We’ll send you a coupon for a complimentary foot detox when you join our email newsletter!</p>
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <label class="form-label-admin">Rating Label</label>
+                  <input type="text" id="reviewRatingLabel" class="form-control" value="EXCELLENT">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Reviews Count Display</label>
+                  <input type="number" id="reviewCountDisplay" class="form-control" value="37">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Autoplay Delay (ms)</label>
+                  <input type="number" id="reviewAutoplay" class="form-control" value="5000">
+                </div>
+              </div>
+              <div id="reviewsContainer">
+                <!-- Dynamically populated -->
+              </div>
             </div>
           </article>
 
-          <article class="editor-card">
+          <!-- 10: Newsletter Band -->
+          <article id="sec-newsletter" class="editor-card">
             <div class="editor-head">
               <span class="num">10</span>
-              <div><h3>Appointment CTA + Contact</h3><p>Teaser form, map, hours</p></div>
+              <div><h3>Newsletter Band</h3><p>Complimentary ion foot detox session incentive</p></div>
               <span class="spacer"></span>
             </div>
             <div class="editor-body">
-              <p class="help">The teaser form redirects to Book Appointment. Hours and address are edited under Header &amp; Footer / Site Settings.</p>
-              <a href="header-footer.html">Edit contact block →</a>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">Headline</label>
+                  <input type="text" id="newsHeadline" class="form-control" value="Free Ion Cleanse Detox Session">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">Button Text</label>
+                  <input type="text" id="newsBtnText" class="form-control" value="Subscribe">
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin">Description</label>
+                  <textarea id="newsDesc" class="form-control" rows="2">Sign up for helpful health tips, offers, and updates on our classes to optimize your wellbeing!</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin">Accent Footnote Note</label>
+                  <input type="text" id="newsAccent" class="form-control" value="We’ll send you a coupon for a complimentary foot detox when you join our email newsletter!">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11: Appointment & Contact Teaser -->
+          <article id="sec-contact" class="editor-card">
+            <div class="editor-head">
+              <span class="num">11</span>
+              <div><h3>Appointment CTA &amp; Contact Teaser</h3><p>Quick booking form, Google Map, phone, hours</p></div>
+              <span class="spacer"></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin">CTA Heading</label>
+                  <input type="text" id="ctaHeading" class="form-control" value="Book an Appointment">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin">CTA Subtitle</label>
+                  <input type="text" id="ctaSubtitle" class="form-control" value="Take the first step toward lasting wellness. Contact our office or request an appointment online.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Office Phone</label>
+                  <input type="text" id="contactPhone" class="form-control" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Office Address</label>
+                  <input type="text" id="contactAddress" class="form-control" value="8808 Centre Park Drive Suite 301, Columbia, MD 21045">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Office Hours</label>
+                  <input type="text" id="contactHours" class="form-control" value="Mon–Fri: 9am–6pm | Sat–Sun: Closed">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12: SEO & Search Metadata -->
+          <article id="sec-seo" class="editor-card">
+            <div class="editor-head">
+              <span class="num">12</span>
+              <div><h3>SEO &amp; Search Metadata</h3><p>Homepage title tag, description, and SERP snippet</p></div>
+              <span class="spacer"></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-4">
+                <div class="col-lg-7">
+                  <div class="mb-3">
+                    <label class="form-label-admin">Meta Title Tag</label>
+                    <input type="text" id="seoTitle" class="form-control" value="Be The Change Health &amp; Wellness Center | Integrative Medicine in Columbia, MD">
+                    <div class="d-flex justify-content-between mt-1">
+                      <span class="small text-muted">Recommended: 50–60 characters</span>
+                      <span class="small text-muted" id="seoTitleCount">78 chars</span>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label-admin">Meta Description</label>
+                    <textarea id="seoDesc" class="form-control" rows="3">Be The Change Health & Wellness Center provides integrative family medicine, naturopathic care, functional lab testing, and restorative therapies in Columbia, MD.</textarea>
+                    <div class="d-flex justify-content-between mt-1">
+                      <span class="small text-muted">Recommended: 150–160 characters</span>
+                      <span class="small text-muted" id="seoDescCount">166 chars</span>
+                    </div>
+                  </div>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label-admin">Canonical URL</label>
+                      <input type="text" id="seoCanonical" class="form-control" value="https://bethechangehealth.com/">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label-admin">Robots Meta</label>
+                      <select id="seoRobots" class="form-select">
+                        <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                        <option value="noindex, follow">Noindex, Follow</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <label class="form-label-admin mb-2">Google SERP Snippet Preview</label>
+                  <div class="serp-preview">
+                    <div class="serp-title" id="serpTitlePreview">Be The Change Health &amp; Wellness Center | Integrative Medicine in Columbia, MD</div>
+                    <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/</div>
+                    <div class="serp-desc" id="serpDescPreview">Be The Change Health &amp; Wellness Center provides integrative family medicine, naturopathic care, functional lab testing, and restorative therapies in Columbia, MD.</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
         </div>
 
-        <div class="sticky-actions">
-          <button class="btn-btc" type="button" data-save="Homepage saved. Publish when ready.">Save all homepage sections</button>
-          <button class="btn-btc-outline" type="button" data-save="Homepage marked published.">Publish</button>
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset to Default</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save Homepage
+            </button>
+          </div>
         </div>
+
       </main>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_homepage';
+
+      const defaultReviews = [
+        { author: "Elle", date: "2025-02-25", quote: "I've been going to Dr. Afrooz since 2021. She is exceptional, patient, and truly gets to the bottom of complicated symptoms." },
+        { author: "Manzur Ahmed", date: "2024-07-05", quote: "Dr Afrooz is my favorite. She is very knowledgeable and takes all the time needed to review every test." },
+        { author: "Muhammad Haroon", date: "2024-06-27", quote: "This is one of the most convenient doctor offices, with staff that truly cares about wellness." }
+      ];
+
+      let reviews = [...defaultReviews];
+
+      function renderReviews() {
+        const container = document.getElementById('reviewsContainer');
+        container.innerHTML = '';
+        reviews.forEach((r, idx) => {
+          const div = document.createElement('div');
+          div.className = 'subcard-box';
+          div.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-secondary">Review #${idx + 1}</span>
+              <button type="button" class="btn btn-sm btn-outline-danger remove-rev" data-index="${idx}"><i class="bi bi-trash"></i></button>
+            </div>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label-admin small">Reviewer Name</label>
+                <input type="text" class="form-control form-control-sm rev-author" data-index="${idx}" value="${escapeHtml(r.author)}">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-admin small">Date</label>
+                <input type="date" class="form-control form-control-sm rev-date" data-index="${idx}" value="${r.date}">
+              </div>
+              <div class="col-12">
+                <label class="form-label-admin small">Review Quote</label>
+                <textarea class="form-control form-control-sm rev-quote" data-index="${idx}" rows="2">${escapeHtml(r.quote)}</textarea>
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+
+        container.querySelectorAll('.rev-author').forEach(i => {
+          i.addEventListener('input', e => { reviews[parseInt(e.currentTarget.dataset.index, 10)].author = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.rev-date').forEach(i => {
+          i.addEventListener('input', e => { reviews[parseInt(e.currentTarget.dataset.index, 10)].date = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.rev-quote').forEach(i => {
+          i.addEventListener('input', e => { reviews[parseInt(e.currentTarget.dataset.index, 10)].quote = e.currentTarget.value; });
+        });
+        container.querySelectorAll('.remove-rev').forEach(b => {
+          b.addEventListener('click', e => {
+            reviews.splice(parseInt(e.currentTarget.dataset.index, 10), 1);
+            renderReviews();
+          });
+        });
+      }
+
+      document.getElementById('addReviewBtn').addEventListener('click', () => {
+        reviews.push({ author: "New Reviewer", date: new Date().toISOString().slice(0, 10), quote: "Exceptional care and compassionate doctors." });
+        renderReviews();
+      });
+
+      // SERP preview
+      const seoTitle = document.getElementById('seoTitle');
+      const seoDesc = document.getElementById('seoDesc');
+      const serpTitle = document.getElementById('serpTitlePreview');
+      const serpDesc = document.getElementById('serpDescPreview');
+      const titleCount = document.getElementById('seoTitleCount');
+      const descCount = document.getElementById('seoDescCount');
+
+      function updateSerp() {
+        serpTitle.textContent = seoTitle.value || 'Be The Change Health & Wellness Center';
+        serpDesc.textContent = seoDesc.value || 'Integrative medicine in Columbia, MD...';
+        titleCount.textContent = (seoTitle.value || '').length + ' chars';
+        descCount.textContent = (seoDesc.value || '').length + ' chars';
+      }
+
+      seoTitle.addEventListener('input', updateSerp);
+      seoDesc.addEventListener('input', updateSerp);
+      updateSerp();
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function saveToStorage() {
+        const data = {
+          noticeBarVisible: document.getElementById('noticeBarVisible').checked,
+          noticePrimary: document.getElementById('noticePrimary').value,
+          noticeDisplayMode: document.getElementById('noticeDisplayMode').value,
+          noticeSecondary: document.getElementById('noticeSecondary').value,
+          heroBgSrc: document.getElementById('heroBgSrc').value,
+          heroHeadline: document.getElementById('heroHeadline').value,
+          heroSubhead: document.getElementById('heroSubhead').value,
+          whyBoxHeading: document.getElementById('whyBoxHeading').value,
+          whyBoxBtnText: document.getElementById('whyBoxBtnText').value,
+          whyBoxBtnUrl: document.getElementById('whyBoxBtnUrl').value,
+          whyBoxBody: document.getElementById('whyBoxBody').value,
+          icon1Title: document.getElementById('icon1Title').value,
+          icon1Text: document.getElementById('icon1Text').value,
+          icon2Title: document.getElementById('icon2Title').value,
+          icon2Text: document.getElementById('icon2Text').value,
+          icon3Title: document.getElementById('icon3Title').value,
+          icon3Text: document.getElementById('icon3Text').value,
+          approachImgSrc: document.getElementById('approachImgSrc').value,
+          approachBadgeLabel: document.getElementById('approachBadgeLabel').value,
+          approachBadgeText: document.getElementById('approachBadgeText').value,
+          aboutSecTitle: document.getElementById('aboutSecTitle').value,
+          aboutEyebrow: document.getElementById('aboutEyebrow').value,
+          aboutSecHeading: document.getElementById('aboutSecHeading').value,
+          aboutPara1: document.getElementById('aboutPara1').value,
+          aboutPara2: document.getElementById('aboutPara2').value,
+          aboutPara3: document.getElementById('aboutPara3').value,
+          feature1Title: document.getElementById('feature1Title').value,
+          feature1Desc: document.getElementById('feature1Desc').value,
+          feature2Title: document.getElementById('feature2Title').value,
+          feature2Desc: document.getElementById('feature2Desc').value,
+          feature3Title: document.getElementById('feature3Title').value,
+          feature3Desc: document.getElementById('feature3Desc').value,
+          pathway1Title: document.getElementById('pathway1Title').value,
+          pathway1Url: document.getElementById('pathway1Url').value,
+          pathway1Desc: document.getElementById('pathway1Desc').value,
+          pathway2Title: document.getElementById('pathway2Title').value,
+          pathway2Url: document.getElementById('pathway2Url').value,
+          pathway2Desc: document.getElementById('pathway2Desc').value,
+          visionImgSrc: document.getElementById('visionImgSrc').value,
+          visionTitle: document.getElementById('visionTitle').value,
+          visionDesc: document.getElementById('visionDesc').value,
+          goalImgSrc: document.getElementById('goalImgSrc').value,
+          goalTitle: document.getElementById('goalTitle').value,
+          goalDesc: document.getElementById('goalDesc').value,
+          valuesImgSrc: document.getElementById('valuesImgSrc').value,
+          valuesTitle: document.getElementById('valuesTitle').value,
+          valuesList: document.getElementById('valuesList').value,
+          statsDoctors: document.getElementById('statsDoctors').value,
+          statsConditions: document.getElementById('statsConditions').value,
+          statsServices: document.getElementById('statsServices').value,
+          statsReviews: document.getElementById('statsReviews').value,
+          condSecTitle: document.getElementById('condSecTitle').value,
+          condSecDesc: document.getElementById('condSecDesc').value,
+          showAllCondBtn: document.getElementById('showAllCondBtn').checked,
+          therapiesSecTitle: document.getElementById('therapiesSecTitle').value,
+          therapiesSecSubtitle: document.getElementById('therapiesSecSubtitle').value,
+          showAllTherapiesBtn: document.getElementById('showAllTherapiesBtn').checked,
+          doctorsTitle: document.getElementById('doctorsTitle').value,
+          doctorOrderSelect: document.getElementById('doctorOrderSelect').value,
+          doctorsDesc: document.getElementById('doctorsDesc').value,
+          reviewRatingLabel: document.getElementById('reviewRatingLabel').value,
+          reviewCountDisplay: document.getElementById('reviewCountDisplay').value,
+          reviewAutoplay: document.getElementById('reviewAutoplay').value,
+          reviews: reviews,
+          newsHeadline: document.getElementById('newsHeadline').value,
+          newsBtnText: document.getElementById('newsBtnText').value,
+          newsDesc: document.getElementById('newsDesc').value,
+          newsAccent: document.getElementById('newsAccent').value,
+          ctaHeading: document.getElementById('ctaHeading').value,
+          ctaSubtitle: document.getElementById('ctaSubtitle').value,
+          contactPhone: document.getElementById('contactPhone').value,
+          contactAddress: document.getElementById('contactAddress').value,
+          contactHours: document.getElementById('contactHours').value,
+          seoTitle: seoTitle.value,
+          seoDesc: seoDesc.value,
+          seoCanonical: document.getElementById('seoCanonical').value,
+          seoRobots: document.getElementById('seoRobots').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            renderReviews();
+            return;
+          }
+          const d = JSON.parse(raw);
+          if (d.noticeBarVisible !== undefined) document.getElementById('noticeBarVisible').checked = d.noticeBarVisible;
+          if (d.noticePrimary) document.getElementById('noticePrimary').value = d.noticePrimary;
+          if (d.noticeDisplayMode) document.getElementById('noticeDisplayMode').value = d.noticeDisplayMode;
+          if (d.noticeSecondary) document.getElementById('noticeSecondary').value = d.noticeSecondary;
+          if (d.heroBgSrc) document.getElementById('heroBgSrc').value = d.heroBgSrc;
+          if (d.heroHeadline) document.getElementById('heroHeadline').value = d.heroHeadline;
+          if (d.heroSubhead) document.getElementById('heroSubhead').value = d.heroSubhead;
+          if (d.whyBoxHeading) document.getElementById('whyBoxHeading').value = d.whyBoxHeading;
+          if (d.whyBoxBtnText) document.getElementById('whyBoxBtnText').value = d.whyBoxBtnText;
+          if (d.whyBoxBtnUrl) document.getElementById('whyBoxBtnUrl').value = d.whyBoxBtnUrl;
+          if (d.whyBoxBody) document.getElementById('whyBoxBody').value = d.whyBoxBody;
+          if (d.icon1Title) document.getElementById('icon1Title').value = d.icon1Title;
+          if (d.icon1Text) document.getElementById('icon1Text').value = d.icon1Text;
+          if (d.icon2Title) document.getElementById('icon2Title').value = d.icon2Title;
+          if (d.icon2Text) document.getElementById('icon2Text').value = d.icon2Text;
+          if (d.icon3Title) document.getElementById('icon3Title').value = d.icon3Title;
+          if (d.icon3Text) document.getElementById('icon3Text').value = d.icon3Text;
+          if (d.approachImgSrc) document.getElementById('approachImgSrc').value = d.approachImgSrc;
+          if (d.approachBadgeLabel) document.getElementById('approachBadgeLabel').value = d.approachBadgeLabel;
+          if (d.approachBadgeText) document.getElementById('approachBadgeText').value = d.approachBadgeText;
+          if (d.aboutSecTitle) document.getElementById('aboutSecTitle').value = d.aboutSecTitle;
+          if (d.aboutEyebrow) document.getElementById('aboutEyebrow').value = d.aboutEyebrow;
+          if (d.aboutSecHeading) document.getElementById('aboutSecHeading').value = d.aboutSecHeading;
+          if (d.aboutPara1) document.getElementById('aboutPara1').value = d.aboutPara1;
+          if (d.aboutPara2) document.getElementById('aboutPara2').value = d.aboutPara2;
+          if (d.aboutPara3) document.getElementById('aboutPara3').value = d.aboutPara3;
+          if (d.feature1Title) document.getElementById('feature1Title').value = d.feature1Title;
+          if (d.feature1Desc) document.getElementById('feature1Desc').value = d.feature1Desc;
+          if (d.feature2Title) document.getElementById('feature2Title').value = d.feature2Title;
+          if (d.feature2Desc) document.getElementById('feature2Desc').value = d.feature2Desc;
+          if (d.feature3Title) document.getElementById('feature3Title').value = d.feature3Title;
+          if (d.feature3Desc) document.getElementById('feature3Desc').value = d.feature3Desc;
+          if (d.pathway1Title) document.getElementById('pathway1Title').value = d.pathway1Title;
+          if (d.pathway1Url) document.getElementById('pathway1Url').value = d.pathway1Url;
+          if (d.pathway1Desc) document.getElementById('pathway1Desc').value = d.pathway1Desc;
+          if (d.pathway2Title) document.getElementById('pathway2Title').value = d.pathway2Title;
+          if (d.pathway2Url) document.getElementById('pathway2Url').value = d.pathway2Url;
+          if (d.pathway2Desc) document.getElementById('pathway2Desc').value = d.pathway2Desc;
+          if (d.visionImgSrc) document.getElementById('visionImgSrc').value = d.visionImgSrc;
+          if (d.visionTitle) document.getElementById('visionTitle').value = d.visionTitle;
+          if (d.visionDesc) document.getElementById('visionDesc').value = d.visionDesc;
+          if (d.goalImgSrc) document.getElementById('goalImgSrc').value = d.goalImgSrc;
+          if (d.goalTitle) document.getElementById('goalTitle').value = d.goalTitle;
+          if (d.goalDesc) document.getElementById('goalDesc').value = d.goalDesc;
+          if (d.valuesImgSrc) document.getElementById('valuesImgSrc').value = d.valuesImgSrc;
+          if (d.valuesTitle) document.getElementById('valuesTitle').value = d.valuesTitle;
+          if (d.valuesList) document.getElementById('valuesList').value = d.valuesList;
+          if (d.statsDoctors) document.getElementById('statsDoctors').value = d.statsDoctors;
+          if (d.statsConditions) document.getElementById('statsConditions').value = d.statsConditions;
+          if (d.statsServices) document.getElementById('statsServices').value = d.statsServices;
+          if (d.statsReviews) document.getElementById('statsReviews').value = d.statsReviews;
+          if (d.condSecTitle) document.getElementById('condSecTitle').value = d.condSecTitle;
+          if (d.condSecDesc) document.getElementById('condSecDesc').value = d.condSecDesc;
+          if (d.showAllCondBtn !== undefined) document.getElementById('showAllCondBtn').checked = d.showAllCondBtn;
+          if (d.therapiesSecTitle) document.getElementById('therapiesSecTitle').value = d.therapiesSecTitle;
+          if (d.therapiesSecSubtitle) document.getElementById('therapiesSecSubtitle').value = d.therapiesSecSubtitle;
+          if (d.showAllTherapiesBtn !== undefined) document.getElementById('showAllTherapiesBtn').checked = d.showAllTherapiesBtn;
+          if (d.doctorsTitle) document.getElementById('doctorsTitle').value = d.doctorsTitle;
+          if (d.doctorOrderSelect) document.getElementById('doctorOrderSelect').value = d.doctorOrderSelect;
+          if (d.doctorsDesc) document.getElementById('doctorsDesc').value = d.doctorsDesc;
+          if (d.reviewRatingLabel) document.getElementById('reviewRatingLabel').value = d.reviewRatingLabel;
+          if (d.reviewCountDisplay) document.getElementById('reviewCountDisplay').value = d.reviewCountDisplay;
+          if (d.reviewAutoplay) document.getElementById('reviewAutoplay').value = d.reviewAutoplay;
+          if (Array.isArray(d.reviews) && d.reviews.length) reviews = d.reviews;
+          if (d.newsHeadline) document.getElementById('newsHeadline').value = d.newsHeadline;
+          if (d.newsBtnText) document.getElementById('newsBtnText').value = d.newsBtnText;
+          if (d.newsDesc) document.getElementById('newsDesc').value = d.newsDesc;
+          if (d.newsAccent) document.getElementById('newsAccent').value = d.newsAccent;
+          if (d.ctaHeading) document.getElementById('ctaHeading').value = d.ctaHeading;
+          if (d.ctaSubtitle) document.getElementById('ctaSubtitle').value = d.ctaSubtitle;
+          if (d.contactPhone) document.getElementById('contactPhone').value = d.contactPhone;
+          if (d.contactAddress) document.getElementById('contactAddress').value = d.contactAddress;
+          if (d.contactHours) document.getElementById('contactHours').value = d.contactHours;
+          if (d.seoTitle) seoTitle.value = d.seoTitle;
+          if (d.seoDesc) seoDesc.value = d.seoDesc;
+          if (d.seoCanonical) document.getElementById('seoCanonical').value = d.seoCanonical;
+          if (d.seoRobots) document.getElementById('seoRobots').value = d.seoRobots;
+        } catch (e) {
+          console.error(e);
+        }
+        renderReviews();
+        updateSerp();
+      }
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveToStorage();
+        if (typeof showToast === 'function') {
+          showToast('Homepage CMS changes saved successfully!');
+        } else {
+          alert('Homepage CMS changes saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Reset homepage fields to default?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      });
+
+      loadFromStorage();
+    })();
+  </script>
 </body>
 </html>

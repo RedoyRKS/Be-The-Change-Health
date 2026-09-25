@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditions | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="conditions">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
+          <div>
+            <p class="section-map mb-1">Frontend · conditions/*.html</p>
+            <p class="text-muted mb-0">Eight condition cards on the homepage grid.</p>
+          </div>
+          <button class="btn-btc" type="button" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-plus-lg"></i> Add condition</button>
+        </div>
+        <div class="card-admin">
+          <div class="card-body-admin">
+            <input class="form-control mb-3" style="max-width:280px" placeholder="Search conditions…" data-table-search="cond-table">
+            <div class="table-wrap">
+              <table class="table-admin" id="cond-table">
+                <thead><tr><th>Condition</th><th>Homepage blurb</th><th>Status</th><th></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Diabetes.jpg" alt=""><span><strong>Diabetes</strong><small>conditions/diabetes.html</small></span></div></td>
+                    <td>Holistic therapies to support metabolism and healthy blood sugar balance.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Diabetes"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Medical-Weight-Loss.jpg" alt=""><span><strong>Obesity</strong></span></div></td>
+                    <td>Individualized medical weight loss and diet planning for lasting results.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Obesity"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Heart-Disease.jpg" alt=""><span><strong>Heart Disease</strong></span></div></td>
+                    <td>Holistic wellness plans to reduce heart disease risk and complications.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Heart Disease"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Chronic-fatigue-1.jpg" alt=""><span><strong>Chronic Fatigue</strong></span></div></td>
+                    <td>Holistic treatment for CFS and fibromyalgia that may reduce medication needs.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Chronic Fatigue"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Pain-relief-Services.jpg" alt=""><span><strong>Chronic Pain</strong></span></div></td>
+                    <td>Frequency Specific Microcurrent™ (FSM) and therapies for lasting pain relief.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Chronic Pain"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Detoxification.jpg" alt=""><span><strong>Toxins / Detoxification</strong></span></div></td>
+                    <td>Support for removing toxins that cause pain, discomfort, and ambiguous symptoms.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Toxins"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Concussion.jpg" alt=""><span><strong>Concussion</strong></span></div></td>
+                    <td>Hyperbaric oxygen therapy or FSM for brain injuries and concussions.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Concussion"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="person"><img class="thumb" src="../../../Frontend/assets/uploads/2024/08/Hormone.jpg" alt=""><span><strong>Hormone Imbalance</strong></span></div></td>
+                    <td>Holistic hormone support for men and women of all ages.</td>
+                    <td><span class="badge-admin badge-published">Published</span></td>
+                    <td><button class="icon-action" data-bs-toggle="modal" data-bs-target="#condModal"><i class="bi bi-pencil"></i></button> <button class="icon-action danger" data-delete="Hormone Imbalance"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal fade" id="condModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Edit condition</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <label class="form-label-admin">Name</label>
+          <input class="form-control mb-3" value="Diabetes">
+          <label class="form-label-admin">Card blurb</label>
+          <textarea class="form-control mb-3" rows="2">Holistic therapies to support metabolism and healthy blood sugar balance.</textarea>
+          <div class="upload-box compact">
+            <img class="upload-preview" src="../../../Frontend/assets/uploads/2024/08/Diabetes.jpg" alt="">
+            <p>Replace card image</p>
+            <input type="file" accept="image/*">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-btc-outline" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn-btc" data-save="Condition saved." data-bs-dismiss="modal">Save condition</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>

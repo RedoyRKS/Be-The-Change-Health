@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalized Wellness Plans CMS | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .service-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .check-item-row {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.55rem 0.85rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .check-item-row .handle {
+      color: #94a3b8;
+      cursor: grab;
+    }
+    .check-item-row input {
+      background: #fff;
+    }
+    .plan-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      height: 100%;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .cms-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .cms-jump-bar a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #0d9488;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: #f0fdfa;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cms-jump-bar a:hover {
+      background: #0d9488;
+      color: #fff;
+    }
+  </style>
+</head>
+<body data-page="service-personalized-wellness-plans">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Services</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Personalized Wellness Plans</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/personalized-wellness-plans.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/services/personalized-wellness-plans.html</p>
+              <h2>Personalized Wellness Plans CMS</h2>
+              <p>Manage MyBodySite directory portal links, 13 included plan features checklist, 4 signature diet plans (Medical Weight Loss, Gluten Free, AIP, Keto), and 3 exercise &amp; mindfulness protocols.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="wellness-classes.html">
+                ← Prev: Wellness Classes
+              </a>
+              <a class="btn-btc-ghost btn-sm-admin" href="frequency-specific-microcurrent.html">
+                First: FSM →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-link-45deg text-teal"></i> Platform Integration
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">MyBodySite Hub</h4>
+                  <small class="text-muted">Direct patient portal links</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-list-check text-teal"></i> Program Features
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">13 Included Items</h4>
+                  <small class="text-muted">Bi-weekly check-ins &amp; 100k foods</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-egg-fried text-teal"></i> Diet Protocols
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">4 Nutrition Plans</h4>
+                  <small class="text-muted">Clean28, Gluten-free, AIP, Keto</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-heart-pulse text-teal"></i> Lifestyle Plans
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">3 Fitness &amp; Mind</h4>
+                  <small class="text-muted">Men’s HRT, Mindfulness, Lean 13</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Jump Navigation Bar -->
+        <nav class="cms-jump-bar" aria-label="Section Quick Jump">
+          <span class="text-muted small align-self-center me-1"><i class="bi bi-signpost-split"></i> Jump to:</span>
+          <a href="#editor-hero">Hero Header</a>
+          <a href="#editor-portal">MyBodySite Portal</a>
+          <a href="#editor-features">13 Included Features</a>
+          <a href="#editor-diets">4 Popular Diet Plans</a>
+          <a href="#editor-fitness">3 Exercise &amp; Mindfulness</a>
+          <a href="#editor-process">Process Steps</a>
+          <a href="#editor-cta">CTA Band</a>
+          <a href="#editor-seo">SEO &amp; Metadata</a>
+        </nav>
+
+        <!-- Stacked CMS Editor Sections -->
+        <div class="editor-stack">
+
+          <!-- 1. Hero Section -->
+          <div class="editor-card open mb-4" id="editor-hero">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 1</span>
+                <h3 class="mb-0">Page Hero Header</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-title">Hero H1 Title</label>
+                  <input type="text" class="form-control" id="hero-title" value="Personalized Wellness Plans">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="hero-subtitle">Hero Subtitle</label>
+                  <input type="text" class="form-control" id="hero-subtitle" value="Nutrition and fitness plans with doctor check-ins.">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input type="text" class="form-control" id="hero-breadcrumb" value="Personalized Wellness Plans">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero"><i class="bi bi-check2 me-1"></i> Save Hero</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. MyBodySite Portal & Article Overview -->
+          <div class="editor-card open mb-4" id="editor-portal">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 2</span>
+                <h3 class="mb-0">MyBodySite Portal &amp; Plan Overview</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label fw-semibold" for="overview-image">Featured Graphic Path</label>
+                  <input type="text" class="form-control" id="overview-image" value="../assets/uploads/2025/02/P1.png">
+                  <div class="form-text">Frontend relative image path: Frontend/assets/uploads/2025/02/P1.png</div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                  <img src="../../../Frontend/assets/uploads/2025/02/P1.png" alt="Preview" class="service-preview-thumb ms-auto" onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="portal-label">MyBodySite Portal Link Text</label>
+                  <input type="text" class="form-control" id="portal-label" value="Browse all wellness plans on MyBodySite">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="portal-url">MyBodySite Portal URL</label>
+                  <input type="text" class="form-control" id="portal-url" value="https://mybodysite.com/sultana-afrooz">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="overview-heading">Main Section Heading (H2)</label>
+                  <input type="text" class="form-control" id="overview-heading" value="Personalized Health &amp; Wellness Plans With Doctor Check-Ins">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="overview-p1">Program Description</label>
+                  <textarea class="form-control" id="overview-p1" rows="3">Through Integrative and Naturopathic Medicine practices, we’ve acquired unique and comprehensive plans that will provide your body with necessary nutritional and fitness insight to meet your specific needs. Most plans include doctor check-ins every 2 weeks, amazing recipes, nutritious food options, grocery lists and exercises for you to implement into your lifestyle and reach your health goals.</textarea>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-portal"><i class="bi bi-check2 me-1"></i> Save Portal Overview</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 13 Included Features Checklist -->
+          <div class="editor-card open mb-4" id="editor-features">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 3</span>
+                <h3 class="mb-0">Our Wellness Plans Include (13 Features)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label fw-semibold" for="features-heading">Checklist Heading (H6)</label>
+                <input type="text" class="form-control" id="features-heading" value="Our Wellness Plans Include:">
+              </div>
+              <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
+                <span>Features List (<span id="features-count">13</span> items)</span>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="btn-add-feature"><i class="bi bi-plus-lg me-1"></i> Add Feature</button>
+              </label>
+              <div id="features-list-container" class="mb-3"></div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-features"><i class="bi bi-check2 me-1"></i> Save Features</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 4 Popular Diet Plans -->
+          <div class="editor-card open mb-4" id="editor-diets">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 4</span>
+                <h3 class="mb-0">Our Popular Diet Plans (4 Protocols)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="diets-heading">Section Heading</label>
+                  <input type="text" class="form-control" id="diets-heading" value="Our Popular Plans">
+                </div>
+
+                <!-- Diet 1 -->
+                <div class="col-md-6">
+                  <div class="plan-box">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Diet Plan 1</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="diet1-title" value="MEDICAL WEIGHTLOSS">
+                    <label class="form-label small text-muted">MyBodySite Plan Link</label>
+                    <input type="text" class="form-control mb-2" id="diet1-url" value="https://mybodysite.com/sultana-afrooz/medical-weight-loss-8-week-plan-with-exercise">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="diet1-desc" rows="4">The Clean28 Intermittent Fasting Weight Loss Program is a practical, healthy and safe way to lose weight. It is all about eating healthy foods: lean meats, lots of fruits and vegetables, low carbs, and only fats that are healthy such as avocados, olive oil and nuts. This low-carb, moderate protein, moderate fat diet will help you to lose weight fast and to apply these same principles, for life. Carbs never go over 20% per day. Combines these prinicples with Intermittent Fasting (IF).</textarea>
+                  </div>
+                </div>
+
+                <!-- Diet 2 -->
+                <div class="col-md-6">
+                  <div class="plan-box">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Diet Plan 2</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="diet2-title" value="HEARTY GLUTEN FREE DIET (30 DAY)">
+                    <label class="form-label small text-muted">MyBodySite Plan Link</label>
+                    <input type="text" class="form-control mb-2" id="diet2-url" value="https://mybodysite.com/sultana-afrooz/gluten-free-diet">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="diet2-desc" rows="4">A guide for people who suffer from Celiac Disease or a Gluten Sensitivity. Learn steps to remove gluten from your diet and enjoy delicious recipes that are gluten free.</textarea>
+                  </div>
+                </div>
+
+                <!-- Diet 3 -->
+                <div class="col-md-6">
+                  <div class="plan-box">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Diet Plan 3</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="diet3-title" value="TASTY AUTOIMMUNE PALEO PROTOCOL">
+                    <label class="form-label small text-muted">MyBodySite Plan Link</label>
+                    <input type="text" class="form-control mb-2" id="diet3-url" value="https://mybodysite.com/sultana-afrooz/antiinflammatory-autoimmune-paleo-protocol">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="diet3-desc" rows="4">Autoimmune Paleo Protocol is used to treat inflammatory disease and reduce inflammation in the intestines which can lead to autoimmune disease.</textarea>
+                  </div>
+                </div>
+
+                <!-- Diet 4 -->
+                <div class="col-md-6">
+                  <div class="plan-box">
+                    <span class="badge bg-primary-subtle text-primary mb-2">Diet Plan 4</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="diet4-title" value="KETO PLAN">
+                    <label class="form-label small text-muted">MyBodySite Plan Link</label>
+                    <input type="text" class="form-control mb-2" id="diet4-url" value="https://mybodysite.com/sultana-afrooz/ketogenic-diet-for-weight-loss">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="diet4-desc" rows="4">A ketogenic diet can lead to significant weight loss by promoting fat burning while reducing carbohydrate intake, which encourages the body to enter a state of ketosis. Additionally, it may improve energy levels and mental clarity, as the brain uses ketones from fat as a more efficient fuel source compared to glucose.</textarea>
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-diets"><i class="bi bi-check2 me-1"></i> Save Diet Plans</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 3 Exercise & Mindfulness Plans -->
+          <div class="editor-card open mb-4" id="editor-fitness">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 5</span>
+                <h3 class="mb-0">Exercise &amp; Mindfulness Plans (3 Protocols)</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="fitness-heading">Section Heading</label>
+                  <input type="text" class="form-control" id="fitness-heading" value="Exercise and Mindfulness Plans">
+                </div>
+
+                <!-- Fitness 1 -->
+                <div class="col-12">
+                  <div class="plan-box">
+                    <span class="badge bg-info-subtle text-info mb-2">Protocol 1</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="fit1-title" value="MEN’S 8 WEEK HOME FITNESS">
+                    <label class="form-label small text-muted">MyBodySite Link</label>
+                    <input type="text" class="form-control mb-2" id="fit1-url" value="https://mybodysite.com/sultana-afrooz/exercise-mens-8week-hrt-home-fitness">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="fit1-desc" rows="3">This wellness plan is for the male patient that reports a lack of energy, fatigue, loss of mental function, weight gain and low libido. This individual may also be a candidate for testosterone therapy as well as possible growth hormone and thyroid hormone, depending on blood work results. This plan involves intermediate fitness training but can be done at home. Requires only some dumbbells, a mat and your own body. If patient has restrictions or limitations, consider the Beginner HRT plan.</textarea>
+                  </div>
+                </div>
+
+                <!-- Fitness 2 -->
+                <div class="col-12">
+                  <div class="plan-box">
+                    <span class="badge bg-info-subtle text-info mb-2">Protocol 2</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="fit2-title" value="21 DAYS OF MINDFULNESS W/ JENNIFER GRACE">
+                    <label class="form-label small text-muted">MyBodySite Link</label>
+                    <input type="text" class="form-control mb-2" id="fit2-url" value="https://mybodysite.com/sultana-afrooz/21-days-of-mindfulness-by-jennifer-grace">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="fit2-desc" rows="3">Gain helpful and lasting tools to start your own mindfulness and emotional intelligence practice. This plan provides daily guidance to help manage feelings of stress, anxiety, fear, depression… in order to be present and resilient through challenging moments. Find your “peace and ease” through daily mindfulness practice.</textarea>
+                  </div>
+                </div>
+
+                <!-- Fitness 3 -->
+                <div class="col-12">
+                  <div class="plan-box">
+                    <span class="badge bg-info-subtle text-info mb-2">Protocol 3</span>
+                    <input type="text" class="form-control fw-bold mb-2" id="fit3-title" value="THE LEAN 13 EXERCISE PROGRAM">
+                    <label class="form-label small text-muted">MyBodySite Link</label>
+                    <input type="text" class="form-control mb-2" id="fit3-url" value="https://mybodysite.com/sultana-afrooz/exercise-the-lean-13-exercise-program-get-in-shape-in-20-minutes">
+                    <label class="form-label small text-muted">Description</label>
+                    <textarea class="form-control" id="fit3-desc" rows="3">The plan you’re about to begin lasts for 13 weeks and can make an enormous impact on your life in just 20 minutes a day. Since there are 3 workouts per week, you’ll exercise only an hour a week for just 13 total hours in 13 weeks . This is really simple stuff. All you need to do is put on your workout shorts and follow the instructions.</textarea>
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-fitness"><i class="bi bi-check2 me-1"></i> Save Exercise &amp; Mindfulness</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Process Steps -->
+          <div class="editor-card open mb-4" id="editor-process">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 6</span>
+                <h3 class="mb-0">"Feel Good, Live Better!" 3-Step Process</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-heading">Process Heading</label>
+                  <input type="text" class="form-control" id="process-heading" value="Feel Good, Live Better!">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="process-subheading">Process Subheading</label>
+                  <input type="text" class="form-control" id="process-subheading" value="It’s easy to get started…">
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 1</h6>
+                    <input type="text" class="form-control mb-2" id="step1-title" value="Request An Appointment">
+                    <textarea class="form-control" id="step1-desc" rows="3">Your first step is to either call our clinic or complete the online request form for a new patient appointment.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 2</h6>
+                    <input type="text" class="form-control mb-2" id="step2-title" value="Experience Our Clinic">
+                    <textarea class="form-control" id="step2-desc" rows="3">Come to our clinic to receive your integrative consultation or treatment session.</textarea>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded border h-100">
+                    <h6 class="fw-bold text-teal mb-2">Step 3</h6>
+                    <input type="text" class="form-control mb-2" id="step3-title" value="Choose A Membership">
+                    <textarea class="form-control mb-2" id="step3-desc" rows="2">All patients enroll in one of our membership plans designed for discounts and complimentary services.</textarea>
+                    <input type="text" class="form-control" id="step3-link" value="../memberships.html">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-process"><i class="bi bi-check2 me-1"></i> Save Process</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Call to Action Band -->
+          <div class="editor-card open mb-4" id="editor-cta">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 7</span>
+                <h3 class="mb-0">Consultation CTA Band</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-heading">CTA Band Heading</label>
+                  <input type="text" class="form-control" id="cta-heading" value="Interested in Personalized Wellness Plans?">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="cta-subtitle">CTA Band Subtitle</label>
+                  <input type="text" class="form-control" id="cta-subtitle" value="Our team can help you decide if this therapy is right for you.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-text">Primary Button Label</label>
+                  <input type="text" class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-btn-link">Primary Button URL</label>
+                  <input type="text" class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold" for="cta-phone">Phone Call CTA</label>
+                  <input type="text" class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta"><i class="bi bi-check2 me-1"></i> Save CTA Band</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. SEO & Live Google SERP Preview -->
+          <div class="editor-card open mb-4" id="editor-seo">
+            <div class="editor-head">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Section 8</span>
+                <h3 class="mb-0">SEO Metadata &amp; Google Search Preview</h3>
+              </div>
+              <span class="toggle-icon"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-title">Meta Title Tag</label>
+                  <input type="text" class="form-control" id="seo-title" value="Personalized Wellness Plans - Be The Change Health and Wellness Center">
+                  <div class="form-text">Recommended: 50–60 characters.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold" for="seo-canonical">Canonical URL</label>
+                  <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/services/personalized-wellness-plans.html">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" for="seo-desc">Meta Description</label>
+                  <textarea class="form-control" id="seo-desc" rows="2">Personalized nutrition, dietary, and fitness plans with bi-weekly doctor check-ins in Columbia, MD. Medical weight loss, AIP, keto, and home fitness coaching.</textarea>
+                </div>
+              </div>
+              <div class="serp-card mb-3">
+                <div class="small text-muted mb-2 fw-semibold"><i class="bi bi-google me-1"></i> Google Search Result Snippet Preview</div>
+                <div class="serp-title" id="serp-preview-title">Personalized Wellness Plans - Be The Change Health and Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › services › personalized-wellness-plans</div>
+                <div class="serp-desc" id="serp-preview-desc">Personalized nutrition, dietary, and fitness plans with bi-weekly doctor check-ins in Columbia, MD. Medical weight loss, AIP, keto, and home fitness coaching.</div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo"><i class="bi bi-check2 me-1"></i> Save SEO</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin p-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2 text-muted small">
+            <i class="bi bi-clock-history"></i>
+            <span id="save-status-text">Draft state saved locally</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-reset-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/services/personalized-wellness-plans.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_service_personalized_wellness_plans";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Personalized Wellness Plans",
+          subtitle: "Nutrition and fitness plans with doctor check-ins.",
+          breadcrumb: "Personalized Wellness Plans"
+        },
+        portal: {
+          image: "../assets/uploads/2025/02/P1.png",
+          label: "Browse all wellness plans on MyBodySite",
+          url: "https://mybodysite.com/sultana-afrooz",
+          heading: "Personalized Health & Wellness Plans With Doctor Check-Ins",
+          p1: "Through Integrative and Naturopathic Medicine practices, we’ve acquired unique and comprehensive plans that will provide your body with necessary nutritional and fitness insight to meet your specific needs. Most plans include doctor check-ins every 2 weeks, amazing recipes, nutritious food options, grocery lists and exercises for you to implement into your lifestyle and reach your health goals."
+        },
+        features: {
+          heading: "Our Wellness Plans Include:",
+          items: [
+            "Doctor Check-Ins Every 2 Weeks",
+            "Grocery Shopping Lists",
+            "Delicious Recipes",
+            "Database of 100K Foods, Including Restaurants and Your Favorite Brands",
+            "Access To Desktop & Mobile App",
+            "Beginner & Advanced Exercises",
+            "Example Exercise Videos",
+            "Secure Messaging Center",
+            "Daily Tips & Recommendations",
+            "Calorie & Food Tracker",
+            "Create Goals & Targets",
+            "Track Weight, Measurements & Body Fat",
+            "Picture Gallery To Track Progress Visually"
+          ]
+        },
+        diets: {
+          heading: "Our Popular Plans",
+          d1Title: "MEDICAL WEIGHTLOSS",
+          d1Url: "https://mybodysite.com/sultana-afrooz/medical-weight-loss-8-week-plan-with-exercise",
+          d1Desc: "The Clean28 Intermittent Fasting Weight Loss Program is a practical, healthy and safe way to lose weight. It is all about eating healthy foods: lean meats, lots of fruits and vegetables, low carbs, and only fats that are healthy such as avocados, olive oil and nuts. This low-carb, moderate protein, moderate fat diet will help you to lose weight fast and to apply these same principles, for life. Carbs never go over 20% per day. Combines these prinicples with Intermittent Fasting (IF).",
+          d2Title: "HEARTY GLUTEN FREE DIET (30 DAY)",
+          d2Url: "https://mybodysite.com/sultana-afrooz/gluten-free-diet",
+          d2Desc: "A guide for people who suffer from Celiac Disease or a Gluten Sensitivity. Learn steps to remove gluten from your diet and enjoy delicious recipes that are gluten free.",
+          d3Title: "TASTY AUTOIMMUNE PALEO PROTOCOL",
+          d3Url: "https://mybodysite.com/sultana-afrooz/antiinflammatory-autoimmune-paleo-protocol",
+          d3Desc: "Autoimmune Paleo Protocol is used to treat inflammatory disease and reduce inflammation in the intestines which can lead to autoimmune disease.",
+          d4Title: "KETO PLAN",
+          d4Url: "https://mybodysite.com/sultana-afrooz/ketogenic-diet-for-weight-loss",
+          d4Desc: "A ketogenic diet can lead to significant weight loss by promoting fat burning while reducing carbohydrate intake, which encourages the body to enter a state of ketosis. Additionally, it may improve energy levels and mental clarity, as the brain uses ketones from fat as a more efficient fuel source compared to glucose."
+        },
+        fitness: {
+          heading: "Exercise and Mindfulness Plans",
+          f1Title: "MEN’S 8 WEEK HOME FITNESS",
+          f1Url: "https://mybodysite.com/sultana-afrooz/exercise-mens-8week-hrt-home-fitness",
+          f1Desc: "This wellness plan is for the male patient that reports a lack of energy, fatigue, loss of mental function, weight gain and low libido. This individual may also be a candidate for testosterone therapy as well as possible growth hormone and thyroid hormone, depending on blood work results. This plan involves intermediate fitness training but can be done at home. Requires only some dumbbells, a mat and your own body. If patient has restrictions or limitations, consider the Beginner HRT plan.",
+          f2Title: "21 DAYS OF MINDFULNESS W/ JENNIFER GRACE",
+          f2Url: "https://mybodysite.com/sultana-afrooz/21-days-of-mindfulness-by-jennifer-grace",
+          f2Desc: "Gain helpful and lasting tools to start your own mindfulness and emotional intelligence practice. This plan provides daily guidance to help manage feelings of stress, anxiety, fear, depression… in order to be present and resilient through challenging moments. Find your “peace and ease” through daily mindfulness practice.",
+          f3Title: "THE LEAN 13 EXERCISE PROGRAM",
+          f3Url: "https://mybodysite.com/sultana-afrooz/exercise-the-lean-13-exercise-program-get-in-shape-in-20-minutes",
+          f3Desc: "The plan you’re about to begin lasts for 13 weeks and can make an enormous impact on your life in just 20 minutes a day. Since there are 3 workouts per week, you’ll exercise only an hour a week for just 13 total hours in 13 weeks . This is really simple stuff. All you need to do is put on your workout shorts and follow the instructions."
+        },
+        process: {
+          heading: "Feel Good, Live Better!",
+          subheading: "It’s easy to get started…",
+          step1Title: "Request An Appointment",
+          step1Desc: "Your first step is to either call our clinic or complete the online request form for a new patient appointment.",
+          step2Title: "Experience Our Clinic",
+          step2Desc: "Come to our clinic to receive your integrative consultation or treatment session.",
+          step3Title: "Choose A Membership",
+          step3Desc: "All patients enroll in one of our membership plans designed for discounts and complimentary services.",
+          step3Link: "../memberships.html"
+        },
+        cta: {
+          heading: "Interested in Personalized Wellness Plans?",
+          subtitle: "Our team can help you decide if this therapy is right for you.",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html",
+          phone: "301-970-9724"
+        },
+        seo: {
+          title: "Personalized Wellness Plans - Be The Change Health and Wellness Center",
+          desc: "Personalized nutrition, dietary, and fitness plans with bi-weekly doctor check-ins in Columbia, MD. Medical weight loss, AIP, keto, and home fitness coaching.",
+          canonical: "https://bethechangehealth.com/services/personalized-wellness-plans.html"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {
+          console.error(e);
+        }
+        return DEFAULT_DATA;
+      }
+
+      function saveData(d) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+          var now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          var st = document.getElementById("save-status-text");
+          if (st) st.textContent = "Last saved at " + now;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function toast(msg) {
+        if (window.BTCAdmin && window.BTCAdmin.toast) {
+          window.BTCAdmin.toast(msg);
+        } else {
+          alert(msg);
+        }
+      }
+
+      function renderChecklist(containerId, items) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = "";
+        items.forEach(function (val, idx) {
+          var row = document.createElement("div");
+          row.className = "check-item-row";
+          row.innerHTML =
+            '<i class="bi bi-grip-vertical handle"></i>' +
+            '<span class="badge bg-secondary-subtle text-secondary rounded-pill">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control form-control-sm" value="' + val.replace(/"/g, '&quot;') + '">' +
+            '<button type="button" class="btn btn-sm btn-outline-danger btn-remove-item" title="Remove"><i class="bi bi-trash"></i></button>';
+          row.querySelector(".btn-remove-item").addEventListener("click", function () {
+            row.remove();
+            updateCount();
+          });
+          container.appendChild(row);
+        });
+        updateCount();
+      }
+
+      function updateCount() {
+        var cnt = document.querySelectorAll("#features-list-container .check-item-row").length;
+        var badge = document.getElementById("features-count");
+        if (badge) badge.textContent = String(cnt);
+      }
+
+      function gatherChecklist(containerId) {
+        var items = [];
+        document.querySelectorAll("#" + containerId + " input[type=text]").forEach(function (inp) {
+          var v = inp.value.trim();
+          if (v) items.push(v);
+        });
+        return items;
+      }
+
+      function updateSerp() {
+        var t = document.getElementById("seo-title").value.trim();
+        var d = document.getElementById("seo-desc").value.trim();
+        var c = document.getElementById("seo-canonical").value.trim();
+        document.getElementById("serp-preview-title").textContent = t || "Personalized Wellness Plans";
+        document.getElementById("serp-preview-desc").textContent = d || "No description provided.";
+        document.getElementById("serp-preview-url").textContent = c || "https://bethechangehealth.com/services/personalized-wellness-plans.html";
+      }
+
+      function populateForm(data) {
+        var d = data || DEFAULT_DATA;
+        function setVal(id, v) {
+          var el = document.getElementById(id);
+          if (el && v !== undefined) el.value = v;
+        }
+
+        setVal("hero-title", d.hero.title);
+        setVal("hero-subtitle", d.hero.subtitle);
+        setVal("hero-breadcrumb", d.hero.breadcrumb);
+
+        setVal("overview-image", d.portal.image);
+        setVal("portal-label", d.portal.label);
+        setVal("portal-url", d.portal.url);
+        setVal("overview-heading", d.portal.heading);
+        setVal("overview-p1", d.portal.p1);
+
+        setVal("features-heading", d.features.heading);
+        renderChecklist("features-list-container", d.features.items || []);
+
+        setVal("diets-heading", d.diets.heading);
+        setVal("diet1-title", d.diets.d1Title);
+        setVal("diet1-url", d.diets.d1Url);
+        setVal("diet1-desc", d.diets.d1Desc);
+        setVal("diet2-title", d.diets.d2Title);
+        setVal("diet2-url", d.diets.d2Url);
+        setVal("diet2-desc", d.diets.d2Desc);
+        setVal("diet3-title", d.diets.d3Title);
+        setVal("diet3-url", d.diets.d3Url);
+        setVal("diet3-desc", d.diets.d3Desc);
+        setVal("diet4-title", d.diets.d4Title);
+        setVal("diet4-url", d.diets.d4Url);
+        setVal("diet4-desc", d.diets.d4Desc);
+
+        setVal("fitness-heading", d.fitness.heading);
+        setVal("fit1-title", d.fitness.f1Title);
+        setVal("fit1-url", d.fitness.f1Url);
+        setVal("fit1-desc", d.fitness.f1Desc);
+        setVal("fit2-title", d.fitness.f2Title);
+        setVal("fit2-url", d.fitness.f2Url);
+        setVal("fit2-desc", d.fitness.f2Desc);
+        setVal("fit3-title", d.fitness.f3Title);
+        setVal("fit3-url", d.fitness.f3Url);
+        setVal("fit3-desc", d.fitness.f3Desc);
+
+        setVal("process-heading", d.process.heading);
+        setVal("process-subheading", d.process.subheading);
+        setVal("step1-title", d.process.step1Title);
+        setVal("step1-desc", d.process.step1Desc);
+        setVal("step2-title", d.process.step2Title);
+        setVal("step2-desc", d.process.step2Desc);
+        setVal("step3-title", d.process.step3Title);
+        setVal("step3-desc", d.process.step3Desc);
+        setVal("step3-link", d.process.step3Link);
+
+        setVal("cta-heading", d.cta.heading);
+        setVal("cta-subtitle", d.cta.subtitle);
+        setVal("cta-btn-text", d.cta.btnText);
+        setVal("cta-btn-link", d.cta.btnLink);
+        setVal("cta-phone", d.cta.phone);
+
+        setVal("seo-title", d.seo.title);
+        setVal("seo-canonical", d.seo.canonical);
+        setVal("seo-desc", d.seo.desc);
+
+        updateSerp();
+      }
+
+      function saveAll() {
+        function val(id) {
+          var el = document.getElementById(id);
+          return el ? el.value.trim() : "";
+        }
+
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            breadcrumb: val("hero-breadcrumb")
+          },
+          portal: {
+            image: val("overview-image"),
+            label: val("portal-label"),
+            url: val("portal-url"),
+            heading: val("overview-heading"),
+            p1: val("overview-p1")
+          },
+          features: {
+            heading: val("features-heading"),
+            items: gatherChecklist("features-list-container")
+          },
+          diets: {
+            heading: val("diets-heading"),
+            d1Title: val("diet1-title"),
+            d1Url: val("diet1-url"),
+            d1Desc: val("diet1-desc"),
+            d2Title: val("diet2-title"),
+            d2Url: val("diet2-url"),
+            d2Desc: val("diet2-desc"),
+            d3Title: val("diet3-title"),
+            d3Url: val("diet3-url"),
+            d3Desc: val("diet3-desc"),
+            d4Title: val("diet4-title"),
+            d4Url: val("diet4-url"),
+            d4Desc: val("diet4-desc")
+          },
+          fitness: {
+            heading: val("fitness-heading"),
+            f1Title: val("fit1-title"),
+            f1Url: val("fit1-url"),
+            f1Desc: val("fit1-desc"),
+            f2Title: val("fit2-title"),
+            f2Url: val("fit2-url"),
+            f2Desc: val("fit2-desc"),
+            f3Title: val("fit3-title"),
+            f3Url: val("fit3-url"),
+            f3Desc: val("fit3-desc")
+          },
+          process: {
+            heading: val("process-heading"),
+            subheading: val("process-subheading"),
+            step1Title: val("step1-title"),
+            step1Desc: val("step1-desc"),
+            step2Title: val("step2-title"),
+            step2Desc: val("step2-desc"),
+            step3Title: val("step3-title"),
+            step3Desc: val("step3-desc"),
+            step3Link: val("step3-link")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            subtitle: val("cta-subtitle"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link"),
+            phone: val("cta-phone")
+          },
+          seo: {
+            title: val("seo-title"),
+            canonical: val("seo-canonical"),
+            desc: val("seo-desc")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Personalized Wellness Plans CMS saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-portal").addEventListener("click", function () {
+          saveAll();
+          toast("Portal overview saved.");
+        });
+        document.getElementById("btn-save-features").addEventListener("click", function () {
+          saveAll();
+          toast("Features checklist saved.");
+        });
+        document.getElementById("btn-save-diets").addEventListener("click", function () {
+          saveAll();
+          toast("Diet plans saved.");
+        });
+        document.getElementById("btn-save-fitness").addEventListener("click", function () {
+          saveAll();
+          toast("Exercise & mindfulness protocols saved.");
+        });
+        document.getElementById("btn-save-process").addEventListener("click", function () {
+          saveAll();
+          toast("Process steps saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("Consultation CTA saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Add feature button
+        document.getElementById("btn-add-feature").addEventListener("click", function () {
+          var items = gatherChecklist("features-list-container");
+          items.push("New Plan Feature");
+          renderChecklist("features-list-container", items);
+        });
+
+        // Save All buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Personalized Wellness Plans back to original clinic defaults?")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored clinic defaults for Personalized Wellness Plans.");
+          }
+        });
+
+        // Live SERP listeners
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

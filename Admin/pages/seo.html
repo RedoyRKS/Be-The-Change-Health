@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SEO Settings | Be The Change Admin</title>
+  <title>SEO Management Center | Be The Change Admin</title>
   <link rel="icon" href="../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -11,6 +11,101 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+    .serp-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0.35rem;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    .og-preview-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .og-preview-img {
+      height: 180px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .og-preview-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .og-preview-body {
+      padding: 1rem;
+    }
+    .og-preview-domain {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+    }
+    .og-preview-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+    .og-preview-desc {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .page-nav-pill {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+      transition: all 0.15s ease;
+    }
+    .page-nav-pill:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .page-nav-pill.active {
+      background: #0d9488;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .page-nav-pill .badge {
+      font-size: 0.7rem;
+    }
+  </style>
 </head>
 <body data-page="seo">
   <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
@@ -19,72 +114,451 @@
     <div class="app-main">
       <header class="topbar" id="topbar"></header>
       <main class="content">
-        <p class="section-map">Titles &amp; meta descriptions from the completed Frontend pages</p>
-        <div class="editor-stack">
-          <article class="editor-card open">
-            <div class="editor-head"><span class="num">01</span><div><h3>Homepage</h3><p>index.html</p></div></div>
-            <div class="editor-body">
-              <label class="form-label-admin">Title</label>
-              <input class="form-control mb-2" value="Be The Change Health & Wellness Center | Columbia, MD">
-              <label class="form-label-admin">Meta description</label>
-              <textarea class="form-control mb-3" rows="2">Family Practice & Integrative Medicine in Columbia, MD. Get to the root cause of your health concerns with functional lab testing and a personalized plan. Telehealth available.</textarea>
-              <div class="seo-preview">
-                <div class="url">bethechangehealth.com</div>
-                <div class="title">Be The Change Health & Wellness Center | Columbia, MD</div>
-                <p class="desc">Family Practice & Integrative Medicine in Columbia, MD. Get to the root cause of your health concerns with functional lab testing and a personalized plan. Telehealth available.</p>
+        <!-- Breadcrumb & Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">SEO Management Center</li>
+              </ol>
+            </nav>
+            <h1 class="h3 mb-0">Master SEO Management Center</h1>
+            <p class="text-muted small mb-0">Manage search titles, descriptions, canonical URLs, keywords, Open Graph social cards, and indexing directives for all 40 Frontend pages.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-check-circle-fill me-1"></i> 40 Pages Cataloged</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Page Directory Navigation -->
+          <div class="col-lg-4">
+            <div class="card-admin mb-4">
+              <div class="card-head">
+                <div>
+                  <h2>Select Website Page</h2>
+                  <p>Choose any frontend page to edit its metadata</p>
+                </div>
+              </div>
+              <div class="card-body-admin p-2">
+                <!-- Search Filter -->
+                <div class="input-group input-group-sm mb-3 px-2 pt-2">
+                  <span class="input-group-text"><i class="bi bi-search"></i></span>
+                  <input type="text" id="pageSearchInp" class="form-control" placeholder="Search pages...">
+                </div>
+
+                <!-- Page Category Accordion / List -->
+                <div style="max-height: 580px; overflow-y: auto;" id="pageListContainer">
+                  <!-- Dynamically populated page list -->
+                </div>
               </div>
             </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">02</span><div><h3>Our Practice</h3><p>about/index.html</p></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="About Our Practice | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Discovering what makes your body unique through personalized medicine & planning a healthier journey together!</textarea>
+          </div>
+
+          <!-- Right Column: SEO Configuration Panel & Previews -->
+          <div class="col-lg-8">
+            <div class="card-admin mb-4">
+              <div class="card-head d-flex justify-content-between align-items-center">
+                <div>
+                  <h2 id="currentPageHeading">Editing: Homepage</h2>
+                  <p id="currentPageFile" class="text-muted small mb-0">Frontend/index.html</p>
+                </div>
+                <span class="badge bg-primary" id="currentPageCategory">Core Pages</span>
+              </div>
+              <div class="card-body-admin">
+                <!-- Nav Tabs for SEO vs Open Graph -->
+                <ul class="nav nav-tabs mb-4" id="seoTabs" role="tablist">
+                  <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-search" type="button">
+                      <i class="bi bi-google me-1"></i> Google Search Metadata
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-og" type="button">
+                      <i class="bi bi-share me-1"></i> Open Graph &amp; Social Cards
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-robots" type="button">
+                      <i class="bi bi-robot me-1"></i> Robots &amp; Indexing
+                    </button>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <!-- Tab 1: Google Search Metadata -->
+                  <div class="tab-pane fade show active" id="tab-search">
+                    <div class="row g-3 mb-4">
+                      <div class="col-12">
+                        <label class="form-label-admin">SEO Meta Title Tag</label>
+                        <input type="text" id="metaTitle" class="form-control">
+                        <div class="d-flex justify-content-between mt-1">
+                          <span class="small text-muted">Optimal: 50–60 characters</span>
+                          <span class="small text-muted" id="metaTitleCount">0 chars</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label-admin">SEO Meta Description</label>
+                        <textarea id="metaDesc" class="form-control" rows="3"></textarea>
+                        <div class="d-flex justify-content-between mt-1">
+                          <span class="small text-muted">Optimal: 150–160 characters</span>
+                          <span class="small text-muted" id="metaDescCount">0 chars</span>
+                        </div>
+                      </div>
+
+                      <div class="col-md-7">
+                        <label class="form-label-admin">Canonical URL</label>
+                        <input type="text" id="metaCanonical" class="form-control">
+                      </div>
+
+                      <div class="col-md-5">
+                        <label class="form-label-admin">Focus Keywords (Comma-separated)</label>
+                        <input type="text" id="metaKeywords" class="form-control" placeholder="e.g. integrative medicine, columbia md">
+                      </div>
+                    </div>
+
+                    <!-- Live Google SERP Snippet Preview -->
+                    <h6 class="fw-semibold mb-2"><i class="bi bi-eye text-primary me-1"></i> Real-Time Google Search Snippet Preview</h6>
+                    <div class="serp-card mb-2">
+                      <div class="serp-title" id="serpTitlePreview">Title Preview</div>
+                      <div class="serp-url" id="serpUrlPreview">https://bethechangehealth.com/</div>
+                      <div class="serp-desc" id="serpDescPreview">Meta description preview will appear here as you type.</div>
+                    </div>
+                  </div>
+
+                  <!-- Tab 2: Open Graph & Social Cards -->
+                  <div class="tab-pane fade" id="tab-og">
+                    <div class="row g-4 mb-4">
+                      <div class="col-lg-6">
+                        <div class="mb-3">
+                          <label class="form-label-admin">OG Title (Facebook / LinkedIn / X)</label>
+                          <input type="text" id="ogTitle" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label-admin">OG Description</label>
+                          <textarea id="ogDesc" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label-admin">OG Share Image URL / Path</label>
+                          <input type="text" id="ogImage" class="form-control mb-2">
+                        </div>
+                      </div>
+
+                      <!-- Social Card Preview -->
+                      <div class="col-lg-6">
+                        <label class="form-label-admin mb-2"><i class="bi bi-card-image text-primary me-1"></i> Social Share Card Preview</label>
+                        <div class="og-preview-card">
+                          <div class="og-preview-img">
+                            <img id="ogPreviewImgTag" src="../../Frontend/assets/uploads/2024/08/approach.jpg" alt="Social Share Card">
+                          </div>
+                          <div class="og-preview-body">
+                            <div class="og-preview-domain">bethechangehealth.com</div>
+                            <div class="og-preview-title" id="ogTitlePreview">OG Title Preview</div>
+                            <p class="og-preview-desc" id="ogDescPreview">OG description preview.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tab 3: Robots & Directives -->
+                  <div class="tab-pane fade" id="tab-robots">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label-admin">Search Indexing Directive (Robots Meta)</label>
+                        <select id="robotsIndex" class="form-select">
+                          <option value="index" selected>index — Allow search engines to index this page (Default)</option>
+                          <option value="noindex">noindex — Prevent search engines from indexing this page</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label-admin">Link Following Directive</label>
+                        <select id="robotsFollow" class="form-select">
+                          <option value="follow" selected>follow — Allow following links on this page (Default)</option>
+                          <option value="nofollow">nofollow — Do not follow outbound links</option>
+                        </select>
+                      </div>
+                      <div class="col-12 mt-3">
+                        <div class="p-3 bg-light rounded border">
+                          <strong class="small d-block mb-1">Compiled Meta Tag:</strong>
+                          <code id="robotsCompiledTag">&lt;meta name="robots" content="index, follow"&gt;</code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">03</span><div><h3>Integrative Medicine</h3></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="Integrative Medicine | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Integrative care seeks to develop a therapeutic relationship between the doctor and patient and is the best method of care for optimal health.</textarea>
-            </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">04</span><div><h3>Naturopathic Medicine</h3></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="Naturopathic Medicine | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Naturopathic Medicine is evidence-based medicine that treats the whole person by addressing the root cause(s) of illness.</textarea>
-            </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">05</span><div><h3>Sultana Afrooz, D.O.</h3></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="Sultana Afrooz, D.O. | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Sultana Afrooz, DO — Integrative Family Medicine Physician & Osteopathic Physician in Columbia, MD.</textarea>
-            </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">06</span><div><h3>Jessica Needle, N.D.</h3></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="Jessica Needle, N.D. | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Jessica Needle, N.D. — Naturopathic Doctor at Be The Change Health & Wellness Center in Columbia, MD.</textarea>
-            </div>
-          </article>
-          <article class="editor-card">
-            <div class="editor-head"><span class="num">07</span><div><h3>Book Appointment</h3></div></div>
-            <div class="editor-body">
-              <input class="form-control mb-2" value="Book Appointment | Be The Change Health & Wellness Center">
-              <textarea class="form-control" rows="2">Book an appointment at Be The Change Health & Wellness Center in Columbia, MD. New patients, telehealth, and therapy visits welcome.</textarea>
-            </div>
-          </article>
+          </div>
         </div>
-        <div class="sticky-actions">
-          <button class="btn-btc" type="button" data-save="SEO settings saved.">Save SEO</button>
+
+        <!-- Sticky Actions Bar -->
+        <div class="sticky-actions d-flex justify-content-between align-items-center">
+          <div>
+            <span id="saveStatus" class="text-muted small">All changes up to date</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset Current Page</button>
+            <button class="btn-btc" type="button" id="savePageBtn">
+              <i class="bi bi-cloud-check me-1"></i> Save SEO Settings
+            </button>
+          </div>
         </div>
+
       </main>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'btc_cms_seo_master';
+
+      // Full catalog of all 40 Frontend Pages
+      const PAGES = [
+        // Core Pages
+        { id: "home", name: "Homepage", category: "Core", file: "Frontend/index.html", title: "Be The Change Health & Wellness Center | Columbia, MD", desc: "Family Practice & Integrative Medicine in Columbia, MD. Get to the root cause of your health concerns with functional lab testing and a personalized plan.", canonical: "https://bethechangehealth.com/", keywords: "integrative medicine, functional medicine, columbia md, osteopathic physician", ogImg: "assets/uploads/2025/06/home.jpg" },
+        { id: "book-appointment", name: "Book Appointment", category: "Core", file: "Frontend/book-appointment.html", title: "Book Appointment | Be The Change Health & Wellness Center", desc: "Book an appointment at Be The Change Health & Wellness Center in Columbia, MD. New patients, telehealth, and wellness visits welcome.", canonical: "https://bethechangehealth.com/book-appointment.html", keywords: "book doctor appointment, schedule visit, columbia md wellness", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "contact", name: "Contact Us", category: "Core", file: "Frontend/contact.html", title: "Contact Us | Be The Change Health & Wellness Center", desc: "Get in touch with Be The Change Health & Wellness Center in Columbia, MD. Phone 301-970-9724. Location on Centre Park Drive.", canonical: "https://bethechangehealth.com/contact.html", keywords: "contact doctor, columbia md health center, phone number", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "memberships", name: "Memberships", category: "Core", file: "Frontend/memberships.html", title: "Memberships | Be The Change Health & Wellness Center", desc: "Explore wellness membership plans offering access to advanced therapies, sauna, detox, and hyperbaric oxygen therapy.", canonical: "https://bethechangehealth.com/memberships.html", keywords: "wellness membership, health plans, columbia md therapy", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "blog-index", name: "Blog Hub", category: "Core", file: "Frontend/blog/index.html", title: "Health & Wellness Blog | Be The Change Health", desc: "Evidence-based articles on integrative health, naturopathic medicine, chronic illness, nutrition, and wellness by Dr. Afrooz and Dr. Needle.", canonical: "https://bethechangehealth.com/blog/index.html", keywords: "health blog, integrative medicine articles, root cause wellness", ogImg: "assets/uploads/2024/08/approach.jpg" },
+
+        // About Pages
+        { id: "about-index", name: "Our Practice", category: "About", file: "Frontend/about/index.html", title: "About Our Practice | Be The Change Health & Wellness Center", desc: "Discovering what makes your body unique through personalized medicine & planning a healthier journey together!", canonical: "https://bethechangehealth.com/about/index.html", keywords: "our practice, holistic health philosophy, columbia md", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "about-naturopathic", name: "Naturopathic Medicine", category: "About", file: "Frontend/about/naturopathic-medicine.html", title: "Naturopathic Medicine | Be The Change Health & Wellness Center", desc: "Naturopathic Medicine is evidence-based medicine that treats the whole person by addressing the root cause(s) of illness.", canonical: "https://bethechangehealth.com/about/naturopathic-medicine.html", keywords: "naturopathic medicine, six principles, therapeutic order", ogImg: "assets/uploads/2024/10/therapeutic-order.png" },
+        { id: "about-integrative", name: "Integrative Medicine", category: "About", file: "Frontend/about/integrative-medicine.html", title: "Integrative Medicine | Be The Change Health & Wellness Center", desc: "Integrative care seeks to develop a therapeutic relationship between doctor and patient for optimal health.", canonical: "https://bethechangehealth.com/about/integrative-medicine.html", keywords: "integrative medicine, whole person health, personalized care", ogImg: "assets/uploads/2024/10/hh.jpg" },
+        { id: "about-process", name: "Our Process", category: "About", file: "Frontend/our-process/index.html", title: "Our Process | Be The Change Health & Wellness Center", desc: "Our 6-step healing process: Consultation, Labs, Lifestyle, Effective Therapies, Supplements & Follow-Up.", canonical: "https://bethechangehealth.com/our-process/index.html", keywords: "six step process, root cause healing, functional lab testing", ogImg: "assets/uploads/2025/05/Consultation.png" },
+        { id: "doctor-sultana", name: "Dr. Sultana Afrooz, D.O.", category: "About", file: "Frontend/about/sultana-afrooz.html", title: "Sultana Afrooz, D.O. | Be The Change Health & Wellness Center", desc: "Sultana Afrooz, DO — Integrative Family Medicine Physician & Osteopathic Physician in Columbia, MD.", canonical: "https://bethechangehealth.com/about/sultana-afrooz.html", keywords: "Dr Sultana Afrooz, Osteopathic Physician, Lyme doctor, mold toxicity", ogImg: "assets/uploads/2024/10/Sultana-Afrooz-pd6ddd2kete2du2tyy24v5o7z1bhnurc6jbos2s6lk.png" },
+        { id: "doctor-jessica", name: "Dr. Jessica Needle, N.D.", category: "About", file: "Frontend/about/jessica-needle.html", title: "Jessica Needle, N.D. | Be The Change Health & Wellness Center", desc: "Jessica Needle, N.D. — Naturopathic Doctor at Be The Change Health & Wellness Center in Columbia, MD.", canonical: "https://bethechangehealth.com/about/jessica-needle.html", keywords: "Dr Jessica Needle, Naturopathic Doctor, IV therapy, nutrition detox", ogImg: "assets/uploads/2025/02/jessica.jpg" },
+
+        // Conditions Pages
+        { id: "conditions-hub", name: "Conditions Hub", category: "Conditions", file: "Frontend/conditions/index.html", title: "Conditions We Treat | Be The Change Health & Wellness Center", desc: "Comprehensive care for acute and chronic conditions: diabetes, heart disease, concussion, fatigue, pain, toxins, and hormones.", canonical: "https://bethechangehealth.com/conditions/index.html", keywords: "chronic conditions, diabetes, heart disease, concussion, fatigue", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-diabetes", name: "Diabetes", category: "Conditions", file: "Frontend/conditions/diabetes.html", title: "Diabetes Care | Be The Change Health & Wellness Center", desc: "Integrative diabetes treatment focusing on insulin sensitivity, nutrition, and metabolic health.", canonical: "https://bethechangehealth.com/conditions/diabetes.html", keywords: "diabetes, insulin resistance, metabolic syndrome", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-heart", name: "Heart Disease", category: "Conditions", file: "Frontend/conditions/heart-disease.html", title: "Heart Disease & Cardiovascular Health | Be The Change", desc: "Cardiovascular health through root-cause medicine, advanced lipid panels, and endothelial support.", canonical: "https://bethechangehealth.com/conditions/heart-disease.html", keywords: "heart disease, cardiovascular health, advanced lipids", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-concussion", name: "Concussion", category: "Conditions", file: "Frontend/conditions/concussion.html", title: "Concussion & Brain Injury Care | Be The Change", desc: "Comprehensive concussion and post-concussion syndrome management with hyperbaric oxygen and neuro-rehabilitation.", canonical: "https://bethechangehealth.com/conditions/concussion.html", keywords: "concussion care, post concussion syndrome, brain injury recovery", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-fatigue", name: "Chronic Fatigue", category: "Conditions", file: "Frontend/conditions/chronic-fatigue.html", title: "Chronic Fatigue Syndrome | Be The Change Health", desc: "Overcome debilitating fatigue by investigating mitochondrial health, tick-borne infections, and adrenal function.", canonical: "https://bethechangehealth.com/conditions/chronic-fatigue.html", keywords: "chronic fatigue, CFS, mitochondrial health, exhaustion", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-obesity", name: "Obesity", category: "Conditions", file: "Frontend/conditions/obesity.html", title: "Obesity & Weight Management | Be The Change Health", desc: "Sustainable weight management through metabolic reset, hormone optimization, and personalized nutrition.", canonical: "https://bethechangehealth.com/conditions/obesity.html", keywords: "obesity treatment, weight loss, metabolic health", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-pain", name: "Chronic Pain", category: "Conditions", file: "Frontend/conditions/chronic-pain.html", title: "Chronic Pain Management | Be The Change Health", desc: "Relieve chronic pain with non-invasive therapies including Frequency Specific Microcurrent and fascial release.", canonical: "https://bethechangehealth.com/conditions/chronic-pain.html", keywords: "chronic pain, FSM therapy, fibromyalgia, neuropathy", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-toxins", name: "Toxins & Detoxification", category: "Conditions", file: "Frontend/conditions/toxins.html", title: "Toxins & Detoxification | Be The Change Health", desc: "Identify and eliminate heavy metals, mold, and environmental toxins with specialized testing and targeted detox.", canonical: "https://bethechangehealth.com/conditions/toxins.html", keywords: "environmental toxins, mold illness, heavy metal detox", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "cond-hormone", name: "Hormone Imbalance", category: "Conditions", file: "Frontend/conditions/hormone-imbalance.html", title: "Hormone Imbalance Therapy | Be The Change Health", desc: "Restore endocrine balance with bio-identical hormones, adrenal support, and thyroid optimization.", canonical: "https://bethechangehealth.com/conditions/hormone-imbalance.html", keywords: "hormone imbalance, thyroid, adrenal fatigue, BHRT", ogImg: "assets/uploads/2024/08/approach.jpg" },
+
+        // Services Pages (11 + Hub)
+        { id: "services-hub", name: "Services Hub", category: "Services", file: "Frontend/services/index.html", title: "Wellness Services | Be The Change Health & Wellness Center", desc: "Explore 11 cutting-edge clinical services including Hydrotherapy, HBOT, FSM, IV Nutrients, and Infrared Sauna.", canonical: "https://bethechangehealth.com/services/index.html", keywords: "wellness therapies, services, hydrotherapy, IV infusions", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-hydrotherapy", name: "Constitutional Hydrotherapy", category: "Services", file: "Frontend/services/constitutional-hydrotherapy.html", title: "Constitutional Hydrotherapy | Be The Change Health", desc: "Revitalize circulation, immune function, and organ detoxification with traditional naturopathic constitutional hydrotherapy.", canonical: "https://bethechangehealth.com/services/constitutional-hydrotherapy.html", keywords: "constitutional hydrotherapy, hot cold water therapy, naturopathic detox", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-fsm", name: "Frequency Specific Microcurrent", category: "Services", file: "Frontend/services/frequency-specific-microcurrent.html", title: "Frequency Specific Microcurrent (FSM) | Be The Change", desc: "FSM uses microcurrent resonance to reduce pain, dissolve inflammation, and accelerate tissue repair.", canonical: "https://bethechangehealth.com/services/frequency-specific-microcurrent.html", keywords: "FSM, frequency specific microcurrent, pain relief", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-hbot", name: "Hyperbaric Oxygen Therapy", category: "Services", file: "Frontend/services/hyperbaric-oxygen-therapy.html", title: "Hyperbaric Oxygen Therapy (HBOT) | Be The Change", desc: "Elevate tissue oxygenation, stimulate stem cells, and promote recovery in our mild hyperbaric chamber.", canonical: "https://bethechangehealth.com/services/hyperbaric-oxygen-therapy.html", keywords: "hyperbaric oxygen, HBOT, oxygen chamber, healing", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-sauna", name: "Infrared Sauna Therapy", category: "Services", file: "Frontend/services/infrared-sauna-therapy.html", title: "Infrared Sauna Therapy | Be The Change Health", desc: "Full-spectrum infrared sauna promotes deep cellular detoxification, cardiovascular conditioning, and relaxation.", canonical: "https://bethechangehealth.com/services/infrared-sauna-therapy.html", keywords: "infrared sauna, detox sauna, columbia md sauna", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-foot-detox", name: "Ion Foot Detox", category: "Services", file: "Frontend/services/ion-foot-detox.html", title: "Ion Foot Detox | Be The Change Health & Wellness Center", desc: "IonCleanse® foot detox helps eliminate accumulated environmental exposures through gentle ionization.", canonical: "https://bethechangehealth.com/services/ion-foot-detox.html", keywords: "ion foot detox, ioncleanse, foot bath detox", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-iv-nutritional", name: "IV Nutritional Infusions", category: "Services", file: "Frontend/services/iv-nutritional-infusions.html", title: "IV Nutritional Infusions | Be The Change Health", desc: "Intravenous vitamin and mineral therapy delivering 100% bioavailability for rapid cellular replenishment.", canonical: "https://bethechangehealth.com/services/iv-nutritional-infusions.html", keywords: "IV therapy, vitamin infusions, Myers cocktail", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-liquivida", name: "Liquivida IV Therapy", category: "Services", file: "Frontend/services/liquivida-iv-therapy.html", title: "Liquivida IV Therapy | Be The Change Health", desc: "Premium Liquivida IV nutrient blends formulated to boost immunity, enhance athletic recovery, and slow aging.", canonical: "https://bethechangehealth.com/services/liquivida-iv-therapy.html", keywords: "liquivida, IV drip, hydration therapy", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-ozone", name: "Ozone Therapy", category: "Services", file: "Frontend/services/ozone-therapy.html", title: "Ozone Therapy | Be The Change Health & Wellness Center", desc: "Medical ozone treatments to combat chronic infections, enhance oxygen delivery, and modulate immunity.", canonical: "https://bethechangehealth.com/services/ozone-therapy.html", keywords: "ozone therapy, medical ozone, immune modulation", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-wellness-plans", name: "Personalized Wellness Plans", category: "Services", file: "Frontend/services/personalized-wellness-plans.html", title: "Personalized Wellness Plans | Be The Change Health", desc: "Customized protocols integrating nutrition, lifestyle, lab testing, and targeted therapeutics.", canonical: "https://bethechangehealth.com/services/personalized-wellness-plans.html", keywords: "wellness plans, personalized medicine, custom protocol", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-reflexology", name: "Reflexology", category: "Services", file: "Frontend/services/reflexology.html", title: "Reflexology | Be The Change Health & Wellness Center", desc: "Targeted reflex point therapy on feet and hands to restore organ balance and ease tension.", canonical: "https://bethechangehealth.com/services/reflexology.html", keywords: "reflexology, foot reflexology, acupressure", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "serv-classes", name: "Wellness Classes", category: "Services", file: "Frontend/services/wellness-classes.html", title: "Wellness Classes | Be The Change Health & Wellness Center", desc: "Community education and practical classes on nutrition, yoga, meditation, and healthy living.", canonical: "https://bethechangehealth.com/services/wellness-classes.html", keywords: "wellness classes, yoga instruction, health workshops", ogImg: "assets/uploads/2024/08/approach.jpg" },
+
+        // Patients Pages
+        { id: "patients-existing", name: "Existing Patients", category: "Patients", file: "Frontend/patients.html", title: "Existing Patients | Be The Change Health & Wellness Center", desc: "Resources, portal access, refill requests, and appointment information for current patients.", canonical: "https://bethechangehealth.com/patients.html", keywords: "patient portal, existing patients, prescription refills", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "patients-new", name: "New Patient Questions", category: "Patients", file: "Frontend/new-patient-questions.html", title: "New Patient Questions & FAQ | Be The Change Health", desc: "Common questions for new patients about intake, fees, insurance coverage, and what to expect on your first visit.", canonical: "https://bethechangehealth.com/new-patient-questions.html", keywords: "new patient FAQ, insurance out of network, first visit", ogImg: "assets/uploads/2024/08/approach.jpg" },
+
+        // Legal Pages
+        { id: "legal-privacy", name: "Privacy Policy", category: "Legal", file: "Frontend/privacy-policy.html", title: "Privacy Policy | Be The Change Health & Wellness Center", desc: "Our commitment to protecting your personal information and HIPAA medical privacy.", canonical: "https://bethechangehealth.com/privacy-policy.html", keywords: "privacy policy, HIPAA, data protection", ogImg: "assets/uploads/2024/08/approach.jpg" },
+        { id: "legal-terms", name: "Terms & Conditions", category: "Legal", file: "Frontend/terms-conditions.html", title: "Terms & Conditions | Be The Change Health & Wellness Center", desc: "Website usage terms, cancellation policy, payment terms, and medical disclaimers.", canonical: "https://bethechangehealth.com/terms-conditions.html", keywords: "terms and conditions, website terms, disclaimers", ogImg: "assets/uploads/2024/08/approach.jpg" }
+      ];
+
+      let seoStore = {};
+      let activePageId = "home";
+
+      function initStore() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            seoStore = JSON.parse(raw);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+
+        // Fill in defaults for pages not yet customized
+        PAGES.forEach(p => {
+          if (!seoStore[p.id]) {
+            seoStore[p.id] = {
+              title: p.title,
+              desc: p.desc,
+              canonical: p.canonical,
+              keywords: p.keywords,
+              ogTitle: p.title,
+              ogDesc: p.desc,
+              ogImage: p.ogImg,
+              robotsIndex: "index",
+              robotsFollow: "follow"
+            };
+          }
+        });
+      }
+
+      function renderPageDirectory(filterText = '') {
+        const container = document.getElementById('pageListContainer');
+        container.innerHTML = '';
+        const search = filterText.toLowerCase();
+
+        // Group by category
+        const categories = ["Core", "About", "Conditions", "Services", "Patients", "Legal"];
+
+        categories.forEach(cat => {
+          const catPages = PAGES.filter(p => p.category === cat && (p.name.toLowerCase().includes(search) || p.file.toLowerCase().includes(search)));
+          if (!catPages.length) return;
+
+          const groupHeader = document.createElement('div');
+          groupHeader.className = 'small fw-bold text-uppercase text-muted px-2 mt-2 mb-1';
+          groupHeader.textContent = cat + ' Pages (' + catPages.length + ')';
+          container.appendChild(groupHeader);
+
+          catPages.forEach(p => {
+            const pill = document.createElement('div');
+            pill.className = `page-nav-pill ${p.id === activePageId ? 'active' : ''}`;
+            pill.innerHTML = `
+              <div>
+                <span>${escapeHtml(p.name)}</span>
+              </div>
+              <span class="badge ${p.id === activePageId ? 'bg-light text-dark' : 'bg-secondary'}">${p.category}</span>
+            `;
+            pill.addEventListener('click', () => {
+              activePageId = p.id;
+              renderPageDirectory(document.getElementById('pageSearchInp').value);
+              loadActivePageData();
+            });
+            container.appendChild(pill);
+          });
+        });
+      }
+
+      function loadActivePageData() {
+        const pageMeta = PAGES.find(p => p.id === activePageId) || PAGES[0];
+        const data = seoStore[activePageId] || {};
+
+        document.getElementById('currentPageHeading').textContent = 'Editing: ' + pageMeta.name;
+        document.getElementById('currentPageFile').textContent = pageMeta.file;
+        document.getElementById('currentPageCategory').textContent = pageMeta.category + ' Page';
+
+        document.getElementById('metaTitle').value = data.title || pageMeta.title;
+        document.getElementById('metaDesc').value = data.desc || pageMeta.desc;
+        document.getElementById('metaCanonical').value = data.canonical || pageMeta.canonical;
+        document.getElementById('metaKeywords').value = data.keywords || pageMeta.keywords;
+
+        document.getElementById('ogTitle').value = data.ogTitle || data.title || pageMeta.title;
+        document.getElementById('ogDesc').value = data.ogDesc || data.desc || pageMeta.desc;
+        document.getElementById('ogImage').value = data.ogImage || pageMeta.ogImg;
+
+        document.getElementById('robotsIndex').value = data.robotsIndex || 'index';
+        document.getElementById('robotsFollow').value = data.robotsFollow || 'follow';
+
+        updatePreviews();
+      }
+
+      function updatePreviews() {
+        const titleVal = document.getElementById('metaTitle').value;
+        const descVal = document.getElementById('metaDesc').value;
+        const canonicalVal = document.getElementById('metaCanonical').value;
+        const ogTitleVal = document.getElementById('ogTitle').value;
+        const ogDescVal = document.getElementById('ogDesc').value;
+        const ogImgVal = document.getElementById('ogImage').value;
+        const rIndex = document.getElementById('robotsIndex').value;
+        const rFollow = document.getElementById('robotsFollow').value;
+
+        // SERP preview
+        document.getElementById('serpTitlePreview').textContent = titleVal || 'Page Title';
+        document.getElementById('serpDescPreview').textContent = descVal || 'Meta description preview...';
+        document.getElementById('serpUrlPreview').textContent = canonicalVal || 'https://bethechangehealth.com/';
+
+        // Counts
+        document.getElementById('metaTitleCount').textContent = titleVal.length + ' chars';
+        document.getElementById('metaDescCount').textContent = descVal.length + ' chars';
+
+        // OG preview
+        document.getElementById('ogTitlePreview').textContent = ogTitleVal || titleVal || 'OG Title';
+        document.getElementById('ogDescPreview').textContent = ogDescVal || descVal || 'OG description';
+        if (ogImgVal) {
+          document.getElementById('ogPreviewImgTag').src = '../../Frontend/' + ogImgVal.replace(/^\.\.\//, '');
+        }
+
+        // Robots tag display
+        document.getElementById('robotsCompiledTag').textContent = `<meta name="robots" content="${rIndex}, ${rFollow}">`;
+      }
+
+      function saveActivePageData() {
+        seoStore[activePageId] = {
+          title: document.getElementById('metaTitle').value,
+          desc: document.getElementById('metaDesc').value,
+          canonical: document.getElementById('metaCanonical').value,
+          keywords: document.getElementById('metaKeywords').value,
+          ogTitle: document.getElementById('ogTitle').value,
+          ogDesc: document.getElementById('ogDesc').value,
+          ogImage: document.getElementById('ogImage').value,
+          robotsIndex: document.getElementById('robotsIndex').value,
+          robotsFollow: document.getElementById('robotsFollow').value,
+          savedAt: new Date().toISOString()
+        };
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(seoStore));
+          const status = document.getElementById('saveStatus');
+          status.textContent = 'Saved locally at ' + new Date().toLocaleTimeString();
+          status.className = 'text-success small fw-semibold';
+          setTimeout(() => {
+            status.textContent = 'All changes up to date';
+            status.className = 'text-muted small';
+          }, 3500);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // Input event bindings
+      ['metaTitle', 'metaDesc', 'metaCanonical', 'ogTitle', 'ogDesc', 'ogImage'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updatePreviews);
+      });
+
+      ['robotsIndex', 'robotsFollow'].forEach(id => {
+        document.getElementById(id).addEventListener('change', updatePreviews);
+      });
+
+      document.getElementById('pageSearchInp').addEventListener('input', (e) => {
+        renderPageDirectory(e.target.value);
+      });
+
+      document.getElementById('savePageBtn').addEventListener('click', () => {
+        saveActivePageData();
+        if (typeof showToast === 'function') {
+          showToast('SEO settings for this page saved successfully!');
+        } else {
+          alert('SEO settings saved!');
+        }
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        const pageMeta = PAGES.find(p => p.id === activePageId);
+        if (pageMeta && confirm(`Reset SEO values for ${pageMeta.name} to default?`)) {
+          delete seoStore[activePageId];
+          initStore();
+          loadActivePageData();
+        }
+      });
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      initStore();
+      renderPageDirectory();
+      loadActivePageData();
+    })();
+  </script>
 </body>
 </html>

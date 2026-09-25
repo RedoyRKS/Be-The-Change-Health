@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obesity Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <style>
+    .condition-preview-thumb {
+      max-width: 140px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .check-item-row {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .check-item-row .handle {
+      color: #94a3b8;
+      cursor: grab;
+    }
+    .check-item-row input {
+      background: #fff;
+    }
+    .serp-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .serp-url {
+      color: #006621;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .serp-desc {
+      color: #4d5156;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body data-page="condition-obesity">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumb & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span>Conditions</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Obesity</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/obesity.html" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Frontend
+            </a>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-top">
+              <i class="bi bi-check2 me-1"></i> Save All Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview & Source of Truth Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/conditions/obesity.html</p>
+              <h2>Obesity &amp; Medical Weight Loss Page Content Management</h2>
+              <p>Configure hero headline and subtitle, medical weight loss intro, 8 preventable chronic conditions checklist, 6 app/clinical plan components (100k foods database, exercise videos, photo tracking), diet planning options (keto, fasting, gluten-free, AIP), and CTA band.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-ghost btn-sm-admin" href="chronic-pain.html">
+                Next: Chronic Pain CMS →
+              </a>
+            </div>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-person-walking text-teal"></i> Weight Loss Model
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Medical Weight Loss</h4>
+                  <small class="text-muted">Bi-weekly visits &amp; fat reduction</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-plus text-teal"></i> Chronic Prevention
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">8 Diseases Reduced</h4>
+                  <small class="text-muted">Diabetes, GERD, Heart, Sleep Apnea</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-app-indicator text-teal"></i> Plan Components
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">6 Guided Features</h4>
+                  <small class="text-muted">100k foods, recipes, app videos</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-egg-fried text-teal"></i> Dietary Protocols
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">4 Diet Pathways</h4>
+                  <small class="text-muted">Keto, Fasting, Gluten-Free, AIP</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-hero">01. Hero &amp; Breadcrumb</a>
+          <a href="#section-lead">02. Article Lead &amp; Image</a>
+          <a href="#section-whatis">03. What is Medical Weight Loss</a>
+          <a href="#section-components">04. 6 Plan Components</a>
+          <a href="#section-planning">05. Planning &amp; Diet Protocols</a>
+          <a href="#section-cta">06. Bottom CTA Band</a>
+          <a href="#section-seo">07. SEO &amp; SERP</a>
+        </nav>
+
+        <!-- Accordion Editor Stack -->
+        <div class="editor-stack">
+
+          <!-- Section 01: Hero & Breadcrumb -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Page Hero &amp; Breadcrumb</h3>
+                <p>Headline, subtitle, and breadcrumb hierarchy trail on obesity.html</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-title">Page Hero Title (H1) *</label>
+                  <input class="form-control" id="hero-title" value="Obesity" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="hero-subtitle">Hero Subtitle *</label>
+                  <input class="form-control" id="hero-subtitle" value="Individualized medical weight loss and lifelong wellness support." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-parent">Parent Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-parent" value="Conditions" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="breadcrumb-active">Active Breadcrumb Label</label>
+                  <input class="form-control" id="breadcrumb-active" value="Obesity" required>
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-hero">
+                  <i class="bi bi-check2 me-1"></i> Save Hero Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 02: Article Lead & Image -->
+          <article class="editor-card open" id="section-lead">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Article Hero Image &amp; Practice Intro</h3>
+                <p>Top banner image, lead sentiment, practice team introduction, and inline CTA</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label-admin" for="lead-image">Featured Article Image Path *</label>
+                  <input class="form-control" id="lead-image" value="../assets/uploads/2024/08/Dont-Lose-Weight-Lose-FAT.jpg" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin">Image Preview</label>
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="../../../Frontend/assets/uploads/2024/08/Dont-Lose-Weight-Lose-FAT.jpg" alt="Lose Fat" class="condition-preview-thumb" id="lead-image-preview">
+                    <small class="text-muted">Featured visual</small>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="lead-text">Lead Paragraph (Large text) *</label>
+                  <textarea class="form-control" id="lead-text" rows="2">Attempting to lose weight on your own can be disheartening, especially if you can’t see or feel any results.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="intro-p1">Clinic Practice Paragraph 1 *</label>
+                  <textarea class="form-control" id="intro-p1" rows="2">At Be The Change Health & Wellness Center in Columbia, Maryland, Sultana Afrooz, DO, and the team can work with you as you complete an individualized medical weight loss plan, including regular appointments and personalized diet planning.</textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="intro-p2">Clinic Practice Paragraph 2 *</label>
+                  <textarea class="form-control" id="intro-p2" rows="2">Even if your goal isn’t to lose weight, a custom wellness plan makes you healthier, more energetic, and less at risk for disease. Dr. Afrooz and the team gladly offer holistic health advice and support as you adopt new changes in your diet and routine.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-text">Inline CTA Button Label</label>
+                  <input class="form-control" id="lead-cta-text" value="New Patient – Request An Appointment">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="lead-cta-link">Inline CTA Destination</label>
+                  <input class="form-control" id="lead-cta-link" value="../contact.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-lead">
+                  <i class="bi bi-check2 me-1"></i> Save Lead Section
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 03: What is Medical Weight Loss -->
+          <article class="editor-card open" id="section-whatis">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>What is Medical Weight Loss?</h3>
+                <p>Physician-guided approach and checklist of 8 chronic diseases prevented by fat reduction</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">8 Diseases</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-heading">Section Headline (H2)</label>
+                <input class="form-control" id="whatis-heading" value="What is medical weight loss?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-p1">Definition &amp; In-Home Implementation</label>
+                <textarea class="form-control" id="whatis-p1" rows="2">Medical weight loss is the process of losing weight and keeping it off with the help of your doctor. Be The Change Health & Wellness Center can design a weight loss plan with your personal needs in mind and work with you as you apply it in your home life.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="whatis-p2">Disease Prevention Lead-in</label>
+                <textarea class="form-control" id="whatis-p2" rows="2">Personalized medical weight loss plans don’t just aim to bring down the number on the scale. Instead, they help you adopt lifelong changes that promote better overall health. By losing excess body fat during your plan, you can lower your risk for serious diseases like:</textarea>
+              </div>
+
+              <label class="form-label-admin mb-2">Checklist of Prevented Diseases (service-check-list)</label>
+              <div id="diseases-container">
+                <!-- 8 items -->
+              </div>
+              <button type="button" class="btn-btc-ghost btn-sm-admin mt-2 mb-3" id="btn-add-disease">
+                <i class="bi bi-plus-circle me-1"></i> Add Disease Item
+              </button>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-whatis">
+                  <i class="bi bi-check2 me-1"></i> Save Medical Weight Loss Overview
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 04: Components of Plan -->
+          <article class="editor-card open" id="section-components">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Components of a Medical Weight Loss Plan</h3>
+                <p>Bi-weekly check-in schedule, app features, and 6 guided components checklist</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">6 Components</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="comp-heading">Section Headline (H2)</label>
+                <input class="form-control" id="comp-heading" value="What are the components of a medical weight loss plan?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="comp-p1">Check-in Protocol (Every Two Weeks)</label>
+                <textarea class="form-control" id="comp-p1" rows="3">Your personalized medical weight loss plan at Be The Change Health & Wellness Center is complex and includes multiple guided components. After the initial consultation, you check in at an appointment every two weeks to track your progress. You can observe measurable changes in your weight as well as your general wellness and health.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="comp-intro">Checklist Lead-in</label>
+                <input class="form-control" id="comp-intro" value="Your custom medical weight loss plan includes:">
+              </div>
+
+              <label class="form-label-admin mb-2">Checklist of 6 Program Components (service-check-list)</label>
+              <div id="components-container">
+                <!-- 6 items -->
+              </div>
+              <button type="button" class="btn-btc-ghost btn-sm-admin mt-2 mb-3" id="btn-add-component">
+                <i class="bi bi-plus-circle me-1"></i> Add Plan Component
+              </button>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-components">
+                  <i class="bi bi-check2 me-1"></i> Save Plan Components
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 05: Planning & Diet Protocols -->
+          <article class="editor-card open" id="section-planning">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Planning for Medical Weight Loss</h3>
+                <p>Consultation history, supplement customization, keto, fasting, gluten-free, and AIP diets</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">4 Paragraphs</span>
+            </div>
+            <div class="editor-body">
+              <div class="mb-3">
+                <label class="form-label-admin" for="plan-heading">Section Headline (H2)</label>
+                <input class="form-control" id="plan-heading" value="What goes into the planning for medical weight loss?">
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="plan-p1">Paragraph 1: Medical History Review</label>
+                <textarea class="form-control" id="plan-p1" rows="2">Medical weight loss plans begin with a consultation. At Be The Change Health & Wellness Center, your provider goes over your medical history and works with you to decide which route to take for your diet.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="plan-p2">Paragraph 2: Custom Exercise &amp; Supplements</label>
+                <textarea class="form-control" id="plan-p2" rows="2">Using information from your consultation and medical history, your provider chooses necessary supplements, an appropriate exercise plan, and a diet according to your needs.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="plan-p3">Paragraph 3: Nutritional Pathways (Keto, Fasting, Celiac, AIP)</label>
+                <textarea class="form-control" id="plan-p3" rows="2">They can help you cut carbs with a keto diet, adopt an intermittent fasting schedule, go gluten-free to manage celiac disease, or reduce inflammation with the tasty autoimmune paleo protocol.</textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-admin" for="plan-p4">Paragraph 4: Closing Consultation Callout</label>
+                <textarea class="form-control" id="plan-p4" rows="2">To set up an initial consultation for holistic medical weight loss, request an appointment at Be The Change Health & Wellness Center by phone or book online today.</textarea>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-planning">
+                  <i class="bi bi-check2 me-1"></i> Save Planning &amp; Protocols
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 06: Bottom CTA Band -->
+          <article class="editor-card open" id="section-cta">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Bottom Call to Action Band</h3>
+                <p>Full-width banner at the bottom of the page prompting weight loss consultation</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Published</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-heading">CTA Banner Headline (H2) *</label>
+                  <input class="form-control" id="cta-heading" value="Ready to start medical weight loss?" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label-admin" for="cta-text">CTA Banner Subtitle/Description *</label>
+                  <textarea class="form-control" id="cta-text" rows="2">Our Columbia, MD team can help you take the next step.</textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-phone">Direct Clinic Phone</label>
+                  <input class="form-control" id="cta-phone" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-text">Primary Button Text</label>
+                  <input class="form-control" id="cta-btn-text" value="Book Appointment">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label-admin" for="cta-btn-link">Primary Button Link</label>
+                  <input class="form-control" id="cta-btn-link" value="../book-appointment.html">
+                </div>
+              </div>
+              <div class="mt-3 text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-cta">
+                  <i class="bi bi-check2 me-1"></i> Save CTA Band
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 07: SEO & SERP Preview -->
+          <article class="editor-card open" id="section-seo">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>SEO &amp; Search Engine Metadata</h3>
+                <p>Browser page title, search description snippet, and indexing directives</p>
+              </div>
+              <span class="spacer"></span>
+              <span class="badge-admin badge-published">Live SERP</span>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-4">
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-title">SEO Meta Title (Browser &amp; Google) *</label>
+                  <input class="form-control" id="seo-title" value="Obesity - Be The Change Health &amp; Wellness Center" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-admin" for="seo-desc">SEO Meta Description *</label>
+                  <textarea class="form-control" id="seo-desc" rows="3">Individualized medical weight loss and lifelong wellness support at Be The Change Health &amp; Wellness Center in Columbia, MD.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-canonical">Canonical URL</label>
+                  <input class="form-control" id="seo-canonical" value="https://bethechangehealth.com/conditions/obesity.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label-admin" for="seo-robots">Search Engine Indexing</label>
+                  <select class="form-select" id="seo-robots">
+                    <option value="index, follow" selected>Index, Follow (Recommended)</option>
+                    <option value="noindex, follow">Noindex, Follow</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Google SERP Live Simulation -->
+              <h5 class="fw-semibold text-dark mb-2"><i class="bi bi-google text-primary me-1"></i> Google Search Snippet Simulation</h5>
+              <div class="serp-card mb-3">
+                <div class="serp-title" id="serp-preview-title">Obesity - Be The Change Health &amp; Wellness Center</div>
+                <div class="serp-url" id="serp-preview-url">https://bethechangehealth.com › conditions › obesity</div>
+                <div class="serp-desc" id="serp-preview-desc">Individualized medical weight loss and lifelong wellness support at Be The Change Health &amp; Wellness Center in Columbia, MD.</div>
+              </div>
+
+              <div class="text-end">
+                <button type="button" class="btn-btc btn-sm-admin" id="btn-save-seo">
+                  <i class="bi bi-check2 me-1"></i> Save SEO Settings
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /editor-stack -->
+
+        <!-- Bottom Sticky Action Bar -->
+        <div class="card-admin mt-4">
+          <div class="card-body-admin d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <button type="button" class="btn btn-outline-danger btn-sm-admin" id="btn-reset-defaults">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset to Clinic Defaults
+              </button>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/conditions/obesity.html" target="_blank" rel="noopener">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Preview Live Page
+              </a>
+              <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all-bottom">
+                <i class="bi bi-check2 me-1"></i> Save All Changes
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-stack"></div>
+
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_condition_obesity";
+
+      var DEFAULT_DATA = {
+        hero: {
+          title: "Obesity",
+          subtitle: "Individualized medical weight loss and lifelong wellness support.",
+          parentBreadcrumb: "Conditions",
+          activeBreadcrumb: "Obesity"
+        },
+        lead: {
+          image: "../assets/uploads/2024/08/Dont-Lose-Weight-Lose-FAT.jpg",
+          leadText: "Attempting to lose weight on your own can be disheartening, especially if you can’t see or feel any results.",
+          introP1: "At Be The Change Health & Wellness Center in Columbia, Maryland, Sultana Afrooz, DO, and the team can work with you as you complete an individualized medical weight loss plan, including regular appointments and personalized diet planning.",
+          introP2: "Even if your goal isn’t to lose weight, a custom wellness plan makes you healthier, more energetic, and less at risk for disease. Dr. Afrooz and the team gladly offer holistic health advice and support as you adopt new changes in your diet and routine.",
+          ctaText: "New Patient – Request An Appointment",
+          ctaLink: "../contact.html"
+        },
+        whatis: {
+          heading: "What is medical weight loss?",
+          p1: "Medical weight loss is the process of losing weight and keeping it off with the help of your doctor. Be The Change Health & Wellness Center can design a weight loss plan with your personal needs in mind and work with you as you apply it in your home life.",
+          p2: "Personalized medical weight loss plans don’t just aim to bring down the number on the scale. Instead, they help you adopt lifelong changes that promote better overall health. By losing excess body fat during your plan, you can lower your risk for serious diseases like:",
+          diseases: [
+            "Hypertension",
+            "Heart disease",
+            "High cholesterol",
+            "Stroke",
+            "Type 2 diabetes",
+            "Certain cancers",
+            "Sleep apnea",
+            "Gastroesophageal reflux disease (GERD)"
+          ]
+        },
+        components: {
+          heading: "What are the components of a medical weight loss plan?",
+          p1: "Your personalized medical weight loss plan at Be The Change Health & Wellness Center is complex and includes multiple guided components. After the initial consultation, you check in at an appointment every two weeks to track your progress. You can observe measurable changes in your weight as well as your general wellness and health.",
+          intro: "Your custom medical weight loss plan includes:",
+          items: [
+            "Grocery shopping lists and appetizing recipes",
+            "Access a database of over 100,000 foods, including restaurant menu items",
+            "Beginner through advanced exercise videos via a desktop and mobile app",
+            "Receive daily tips and recommendations through a secure and reliable messaging platform",
+            "A photo gallery to track your progress visually along with a calorie and food tracker",
+            "Get the right supplements to help you get the weight off faster with proven nutritional supplements"
+          ]
+        },
+        planning: {
+          heading: "What goes into the planning for medical weight loss?",
+          p1: "Medical weight loss plans begin with a consultation. At Be The Change Health & Wellness Center, your provider goes over your medical history and works with you to decide which route to take for your diet.",
+          p2: "Using information from your consultation and medical history, your provider chooses necessary supplements, an appropriate exercise plan, and a diet according to your needs.",
+          p3: "They can help you cut carbs with a keto diet, adopt an intermittent fasting schedule, go gluten-free to manage celiac disease, or reduce inflammation with the tasty autoimmune paleo protocol.",
+          p4: "To set up an initial consultation for holistic medical weight loss, request an appointment at Be The Change Health & Wellness Center by phone or book online today."
+        },
+        cta: {
+          heading: "Ready to start medical weight loss?",
+          text: "Our Columbia, MD team can help you take the next step.",
+          phone: "301-970-9724",
+          btnText: "Book Appointment",
+          btnLink: "../book-appointment.html"
+        },
+        seo: {
+          title: "Obesity - Be The Change Health & Wellness Center",
+          desc: "Individualized medical weight loss and lifelong wellness support at Be The Change Health & Wellness Center in Columbia, MD.",
+          canonical: "https://bethechangehealth.com/conditions/obesity.html",
+          robots: "index, follow"
+        }
+      };
+
+      function loadData() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(DEFAULT_DATA));
+      }
+
+      function saveData(data) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {}
+      }
+
+      function val(id, value) {
+        var el = document.getElementById(id);
+        if (!el) return "";
+        if (value !== undefined) el.value = value;
+        return el.value;
+      }
+
+      function renderChecklist(containerId, items, placeholder) {
+        var c = document.getElementById(containerId);
+        if (!c) return;
+        c.innerHTML = "";
+        items.forEach(function (text, idx) {
+          var row = document.createElement("div");
+          row.className = "check-item-row";
+          row.innerHTML =
+            '<span class="handle"><i class="bi bi-grip-vertical"></i></span>' +
+            '<span class="badge bg-secondary rounded-pill">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control form-control-sm" value="' + text.replace(/"/g, '&quot;') + '" placeholder="' + (placeholder || 'Item') + '">' +
+            '<button type="button" class="btn btn-outline-danger btn-sm py-0 px-2 btn-remove-item" title="Remove item"><i class="bi bi-x"></i></button>';
+          
+          row.querySelector(".btn-remove-item").addEventListener("click", function () {
+            row.remove();
+          });
+          c.appendChild(row);
+        });
+      }
+
+      function gatherChecklist(containerId) {
+        var c = document.getElementById(containerId);
+        if (!c) return [];
+        var inputs = c.querySelectorAll("input");
+        var res = [];
+        inputs.forEach(function (inp) {
+          if (inp.value.trim()) res.push(inp.value.trim());
+        });
+        return res;
+      }
+
+      function populateForm(d) {
+        val("hero-title", d.hero.title);
+        val("hero-subtitle", d.hero.subtitle);
+        val("breadcrumb-active", d.hero.activeBreadcrumb);
+
+        val("lead-image", d.lead.image);
+        val("lead-text", d.lead.leadText);
+        val("intro-p1", d.lead.introP1);
+        val("intro-p2", d.lead.introP2);
+        val("lead-cta-text", d.lead.ctaText);
+        val("lead-cta-link", d.lead.ctaLink);
+
+        val("whatis-heading", d.whatis.heading);
+        val("whatis-p1", d.whatis.p1);
+        val("whatis-p2", d.whatis.p2);
+        renderChecklist("diseases-container", d.whatis.diseases, "Preventable condition");
+
+        val("comp-heading", d.components.heading);
+        val("comp-p1", d.components.p1);
+        val("comp-intro", d.components.intro);
+        renderChecklist("components-container", d.components.items, "Plan feature");
+
+        val("plan-heading", d.planning.heading);
+        val("plan-p1", d.planning.p1);
+        val("plan-p2", d.planning.p2);
+        val("plan-p3", d.planning.p3);
+        val("plan-p4", d.planning.p4);
+
+        val("cta-heading", d.cta.heading);
+        val("cta-text", d.cta.text);
+        val("cta-phone", d.cta.phone);
+        val("cta-btn-text", d.cta.btnText);
+        val("cta-btn-link", d.cta.btnLink);
+
+        val("seo-title", d.seo.title);
+        val("seo-desc", d.seo.desc);
+        val("seo-canonical", d.seo.canonical);
+        val("seo-robots", d.seo.robots);
+
+        updateSerp();
+      }
+
+      function updateSerp() {
+        var t = val("seo-title");
+        var ds = val("seo-desc");
+        var st = document.getElementById("serp-preview-title");
+        var sd = document.getElementById("serp-preview-desc");
+        if (st) st.textContent = t || "Obesity - Be The Change Health & Wellness Center";
+        if (sd) sd.textContent = ds || "Individualized medical weight loss and lifelong wellness support.";
+      }
+
+      function toast(msg) {
+        if (window.adminToast) {
+          window.adminToast(msg);
+        } else {
+          var stack = document.querySelector(".toast-stack");
+          if (!stack) return;
+          var t = document.createElement("div");
+          t.className = "toast show align-items-center text-white bg-dark border-0 mb-2";
+          t.innerHTML = '<div class="d-flex"><div class="toast-body">' + msg + '</div></div>';
+          stack.appendChild(t);
+          setTimeout(function () { t.remove(); }, 3200);
+        }
+      }
+
+      function saveAll() {
+        var d = {
+          hero: {
+            title: val("hero-title"),
+            subtitle: val("hero-subtitle"),
+            parentBreadcrumb: "Conditions",
+            activeBreadcrumb: val("breadcrumb-active")
+          },
+          lead: {
+            image: val("lead-image"),
+            leadText: val("lead-text"),
+            introP1: val("intro-p1"),
+            introP2: val("intro-p2"),
+            ctaText: val("lead-cta-text"),
+            ctaLink: val("lead-cta-link")
+          },
+          whatis: {
+            heading: val("whatis-heading"),
+            p1: val("whatis-p1"),
+            p2: val("whatis-p2"),
+            diseases: gatherChecklist("diseases-container")
+          },
+          components: {
+            heading: val("comp-heading"),
+            p1: val("comp-p1"),
+            intro: val("comp-intro"),
+            items: gatherChecklist("components-container")
+          },
+          planning: {
+            heading: val("plan-heading"),
+            p1: val("plan-p1"),
+            p2: val("plan-p2"),
+            p3: val("plan-p3"),
+            p4: val("plan-p4")
+          },
+          cta: {
+            heading: val("cta-heading"),
+            text: val("cta-text"),
+            phone: val("cta-phone"),
+            btnText: val("cta-btn-text"),
+            btnLink: val("cta-btn-link")
+          },
+          seo: {
+            title: val("seo-title"),
+            desc: val("seo-desc"),
+            canonical: val("seo-canonical"),
+            robots: val("seo-robots")
+          }
+        };
+
+        saveData(d);
+        updateSerp();
+        toast("Obesity Page Content saved successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var cur = loadData();
+        populateForm(cur);
+
+        // Section save buttons
+        document.getElementById("btn-save-hero").addEventListener("click", function () {
+          saveAll();
+          toast("Hero section saved.");
+        });
+        document.getElementById("btn-save-lead").addEventListener("click", function () {
+          saveAll();
+          toast("Article lead & intro saved.");
+        });
+        document.getElementById("btn-save-whatis").addEventListener("click", function () {
+          saveAll();
+          toast("Medical weight loss definition saved.");
+        });
+        document.getElementById("btn-save-components").addEventListener("click", function () {
+          saveAll();
+          toast("Plan components saved.");
+        });
+        document.getElementById("btn-save-planning").addEventListener("click", function () {
+          saveAll();
+          toast("Diet protocols & planning saved.");
+        });
+        document.getElementById("btn-save-cta").addEventListener("click", function () {
+          saveAll();
+          toast("CTA band saved.");
+        });
+        document.getElementById("btn-save-seo").addEventListener("click", function () {
+          saveAll();
+          toast("SEO metadata saved.");
+        });
+
+        // Add item buttons
+        document.getElementById("btn-add-disease").addEventListener("click", function () {
+          var items = gatherChecklist("diseases-container");
+          items.push("New chronic condition");
+          renderChecklist("diseases-container", items, "Preventable condition");
+        });
+        document.getElementById("btn-add-component").addEventListener("click", function () {
+          var items = gatherChecklist("components-container");
+          items.push("New plan component");
+          renderChecklist("components-container", items, "Plan feature");
+        });
+
+        // Save all buttons
+        document.getElementById("btn-save-all-top").addEventListener("click", saveAll);
+        document.getElementById("btn-save-all-bottom").addEventListener("click", saveAll);
+
+        // Reset
+        document.getElementById("btn-reset-defaults").addEventListener("click", function () {
+          if (confirm("Reset Obesity page back to clinic defaults? Unsaved edits will be lost.")) {
+            saveData(DEFAULT_DATA);
+            populateForm(DEFAULT_DATA);
+            toast("Restored original clinic defaults for Obesity.");
+          }
+        });
+
+        // SERP live update
+        document.getElementById("seo-title").addEventListener("input", updateSerp);
+        document.getElementById("seo-desc").addEventListener("input", updateSerp);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Appointment Page Content | Be The Change Admin</title>
+  <link rel="icon" href="../../../Frontend/assets/uploads/2025/02/fav.jpg" type="image/jpeg">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="book-appointment-content">
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content pb-5">
+
+        <!-- Top Breadcrumbs & Page Action Bar -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <nav class="cms-crumb mb-0" aria-label="breadcrumb">
+            <a href="../../index.html">Dashboard</a><span class="sep">/</span>
+            <span>Website Pages</span><span class="sep">/</span>
+            <span class="text-dark fw-semibold">Book Appointment Page Content</span>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-admin badge-published"><i class="bi bi-broadcast"></i> Live on Website</span>
+            <a class="btn-btc-outline btn-sm-admin" href="../../../Frontend/book-appointment.html" target="_blank">
+              <i class="bi bi-box-arrow-up-right me-1"></i> View Live Page
+            </a>
+            <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-restore-defaults">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Restore Defaults
+            </button>
+            <button class="btn-btc btn-sm-admin" type="button" id="btn-save-all">
+              <i class="bi bi-check2 me-1"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- Overview Metric Banner -->
+        <div class="card-admin mb-4" id="section-overview">
+          <div class="card-head">
+            <div>
+              <p class="section-map mb-1"><i class="bi bi-code-slash me-1"></i> Frontend Source of Truth · Frontend/book-appointment.html</p>
+              <h2>Book Appointment Page Content CMS</h2>
+              <p>Manage the public booking request experience: hero messaging, visit guidelines, out-of-network disclaimers, featured doctors, intake form fields, selectable clinical services, and SEO metadata.</p>
+            </div>
+            <a class="btn-btc-ghost btn-sm-admin" href="appointments.html">
+              <i class="bi bi-calendar2-check me-1"></i> View Appointment Requests
+            </a>
+          </div>
+          <div class="card-body-admin">
+            <div class="row g-3">
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-geo-alt-fill text-teal"></i> Location &amp; Care
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Columbia, MD</h4>
+                  <small class="text-muted">In-Office &amp; Telehealth</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-list-check text-teal"></i> Selectable Services
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark" id="stat-service-count">14 Clinical Options</h4>
+                  <small class="text-muted">Reasons for visit dropdown</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-person-heart text-teal"></i> Practice Providers
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">2 Doctors Featured</h4>
+                  <small class="text-muted">Dr. Afrooz &amp; Dr. Needle</small>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="p-3 rounded-3 bg-light border">
+                  <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                    <i class="bi bi-shield-check text-teal"></i> Policy Compliance
+                  </div>
+                  <h4 class="h5 fw-bold mb-0 text-dark">Out-of-Network</h4>
+                  <small class="text-muted">Consent disclaimer enforced</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow Jump Navigation Bar -->
+        <nav class="cms-jump-bar mb-4" aria-label="Quick jump to editor sections">
+          <span class="text-muted me-2 align-self-center"><i class="bi bi-list-nested me-1"></i> Jump To:</span>
+          <a href="#section-notice">01. Notice Bar</a>
+          <a href="#section-hero">02. Page Hero</a>
+          <a href="#section-visit-info">03. Visit Information</a>
+          <a href="#section-note">04. Office Note &amp; Out-of-Network</a>
+          <a href="#section-providers">05. Our Providers</a>
+          <a href="#section-form-head">06. Form Header &amp; Alert</a>
+          <a href="#section-form-fields">07. Form Fields &amp; Labels</a>
+          <a href="#section-services-list">08. Service &amp; Time Options</a>
+          <a href="#section-consent-actions">09. Consent &amp; Submit Actions</a>
+          <a href="#section-seo">10. SEO &amp; SERP Preview</a>
+        </nav>
+
+        <!-- Editor Stack (Accordion Sections) -->
+        <div class="editor-stack">
+
+          <!-- 01. Notice Bar -->
+          <article class="editor-card open" id="section-notice">
+            <div class="editor-head">
+              <span class="num">01</span>
+              <div>
+                <h3>Notice Bar (Practice Notice)</h3>
+                <p>Topmost banner informing visitors about Telehealth availability and out-of-network insurance terms.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Notice bar updated.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label" for="notice-status">Notice Bar Display</label>
+                  <select class="form-select" id="notice-status">
+                    <option value="active">Active (Visible)</option>
+                    <option value="hidden">Hidden</option>
+                  </select>
+                  <div class="form-text">Controls visibility of the top teal banner.</div>
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="notice-primary-text">Primary Notice Text</label>
+                  <input type="text" class="form-control" id="notice-primary-text" value="Now offering Telehealth appointments.">
+                  <div class="form-text">Main highlight statement shown on all mobile and desktop viewports.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="notice-extended-text">Extended Out-of-Network Statement</label>
+                  <textarea class="form-control" id="notice-extended-text" rows="2">Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                  <div class="form-text">Appears alongside the primary notice on medium and larger desktop displays.</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. Page Hero -->
+          <article class="editor-card open" id="section-hero">
+            <div class="editor-head">
+              <span class="num">02</span>
+              <div>
+                <h3>Page Hero Header</h3>
+                <p>Top page banner title, introductory subtitle, and breadcrumb indicator.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Page Hero saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="hero-title">Hero Title (H1)</label>
+                  <input type="text" class="form-control" id="hero-title" value="Book Appointment">
+                  <div class="form-text">Main page title displayed in the header banner.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="hero-breadcrumb">Breadcrumb Label</label>
+                  <input type="text" class="form-control" id="hero-breadcrumb" value="Book Appointment">
+                  <div class="form-text">Current active item in Home / Book Appointment navigation.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="hero-subtitle">Hero Subtitle</label>
+                  <input type="text" class="form-control" id="hero-subtitle" value="Request a visit with our Columbia, MD team — in-office or telehealth.">
+                  <div class="form-text">Tagline displayed directly below the main title.</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. Visit Information Sidebar -->
+          <article class="editor-card" id="section-visit-info">
+            <div class="editor-head">
+              <span class="num">03</span>
+              <div>
+                <h3>Visit Information Sidebar</h3>
+                <p>Office address, phone, fax, operating hours, and telehealth details in the left column.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Visit Information saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label" for="visit-heading">Section Title (H2)</label>
+                  <input type="text" class="form-control" id="visit-heading" value="Visit Information">
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Office Address</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="addr-label">Label</label>
+                  <input type="text" class="form-control" id="addr-label" value="Office Address">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="addr-line1">Street Address</label>
+                  <input type="text" class="form-control" id="addr-line1" value="8808 Centre Park Drive Suite 301">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="addr-city-state-zip">City, State, Zip</label>
+                  <input type="text" class="form-control" id="addr-city-state-zip" value="Columbia, MD 21045">
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Phone &amp; Fax</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="phone-label">Label</label>
+                  <input type="text" class="form-control" id="phone-label" value="Phone">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="phone-display">Display Phone</label>
+                  <input type="text" class="form-control" id="phone-display" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="fax-display">Fax Number</label>
+                  <input type="text" class="form-control" id="fax-display" value="Fax: 301-359-1986">
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Office Operating Hours</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="hours-label">Label</label>
+                  <input type="text" class="form-control" id="hours-label" value="Office Hours">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="hours-weekdays">Weekday Hours</label>
+                  <input type="text" class="form-control" id="hours-weekdays" value="Monday – Friday: 9am – 6pm">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="hours-weekend">Weekend Hours</label>
+                  <input type="text" class="form-control" id="hours-weekend" value="Saturday & Sunday: Closed">
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Telehealth Notice</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="telehealth-label">Label</label>
+                  <input type="text" class="form-control" id="telehealth-label" value="Telehealth">
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="telehealth-desc">Description</label>
+                  <input type="text" class="form-control" id="telehealth-desc" value="Now offering Telehealth appointments for your convenience.">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04. Office Note & Out-of-Network -->
+          <article class="editor-card" id="section-note">
+            <div class="editor-head">
+              <span class="num">04</span>
+              <div>
+                <h3>Out-of-Network &amp; Patient Guide Callout</h3>
+                <p>Sidebar callout card highlighting out-of-network policy and link to New Patient Questions.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Out-of-network notice saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label" for="note-title">Callout Heading (H3)</label>
+                  <input type="text" class="form-control" id="note-title" value="Please note">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="note-link-text">New Patient Link Text</label>
+                  <input type="text" class="form-control" id="note-link-text" value="New Patient Questions">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="note-link-url">New Patient Link URL</label>
+                  <input type="text" class="form-control" id="note-link-url" value="new-patient-questions.html">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="note-disclaimer">Out-of-Network Disclaimer</label>
+                  <textarea class="form-control" id="note-disclaimer" rows="3">Our office is out-of-network. We cannot guarantee coverage for any services received in office.</textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="note-guide-prompt">Guide Sentence Before Link</label>
+                  <textarea class="form-control" id="note-guide-prompt" rows="3">New patients may also review [Link] before booking.</textarea>
+                  <div class="form-text">The link target will be embedded dynamically into the second sentence.</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05. Our Providers -->
+          <article class="editor-card" id="section-providers">
+            <div class="editor-head">
+              <span class="num">05</span>
+              <div>
+                <h3>Our Providers (Featured Doctors)</h3>
+                <p>Sidebar doctor profile cards displaying Dr. Afrooz and Dr. Needle.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Providers saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label" for="providers-heading">Section Title (H3)</label>
+                  <input type="text" class="form-control" id="providers-heading" value="Our Providers">
+                </div>
+              </div>
+
+              <!-- Provider 1 -->
+              <div class="p-3 bg-light rounded-3 border mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="fw-bold text-dark"><i class="bi bi-person-badge text-teal me-1"></i> Provider 1: Dr. Sultana Afrooz</span>
+                  <span class="badge bg-secondary-subtle text-secondary">Founder &amp; Physician</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc1-name">Doctor Name</label>
+                    <input type="text" class="form-control" id="doc1-name" value="Sultana Afrooz, D.O.">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc1-role">Specialty / Role</label>
+                    <input type="text" class="form-control" id="doc1-role" value="Integrative Family Medicine">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc1-link">Profile Link</label>
+                    <input type="text" class="form-control" id="doc1-link" value="about/sultana-afrooz.html">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label" for="doc1-photo">Photo Path</label>
+                    <input type="text" class="form-control" id="doc1-photo" value="assets/uploads/2024/08/sa.jpg">
+                  </div>
+                  <div class="col-md-4 d-flex align-items-end">
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="../../../Frontend/assets/uploads/2024/08/sa.jpg" alt="Preview" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid #ccc;">
+                      <small class="text-muted">Preview Thumbnail</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Provider 2 -->
+              <div class="p-3 bg-light rounded-3 border">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="fw-bold text-dark"><i class="bi bi-person-badge text-teal me-1"></i> Provider 2: Dr. Jessica Needle</span>
+                  <span class="badge bg-secondary-subtle text-secondary">Naturopathic Physician</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc2-name">Doctor Name</label>
+                    <input type="text" class="form-control" id="doc2-name" value="Jessica Needle, N.D.">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc2-role">Specialty / Role</label>
+                    <input type="text" class="form-control" id="doc2-role" value="Naturopathic Doctor">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label" for="doc2-link">Profile Link</label>
+                    <input type="text" class="form-control" id="doc2-link" value="about/jessica-needle.html">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label" for="doc2-photo">Photo Path</label>
+                    <input type="text" class="form-control" id="doc2-photo" value="assets/uploads/2025/02/jn-5.jpg">
+                  </div>
+                  <div class="col-md-4 d-flex align-items-end">
+                    <div class="d-flex align-items-center gap-2">
+                      <img src="../../../Frontend/assets/uploads/2025/02/jn-5.jpg" alt="Preview" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid #ccc;">
+                      <small class="text-muted">Preview Thumbnail</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- 06. Form Header & Alert -->
+          <article class="editor-card" id="section-form-head">
+            <div class="editor-head">
+              <span class="num">06</span>
+              <div>
+                <h3>Form Header &amp; Success Notification</h3>
+                <p>Card heading, mandatory notice, and confirmation message displayed upon successful submission.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Form Header saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="form-title">Form Card Heading (H2)</label>
+                  <input type="text" class="form-control" id="form-title" value="Request Your Appointment">
+                  <div class="form-text">Header displayed on top of the booking card.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="form-instruction">Form Subtitle / Instruction Text</label>
+                  <input type="text" class="form-control" id="form-instruction" value="Complete the form below and our team will follow up to confirm your visit. Required fields are marked with *">
+                  <div class="form-text">Instructional guideline under the title.</div>
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Success Alert Notification</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="success-alert-title">Alert Heading</label>
+                  <input type="text" class="form-control" id="success-alert-title" value="Request received">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="success-urgent-phone">Urgent Contact Number</label>
+                  <input type="text" class="form-control" id="success-urgent-phone" value="301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="success-urgent-link">Phone Link (tel:)</label>
+                  <input type="text" class="form-control" id="success-urgent-link" value="tel:3019709724">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="success-alert-msg">Success Message Text</label>
+                  <textarea class="form-control" id="success-alert-msg" rows="2">Thank you. Your appointment request has been validated successfully. Our team will contact you to confirm your visit. For urgent needs, call 301-970-9724.</textarea>
+                  <div class="form-text">Confirmed alert banner revealed when patient submits the valid booking request.</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07. Form Fields & Labels -->
+          <article class="editor-card" id="section-form-fields">
+            <div class="editor-head">
+              <span class="num">07</span>
+              <div>
+                <h3>Form Field Labels &amp; Validation Messages</h3>
+                <p>Configure labels, input placeholders, and validation error messages for the patient intake form.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Form Fields saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-first-name-lbl">First Name Field</label>
+                    <input type="text" class="form-control mb-2" id="field-first-name-lbl" value="First Name *">
+                    <label class="form-label small text-muted mb-1" for="field-first-name-err">Validation Error Text</label>
+                    <input type="text" class="form-control" id="field-first-name-err" value="Please enter your first name.">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-last-name-lbl">Last Name Field</label>
+                    <input type="text" class="form-control mb-2" id="field-last-name-lbl" value="Last Name *">
+                    <label class="form-label small text-muted mb-1" for="field-last-name-err">Validation Error Text</label>
+                    <input type="text" class="form-control" id="field-last-name-err" value="Please enter your last name.">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-email-lbl">Email Address Field</label>
+                    <input type="text" class="form-control mb-2" id="field-email-lbl" value="Email Address *">
+                    <label class="form-label small text-muted mb-1" for="field-email-err">Validation Error Text</label>
+                    <input type="text" class="form-control" id="field-email-err" value="Please enter a valid email address.">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-phone-lbl">Phone Number Field</label>
+                    <div class="row g-2 mb-2">
+                      <div class="col-7"><input type="text" class="form-control" id="field-phone-lbl" value="Phone Number *"></div>
+                      <div class="col-5"><input type="text" class="form-control" id="field-phone-ph" value="301-555-0123" placeholder="Placeholder"></div>
+                    </div>
+                    <label class="form-label small text-muted mb-1" for="field-phone-err">Validation Error Text</label>
+                    <input type="text" class="form-control" id="field-phone-err" value="Please enter a valid phone number.">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-patient-type-lbl">Patient Type Dropdown</label>
+                    <input type="text" class="form-control mb-2" id="field-patient-type-lbl" value="Patient Type *">
+                    <div class="row g-2">
+                      <div class="col-6"><input type="text" class="form-control" id="opt-new-patient" value="New Patient"></div>
+                      <div class="col-6"><input type="text" class="form-control" id="opt-existing-patient" value="Existing Patient"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-visit-type-lbl">Visit Type Dropdown</label>
+                    <input type="text" class="form-control mb-2" id="field-visit-type-lbl" value="Visit Type *">
+                    <div class="row g-2">
+                      <div class="col-6"><input type="text" class="form-control" id="opt-in-office" value="In-Office Visit"></div>
+                      <div class="col-6"><input type="text" class="form-control" id="opt-telehealth" value="Telehealth"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-provider-lbl">Preferred Provider Dropdown</label>
+                    <input type="text" class="form-control mb-2" id="field-provider-lbl" value="Preferred Provider">
+                    <label class="form-label small text-muted mb-1" for="field-provider-default">Default Unselected Option</label>
+                    <input type="text" class="form-control" id="field-provider-default" value="No preference">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <label class="form-label fw-semibold" for="field-date-lbl">Preferred Date Field</label>
+                    <input type="text" class="form-control mb-2" id="field-date-lbl" value="Preferred Date *">
+                    <label class="form-label small text-muted mb-1" for="field-date-err">Validation Error Text</label>
+                    <input type="text" class="form-control" id="field-date-err" value="Please choose a preferred date (today or later).">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <div class="row g-3">
+                      <div class="col-md-4">
+                        <label class="form-label fw-semibold" for="field-message-lbl">Additional Details Label</label>
+                        <input type="text" class="form-control" id="field-message-lbl" value="Additional Details">
+                      </div>
+                      <div class="col-md-5">
+                        <label class="form-label fw-semibold" for="field-message-ph">Textarea Placeholder</label>
+                        <input type="text" class="form-control" id="field-message-ph" value="Share symptoms, goals, or scheduling notes (optional)">
+                      </div>
+                      <div class="col-md-3">
+                        <label class="form-label fw-semibold" for="field-message-limit">Max Character Limit</label>
+                        <input type="number" class="form-control" id="field-message-limit" value="1000">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08. Service & Time Options -->
+          <article class="editor-card" id="section-services-list">
+            <div class="editor-head">
+              <span class="num">08</span>
+              <div>
+                <h3>Reason / Service Options &amp; Preferred Time Slots</h3>
+                <p>Manage the clinical services list and time windows available to patients in the dropdown menus.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Options saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-4">
+                
+                <!-- Services / Reasons Column -->
+                <div class="col-lg-7">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-0">Reason / Service Options (<span id="count-services">14</span>)</h5>
+                      <small class="text-muted">Populates the Reason / Service dropdown menu on the live booking form.</small>
+                    </div>
+                    <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-add-service">
+                      <i class="bi bi-plus-lg me-1"></i> Add Service
+                    </button>
+                  </div>
+                  <div class="form-text mb-3">Drag or edit options. Matches actual frontend options exactly.</div>
+                  <div class="vstack gap-2" id="services-list-container">
+                    <!-- Populated via script -->
+                  </div>
+                </div>
+
+                <!-- Preferred Time Windows Column -->
+                <div class="col-lg-5">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div>
+                      <h5 class="fw-bold text-dark mb-0">Preferred Time Slots (<span id="count-times">4</span>)</h5>
+                      <small class="text-muted">Selectable time windows for patient visits.</small>
+                    </div>
+                    <button class="btn-btc-outline btn-sm-admin" type="button" id="btn-add-time">
+                      <i class="bi bi-plus-lg me-1"></i> Add Slot
+                    </button>
+                  </div>
+                  <div class="form-text mb-3">Options in Preferred Time dropdown.</div>
+                  <div class="vstack gap-2" id="times-list-container">
+                    <!-- Populated via script -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- 09. Consent & Submit Actions -->
+          <article class="editor-card" id="section-consent-actions">
+            <div class="editor-head">
+              <span class="num">09</span>
+              <div>
+                <h3>Consent Acknowledgment &amp; Action Buttons</h3>
+                <p>Required compliance checkbox terms, primary submission button, and direct call CTA button.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="Consent & Action buttons saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label class="form-label" for="consent-statement">Consent Statement</label>
+                  <textarea class="form-control" id="consent-statement" rows="3">I understand this is an appointment request and the office will confirm availability. I also acknowledge the practice is out-of-network. *</textarea>
+                  <div class="form-text">Mandatory checkbox text legally acknowledging that requests require office confirmation and out-of-network payment.</div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="consent-error">Consent Validation Error Text</label>
+                  <textarea class="form-control" id="consent-error" rows="3">Please confirm before submitting.</textarea>
+                  <div class="form-text">Shown if user clicks submit without checking consent.</div>
+                </div>
+
+                <div class="col-12"><hr class="my-2"><h5 class="fw-semibold text-dark mb-0">Submission &amp; Phone Action Buttons</h5></div>
+                <div class="col-md-4">
+                  <label class="form-label" for="btn-submit-label">Primary Submit Button Text</label>
+                  <input type="text" class="form-control" id="btn-submit-label" value="Submit Appointment Request">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="btn-call-label">Secondary Call Button Text</label>
+                  <input type="text" class="form-control" id="btn-call-label" value="Call 301-970-9724">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="btn-call-href">Call Button Link (tel:)</label>
+                  <input type="text" class="form-control" id="btn-call-href" value="tel:3019709724">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. SEO & SERP Preview -->
+          <article class="editor-card" id="section-seo">
+            <div class="editor-head">
+              <span class="num">10</span>
+              <div>
+                <h3>SEO Metadata &amp; Google Search Result Preview</h3>
+                <p>Manage title tag, meta description, keywords, canonical URL, and preview how the page appears on Google.</p>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn-btc-outline btn-sm-admin" type="button" data-save-section="SEO settings saved.">Save Section</button>
+            </div>
+            <div class="editor-body">
+              <div class="row g-3">
+                <div class="col-lg-7">
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label mb-0" for="seo-title">Page Title Tag</label>
+                      <span class="small text-muted" id="seo-title-count">65 / 70</span>
+                    </div>
+                    <input type="text" class="form-control" id="seo-title" value="Book Appointment | Be The Change Health &amp; Wellness Center">
+                    <div class="form-text">Primary browser tab title and Google search headline.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <label class="form-label mb-0" for="seo-desc">Meta Description</label>
+                      <span class="small text-muted" id="seo-desc-count">137 / 160</span>
+                    </div>
+                    <textarea class="form-control" id="seo-desc" rows="3">Book an appointment at Be The Change Health &amp; Wellness Center in Columbia, MD. New patients, telehealth, and therapy visits welcome.</textarea>
+                    <div class="form-text">Appears in search engine result snippets.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="seo-keywords">Target Keywords</label>
+                    <input type="text" class="form-control" id="seo-keywords" value="book appointment, integrative medicine columbia md, naturopathic doctor appointment, telehealth wellness, functional medicine visit">
+                    <div class="form-text">Comma-separated terms for clinical search relevance.</div>
+                  </div>
+
+                  <div class="row g-2">
+                    <div class="col-sm-6">
+                      <label class="form-label" for="seo-canonical">Canonical URL</label>
+                      <input type="text" class="form-control" id="seo-canonical" value="https://bethechangehealth.com/book-appointment.html">
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label" for="seo-og-image">Social Share Image (OG Image)</label>
+                      <input type="text" class="form-control" id="seo-og-image" value="assets/uploads/2024/08/LOGO.jpg">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-5">
+                  <label class="form-label">Google Search Result Preview</label>
+                  <div class="serp-card p-3 rounded-3 bg-white border">
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                      <img src="../../../Frontend/assets/uploads/2025/02/fav.jpg" alt="Favicon" style="width:16px;height:16px;border-radius:50%;">
+                      <span class="serp-site text-truncate" style="font-size:12px;color:#202124;">bethechangehealth.com › book-appointment</span>
+                    </div>
+                    <h4 class="serp-title text-primary mb-1" id="serp-title-preview" style="font-size:18px;line-height:1.3;cursor:pointer;">Book Appointment | Be The Change Health &amp; Wellness Center</h4>
+                    <p class="serp-snippet text-muted small mb-0" id="serp-desc-preview" style="font-size:13px;line-height:1.4;">Book an appointment at Be The Change Health &amp; Wellness Center in Columbia, MD. New patients, telehealth, and therapy visits welcome.</p>
+                  </div>
+                  <div class="p-3 bg-light rounded-3 border mt-3">
+                    <div class="d-flex align-items-center gap-2 text-dark small fw-semibold mb-1">
+                      <i class="bi bi-info-circle-fill text-teal"></i> SEO Audit Note
+                    </div>
+                    <p class="small text-muted mb-0">All metadata matches the public <code class="text-dark">Frontend/book-appointment.html</code> markup for maximum local health search discoverability.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /editor-stack -->
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var STORAGE_KEY = "btc_cms_book_appointment";
+
+      var DEFAULT_SERVICES = [
+        "New patient consultation",
+        "Follow-up visit",
+        "Conditions we treat",
+        "Frequency Specific Microcurrent™",
+        "Infrared Sauna Therapy",
+        "Hyperbaric Oxygen Therapy",
+        "IV Nutritional Infusions",
+        "Liquivida IV Therapy",
+        "Reflexology",
+        "Ozone Therapy",
+        "Ion Foot Detox",
+        "Personalized Wellness Plans",
+        "Membership inquiry",
+        "Other"
+      ];
+
+      var DEFAULT_TIMES = [
+        "Morning (9am – 12pm)",
+        "Afternoon (12pm – 3pm)",
+        "Late afternoon (3pm – 6pm)",
+        "First available"
+      ];
+
+      var state = {
+        noticeStatus: "active",
+        noticePrimaryText: "Now offering Telehealth appointments.",
+        noticeExtendedText: "Please note that our office is out-of-network. We cannot guarantee coverage for any services received in office.",
+        heroTitle: "Book Appointment",
+        heroSubtitle: "Request a visit with our Columbia, MD team — in-office or telehealth.",
+        heroBreadcrumb: "Book Appointment",
+        visitHeading: "Visit Information",
+        addrLabel: "Office Address",
+        addrLine1: "8808 Centre Park Drive Suite 301",
+        addrCityStateZip: "Columbia, MD 21045",
+        phoneLabel: "Phone",
+        phoneDisplay: "301-970-9724",
+        faxDisplay: "Fax: 301-359-1986",
+        hoursLabel: "Office Hours",
+        hoursWeekdays: "Monday – Friday: 9am – 6pm",
+        hoursWeekend: "Saturday & Sunday: Closed",
+        telehealthLabel: "Telehealth",
+        telehealthDesc: "Now offering Telehealth appointments for your convenience.",
+        noteTitle: "Please note",
+        noteDisclaimer: "Our office is out-of-network. We cannot guarantee coverage for any services received in office.",
+        noteGuidePrompt: "New patients may also review [Link] before booking.",
+        noteLinkText: "New Patient Questions",
+        noteLinkUrl: "new-patient-questions.html",
+        providersHeading: "Our Providers",
+        doc1Name: "Sultana Afrooz, D.O.",
+        doc1Role: "Integrative Family Medicine",
+        doc1Link: "about/sultana-afrooz.html",
+        doc1Photo: "assets/uploads/2024/08/sa.jpg",
+        doc2Name: "Jessica Needle, N.D.",
+        doc2Role: "Naturopathic Doctor",
+        doc2Link: "about/jessica-needle.html",
+        doc2Photo: "assets/uploads/2025/02/jn-5.jpg",
+        formTitle: "Request Your Appointment",
+        formInstruction: "Complete the form below and our team will follow up to confirm your visit. Required fields are marked with *",
+        successAlertTitle: "Request received",
+        successUrgentPhone: "301-970-9724",
+        successUrgentLink: "tel:3019709724",
+        successAlertMsg: "Thank you. Your appointment request has been validated successfully. Our team will contact you to confirm your visit. For urgent needs, call 301-970-9724.",
+        fieldFirstNameLbl: "First Name *",
+        fieldFirstNameErr: "Please enter your first name.",
+        fieldLastNameLbl: "Last Name *",
+        fieldLastNameErr: "Please enter your last name.",
+        fieldEmailLbl: "Email Address *",
+        fieldEmailErr: "Please enter a valid email address.",
+        fieldPhoneLbl: "Phone Number *",
+        fieldPhonePh: "301-555-0123",
+        fieldPhoneErr: "Please enter a valid phone number.",
+        fieldPatientTypeLbl: "Patient Type *",
+        optNewPatient: "New Patient",
+        optExistingPatient: "Existing Patient",
+        fieldVisitTypeLbl: "Visit Type *",
+        optInOffice: "In-Office Visit",
+        optTelehealth: "Telehealth",
+        fieldProviderLbl: "Preferred Provider",
+        fieldProviderDefault: "No preference",
+        fieldDateLbl: "Preferred Date *",
+        fieldDateErr: "Please choose a preferred date (today or later).",
+        fieldMessageLbl: "Additional Details",
+        fieldMessagePh: "Share symptoms, goals, or scheduling notes (optional)",
+        fieldMessageLimit: "1000",
+        services: DEFAULT_SERVICES.slice(),
+        times: DEFAULT_TIMES.slice(),
+        consentStatement: "I understand this is an appointment request and the office will confirm availability. I also acknowledge the practice is out-of-network. *",
+        consentError: "Please confirm before submitting.",
+        btnSubmitLabel: "Submit Appointment Request",
+        btnCallLabel: "Call 301-970-9724",
+        btnCallHref: "tel:3019709724",
+        seoTitle: "Book Appointment | Be The Change Health & Wellness Center",
+        seoDesc: "Book an appointment at Be The Change Health & Wellness Center in Columbia, MD. New patients, telehealth, and therapy visits welcome.",
+        seoKeywords: "book appointment, integrative medicine columbia md, naturopathic doctor appointment, telehealth wellness, functional medicine visit",
+        seoCanonical: "https://bethechangehealth.com/book-appointment.html",
+        seoOgImage: "assets/uploads/2024/08/LOGO.jpg"
+      };
+
+      function renderServicesList() {
+        var container = document.getElementById("services-list-container");
+        if (!container) return;
+        container.innerHTML = "";
+        state.services.forEach(function (service, idx) {
+          var row = document.createElement("div");
+          row.className = "input-group input-group-sm";
+          row.innerHTML =
+            '<span class="input-group-text bg-white text-muted fw-semibold" style="width:36px;justify-content:center;">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control" value="' + escapeHtml(service) + '" data-service-idx="' + idx + '">' +
+            '<button class="btn btn-outline-danger" type="button" data-del-service="' + idx + '" title="Remove option"><i class="bi bi-trash"></i></button>';
+          container.appendChild(row);
+        });
+        var countEl = document.getElementById("count-services");
+        if (countEl) countEl.textContent = state.services.length;
+        var statCountEl = document.getElementById("stat-service-count");
+        if (statCountEl) statCountEl.textContent = state.services.length + " Clinical Options";
+      }
+
+      function renderTimesList() {
+        var container = document.getElementById("times-list-container");
+        if (!container) return;
+        container.innerHTML = "";
+        state.times.forEach(function (slot, idx) {
+          var row = document.createElement("div");
+          row.className = "input-group input-group-sm";
+          row.innerHTML =
+            '<span class="input-group-text bg-white text-muted fw-semibold" style="width:36px;justify-content:center;">' + (idx + 1) + '</span>' +
+            '<input type="text" class="form-control" value="' + escapeHtml(slot) + '" data-time-idx="' + idx + '">' +
+            '<button class="btn btn-outline-danger" type="button" data-del-time="' + idx + '" title="Remove slot"><i class="bi bi-trash"></i></button>';
+          container.appendChild(row);
+        });
+        var countEl = document.getElementById("count-times");
+        if (countEl) countEl.textContent = state.times.length;
+      }
+
+      function escapeHtml(str) {
+        return String(str || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      }
+
+      function updateSerp() {
+        var titleEl = document.getElementById("seo-title");
+        var descEl = document.getElementById("seo-desc");
+        var serpTitle = document.getElementById("serp-title-preview");
+        var serpDesc = document.getElementById("serp-desc-preview");
+        var titleCount = document.getElementById("seo-title-count");
+        var descCount = document.getElementById("seo-desc-count");
+
+        if (titleEl && serpTitle) serpTitle.textContent = titleEl.value || "Book Appointment | Be The Change";
+        if (descEl && serpDesc) serpDesc.textContent = descEl.value || "Book an appointment at Be The Change Health & Wellness Center.";
+        if (titleEl && titleCount) titleCount.textContent = (titleEl.value ? titleEl.value.length : 0) + " / 70";
+        if (descEl && descCount) descCount.textContent = (descEl.value ? descEl.value.length : 0) + " / 160";
+      }
+
+      function loadSaved() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            var data = JSON.parse(raw);
+            Object.assign(state, data);
+          }
+        } catch (e) {
+          console.error("Failed to load saved state", e);
+        }
+
+        // Populate fields
+        var map = {
+          "notice-status": "noticeStatus",
+          "notice-primary-text": "noticePrimaryText",
+          "notice-extended-text": "noticeExtendedText",
+          "hero-title": "heroTitle",
+          "hero-subtitle": "heroSubtitle",
+          "hero-breadcrumb": "heroBreadcrumb",
+          "visit-heading": "visitHeading",
+          "addr-label": "addrLabel",
+          "addr-line1": "addrLine1",
+          "addr-city-state-zip": "addrCityStateZip",
+          "phone-label": "phoneLabel",
+          "phone-display": "phoneDisplay",
+          "fax-display": "faxDisplay",
+          "hours-label": "hoursLabel",
+          "hours-weekdays": "hoursWeekdays",
+          "hours-weekend": "hoursWeekend",
+          "telehealth-label": "telehealthLabel",
+          "telehealth-desc": "telehealthDesc",
+          "note-title": "noteTitle",
+          "note-disclaimer": "noteDisclaimer",
+          "note-guide-prompt": "noteGuidePrompt",
+          "note-link-text": "noteLinkText",
+          "note-link-url": "noteLinkUrl",
+          "providers-heading": "providersHeading",
+          "doc1-name": "doc1Name",
+          "doc1-role": "doc1Role",
+          "doc1-link": "doc1Link",
+          "doc1-photo": "doc1Photo",
+          "doc2-name": "doc2Name",
+          "doc2-role": "doc2Role",
+          "doc2-link": "doc2Link",
+          "doc2-photo": "doc2Photo",
+          "form-title": "formTitle",
+          "form-instruction": "formInstruction",
+          "success-alert-title": "successAlertTitle",
+          "success-urgent-phone": "successUrgentPhone",
+          "success-urgent-link": "successUrgentLink",
+          "success-alert-msg": "successAlertMsg",
+          "field-first-name-lbl": "fieldFirstNameLbl",
+          "field-first-name-err": "fieldFirstNameErr",
+          "field-last-name-lbl": "fieldLastNameLbl",
+          "field-last-name-err": "fieldLastNameErr",
+          "field-email-lbl": "fieldEmailLbl",
+          "field-email-err": "fieldEmailErr",
+          "field-phone-lbl": "fieldPhoneLbl",
+          "field-phone-ph": "fieldPhonePh",
+          "field-phone-err": "fieldPhoneErr",
+          "field-patient-type-lbl": "fieldPatientTypeLbl",
+          "opt-new-patient": "optNewPatient",
+          "opt-existing-patient": "optExistingPatient",
+          "field-visit-type-lbl": "fieldVisitTypeLbl",
+          "opt-in-office": "optInOffice",
+          "opt-telehealth": "optTelehealth",
+          "field-provider-lbl": "fieldProviderLbl",
+          "field-provider-default": "fieldProviderDefault",
+          "field-date-lbl": "fieldDateLbl",
+          "field-date-err": "fieldDateErr",
+          "field-message-lbl": "fieldMessageLbl",
+          "field-message-ph": "fieldMessagePh",
+          "field-message-limit": "fieldMessageLimit",
+          "consent-statement": "consentStatement",
+          "consent-error": "consentError",
+          "btn-submit-label": "btnSubmitLabel",
+          "btn-call-label": "btnCallLabel",
+          "btn-call-href": "btnCallHref",
+          "seo-title": "seoTitle",
+          "seo-desc": "seoDesc",
+          "seo-keywords": "seoKeywords",
+          "seo-canonical": "seoCanonical",
+          "seo-og-image": "seoOgImage"
+        };
+
+        Object.keys(map).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el && state[map[id]] !== undefined) {
+            el.value = state[map[id]];
+          }
+        });
+
+        renderServicesList();
+        renderTimesList();
+        updateSerp();
+      }
+
+      function saveAll(msg) {
+        var map = {
+          "notice-status": "noticeStatus",
+          "notice-primary-text": "noticePrimaryText",
+          "notice-extended-text": "noticeExtendedText",
+          "hero-title": "heroTitle",
+          "hero-subtitle": "heroSubtitle",
+          "hero-breadcrumb": "heroBreadcrumb",
+          "visit-heading": "visitHeading",
+          "addr-label": "addrLabel",
+          "addr-line1": "addrLine1",
+          "addr-city-state-zip": "addrCityStateZip",
+          "phone-label": "phoneLabel",
+          "phone-display": "phoneDisplay",
+          "fax-display": "faxDisplay",
+          "hours-label": "hoursLabel",
+          "hours-weekdays": "hoursWeekdays",
+          "hours-weekend": "hoursWeekend",
+          "telehealth-label": "telehealthLabel",
+          "telehealth-desc": "telehealthDesc",
+          "note-title": "noteTitle",
+          "note-disclaimer": "noteDisclaimer",
+          "note-guide-prompt": "noteGuidePrompt",
+          "note-link-text": "noteLinkText",
+          "note-link-url": "noteLinkUrl",
+          "providers-heading": "providersHeading",
+          "doc1-name": "doc1Name",
+          "doc1-role": "doc1Role",
+          "doc1-link": "doc1Link",
+          "doc1-photo": "doc1Photo",
+          "doc2-name": "doc2Name",
+          "doc2-role": "doc2Role",
+          "doc2-link": "doc2Link",
+          "doc2-photo": "doc2Photo",
+          "form-title": "formTitle",
+          "form-instruction": "formInstruction",
+          "success-alert-title": "successAlertTitle",
+          "success-urgent-phone": "successUrgentPhone",
+          "success-urgent-link": "successUrgentLink",
+          "success-alert-msg": "successAlertMsg",
+          "field-first-name-lbl": "fieldFirstNameLbl",
+          "field-first-name-err": "fieldFirstNameErr",
+          "field-last-name-lbl": "fieldLastNameLbl",
+          "field-last-name-err": "fieldLastNameErr",
+          "field-email-lbl": "fieldEmailLbl",
+          "field-email-err": "fieldEmailErr",
+          "field-phone-lbl": "fieldPhoneLbl",
+          "field-phone-ph": "fieldPhonePh",
+          "field-phone-err": "fieldPhoneErr",
+          "field-patient-type-lbl": "fieldPatientTypeLbl",
+          "opt-new-patient": "optNewPatient",
+          "opt-existing-patient": "optExistingPatient",
+          "field-visit-type-lbl": "fieldVisitTypeLbl",
+          "opt-in-office": "optInOffice",
+          "opt-telehealth": "optTelehealth",
+          "field-provider-lbl": "fieldProviderLbl",
+          "field-provider-default": "fieldProviderDefault",
+          "field-date-lbl": "fieldDateLbl",
+          "field-date-err": "fieldDateErr",
+          "field-message-lbl": "fieldMessageLbl",
+          "field-message-ph": "fieldMessagePh",
+          "field-message-limit": "fieldMessageLimit",
+          "consent-statement": "consentStatement",
+          "consent-error": "consentError",
+          "btn-submit-label": "btnSubmitLabel",
+          "btn-call-label": "btnCallLabel",
+          "btn-call-href": "btnCallHref",
+          "seo-title": "seoTitle",
+          "seo-desc": "seoDesc",
+          "seo-keywords": "seoKeywords",
+          "seo-canonical": "seoCanonical",
+          "seo-og-image": "seoOgImage"
+        };
+
+        Object.keys(map).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) state[map[id]] = el.value;
+        });
+
+        // Collect current services
+        var serviceInputs = document.querySelectorAll("[data-service-idx]");
+        var newServices = [];
+        serviceInputs.forEach(function (input) {
+          if (input.value.trim()) newServices.push(input.value.trim());
+        });
+        state.services = newServices;
+
+        // Collect current times
+        var timeInputs = document.querySelectorAll("[data-time-idx]");
+        var newTimes = [];
+        timeInputs.forEach(function (input) {
+          if (input.value.trim()) newTimes.push(input.value.trim());
+        });
+        state.times = newTimes;
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {
+          console.error("Failed to save state", e);
+        }
+
+        if (window.BTCAdmin && typeof window.BTCAdmin.toast === "function") {
+          window.BTCAdmin.toast(msg || "Book Appointment content draft saved successfully.");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadSaved();
+
+        // SEO input listeners
+        var seoTitle = document.getElementById("seo-title");
+        var seoDesc = document.getElementById("seo-desc");
+        if (seoTitle) seoTitle.addEventListener("input", updateSerp);
+        if (seoDesc) seoDesc.addEventListener("input", updateSerp);
+
+        // Save All button
+        var btnSaveAll = document.getElementById("btn-save-all");
+        if (btnSaveAll) {
+          btnSaveAll.addEventListener("click", function () {
+            saveAll("All Book Appointment changes saved successfully.");
+          });
+        }
+
+        // Section save buttons
+        document.querySelectorAll("[data-save-section]").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var msg = btn.getAttribute("data-save-section");
+            saveAll(msg);
+          });
+        });
+
+        // Add service button
+        var btnAddService = document.getElementById("btn-add-service");
+        if (btnAddService) {
+          btnAddService.addEventListener("click", function () {
+            state.services.push("New Service / Reason");
+            renderServicesList();
+          });
+        }
+
+        // Add time slot button
+        var btnAddTime = document.getElementById("btn-add-time");
+        if (btnAddTime) {
+          btnAddTime.addEventListener("click", function () {
+            state.times.push("New Time Window");
+            renderTimesList();
+          });
+        }
+
+        // Delegate dynamic remove clicks
+        document.addEventListener("click", function (e) {
+          var delServiceBtn = e.target.closest("[data-del-service]");
+          if (delServiceBtn) {
+            var sIdx = parseInt(delServiceBtn.getAttribute("data-del-service"), 10);
+            if (!isNaN(sIdx)) {
+              state.services.splice(sIdx, 1);
+              renderServicesList();
+            }
+          }
+
+          var delTimeBtn = e.target.closest("[data-del-time]");
+          if (delTimeBtn) {
+            var tIdx = parseInt(delTimeBtn.getAttribute("data-del-time"), 10);
+            if (!isNaN(tIdx)) {
+              state.times.splice(tIdx, 1);
+              renderTimesList();
+            }
+          }
+        });
+
+        // Restore defaults button
+        var btnRestore = document.getElementById("btn-restore-defaults");
+        if (btnRestore) {
+          btnRestore.addEventListener("click", function () {
+            if (confirm("Reset all Book Appointment CMS fields to the original frontend default content?")) {
+              localStorage.removeItem(STORAGE_KEY);
+              location.reload();
+            }
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
