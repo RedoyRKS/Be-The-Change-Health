@@ -4404,6 +4404,333 @@ textarea.form-control {
   overflow: hidden !important;
 }
 
+/* ============================================================
+   SERVICES CMS MODAL DESIGN (Large Centered Modal)
+   ============================================================ */
+.service-modal-dialog {
+  max-width: 920px;
+  width: 94vw;
+  margin: 1.75rem auto;
+}
 
+.service-modal-content {
+  border-radius: 18px;
+  border: 1px solid rgba(0, 48, 72, 0.1);
+  box-shadow: 0 24px 64px rgba(0, 48, 72, 0.2), 0 4px 16px rgba(0, 48, 72, 0.08);
+  background: #ffffff;
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
 
+.service-modal-header {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--btc-line);
+  background: #ffffff;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-modal-body {
+  padding: 1.5rem 1.75rem;
+  background: #f8fafc;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.service-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.service-modal-body::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.service-modal-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.service-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.modal-backdrop.show {
+  opacity: 0.55;
+  background-color: #001e2e;
+}
+
+.service-modal-footer {
+  padding: 1rem 1.75rem;
+  border-top: 1px solid var(--btc-line);
+  background: #ffffff;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Section Title */
+.service-section-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--btc-navy);
+  letter-spacing: -0.01em;
+}
+
+/* Service Information Card */
+.service-info-card {
+  background: #ffffff;
+  border: 1px solid var(--btc-line);
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 48, 72, 0.03);
+}
+
+/* Service Image Row */
+.service-image-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: #fbfcfe;
+  border: 1px solid var(--btc-line);
+  border-radius: 10px;
+}
+
+.service-image-preview {
+  width: 120px;
+  height: 85px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eef2f6;
+  border: 1px solid rgba(0, 48, 72, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-image-preview .image-empty-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.service-image-preview .image-empty-placeholder i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.service-image-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sub-Services Section Card */
+.subservices-section-card {
+  background: #ffffff;
+  border: 1px solid var(--btc-line);
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 48, 72, 0.03);
+}
+
+.subservices-counter-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--btc-muted);
+}
+
+.subservices-counter-text strong {
+  color: var(--btc-navy);
+}
+
+/* Empty State Card */
+.subservices-empty-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+  background: #fafbfc;
+  border: 1.5px dashed rgba(48, 140, 160, 0.35);
+  border-radius: 12px;
+  margin: 0.5rem 0;
+}
+
+.subservices-empty-box .empty-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--btc-teal-soft);
+  color: var(--btc-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Sub-Services List Wrap */
+.subservices-items-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subservices-items-wrap::-webkit-scrollbar {
+  width: 6px;
+}
+.subservices-items-wrap::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+.subservices-items-wrap::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.subservices-items-wrap::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Individual Sub-Service Card Item */
+.subservice-card-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #ffffff;
+  border: 1px solid var(--btc-line);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 48, 72, 0.02);
+}
+
+.subservice-card-item:hover {
+  border-color: rgba(48, 140, 160, 0.35);
+  box-shadow: 0 3px 10px rgba(0, 48, 72, 0.06);
+}
+
+.subservice-card-item.dragging {
+  opacity: 0.45;
+  border-style: dashed;
+  border-color: var(--btc-teal);
+}
+
+.subservice-drag-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 48px;
+  cursor: grab;
+  color: #94a3b8;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.subservice-drag-col:hover {
+  background: var(--btc-mist);
+  color: var(--btc-teal);
+}
+
+.subservice-drag-col:active {
+  cursor: grabbing;
+}
+
+.subservice-image-col {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 48, 72, 0.1);
+  flex-shrink: 0;
+}
+
+.subservice-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.subservice-img-overlay-btn {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 48, 72, 0.55);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.subservice-image-col:hover .subservice-img-overlay-btn {
+  opacity: 1;
+}
+
+.subservice-content-col {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.subservice-field-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--btc-navy);
+  margin-bottom: 2px;
+}
+
+.subservice-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subservice-field-group {
+  flex: 1;
+}
+
+.subservice-action-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.btn-delete-session {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  background: #ffffff;
+  color: #dc2626;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-delete-session:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
 
