@@ -48,15 +48,9 @@
 
 .header .topbar {
   background: var(--btc-navy);
-  /* Smooth collapse — avoid layout thrash / flicker near scroll threshold */
-  max-height: 40px;
   opacity: 1;
-  transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    padding 0.35s ease;
-  will-change: max-height, opacity;
+  visibility: visible;
+  overflow: visible;
 }
 
 .header .branding {
@@ -67,19 +61,23 @@
   padding: 0.35rem 0;
 }
 
-/* Override MediLab abrupt topbar hide for stable sticky header */
-body.scrolled .header .topbar {
+/* Keep full sticky header on scroll (topbar + branding) — do not collapse upward */
+body.scrolled .header .topbar,
+.scrolled .header .topbar {
   height: auto !important;
-  max-height: 0 !important;
-  opacity: 0;
-  visibility: hidden;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  pointer-events: none;
+  max-height: none !important;
+  min-height: 40px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+  pointer-events: auto;
   border: 0;
 }
 
-body.scrolled .header {
+body.scrolled .header,
+.scrolled .header {
   box-shadow: 0 4px 20px rgba(0, 48, 72, 0.1);
 }
 
