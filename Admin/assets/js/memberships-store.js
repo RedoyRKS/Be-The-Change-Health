@@ -219,23 +219,20 @@
 
   function getAdminFrontendPrefix() {
     if (typeof window === "undefined" || !window.location) {
-      return "../../../Frontend/";
+      return "../../";
     }
     var norm = (window.location.pathname || "").replace(/\\/g, "/");
     var pagesIdx = norm.indexOf("/pages/");
     if (pagesIdx !== -1) {
       var rest = norm.slice(pagesIdx + "/pages/".length);
-      // Subfolder under /pages/ (e.g. pages/memberships/memberships.html) -> depth 2 inside Admin -> 3 levels up to root
+      // Subfolder under /pages/ (e.g. pages/memberships/memberships.html) -> depth 2 inside Admin
       if (rest.indexOf("/") !== -1) {
-        return "../../../Frontend/";
+        return "../../";
       }
-      // Directly inside /pages/ (e.g. pages/homepage.html) -> depth 1 inside Admin -> 2 levels up to root
-      return "../../Frontend/";
+      // Directly inside /pages/ (e.g. pages/homepage.html) -> depth 1 inside Admin
+      return "../";
     }
-    if (norm.toLowerCase().indexOf("/admin") !== -1) {
-      return "../Frontend/";
-    }
-    return "../../../Frontend/";
+    return "";
   }
 
   function getRawData() {
@@ -255,11 +252,16 @@
           parsed.plans.forEach(function (p) {
             for (var i = 0; i < DEFAULT_PLANS.length; i++) {
               if (DEFAULT_PLANS[i].id === p.id) {
+                var hasBroken = typeof p.image === "string" && (
+                  p.image.indexOf("Frontend/") !== -1 ||
+                  p.image.indexOf("data:image/svg") === 0 ||
+                  p.image.indexOf("../assets/") === 0 ||
+                  p.image.indexOf("../../assets/") === 0
+                );
                 var isInvalid = !p.image ||
                   typeof p.image !== "string" ||
                   p.image.trim() === "" ||
-                  p.image.indexOf("data:image/svg") === 0 ||
-                  p.image.indexOf("../../Frontend/") === 0;
+                  hasBroken;
                 if (isInvalid) {
                   p.image = DEFAULT_PLANS[i].image;
                   changed = true;

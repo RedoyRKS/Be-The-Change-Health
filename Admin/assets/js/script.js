@@ -335,7 +335,7 @@
     sidebar.innerHTML =
       '<div class="sidebar-brand">' +
       '<a href="' + ROOT + 'index.html" class="sidebar-brand-card" title="Be The Change Admin CMS">' +
-      '<img src="' + FE + 'assets/uploads/2024/08/LOGO.jpg" alt="Be The Change Health & Wellness Center" width="528" height="140" loading="eager">' +
+      '<img src="' + ROOT + 'assets/uploads/2024/08/LOGO.jpg" alt="Be The Change Health & Wellness Center" width="528" height="140" loading="eager" onerror="if(this.src.indexOf(\'be-the-change-health.vercel.app\')===-1){this.src=\'https://be-the-change-health.vercel.app/assets/uploads/2024/08/LOGO.jpg\';}">' +
       '</a>' +
       '<div class="sidebar-brand-badge sidebar-brand-text">' +
       '<span class="brand-badge-dot"></span>' +

@@ -1,0 +1,9 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/Frontend/assets/uploads/:path*",
+      "destination": "https://be-the-change-health.vercel.app/assets/uploads/:path*"
+    }
+  ]
+}
