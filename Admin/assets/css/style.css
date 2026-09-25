@@ -4604,22 +4604,24 @@ textarea.form-control {
   background: #94a3b8;
 }
 
-/* Individual Sub-Service Card Item */
+/* Individual Sub-Service / Session Card Item - 2-Column Horizontal Layout */
 .subservice-card-item {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
   background: #ffffff;
   border: 1px solid var(--btc-line);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
-  transition: all 0.15s ease;
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  transition: all 0.18s ease;
   box-shadow: 0 1px 3px rgba(0, 48, 72, 0.02);
+  position: relative;
 }
 
 .subservice-card-item:hover {
   border-color: rgba(48, 140, 160, 0.35);
-  box-shadow: 0 3px 10px rgba(0, 48, 72, 0.06);
+  box-shadow: 0 4px 14px rgba(0, 48, 72, 0.06);
 }
 
 .subservice-card-item.dragging {
@@ -4628,15 +4630,16 @@ textarea.form-control {
   border-color: var(--btc-teal);
 }
 
+/* Subtle Left Drag Handle */
 .subservice-drag-col {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 48px;
+  width: 14px;
   cursor: grab;
   color: #94a3b8;
   border-radius: 4px;
+  flex-shrink: 0;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
@@ -4649,88 +4652,137 @@ textarea.form-control {
   cursor: grabbing;
 }
 
-.subservice-image-col {
-  width: 52px;
-  height: 52px;
+/* LEFT SIDE: Media Upload Box (90–110px wide) */
+.subservice-media-pane {
+  width: 105px;
+  min-width: 105px;
+  max-width: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.subservice-image-box {
+  width: 100%;
+  height: 80px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   background: #f1f5f9;
-  border: 1px solid rgba(0, 48, 72, 0.1);
-  flex-shrink: 0;
+  border: 1px solid rgba(0, 48, 72, 0.12);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 48, 72, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.subservice-image-box:hover {
+  border-color: var(--btc-teal);
+  box-shadow: 0 2px 8px rgba(48, 140, 160, 0.18);
 }
 
 .subservice-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.subservice-img-overlay-btn {
+.subservice-image-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 48, 72, 0.55);
-  color: #ffffff;
+  background: rgba(0, 48, 72, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  color: #ffffff;
+  font-size: 1.15rem;
   opacity: 0;
   transition: opacity 0.18s ease;
-  border: none;
-  cursor: pointer;
 }
 
-.subservice-image-col:hover .subservice-img-overlay-btn {
+.subservice-image-box:hover .subservice-image-overlay {
   opacity: 1;
 }
 
-.subservice-content-col {
+.subservice-img-choose-btn {
+  font-size: 0.73rem !important;
+  padding: 0.24rem 0.5rem !important;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* RIGHT SIDE: Form fields */
+.subservice-body-pane {
   flex-grow: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .subservice-field-label {
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--btc-navy);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  display: block;
 }
 
-.subservice-meta-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.subservice-field-group {
-  flex: 1;
-}
-
-.subservice-action-col {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding-left: 0.5rem;
+.subservice-session-select {
+  font-weight: 600;
+  color: var(--btc-navy);
+  border-color: var(--btc-line);
+  background-color: #ffffff;
 }
 
 .btn-delete-session {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  border: 1px solid rgba(220, 38, 38, 0.2);
+  height: 28px;
+  padding: 0 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(220, 38, 38, 0.22);
   background: #ffffff;
   color: #dc2626;
+  font-size: 0.76rem;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.35rem;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
 .btn-delete-session:hover {
   background: #fef2f2;
   border-color: #dc2626;
+  color: #b91c1c;
+}
+
+/* Responsive: on small screens, stack image above the fields */
+@media (max-width: 767.98px) {
+  .subservice-card-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .subservice-media-pane {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    gap: 0.85rem;
+    align-items: center;
+  }
+  .subservice-image-box {
+    width: 95px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+  .subservice-img-choose-btn {
+    width: auto !important;
+  }
 }
 

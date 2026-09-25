@@ -226,19 +226,19 @@
                 <h5 class="service-section-title mb-1">
                   <i class="bi bi-collection text-teal me-2"></i>Sub-Services / Sessions
                 </h5>
-                <p class="text-muted small mb-0">Add sessions or packages available under this service.</p>
+                <p class="text-muted small mb-0">Add individual sessions or packages under this service.</p>
               </div>
               <div class="d-flex align-items-center gap-2">
                 <span class="subservices-counter-text" id="subServiceCounter">
-                  Sub-Services <strong id="subServiceCountNum">0</strong> / 10
+                  Sessions <strong id="subServiceCountNum">0</strong> / 10
                 </span>
                 <button type="button" class="btn-btc btn-sm-admin" id="btnAddSubService">
-                  <i class="bi bi-plus-lg me-1"></i> Add Sub-Service
+                  <i class="bi bi-plus-lg me-1"></i> Add Session
                 </button>
               </div>
             </div>
 
-            <!-- Empty State (Shown when 0 sub-services) -->
+            <!-- Empty State (Shown when 0 sessions) -->
             <div class="subservices-empty-box" id="subServicesEmptyState">
               <div class="empty-icon-circle">
                 <i class="bi bi-collection"></i>
@@ -246,13 +246,13 @@
               <h6 class="text-navy fw-bold mb-1">No sessions or packages added yet.</h6>
               <p class="text-muted small mb-3">Add your first session or package to this service.</p>
               <button type="button" class="btn-btc btn-sm-admin" id="btnEmptyAddSubService">
-                <i class="bi bi-plus-lg me-1"></i> Add Sub-Service
+                <i class="bi bi-plus-lg me-1"></i> Add Session
               </button>
             </div>
 
             <!-- Sub-Services Items Container (0 to 10 cards) -->
             <div class="subservices-items-wrap" id="subServicesList" style="display: none;">
-              <!-- Dynamically populated sub-service cards -->
+              <!-- Dynamically populated session/package cards -->
             </div>
           </div>
 
@@ -276,19 +276,29 @@
   <!-- Interactive Modal Controller -->
   <script>
     (function() {
-      // Sample dataset for services and their sub-services
+      // Sample dataset for services and their sub-services (matching reference concept)
       var SERVICE_SAMPLES = {
+        "Hyperbaric Oxygen Therapy": {
+          name: "Hyperbaric Oxygen Therapy",
+          status: "published",
+          image: "../../../Frontend/assets/uploads/2024/08/OX.jpg",
+          desc: "Pressurized 100% medical oxygen environment to accelerate deep tissue regeneration and post-surgical healing.",
+          subservices: [
+            { session: "Session-1", title: "Hyperbaric Oxygen Session", duration: "1 hour", price: "65.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
+            { session: "Session-2", title: "3 Hyperbaric Oxygen Treatments", duration: "3 hours", price: "150.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
+            { session: "Session-3", title: "10 Hyperbaric Oxygen Treatments", duration: "10 hours", price: "500.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" }
+          ]
+        },
         "Infrared Sauna": {
           name: "Infrared Sauna",
           status: "published",
           image: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg",
           desc: "Full-spectrum infrared heat therapy that penetrates deep into cellular tissue to promote detoxification, pain relief, cardiovascular conditioning, and metabolic recovery.",
           subservices: [
-            { title: "Infrared Sauna 30 Minute Session", duration: "30 min", price: "35.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
-            { title: "Infrared Sauna 45 Minute Session", duration: "45 min", price: "50.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
-            { title: "Infrared Sauna Package - Three 30 Minute Sessions", duration: "3 × 30 min", price: "95.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
-            { title: "Infrared Sauna Package - Three 45 Minute Sessions", duration: "3 × 45 min", price: "135.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
-            { title: "Infrared Sauna Package - Ten 30 Minute Sessions", duration: "10 × 30 min", price: "300.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" }
+            { session: "Session-1", title: "Infrared Sauna 30 Minute Session", duration: "30 min", price: "35.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
+            { session: "Session-2", title: "Infrared Sauna 45 Minute Session", duration: "45 min", price: "50.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
+            { session: "Session-3", title: "Three 30 Minute Sessions Package", duration: "1 hour 30 min", price: "85.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" },
+            { session: "Session-4", title: "Five 45 Minute Sessions Package", duration: "3 hours 45 min", price: "185.00", thumb: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg" }
           ]
         },
         "Ion Foot Detox": {
@@ -297,8 +307,8 @@
           image: "../../../Frontend/assets/uploads/2024/08/DETOX.jpg",
           desc: "Support for removing toxins that cause pain, discomfort, and ambiguous symptoms through cellular bio-stimulation.",
           subservices: [
-            { title: "Single Ion Foot Detox Session", duration: "35 min", price: "55.00", thumb: "../../../Frontend/assets/uploads/2024/08/DETOX.jpg" },
-            { title: "Ion Foot Detox - Package of 5 Sessions", duration: "5 × 35 min", price: "240.00", thumb: "../../../Frontend/assets/uploads/2024/08/DETOX.jpg" }
+            { session: "Session-1", title: "Single Ion Foot Detox Session", duration: "35 min", price: "55.00", thumb: "../../../Frontend/assets/uploads/2024/08/DETOX.jpg" },
+            { session: "Session-2", title: "Five Sessions Detox Package", duration: "2 hours 55 min", price: "240.00", thumb: "../../../Frontend/assets/uploads/2024/08/DETOX.jpg" }
           ]
         },
         "IV Nutritional Infusions": {
@@ -307,21 +317,9 @@
           image: "../../../Frontend/assets/uploads/2024/08/IV.jpg",
           desc: "Direct intravenous nutrient formulas custom compounded for immunity, athletic recovery, and cellular hydration.",
           subservices: [
-            { title: "Myers' Cocktail Infusion", duration: "45 min", price: "175.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" },
-            { title: "Immunity Booster High-Dose C", duration: "60 min", price: "210.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" },
-            { title: "NAD+ Cellular Energy Infusion", duration: "90 min", price: "450.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" }
-          ]
-        },
-        "Hyperbaric Oxygen Therapy": {
-          name: "Hyperbaric Oxygen Therapy",
-          status: "published",
-          image: "../../../Frontend/assets/uploads/2024/08/OX.jpg",
-          desc: "Pressurized 100% medical oxygen environment to accelerate deep tissue regeneration and post-surgical healing.",
-          subservices: [
-            { title: "HBOT 60 Minute Initial Dive", duration: "60 min", price: "150.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
-            { title: "HBOT 90 Minute Clinical Dive", duration: "90 min", price: "200.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
-            { title: "HBOT 5-Dive Healing Package", duration: "5 × 60 min", price: "675.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
-            { title: "HBOT 10-Dive Complete Protocol", duration: "10 × 60 min", price: "1250.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" }
+            { session: "Session-1", title: "Myers' Cocktail Infusion", duration: "45 min", price: "175.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" },
+            { session: "Session-2", title: "Immunity Booster High-Dose C", duration: "1 hour", price: "210.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" },
+            { session: "Session-3", title: "NAD+ Cellular Energy Infusion", duration: "1 hour 30 min", price: "450.00", thumb: "../../../Frontend/assets/uploads/2024/08/IV.jpg" }
           ]
         }
       };
@@ -356,14 +354,14 @@
           if (subServicesList) subServicesList.style.display = "flex";
         }
 
-        // Enable / Disable "+ Add Sub-Service" buttons
+        // Enable / Disable "+ Add Session" buttons
         var isMaxReached = (count >= MAX_SUBSERVICES);
         if (btnAddSubService) {
           btnAddSubService.disabled = isMaxReached;
           if (isMaxReached) {
-            btnAddSubService.title = "Maximum limit of 10 sub-services reached";
+            btnAddSubService.title = "Maximum limit of 10 sessions/packages reached";
           } else {
-            btnAddSubService.title = "Add another sub-service or session";
+            btnAddSubService.title = "Add another session or package";
           }
         }
         if (btnEmptyAddSubService) {
@@ -376,44 +374,79 @@
         card.className = "subservice-card-item";
         card.setAttribute("draggable", "true");
 
+        var sessionVal = (data && data.session) ? data.session : ("Session-" + (index || 1));
         var title = data && data.title ? data.title : "";
-        var duration = data && data.duration ? data.duration : "30 min";
-        var price = data && data.price ? data.price : "35.00";
-        var thumb = data && data.thumb ? data.thumb : "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg";
+        var duration = data && data.duration ? data.duration : "1 hour";
+        var price = data && data.price ? data.price : "65.00";
+        var thumb = data && data.thumb ? data.thumb : "../../../Frontend/assets/uploads/2024/08/OX.jpg";
+
+        var sessionOptions = "";
+        for (var i = 1; i <= 10; i++) {
+          var sVal = "Session-" + i;
+          var isSel = (sVal === sessionVal) ? " selected" : "";
+          sessionOptions += '<option value="' + sVal + '"' + isSel + '>' + sVal + '</option>';
+        }
 
         card.innerHTML =
+          '<!-- Drag Handle -->' +
           '<div class="subservice-drag-col" title="Drag to reorder session" aria-label="Reorder">' +
             '<i class="bi bi-grip-vertical"></i>' +
           '</div>' +
-          '<div class="subservice-image-col">' +
-            '<img class="subservice-thumb-img" src="' + escapeHtml(thumb) + '" alt="Session thumbnail">' +
-            '<button type="button" class="subservice-img-overlay-btn" title="Change session image">' +
-              '<i class="bi bi-camera"></i>' +
+
+          '<!-- LEFT SIDE: Media Upload Box (90-110px wide) -->' +
+          '<div class="subservice-media-pane">' +
+            '<div class="subservice-image-box" title="Click to choose image">' +
+              '<img class="subservice-thumb-img" src="' + escapeHtml(thumb) + '" alt="Session Thumbnail">' +
+              '<div class="subservice-image-overlay" title="Upload image">' +
+                '<i class="bi bi-camera"></i>' +
+              '</div>' +
+            '</div>' +
+            '<button type="button" class="btn-btc-outline btn-sm-admin w-100 subservice-img-choose-btn mt-2">' +
+              '<i class="bi bi-upload me-1"></i> Upload' +
             '</button>' +
+            '<input type="file" class="subservice-file-input" accept="image/*" style="display: none;">' +
           '</div>' +
-          '<div class="subservice-content-col">' +
+
+          '<!-- RIGHT SIDE: All form fields -->' +
+          '<div class="subservice-body-pane">' +
+            '<!-- Title full-width at top -->' +
             '<div class="mb-2">' +
               '<label class="subservice-field-label">Title <span class="text-danger">*</span></label>' +
               '<input type="text" class="form-control form-control-sm subservice-title-input" placeholder="e.g. Infrared Sauna 30 Minute Session" value="' + escapeHtml(title) + '">' +
             '</div>' +
-            '<div class="subservice-meta-row">' +
-              '<div class="subservice-field-group">' +
+
+            '<!-- Below Title: Session | Duration | USD Price -->' +
+            '<div class="row g-2 align-items-end">' +
+              '<!-- Session -->' +
+              '<div class="col-md-4 col-sm-4 col-12">' +
+                '<label class="subservice-field-label">Session</label>' +
+                '<select class="form-select form-select-sm subservice-session-select fw-semibold text-navy">' +
+                  sessionOptions +
+                '</select>' +
+              '</div>' +
+
+              '<!-- Duration -->' +
+              '<div class="col-md-4 col-sm-4 col-12">' +
                 '<label class="subservice-field-label">Duration <span class="text-danger">*</span></label>' +
                 '<input type="text" class="form-control form-control-sm subservice-duration-input" placeholder="e.g. 30 min" value="' + escapeHtml(duration) + '">' +
               '</div>' +
-              '<div class="subservice-field-group">' +
-                '<label class="subservice-field-label">Price (USD) <span class="text-danger">*</span></label>' +
+
+              '<!-- USD Price -->' +
+              '<div class="col-md-4 col-sm-4 col-12">' +
+                '<label class="subservice-field-label">USD Price <span class="text-danger">*</span></label>' +
                 '<div class="input-group input-group-sm">' +
                   '<span class="input-group-text bg-light text-navy fw-semibold">$</span>' +
                   '<input type="number" step="0.01" class="form-control subservice-price-input" placeholder="35.00" value="' + escapeHtml(price) + '">' +
                 '</div>' +
               '</div>' +
             '</div>' +
-          '</div>' +
-          '<div class="subservice-action-col">' +
-            '<button type="button" class="btn-delete-session subservice-delete-btn" title="Delete sub-service">' +
-              '<i class="bi bi-trash3"></i>' +
-            '</button>' +
+
+            '<!-- Delete Button neatly at far right/bottom -->' +
+            '<div class="d-flex justify-content-end align-items-center mt-2 pt-1">' +
+              '<button type="button" class="btn-delete-session subservice-delete-btn" title="Delete session">' +
+                '<i class="bi bi-trash3 me-1"></i> Delete' +
+              '</button>' +
+            '</div>' +
           '</div>';
 
         return card;
@@ -428,13 +461,21 @@
         var parentName = document.getElementById("svcParentName") ? document.getElementById("svcParentName").value.trim() : "";
         var prefix = parentName ? parentName + " " : "";
 
-        var defaultTitle = prefix + (count === 1 ? "30 Minute Session" : count === 2 ? "45 Minute Session" : "Package - " + count + " Sessions");
-        var defaultDuration = (count === 1 ? "30 min" : count === 2 ? "45 min" : count + " Sessions");
-        var defaultPrice = (35 + (count - 1) * 15) + ".00";
+        var defaultSession = "Session-" + count;
+        var defaultTitle = (count === 1)
+          ? (prefix ? prefix + "Session" : "Single Session")
+          : (count === 2)
+            ? (prefix ? "3 " + prefix + "Treatments" : "3 Treatments Package")
+            : (prefix ? (count * 2) + " " + prefix + "Treatments" : (count * 2) + " Treatments Package");
+
+        var defaultDuration = (count === 1 ? "1 hour" : count === 2 ? "3 hours" : (count * 2) + " hours");
+        var defaultPrice = (count === 1 ? "65.00" : count === 2 ? "150.00" : (count * 75) + ".00");
+
         var parentImg = document.getElementById("svcImagePreviewImg");
-        var defaultThumb = (parentImg && parentImg.src && parentImg.style.display !== "none") ? parentImg.src : "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg";
+        var defaultThumb = (parentImg && parentImg.src && parentImg.style.display !== "none") ? parentImg.src : "../../../Frontend/assets/uploads/2024/08/OX.jpg";
 
         var defaultData = {
+          session: defaultSession,
           title: defaultTitle,
           duration: defaultDuration,
           price: defaultPrice,
@@ -450,7 +491,7 @@
         if (input) input.focus();
       }
 
-      // Wire Add Sub-Service buttons
+      // Wire Add Session buttons
       if (btnAddSubService) {
         btnAddSubService.addEventListener("click", function() {
           addSubServiceRow();
@@ -462,7 +503,7 @@
         });
       }
 
-      // Wire Delete & Image change via delegation
+      // Wire Delete & Image upload via delegation
       if (subServicesList) {
         subServicesList.addEventListener("click", function(e) {
           var delBtn = e.target.closest(".subservice-delete-btn");
@@ -472,17 +513,29 @@
               card.remove();
               updateSubServiceNumbers();
             }
+            return;
           }
 
-          var changeImgBtn = e.target.closest(".subservice-img-overlay-btn");
-          if (changeImgBtn) {
-            var card = changeImgBtn.closest(".subservice-card-item");
+          var chooseImgBtn = e.target.closest(".subservice-img-choose-btn");
+          var imgBox = e.target.closest(".subservice-image-box") || e.target.closest(".subservice-image-col");
+          if (chooseImgBtn || imgBox) {
+            var card = (chooseImgBtn || imgBox).closest(".subservice-card-item");
+            var fileInput = card ? card.querySelector(".subservice-file-input") : null;
+            if (fileInput) fileInput.click();
+          }
+        });
+
+        subServicesList.addEventListener("change", function(e) {
+          if (e.target.classList.contains("subservice-file-input")) {
+            var fileInput = e.target;
+            var card = fileInput.closest(".subservice-card-item");
             var thumbImg = card ? card.querySelector(".subservice-thumb-img") : null;
-            if (thumbImg) {
-              var parentImg = document.getElementById("svcImagePreviewImg");
-              if (parentImg && parentImg.src && parentImg.style.display !== "none") {
-                thumbImg.src = parentImg.src;
-              }
+            if (fileInput.files && fileInput.files[0] && thumbImg) {
+              var reader = new FileReader();
+              reader.onload = function(evt) {
+                thumbImg.src = evt.target.result;
+              };
+              reader.readAsDataURL(fileInput.files[0]);
             }
           }
         });
@@ -555,11 +608,11 @@
         var sample = SERVICE_SAMPLES[svcName] || (svcName ? {
           name: svcName,
           status: "published",
-          image: "../../../Frontend/assets/uploads/2024/08/SAUNA.jpg",
+          image: "../../../Frontend/assets/uploads/2024/08/OX.jpg",
           desc: "Clinical naturopathic and integrative wellness therapy.",
           subservices: [
-            { title: svcName + " 30 Minute Session", duration: "30 min", price: "35.00" },
-            { title: svcName + " 60 Minute Session", duration: "60 min", price: "65.00" }
+            { session: "Session-1", title: svcName + " Session", duration: "1 hour", price: "65.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" },
+            { session: "Session-2", title: "3 " + svcName + " Treatments", duration: "3 hours", price: "150.00", thumb: "../../../Frontend/assets/uploads/2024/08/OX.jpg" }
           ]
         } : null);
 
